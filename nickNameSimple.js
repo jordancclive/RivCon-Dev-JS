@@ -27,7 +27,7 @@ console.log("             using indexOf & charAt: --> " + nickName("amanda"));
 		var thirdLetter = name.charAt(2);
 		//check if 3rd letter in name is a vowel
 		if(vowels.indexOf(thirdLetter) >= 0) {
-			return name.substr(0, 4);
+			return name.substr(0,4);
 		} else {
 			return name.substr(0,3);
 		}
