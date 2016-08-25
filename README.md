@@ -1,6 +1,7 @@
 # hello-world
 testing new concepts here...
 
+-----------------
 nickNameSimple.js - Methods used:
 
 .charAt(index);
@@ -9,8 +10,8 @@ nickNameSimple.js - Methods used:
 
 .indexOf(searchValue, [, fromIndex]);  returns the first occurence of, if not found returns -1
 
-
-mathFunctions - Methods used:
+----------------
+mathFunctions.js - Methods used:
 
 Math.floor() returns the largest integer less than or equal to a given number.
 
