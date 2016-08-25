@@ -27,7 +27,7 @@ console.log("             using indexOf & charAt: --> " + nickName("amanda"));
 		var thirdLetter = name.charAt(2);
 		//check if 3rd letter in name is a vowel
 		if(vowels.indexOf(thirdLetter) >= 0) {
-			return name.substr(0,4);
+			return name.substr(0, 4);
 		} else {
 			return name.substr(0,3);
 		}
@@ -35,5 +35,18 @@ console.log("             using indexOf & charAt: --> " + nickName("amanda"));
 
 console.log("\n")
 console.log("Function #2: get a nickname of:      --> " + "Daniel");	
-console.log("             using charAt & substr:  --> " + nickName2("Daniel"));	
+console.log("    using charAt, indexOf & substr:  --> " + nickName2("Daniel"));	
 ""
+/*  Notes
+
+Methods used:
+
+.charAt(index);
+
+.substr(x,y);  up to and not including "y"
+
+.indexOf(searchValue, [, fromIndex]);  returns the first occurence of, if not found returns -1
+
+
+
+*/
