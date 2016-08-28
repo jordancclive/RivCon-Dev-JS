@@ -39,7 +39,6 @@ Symbol:  New Data Type
 
 
 =================================
-
 Primitive Data Type vs. Complex Data Type.
 
   Primitive Data Type takes up a specific amount of memory.
@@ -51,7 +50,6 @@ Primitive Data Type vs. Complex Data Type.
   Complex Data Types do not use a finite amount of memory.  The amount of memory used can be changed. ...and can change over the Data Types use (this is the most important thing to remember).
 
     Examples:   Objects, Functions, Arrays.
-
 =================================
 What is a higher order language?   ....You have a lot of flexibility with the language.  You can pass functions as variables.  
 (JavaScript is a high order language)
