@@ -10,7 +10,17 @@ As an example:  If you go to a dictionary (an object is similar to a dictionary)
               var dictionary = {                        <----  the braces tell JS that this variable is an object and the 
                   sunny: "cheerful, optimistic",                contents (property: value pairs) are within the curly braces.
                   design: "contrive, devise"            <----  property: "value" or "value1, value2..."
+              };                                        <----  Note:  The value in this case is a string, but it can be
+                                                                whatever datatype you want it to be.  The key(property)
+                                                                must always be a string. Written either:  name: or "name":
+                                                                
+              var person1 = {
+                  name: "Alex",
+                  age: 31,
+                  degree: true,
+                  eyes: "Brown"
               };
+
 
 
 
