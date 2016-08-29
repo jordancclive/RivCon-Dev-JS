@@ -47,5 +47,12 @@ Methods:
 
 -----------------
 
+Objects:
 
-Objects ---> objects.js
+                        objects.js
+
+
+
+
+
+
