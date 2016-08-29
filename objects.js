@@ -7,6 +7,7 @@ can't access the value. ......Key : Value.    .....key (===property) : Value.
 As an example:  If you go to a dictionary (an object is similar to a dictionary).  You would go to a word in the dictionary 
 (The Key or the property) and then you can see the definition (Value for the word).
 
+
 Defining an Object:
 
               var dictionary = {                          <----  the braces tell JS that this variable is an object and the 
@@ -34,6 +35,7 @@ Defining an Object:
                     }
                   }
 
+
 Adding/Referencing properties:
 
               var emptyObj = {};                              <---- initialize variable as an empty object
@@ -57,10 +59,12 @@ Adding/Referencing properties:
                                                                       variable called strKey.  ...use bracket notation when
                                                                       you are uncertain what you are looking up. 
 
+
 removing a property from an object:
 
               delete emptyObj.key2;                           <---- removing a property from an object
               console.log(emptyObj);                          <---- { key1: "value1" }
+
 
 for/in loop:
 
