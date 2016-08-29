@@ -103,8 +103,8 @@ for/in loop:
                                 		if (obj[k] === val) return true;  <---- looking up the value by key
                                   	}                                       also the for/in loop the loop will cycle 
                                   	return false;                           through all the keys looking for thi value (val)
-                              }                                             use k, not i ---> because we are cycling through 
-                                                                            keys, not indexes.
+                              }                                             	use k, not i ---> because we are cycling through 
+                                                                            	keys, not indexes.
                               // sample object follows
                               var obj = {
 	                                   prop1:'stuff',
@@ -116,7 +116,51 @@ for/in loop:
 
               console.log(checkValue(obj, 5));                <----true
               console.log(checkValue(obj, 'dog'));            <----false
+      
 
+Nested Objects:
+
+	var baseballTeams = {
+		yankees:{
+			location: "NY",
+			teamColors: ["white", "Navy Blue", "Pinstripes"]
+		},
+		mets: {
+			location: "NY",
+			teamColors: ["orange", "Blue"]
+		},
+		cubs:{
+			location: "Chicago",
+			teamColors: ["white", "Blue", "white"]
+		}
+	}
+
+	console.log(baseballTeams.mets.location); 		<----  "NY"
+	console.log(baseballTeams.cubs.teamColors[0]);		<---- "white"
+
+
+Definitions:
+
+	A property is any value attach to an Object where the value is not a function.
+	
+	A method is a value attached to an Object where the value is a function.
+	
+	*** Use methods (in an Object) by invoking them like regular functions.
+	
+	var obj = {
+		name: 'doug',
+		age: 30,
+		sayHello: function(){
+			console.log("Hi!");
+		}
+	}
+	
+	object.name			<---- 'doug'			<---- a property
+	object.age			<---- 30
+	object.sayHello()		<---- Hi			(you are invoking the function)
+	object.sayHello			<---- [Function: sayHello]  	(you are not invoking it, so you get that this 
+									  value is a function named sayHello)
+									  This value is a method.
 
 
 
