@@ -23,6 +23,14 @@ Objects ---> objects.js
 
 ----------------
 
+Loops:
+
+for / in  loop:   
+
+                        objects.js
+
+----------------
+
 Math.ceil() returns the largest integer greater than or equal to a given number.
 
                         mathFunctions.js
