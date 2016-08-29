@@ -1,4 +1,4 @@
-# hello-world
+# JavaScript
 testing new concepts here...
 
 -----------------
