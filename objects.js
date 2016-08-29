@@ -97,6 +97,28 @@ for/in loop:
               var people = [person1, person2, person3];               <---- this array would be more of a database           
 
 
+              ============================================
+              function checkValue(obj, val){
+	                           for (k in obj){
+                                		if (obj[k] === val) return true;  <---- looking up the value by key
+                                  	}                                       also the for/in loop the loop will cycle 
+                                  	return false;                           through all the keys looking for thi value (val)
+                              }                                             use k, not i ---> because we are cycling through 
+                                                                            keys, not indexes.
+                              // sample object follows
+                              var obj = {
+	                                   prop1:'stuff',
+                                   	 prop2: 'other',
+	                                   prop3: 5,
+	                                   prop4: true,
+	                                   prop5: [1,2,3,4]
+                                  }
+
+              console.log(checkValue(obj, 5));                <----true
+              console.log(checkValue(obj, 'dog'));            <----false
+
+
+
 
 
 
