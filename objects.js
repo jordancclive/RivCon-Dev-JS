@@ -143,6 +143,8 @@ The --> in <-- operator:
 		console.log(disneyMovies.hasOwnProperty("Alladdin"))  <---- true		
 		console.log(disneyMovies.hasOwnProperty("Phycho))  <---- false
 		
+				****  Note:  It is not checking nested properties. ****
+		
 		
 Nested Objects:
 
