@@ -140,8 +140,8 @@ The --> in <-- operator:
 		console.log("Alladdin" in disneyMovies)  <---- true
 		console.log("Psycho" in disneyMovies)  <---- false
 		
-		console.log(disneyMovies.hasOwnProperty"Alladdin")  <---- true		
-		console.log("Alladdin" in disneyMovies)  <---- true
+		console.log(disneyMovies.hasOwnProperty("Alladdin"))  <---- true		
+		console.log(disneyMovies.hasOwnProperty("Phycho))  <---- false
 		
 		
 Nested Objects:
