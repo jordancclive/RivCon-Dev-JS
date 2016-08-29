@@ -31,6 +31,8 @@ for / in  loop:
 
 ----------------
 
+Math functions:
+
 Math.ceil() returns the largest integer greater than or equal to a given number.
 
                         mathFunctions.js
