@@ -5,6 +5,8 @@ testing new concepts here...
 
 Data Types ---> see comments and definitions in dataTypes.js
 
+Objects ---> objects.js
+
 -----------------
 
 .charAt(index)
