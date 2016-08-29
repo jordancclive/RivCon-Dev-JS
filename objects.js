@@ -8,9 +8,8 @@ As an example:  If you go to a dictionary (an object is similar to a dictionary)
 (The Key or the property) and then you can see the definition (Value for the word).
 
               var dictionary = {                        <----  the braces tell JS that this variable is an object and the 
-                                                              contents (property: value pairs) are within the curly braces.
-                  sunny: "cheerful, optimistic",        <----  property: "value" or "value1, value2..."
-                  design: "contrive, devise"
+                  sunny: "cheerful, optimistic",                contents (property: value pairs) are within the curly braces.
+                  design: "contrive, devise"            <----  property: "value" or "value1, value2..."
               };
 
 
