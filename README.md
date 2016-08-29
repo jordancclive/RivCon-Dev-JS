@@ -5,8 +5,6 @@ testing new concepts here...
 
 Data Types ---> see comments and definitions in dataTypes.js
 
-Objects ---> objects.js
-
 -----------------
 
 .charAt(index)
@@ -44,3 +42,7 @@ Math.floor() returns the largest integer less than or equal to a given number.
 Math.round() rounds to the nearest integer
 
                         mathFunctions.js
+
+----------------
+
+Objects ---> objects.js
