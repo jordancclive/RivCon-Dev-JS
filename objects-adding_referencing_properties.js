@@ -23,6 +23,23 @@
                                                                       //you are uncertain what you are looking up. 
 
 
+// Getting the keys for an Object:
+
+let obj = {name: "Doug", age: 39, graduate: true, eyes: "Brown"};
+Object.keys(obj);                                               //<----  result will be:    [ 'name', 'age', 'graduate', 'eyes' ] 
+
+
+// getting an array of values for an object:
+
+                function getValues(obj){                        //<---- pass an object
+                  let vals = [];                                //<---- you are going to put the values in this array
+                  for(let k in obj){                            //<---- cycle through the object
+                    vals.push(obj[k]);                          //<---- for this object & every value push it into the array
+                  }
+                  return vals;                                  //<---- return your array with your values
+                }
+
+
 //removing a property from an object:
 
               delete emptyObj.key2;                           //<---- removing a property from an object
