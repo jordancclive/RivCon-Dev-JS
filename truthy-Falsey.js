@@ -81,5 +81,39 @@ Note:  You can use the "!!" symbol in front of an operation to evaluate it in-pl
                 0 || 0          //<----false 
 
 
+// Take a look at results from these kinds of expresions in the console:  
+
+                //              ....console.log(...);....
+                
+                2 && 3          // returns 3   ...because of how JS evaluates the expression.
+                2 || 3          // returns 2
+
+
+//  You can use truthy/falsey conscepts for the following:
+
+// You might do something like this:
+
+                function makePerson(name, age){         //<---- We are populating a new object with the parameters shown
+                        let obj = {};   
+                        obj.name = name;
+                        obj.age = age;
+                }
+                makePerson("Vince", 45);                //<---- returns:  { name: "Vince", age: 45 }
+
+// If we do not pass the age parameter and want to input a default value for this parameter, then using
+// the And/Or and trythy/falsey concepts, we can create default values within operations as follows:
+
+                function makePerson(name, age){         //<---- We are populating a new object with the parameters shown
+                        let obj = {};   
+                        obj.name = name;
+                        obj.age = age || 60;            // if the age is given, then will always use that value.
+                }                                       // Only if age is false (undefined or 0...), then use the default value.
+                makePerson("Vince");                //<---- returns:  { name: "Vince", age: 60 }
+
+
+
+
+
+
 
 
