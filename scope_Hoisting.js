@@ -132,3 +132,23 @@ Variables declared without the "var" keyword are attached to this global scope.
               9
               */
               
+// Advantages to using the "let" keyword
+
+//              - It uses Block scoping. (the variable will only exist witin the brackets it is declared in using let)
+                              
+                              function someStuff(){
+                                for(let i=0, i<10, I++){
+                                  console.log(i);           //<---- This will return 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+                                }
+                                console log(i);             //<---- This will return a reference error,
+                              }                             //       because "i" will not exist after the code block.
+                                                            //       You will not waste any space keeping this variable
+                                                            //       longer than necessary. ("i" becomes a throw away variable)
+                                                            //      
+                                                            //       let does not get hoisted.  It is defined where you 
+                                                            //       declared it.
+//  why are you using let?  
+//                  Block scoping is more efficient, less wasteful.
+//                  allows for proper scoping, proper variable declaration.
+
+                                                            
