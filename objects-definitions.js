@@ -6,16 +6,16 @@ can't access the value. ......Key : Value.    .....key (===property) : Value.
 
 As an example:  If you go to a dictionary (an object is similar to a dictionary).  You would go to a word in the dictionary 
 (The Key or the property) and then you can see the definition (Value for the word).
+*/
 
+//Defining an Object:
 
-Defining an Object:
-
-              var dictionary = {                          <----  the braces tell JS that this variable is an object and the 
-                    sunny: "cheerful, optimistic",                contents (property: value pairs) are within the curly braces.
-                    design: "contrive, devise"            <----  property: "value" or "value1, value2..."
-              };                                          <----  Note:  The value in this case is a string, but it can be
-                                                                  whatever datatype you want it to be.  The key(property)
-                                                                  must always be a string. Written either:  name: or "name":
+              var dictionary = {                          //<----  the braces tell JS that this variable is an object and the 
+                    sunny: "cheerful, optimistic",                 //contents (property: value pairs) are within the curly braces.
+                    design: "contrive, devise"            //<----  property: "value" or "value1, value2..."
+              };                                          //<----  Note:  The value in this case is a string, but it can be
+                                                                   //whatever datatype you want it to be.  The key(property)
+                                                                   //must always be a string. Written either:  name: or "name":
 
               var person1 = {
                     name: "Alex",
@@ -24,12 +24,12 @@ Defining an Object:
                     eyes: "Brown"
 
               var unusualObj = {
-                    array: [1,2,3,[4,5]],                     <---- an array with another nested array inside it
-                    resultBoolean: true,                      <---- a boolean value
-                    str: "this is a string",                  <---- a string value
-                    nestedObj: {                              <---- a nested Object
+                    array: [1,2,3,[4,5]],                     //<---- an array with another nested array inside it
+                    resultBoolean: true,                      //<---- a boolean value
+                    str: "this is a string",                  //<---- a string value
+                    nestedObj: {                              //<---- a nested Object
                       str2: "a different string",
-                      anotherObj: {                           <---- another more deeply nested object
+                      anotherObj: {                           //<---- another more deeply nested object
                         key: "string value",
                       }
                     }
@@ -38,7 +38,7 @@ Defining an Object:
 
 
 
-Nested Objects:
+//Nested Objects:
 
                 	var baseballTeams = {
                 		yankees:{
@@ -55,10 +55,10 @@ Nested Objects:
                 		}
                 	}
                 
-                	console.log(baseballTeams.mets.location); 		<----  "NY"
-                	console.log(baseballTeams.cubs.teamColors[0]);		<---- "white"
+                	console.log(baseballTeams.mets.location); 		//<----  "NY"
+                	console.log(baseballTeams.cubs.teamColors[0]);		//<---- "white"
 
-
+/*
 Definitions:
 
 	A property is any value attach to an Object where the value is not a function.
@@ -66,7 +66,8 @@ Definitions:
 	A method is a value attached to an Object where the value is a function.
 	
 	*** Use methods (in an Object) by invoking them like regular functions.
-	
+*/
+
                 	var obj = {
                 		name: 'doug',
                 		age: 30,
@@ -75,12 +76,12 @@ Definitions:
                 		}
                 	}
 	
-	object.name			<---- 'doug'			<---- a property
-	object.age			<---- 30
-	object.sayHello()		<---- Hi			(you are invoking the function)
-	object.sayHello			<---- [Function: sayHello]  	(you are not invoking it, so you get that this 
-									  value is a function named sayHello)
-									  This value is a method.
+	object.name			//<---- 'doug'			<---- a property
+	object.age			//<---- 30
+	object.sayHello()		//<---- Hi			(you are invoking the function)
+	object.sayHello			//<---- [Function: sayHello]  	(you are not invoking it, so you get that this 
+									  //value is a function named sayHello)
+									  //This value is a method.
 
 
 
