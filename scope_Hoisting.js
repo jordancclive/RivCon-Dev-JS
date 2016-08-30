@@ -19,17 +19,20 @@ These variables take on more memory because the engine itself needs to hold on t
                 console.log(x);
               }
               
-// After JS passes over code (2 times?):
+// After JS passes over code (2 times):
 
-              function someStuff(){           //<---- functions are hoisted up to the top.
-                console.log(x);
+              function someStuff(){           //<---- functions are hoisted up to the top. (1st pass)...it also sets the arguemnts
+                console.log(x);               //      in this pass.
               }
               var x;                          //<---- The variable definitions are hoisted 2nd (not the assignments - see below)
-              someStuff();
+              someStuff();                    //      (pass #2)        
               x = 5;                          //<---- The variable assignments stay where they are.
               
               //The result is that when the function executes, the variable is "undefined" (an error does not occur, because
               //the function definition happened, but the variable wasn't assigned the number yet.)
+              
+              // Because of hoisting, variables declared anywhere in a function are available everywhere in that function.
+              // ****   Again remember that variable assignments/initialization are different than the declaration. **** 
 
 
 // Back to Scope:
@@ -55,4 +58,9 @@ These variables take on more memory because the engine itself needs to hold on t
               someStuff();
               console.log(x);                 //<---- you will get a reference error since x has not been defined.
 
+
+// With Scope in mind, let's talk about declaring variables using "let":
+/*
+
+JavaScript 1.7 introduced "let".  
 
