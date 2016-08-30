@@ -3,7 +3,9 @@ testing new concepts here...
 
 -----------------
 
-Data Types ---> see comments and definitions in dataTypes.js
+Data Types ---> see comments and definitions in: 
+
+                        dataTypes.js
 
 -----------------
 
@@ -61,6 +63,11 @@ Scope:
 
                         scope_Hoisting.js
 
+-----------------
+
+TRuthy/Falsey:
+
+                        truthy-Falsey.js
 
 
 
