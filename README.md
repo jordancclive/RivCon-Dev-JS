@@ -49,9 +49,10 @@ Methods:
 
 Objects:
 
-                        objects.js
-
-
+                        objects-adding_referencing_properties.js
+                        objects-definitions.js
+                        objects-for_in_Loops.js
+                        objects-hasOwnProperty-in.js
 
 
 
