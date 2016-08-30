@@ -20,6 +20,8 @@
 console.log("Function #1: get a nickname of:      --> " + "amanda");	
 console.log("             using indexOf & charAt: --> " + nickName("amanda"));	
 
+
+
 // Alternative function
 
 	function nickName2(name) {
@@ -37,6 +39,8 @@ console.log("\n")
 console.log("Function #2: get a nickname of:      --> " + "Daniel");	
 console.log("    using charAt, indexOf & substr:  --> " + nickName2("Daniel"));	
 ""
+
+
 /*  Notes
 
 Methods used:
@@ -50,3 +54,8 @@ Methods used:
 
 
 */
+
+
+
+
+
