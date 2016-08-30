@@ -53,6 +53,13 @@ Objects:
                         objects-definitions.js
                         objects-for_in_Loops.js
                         objects-hasOwnProperty-in.js
+                        objects-referencing-nested_ArraysObjects.js
+
+-----------------
+
+Scope:
+
+                        scope_Hoisting.js
 
 
 
