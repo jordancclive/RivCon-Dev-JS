@@ -65,7 +65,7 @@ Scope:
 
 -----------------
 
-TRuthy/Falsey:
+Truthy/Falsey:
 
                         truthy-Falsey.js
 
