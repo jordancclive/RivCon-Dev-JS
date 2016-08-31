@@ -34,5 +34,5 @@
     	}                                                           //      takes the 1 (starting a key/value pair)
     	console.log(countFriends(coreysFriends));                   //      subsequent iterations use the ++ to increment the 
     	console.log(count(coreysFriends));                          //      value when currentName exists within the object.
-    	"";
+    	""; 
 
