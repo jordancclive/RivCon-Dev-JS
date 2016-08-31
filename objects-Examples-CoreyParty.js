@@ -10,9 +10,9 @@
       	for(let i=0; i<arr.length; i++){
       		if(i){
       			if (arr[i] in resultObj) resultObj[arr[i]] += 1;
-      			else resultObj[arr[i]] = 1
-      		}else resultObj[arr[i]] = 1;
-      	}
+      			else resultObj[arr[i]] = 1                            //here is code repeating with the next line
+      		}else resultObj[arr[i]] = 1;                                //this is why the Corey (instructor) used the
+      	}                                                                 //different strategy/method below
       	return resultObj;
       }
 
