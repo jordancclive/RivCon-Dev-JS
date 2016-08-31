@@ -26,7 +26,6 @@
 
 	function count(arr){
 		let obj = {};
-		debugger;
 		for(let i = 0; i < arr.length; i++){
 			let currentName = arr[i];
 			obj[currentName] = ++obj[currentName] || 1;	//<---- the first time through obj(currentName) is undefined
