@@ -72,6 +72,12 @@ Objects:
 
 -----------------
 
+Prototyping - Object Oriented Programming:
+
+                        prototypes-OOP.js
+
+-----------------
+
 Scope:
 
                         scope_Hoisting.js
