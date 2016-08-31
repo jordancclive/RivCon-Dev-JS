@@ -2,10 +2,21 @@
 testing new concepts here...
 
 -----------------
+Arrays:
+
+                        objects-Examples-CoreyParty.js
+
+
+-----------------
 
 Data Types ---> see comments and definitions in: 
 
                         dataTypes.js
+
+
+Default Values: (Setting up)
+
+                        objects-Examples-CoreyParty.js
 
 -----------------
 
@@ -56,6 +67,8 @@ Objects:
                         objects-for_in_Loops.js
                         objects-hasOwnProperty-in.js
                         objects-referencing-nested_ArraysObjects.js
+                        
+                        objects-Examples... (There will be many files with this prefix)
 
 -----------------
 
@@ -68,6 +81,7 @@ Scope:
 Truthy/Falsey:
 
                         truthy-Falsey.js
+                        objects-Examples-CoreyParty.js
 
 
 
