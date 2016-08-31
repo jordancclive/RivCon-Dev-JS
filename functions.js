@@ -15,6 +15,7 @@ Some premises:
 ==============
 Some examples:
 ==============
+*/
 
               function parentFunction(){
                 var weather = 'sunny';
