@@ -35,4 +35,6 @@
     	console.log(countFriends(coreysFriends));                   //      subsequent iterations use the ++ to increment the 
     	console.log(count(coreysFriends));                          //      value when currentName exists within the object.
     	""; 
+    	
+    	//Note: The code:   ++obj[currentName]   can also be written ....>  obj[currentName] + 1
 
