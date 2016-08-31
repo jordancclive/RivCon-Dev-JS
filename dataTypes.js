@@ -2,7 +2,8 @@
 
 Null:
 
-  You have defined a variable and you know what Data Type it is, but have not given it a value. It is a placeholder for a variable's value.  A variable that has no value yet.
+  You have defined a variable and you know what Data Type it is, but have not given it a value. 
+  It is a placeholder for a variable's value.  A variable that has no value yet.
 
 Undefined:
 
@@ -48,13 +49,15 @@ Primitive Data Type vs. Complex Data Type.
                 Booleans take up 1 bit of memory and are Primitive.  
                 Strings.
   
-  Complex Data Types do not use a finite amount of memory.  The amount of memory used can be changed. ...and can change over the Data Types use (this is the most important thing to remember).
+  Complex Data Types do not use a finite amount of memory.  The amount of memory used can be changed. 
+  ...and can change over the Data Types use (this is the most important thing to remember).
 
     Examples:   Objects, Functions, Arrays.
     
 =================================
 
-What is a higher order language?   ....You have a lot of flexibility with the language.  You can pass functions as variables.  
+What is a higher order language?   ....You have a lot of flexibility with the language.  
+You can pass functions as variables and treat them like any other variable.  
 (JavaScript is a high order language)
 
 =================================
