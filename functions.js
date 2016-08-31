@@ -92,25 +92,31 @@ Some examples:
 //==============
 // only let the innerFunction run 3 times
 
-function outerFunction(){
-	let counter = 1;
-	function innerFunction(){
-		let governer = 4;
-		if (counter < governer){
-			console.log("Hi. Run count: " + counter);
-			counter +=1;
-		} else console.log("Maximum run limit reached");
-	}
-	return innerFunction;
-}
-
-var x = outerFunction();
-x();
-x();
-x();
-x();
-
-
+		function outerFunction(){
+			let counter = 1;
+			function innerFunction(){
+				let governer = 4;
+				if (counter < governer){
+					console.log("Hi. Run count: " + counter);
+					counter +=1;
+				} else console.log("Maximum run limit reached");
+			}
+			return innerFunction;
+		}
+		
+		var x = outerFunction();
+		x();
+		x();
+		x();
+		x();
+		
+		/*
+		results:
+		Hi. Run count: 1
+		Hi. Run count: 2
+		Hi. Run count: 3
+		Maximum run limit reached
+		*/
 
 
 
