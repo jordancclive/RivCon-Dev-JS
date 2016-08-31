@@ -48,27 +48,27 @@ This will keep you from loosing track of where you are in the nested data.
 				}
 			];
 			
-			console.log("We have an array with objects in it.")
-			console.log("The first record in the top array is:" + "\n")
+			console.log("We have an array with objects in it.");
+			console.log("The first record in the top array is:" + "\n");
 			console.log (classRoom[0]); 
 			console.log("\n");
 			
-			console.log("Now we have an Object")
-			console.log("The 1 key is -Marnie- and the value is an array:" + "\n")
+			console.log("Now we have an Object");
+			console.log("The 1 key is -Marnie- and the value is an array:" + "\n");
 			var temp = classRoom[0]["Marnie"];
 			console.log (temp); 
 			console.log("\n");
 			
-			console.log("We have another Array")
-			console.log("We can get the first record of this array")
-			console.log("which is another object:" + "\n")
+			console.log("We have another Array");
+			console.log("We can get the first record of this array");
+			console.log("which is another object:" + "\n");
 			var temp2 = temp[0];
 			console.log (temp2); 
 			console.log("\n");
 			
-			console.log("This is the final object in our nested example")
-			console.log("The 1 key is -Monday-")
-			console.log("I want the value:" + "\n")
+			console.log("This is the final object in our nested example");
+			console.log("The 1 key is -Monday-");
+			console.log("I want the value:" + "\n");
 			var temp3 = temp2["Monday"];
 			console.log(temp3);  
 
