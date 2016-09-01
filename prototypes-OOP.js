@@ -259,4 +259,11 @@ Let's do it:
 
 //-------------------------------------------------------------------------------
 
+// Now that we have an object that we created and it was created with a blueprint;
+// we can think about the example we had before where we put in a method ----> sayHello();
+
+// if we decide that this method should be on the Parent and not the Child object, here is how you would do it:
+
+            Person.prototype.sayHello = function(){
+
 
