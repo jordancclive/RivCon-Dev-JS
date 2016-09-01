@@ -42,7 +42,7 @@ console.log(bucket.contents);       //returns:  [ 'old brown shoe']
 
 
 //------------------
-// Another example:  (creating a blueprint ---> Prototype)
+// Another example:  (the concept of creating a blueprint ---> Prototype)(From Concept to reality follows)
 
 //Let's say we wanted to create an object for a person or people
 
