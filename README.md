@@ -4,7 +4,7 @@ testing new concepts here...
 -----------------
 Arrays:
 
-                        objects-Examples-CoreyParty.js
+                        x-OBj-coreyParty.js
 
 
 -----------------
@@ -16,7 +16,8 @@ Data Types ---> see comments and definitions in:
 
 Default Values: (Setting up)
 
-                        objects-Examples-CoreyParty.js
+                        x-OBj-coreyParty.js
+                        truthy-Falsey.js
 
 -----------------
 
@@ -24,7 +25,7 @@ Loops:
 
 for / in  loop:   
 
-                        objects.js
+                        objects-for_in_Loops.js
 
 ----------------
 
@@ -32,15 +33,15 @@ Math functions:
 
 Math.ceil() returns the largest integer greater than or equal to a given number.
 
-                        mathFunctions.js
+                        x-MathFunctions.js
 
 Math.floor() returns the largest integer less than or equal to a given number.
 
-                        mathFunctions.js
+                        x-MathFunctions.js
 
 Math.round() rounds to the nearest integer
 
-                        mathFunctions.js
+                        x-MathFunctions.js
 
 -----------------
 
@@ -48,27 +49,27 @@ Methods:
 
 .charAt(index)
 
-                        nickNameSimple.js
+                        x-g-nickNameSimple.js
 
 .indexOf(searchValue, [, fromIndex]);  returns the first occurence of, if not found returns -1
 
-                        nickNameSimple.js
+                        x-g-nickNameSimple.js
 
 .substr(x,y);  up to and not including "y"
 
-                        nickNameSimple.js
+                        x-g-nickNameSimple.js
 
 -----------------
 
 Objects:
 
-                        objects-adding_referencing_properties.js
+                        objects-referencing_properties.js
                         objects-definitions.js
-                        objects-for_in_Loops.js
-                        objects-hasOwnProperty-in.js
-                        objects-referencing-nested_ArraysObjects.js
+                        objects-for_in_Loops.js	
+                        objects-hasOwnProperty-in.js	
+                        objects-referencingNested_w-Arrays.js	
                         
-                        objects-Examples... (There will be many files with this prefix)
+                        x-Obj-... .js... (There will be many files with this prefix)
 
 -----------------
 
@@ -87,7 +88,7 @@ Scope:
 Truthy/Falsey:
 
                         truthy-Falsey.js
-                        objects-Examples-CoreyParty.js
+                        x-Obj-coreyParty.js
 
 
 
