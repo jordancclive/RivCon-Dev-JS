@@ -204,9 +204,9 @@ We are now going to look at the parent which is the "Class" called "Array":
             
             // If you wanted to get rid of the method that you built. then you would have to use the following:
             //removing a property from an object:
-
+              let emptyObj = {key2: "charles", age: 60};
               delete emptyObj.key2;                           //<---- removing a property or method from an object
-              console.log(emptyObj);                          //<---- in this case removing { key1: "value1" }
+              console.log(emptyObj);                          //<---- in this case result is: { age: 60 }
 //-------------------------------------------------------------------------------
 /* Let's talk about the *** Prototype Chain ***
 
@@ -235,20 +235,28 @@ Constructor Function:
             
                         When used with the "new" keyword, constructor functions create objects.
 Let's do it:
-
+*/
             function Person (name, age){                    //<---- The caps let's people know it is a constructor function
                         this.name = name;
-                        this.age = age;
+                        this.age = age;                     //<--- you do ot have to use "return"
             }
             
             let person1 = new Person('doug', 30);
-            console.log(person1);                           // result: { name: 'doug', age: 30 } you did it.
+            console.log(person1);                           // result: { name: 'doug', age: 30 } ...you did it.
 
 //-------------------------------------------------------------------------------
 
-// The "new" keyword
+// The "new" keyword:  var instance = new ConstructorFunc();
+// In other words:  Declare an instance and set it equal to "new" and invoke the constructor function.
 
-            
+/* When you use the "new" keyword it does 4 things:
 
+            1. it invokes the constructor function.
+            2. creates an empty object.
+            3. assigns the empty object to the "this" keyword.
+            4. implicitly (absolutely and without qualification) returns the new object
+               thereby creating an object & assigning it to the name that you gave it.
+
+//-------------------------------------------------------------------------------
 
 
