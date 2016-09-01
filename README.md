@@ -1,7 +1,7 @@
 # JavaScript
 testing new concepts here...
 
-Quick note: put ----> 'use strict';  in your code (at the beginning) and any JavaScript compiler will 
+Quick note: put ----> 'use strict';  <---- in your code (at the beginning) and any JavaScript compiler will 
 utilize the ES2015 ES6 compiler when it runs your code.
 
 -----------------
