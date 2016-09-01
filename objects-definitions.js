@@ -22,6 +22,7 @@ As an example:  If you go to a dictionary (an object is similar to a dictionary)
                     age: 31,
                     degree: true,
                     eyes: "Brown"
+              };
 
               var unusualObj = {
                     array: [1,2,3,[4,5]],                     //<---- an array with another nested array inside it
