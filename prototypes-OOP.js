@@ -227,8 +227,28 @@ The Chain:
                                     You keep gong until there is no Parent.
 //-------------------------------------------------------------------------------
 
+Ok.....We have made it to the place where we can think about building something that generates objects.
+                                                                        
+                                                                        ***  This is a "Constructor Function" ***
 
+Constructor Function:
+            
+                        When used with the "new" keyword, constructor functions create objects.
+Let's do it:
 
+            function Person (name, age){                    //<---- The caps let's people know it is a constructor function
+                        this.name = name;
+                        this.age = age;
+            }
+            
+            let person1 = new Person('doug', 30);
+            console.log(person1);                           // result: { name: 'doug', age: 30 } you did it.
+
+//-------------------------------------------------------------------------------
+
+// The "new" keyword
+
+            
 
 
 
