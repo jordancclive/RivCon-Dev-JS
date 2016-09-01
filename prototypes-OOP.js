@@ -64,17 +64,40 @@ console.log(bucket.contents);       //returns:  [ 'old brown shoe']
 
 // you can do it with a function:
 
-            function makePerson(name, age){
-                        let obj = {};
-                        obj.name = name;
+            function makePerson(name, age){                             //<---- you give this function a name and an age
+                        let obj = {};                                   //      and it will return a new object and assign
+                        obj.name = name;                                //      it to the person.
                         obj.age = age;
                         obj.sayHello = function(){
                                     console.log('hi');
                         }
                         return obj;
             }
-            Let person1 = makePerson('doug', 30);  //there you go.
-            Let person2 = makePerson('pam', 35);
-            person1.sayHello();  // result:  hi
+            Let person1 = makePerson('doug', 30);                       // there you go.
+            Let person2 = makePerson('pam', 35);                        // We now have 2 people (person1 & person2)
+            person1.sayHello();  // result:  hi                         // built by our function.
             
-// want to create object with a blueprint (--> prototype) and make it a clean generator of objects.
+// Trying (above) to create individual objects with a blueprint (--> prototype) and make it a clean generator of objects.
+// ...Doing it with a function (above).
+// The problem with this is if after we build a few people and want to add more attributes to a "person",
+// we would need to update to the function & all the existing people individually.  ***not very efficient***
+
+
+//-------------------------------------------------------------------------------
+// So let's make a concept and then talk about how to do it:                     *** This is the concept of PROTOTYPES ***
+/*
+            ***  We want to create a template to make people *** 
+
+let's call it the Parent:                       
+On the Parent, there will be a                  PARENT - Blueprint
+Blueprint on it.
+
+Using the Parent Blueprint
+We want to create Children:           CHILD       CHILD       CHILD       CHILD       CHILD
+
+The CHILD (all of them) will know about its PARENT.  All the information about how these Children should work won't
+exist on the Child itself.  It will exist on its Parent and the Child will simply refer to its Parent. 
+That is how we are going handle the problem of chaning and adding attributes.  If we do this, then if we change 
+the Parent's blueprint, then every new and existing CHILD we be able to see and use the change.
+//-------------------------------------------------------------------------------
+
