@@ -13,6 +13,7 @@ Deep inspection of something:   console.dir(x)
 Arrays:
 
                         x-OBj-coreyParty.js
+                        x-Obj-Proto-splitter.js
 
 
 -----------------
@@ -62,6 +63,18 @@ Methods:
 .indexOf(searchValue, [, fromIndex]);  returns the first occurence of, if not found returns -1
 
                         x-g-nickNameSimple.js
+                        
+.join(delimiter)
+                        
+                        x-Obj-Proto-splitter.js
+                        
+.push(value1 [, value2,...])
+
+                        x-Obj-Proto-splitter.js
+                        
+.split(delimiter)
+
+                        x-Obj-Proto-splitter.js
 
 .substr(x,y);  up to and not including "y"
 
@@ -85,6 +98,7 @@ Prototyping - Object Oriented Programming:
 
                         prototypes-OOP.js
                         x-Obj-Proto-monsterGame.js
+                        x-Obj-Proto-splitter.js
 
 -----------------
 
@@ -98,6 +112,7 @@ Truthy/Falsey:
 
                         truthy-Falsey.js
                         x-Obj-coreyParty.js
+                        x-Obj-Proto-splitter.js
 
 
 
