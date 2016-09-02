@@ -99,6 +99,7 @@ Prototyping - Object Oriented Programming:
                         prototypes-OOP.js
                         x-Obj-Proto-monsterGame.js
                         x-Obj-Proto-splitter.js
+                        classMethods.js
 
 -----------------
 
@@ -113,6 +114,7 @@ Truthy/Falsey:
                         truthy-Falsey.js
                         x-Obj-coreyParty.js
                         x-Obj-Proto-splitter.js
+                        classMethods.js
 
 
 
