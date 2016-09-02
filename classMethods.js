@@ -12,11 +12,20 @@
       Person.counter++;
     }
     
-    // we are putting this method on the Class, not the prototype.
+    // we are putting this property on the Class, not the prototype.
     Person.counter = 0;
+    
+    //we can also put a method on the Class too.
+    Person.isPerson = function(obj){
+        return !!(obj.name && obj.age);
+    }
     
     let p1 = new Person('someone', 30);
     let p2 = new Person('otherPerson', 40);
+    let otherThing = [];
+    
+     console.log(p1.isPerson());            //<---- The result is true.
+     console.log(otherThing.isPerson());    //<---- The result is false.
     
     console.log(Person.counter);    //<---- The result is 2 and the counter is on the class, not any particular person.
     
