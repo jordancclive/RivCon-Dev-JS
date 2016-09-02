@@ -74,6 +74,9 @@ The problem assumptions:
 		Gave splitter the value ->Hello
  		The result is: HE LL O
 	*/
+
+
+
 	
 //  -----------------------------------------------------------------------
 // Now for the method which is put in the String.prototype object:
