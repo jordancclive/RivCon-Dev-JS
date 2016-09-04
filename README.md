@@ -30,6 +30,11 @@ Default Values: (Setting up)
 
 -----------------
 
+Functions:
+
+                        x-Func-jamesBond.js     //(nested, IIFEs, scope) 
+-----------------
+
 Loops:
 
 for / in  loop:   
@@ -106,6 +111,7 @@ Prototyping - Object Oriented Programming:
 Scope:
 
                         scope_Hoisting.js
+                        x-Func-jamesBond.js     //(nested, IIFEs, scope) 
 
 -----------------
 
