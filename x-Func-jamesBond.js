@@ -1,4 +1,5 @@
-/*  This is an example of how hoisting effects things regarding
+/*  Scope issue with nested functions
+
 varable assignments and nested functions
 
 
@@ -16,16 +17,11 @@ varable assignments and nested functions
 			(immediately-invoked function expressions)
 	
 		2. 	So they are going to be hoisted and run in order where they are placed in the function.
-		
-		3. 	It looks like IIFE's are looking at the Global variables differently from arguments passed into the IIFE.  
 		   
-		4. 	When a variable is passed in as an argument, 
-			then it looks at positional issues. namely: where the 
-			variable assignment is made.
-		
-		5. 	If the IIFE needs a 'global' variable from the parent, then 
-			then it doesn't seem to care about positionally where the parent
-			assigns the variable a value.
+		3. 	When a variable is passed in as an argument, 
+			the parameter is a variable local to the nexted function. namely: where the 
+			variable assignment is made.  If the variable exists globally, the global value is, 
+			in essence, a different variable.
 			
 			
 ===============================
