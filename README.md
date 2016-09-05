@@ -36,6 +36,7 @@ Functions:
                         x-Func-jamesBond.js     //(nested, IIFEs, scope)
                         functions-array_methods.js
                         functions-global_objects.js
+                        functions-number_methods.js
                         functions-string_methods.js	
 -----------------
 
@@ -48,6 +49,8 @@ for / in  loop:
 ----------------
 
 Math functions:
+
+                        classMethods-Math.js
 
 Math.ceil() returns the largest integer greater than or equal to a given number.
 
@@ -65,8 +68,10 @@ Math.round() rounds to the nearest integer
 
 Methods:
 
+                        classMethods-Math.js
                         functions-array_methods.js	
                         functions-global_objects.js
+                        functions-number_methods.js
                         functions-string_methods.js	
 
 .charAt(index)
