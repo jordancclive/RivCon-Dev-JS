@@ -2,7 +2,7 @@
 
 Array.isArray(array);         // this is a static method.
 
-arr.concat(array);            // concatenate two instances of an array. returns the new array, not changing the originals
+arr.concat(array);            // concatenate two instances of an array. returns the new array, not changing the originals.
 
 arr.indexOf(value);           
 
