@@ -36,6 +36,7 @@ Functions:
                         x-Func-jamesBond.js     //(nested, IIFEs, scope)
                         functions-array_methods.js
                         functions-global_objects.js
+                        functions-string_methods.js	
 -----------------
 
 Loops:
@@ -66,6 +67,7 @@ Methods:
 
                         functions-array_methods.js	
                         functions-global_objects.js
+                        functions-string_methods.js	
 
 .charAt(index)
 
