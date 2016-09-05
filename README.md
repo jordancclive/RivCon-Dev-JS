@@ -14,6 +14,7 @@ Arrays:
 
                         x-OBj-coreyParty.js
                         x-Obj-Proto-splitter.js
+                        functions-array_methods.js
 
 
 -----------------
@@ -32,7 +33,9 @@ Default Values: (Setting up)
 
 Functions:
 
-                        x-Func-jamesBond.js     //(nested, IIFEs, scope) 
+                        x-Func-jamesBond.js     //(nested, IIFEs, scope)
+                        functions-array_methods.js
+                        functions-global_objects.js
 -----------------
 
 Loops:
@@ -60,6 +63,9 @@ Math.round() rounds to the nearest integer
 -----------------
 
 Methods:
+
+                        functions-array_methods.js	
+                        functions-global_objects.js
 
 .charAt(index)
 
