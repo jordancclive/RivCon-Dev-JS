@@ -22,18 +22,9 @@ Block scope {between the brackets} is scope only between two brackets.
     	Note 1: variable assignments are made in place.  (They stay where they are in the code)
     	Note 2: The function call runs in order.
     	Note 3: Functions declared as variables & IIFEs follow Action 2 & Note 1.
-    	
-    	Footnotes: 
-    	
-    		1. 	These nested functions (below) are IIFEs 
-    			(immediately-invoked function expressions)
-    	
-    		2. 	So they are not going to be hoisted and will run in order where they are placed in the parent function.
-    		   
-    		3. 	When a variable is passed in as an argument, 
-      			the parameter is a variable local to the nexted function. namely: where the 
-      			variable assignment is made.  If the variable exists globally, the global value is, 
-      			in essence, a different variable.
+	Note 4: When a variable is passed in as an argument, the parameter (variable name in the '()') is a variable 
+		local to that function. namely: where the variable assignment is made.  
+		If the variable also exists globally, the global value is, in essence, a different variable.
 
 */
 
