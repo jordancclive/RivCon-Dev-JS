@@ -20,12 +20,12 @@ function weighIn(weight) {
 		let temp = [];
 		for (let j=0; j<wrestler.length; j++){
 			if (typeof wrestler[j] === 'string') temp.push(wrestler[j]);    // notice when you push, do not use an element #
-		}                                                                 // you are pushing elements one after another
+		}                                                                 	// you are pushing elements one after another
 		if(Number(temp[1].slice(0, temp[1].length-2))>weight){
 			let obj = [];                                                   // Once you have the array result, then create
 			obj[temp[0]] = temp[1];                                         // an object to be added to the result array
 			newArr.push(obj);                                               // again push one element after the other into
-		}                                                                 // the result array.
+		}                                                                 	// the result array.
 	}
 	return newArr;
 }
