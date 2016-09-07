@@ -77,3 +77,13 @@ so if I had this data:
 
 
 //-------------------------------   
+
+/* There are 2 types of "while" loops: */
+
+                while( counter condition ){
+                    some code and a change to the counter to loop some more
+                };
+                // This one checks the condition first
+                
+                do { something} while ( counter condition );
+                // This will run at least once and then it checks the condition
