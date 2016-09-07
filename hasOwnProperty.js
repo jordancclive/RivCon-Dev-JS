@@ -12,13 +12,15 @@
     console.log('All objects have access to the prototype, so we can see obj.someThing: ',obj.someThing);  
     
     for(var k in obj){
-    	console.log(k);		//we can still see it.								   (***B***)
+    	console.log(k);		//we can still see it.					(***B***)
     }
     
     //but if we use hasOwnProperty, we can see if it is really there or on the prototype
     
     for(var k in obj){
     	if (obj.hasOwnProperty(k)) console.log(k);		//we can't  still see it.  (***A***)
+    	
+    	//if (k in obj) console.log(k);		//we would still see it.  (***B***)
     }
     
  /*  
@@ -26,7 +28,7 @@
 	
 	name
 	age
-	someThing		//This result did not use .hasOwnProperty					(***B***)
+	someThing		//This result did not use .hasOwnProperty		(***B***)
 	
 	name
 	age				//This result was using .hasOwnProperty
