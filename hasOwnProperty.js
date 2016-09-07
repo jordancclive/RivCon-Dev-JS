@@ -8,8 +8,7 @@
     };
     
     Object.prototype.someThing = 500;
-    
-    console.log('All objects have access to the prototype, so we can see obj.someThing: ',obj.someThing);  
+    console.log('we can see obj.someThing: ',obj.someThing);  
     
     for(var k in obj){
     	console.log(k);		//we can still see it.					(***B***)
@@ -19,8 +18,7 @@
     
     for(var k in obj){
     	if (obj.hasOwnProperty(k)) console.log(k);		//we can't  still see it.  (***A***)
-    	
-    	//if (k in obj) console.log(k);		//we would still see it.  (***B***)
+    	//if (k in obj) console.log(k);				//we would still see it.   (***B***)
     }
     
  /*  
@@ -29,6 +27,13 @@
 	name
 	age
 	someThing		//This result did not use .hasOwnProperty		(***B***)
+*/
+
+
+// shown another way:
+
+		console.log('someThing' in obj)  		// returns true
+		console.log(obj.hasOwnProperty('someThing'))	// returns false
 	
 	name
 	age				//This result was using .hasOwnProperty
