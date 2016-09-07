@@ -47,6 +47,10 @@ var baskinRobbins31 = function (count) {
 		count += fingers;
 		if(count>=31) return players[i];
 		else if (i === players.length-1) return = baskinRobbins31(count);
+		//This previous statement is the key to recursion.
+		// Most times you are calculating something within the recursive calls and
+		// need to pass some result back up the call stack or the value will not 
+		// make it out of the set of functions and back into the Parent program.
 	}
 };
 
