@@ -47,7 +47,7 @@ typeof Number('5')  // returns a number
 
 //....when using these buit-in object use documentation:
 
-https:\/\/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 // ---------------------- 
