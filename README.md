@@ -84,6 +84,7 @@ Methods:
                         
                         x-g-nickNameSimple.js               // .charAt(), .substr(), .indexOf
                         x-Recursion-FizzBuzz.js             // Recursive and iteration version; .toString()
+                        x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
 
 .charAt(index)
 
@@ -96,15 +97,21 @@ Methods:
 .join(delimiter)
                         
                         x-Obj-Proto-splitter.js
+                        x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
                         
 .push(value1 [, value2,...])
 
                         x-Obj-Proto-splitter.js
                         
+.slice(from, up to & not including)       
+
+                        x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
+                        
 .split(delimiter)
 
                         x-Obj-Proto-splitter.js
-
+                        x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
+                        
 .substr(x,y);  up to and not including "y"
 
                         x-g-nickNameSimple.js               // .charAt(), .substr(), .indexOf
@@ -138,7 +145,7 @@ Prototyping - Object Oriented Programming:
 
 Recursion:
 
-                        x-Recursion-revString.js
+                        x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
                         x-Recursion-fibonacci.js            // multiple recursive calls
                         x-Recursion-FizzBuzz.js             // Recursive and iteration version; .toString()
                         x-Recursion-BRobins.js              // Math.round(), Math.random(), arrays, Recursion 
