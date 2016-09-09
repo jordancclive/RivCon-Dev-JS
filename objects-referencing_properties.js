@@ -45,4 +45,12 @@ Object.keys(obj);                                               //<----  result 
               delete emptyObj.key2;                           //<---- removing a property from an object
               console.log(emptyObj);                          //<---- { key1: "value1" }
 
+    // another example:
+    
+              var anObject = {left:1, right:2};
+              console.log(anObject.left);       //returns:  1
+              delete anObject.left              //deletes the key value pair
+              console.log(anObject.left);       // undefined
+              console.log("left" in anObject);  //returns:  false
+              console.log("right" in anObject); //returns:  true
 
