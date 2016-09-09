@@ -62,5 +62,32 @@ console.log(factorial(2) === 2);
 console.log(factorial(5) === 120 );
 console.log(factorial(10) === 3628800);     // returns:  true for all of these.
     
-    
-    
+
+
+// Another simple example = summ an array:
+
+//Sum all the numbers in an array.
+
+			//first do it iteratively:
+			
+			function largestNum (arr){
+					let total = arr[0];
+					for(let i=1; i<arr.length; i++){
+						total += arr[i];
+					}
+					return total;
+				}
+				arr = [1,2,3,4,5,6,7,8,9];
+				
+				console.log(largestNum(arr));
+				
+			// now lets do it recursively:
+			
+				function largestNumRec (arr){
+					let newArr = arr;
+					if (newArr.length === 1) return arr[0]
+					else return newArr.pop() + largestNumRec(newArr);
+				}
+				
+					console.log(largestNumRec(arr));
+			    
