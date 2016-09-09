@@ -11,7 +11,7 @@ var FizzBuzz = function(n) {
 		if (n%5 === 0) result += "BUZZ";
 		if (result === "") result = n.toString();
 		console.log(result);
-		FizzBuzz(n-1);
+		FizzBuzz(n-1);			// Did this version for fun.....
 	} 
 	return
 };
