@@ -3,12 +3,6 @@
 
 //eg FizzBuzz(16) => 16, FIZZBUZZ, 14, 13, FIZZ, 11, BUZZ, FIZZ, 8, 7, FIZZ, BUZZ, 4, FIZZ, 2, 1 
 
-
-
-
-
-
-
 var FizzBuzz = function(n) {
 	let result = "";
 	if(n === 0) console.log('Done!');
@@ -22,10 +16,22 @@ var FizzBuzz = function(n) {
 	return
 };
 
-
-
-
-
-
 //tests
 FizzBuzz(100);
+
+//----------------------------------------------------
+
+The iteration version:  (This is the way to go.....)
+
+var FizzBuzzI = function(n) {
+	for(let i=n; i>0; i--){
+		let result = "";
+		if (i%3 === 0) result = "FIZZ";
+		if (i%5 === 0) result += "BUZZ";
+		if (result === "") result = i.toString();
+		console.log(result);
+	} 
+};
+
+//tests
+FizzBuzzI(100);
