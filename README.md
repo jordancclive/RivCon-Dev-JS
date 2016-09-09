@@ -15,6 +15,8 @@ Arrays:
                         x-OBj-coreyParty.js
                         x-Obj-Proto-splitter.js
                         functions-array_methods.js
+                        
+                        x-Recursion-BRobins.js                          // Math.round(), Math.random(), arrays, Recursion 
 
 
 -----------------
@@ -33,7 +35,7 @@ Default Values: (Setting up)
 
 Functions:
 
-                        x-Func-jamesBond.js     //(nested, IIFEs, scope)
+                        x-Func-jamesBond.js                             //(nested, IIFEs, scope)
                         functions-array_methods.js
                         functions-global_objects.js
                         functions-number_methods.js
@@ -59,10 +61,15 @@ Math.ceil() returns the largest integer greater than or equal to a given number.
 Math.floor() returns the largest integer less than or equal to a given number.
 
                         x-MathFunctions.js
+                        
+Math.random() returns a random number (based on the system time) between 0 & 1.
+
+                        x-Recursion-BRobins.js                          // Math.round(), Math.random(), arrays, Recursion 
 
 Math.round() rounds to the nearest integer
 
                         x-MathFunctions.js
+                        x-Recursion-BRobins.js                          // Math.round(), Math.random(), arrays, Recursion 
 
 -----------------
 
@@ -72,15 +79,18 @@ Methods:
                         functions-array_methods.js	
                         functions-global_objects.js
                         functions-number_methods.js
-                        functions-string_methods.js	
+                        functions-string_methods.js
+                        
+                        x-g-nickNameSimple.js                           // .charAt(), .substr(), .indexOf
+                        x-Recursion-FizzBuzz.js                         // Recursive and iteration version; .toString()
 
 .charAt(index)
 
-                        x-g-nickNameSimple.js
+                        x-g-nickNameSimple.js                           // .charAt(), .substr(), .indexOf
 
 .indexOf(searchValue, [, fromIndex]);  returns the first occurence of, if not found returns -1
 
-                        x-g-nickNameSimple.js
+                        x-g-nickNameSimple.js                           // .charAt(), .substr(), .indexOf
                         
 .join(delimiter)
                         
@@ -96,7 +106,11 @@ Methods:
 
 .substr(x,y);  up to and not including "y"
 
-                        x-g-nickNameSimple.js
+                        x-g-nickNameSimple.js                           // .charAt(), .substr(), .indexOf
+
+.toString()
+
+                        x-Recursion-FizzBuzz.js                         // Recursive and iteration version; .toString()
 
 -----------------
 
@@ -121,6 +135,15 @@ Prototyping - Object Oriented Programming:
 
 -----------------
 
+Recursion:
+
+                        x-Recursion-revString.js
+                        x-Recursion-fibonacci.js                        // multiple recursive calls
+                        x-Recursion-FizzBuzz.js                         // Recursive and iteration version; .toString()
+                        x-Recursion-BRobins.js                          // Math.round(), Math.random(), arrays, Recursion 
+
+-----------------
+
 Scope:
 
                         scope_Hoisting.js
@@ -135,5 +158,8 @@ Truthy/Falsey:
                         x-Obj-Proto-splitter.js
                         classMethods.js
 
+-----------------
 
+General Examples:
 
+                        x-g-nickNameSimple.js                           // .charAt(), .substr(), .indexOf
