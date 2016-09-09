@@ -27,3 +27,17 @@ countdown(4);
                 countdown(0);  Once we get here.  The values returned from this function call (upwards)
                                                     work their way back up.  
                                                     (must do this for things to work properly)
+
+/* -----------------------------------------------------
+    When you do recursion there are 3 steps to think about:
+    
+    Step 1: Figure out the base case.  or when shoud a function stop calling itself.
+    
+    Step 2: Determine the recursive case.  ...when/why should you have a finction call itself.
+    
+    Step 3: Then modify the code as necessary.
+    
+    
+    
+    
+    
