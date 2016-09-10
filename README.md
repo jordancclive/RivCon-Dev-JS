@@ -18,7 +18,7 @@ Arrays:
                         
                         x-Recursion-BRobins.js              // Math.round(), Math.random(), arrays, Recursion 
                         x-Arr-changArrayinFunc.js           // Concept: changing arrays passed to functions
-
+                        x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
 
 -----------------
 
@@ -86,6 +86,7 @@ Methods:
                         x-Recursion-FizzBuzz.js             // Recursive and iteration version; .toString()
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
                         recursion.js                        // general description/definition., .pop(), 
+                        x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
 
 .charAt(index)
 
@@ -107,6 +108,7 @@ Methods:
 .push(value1 [, value2,...])
 
                         x-Obj-Proto-splitter.js
+                        x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         
 .slice(from, up to & not including)       
 
@@ -137,6 +139,8 @@ Objects:
                         
                         x-Obj-... .js... (There will be many files with this prefix)
 
+                        x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
+
 -----------------
 
 Prototyping - Object Oriented Programming:
@@ -145,6 +149,8 @@ Prototyping - Object Oriented Programming:
                         x-Obj-Proto-monsterGame.js
                         x-Obj-Proto-splitter.js
                         classMethods.js
+                        
+                        x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
 
 -----------------
 
@@ -173,7 +179,3 @@ Truthy/Falsey:
                         classMethods.js
 
 -----------------
-
-General Examples:
-
-                        x-g-nickNameSimple.js               // .charAt(), .substr(), .indexOf
