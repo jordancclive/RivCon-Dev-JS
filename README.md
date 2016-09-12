@@ -19,7 +19,13 @@ Arrays:
                         x-Recursion-BRobins.js              // Math.round(), Math.random(), arrays, Recursion 
                         x-Arr-changArrayinFunc.js           // Concept: changing arrays passed to functions
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
+                        x-g-switch_example.js               // && ||, switch, simple array
 
+-----------------
+
+Boolean:
+
+                        x-g-switch_example.js               // && ||, switch, simple array
 -----------------
 
 Data Types ---> see comments and definitions in: 
@@ -122,7 +128,7 @@ Methods:
 .substr(x,y);  up to and not including "y"
 
                         x-g-nickNameSimple.js               // .charAt(), .substr(), .indexOf
-
+                        
 .toString()
 
                         x-Recursion-FizzBuzz.js             // Recursive and iteration version; .toString()
@@ -169,6 +175,11 @@ Scope:
                         scope_Hoisting.js
                         x-Func-jamesBond.js                 //(nested, IIFEs, scope) 
 
+-----------------
+
+switch(variable to examine)
+
+                        x-g-switch_example.js               // && ||, switch, simple array
 -----------------
 
 Truthy/Falsey:
