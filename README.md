@@ -30,7 +30,8 @@ Boolean:
 
 Call Back Functions:
 
-                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push()
+                        x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
 -----------------
 
 Data Types ---> see comments and definitions in: 
@@ -49,6 +50,7 @@ Functions:
 
                         x-Func-jamesBond.js                 //(nested, IIFEs, scope)
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+                        x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         
                         functions-array_methods.js
                         functions-global_objects.js
@@ -101,6 +103,7 @@ Methods:
                         recursion.js                        // general description/definition., .pop(), 
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+                        x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
 
 .charAt(index)
 
@@ -123,6 +126,7 @@ Methods:
 
                         x-Obj-Proto-splitter.js
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
+                        x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         
 .slice(from, up to & not including)       
 
@@ -166,6 +170,7 @@ Prototyping - Object Oriented Programming:
                         
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+                        x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
 
 -----------------
 
