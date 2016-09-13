@@ -123,6 +123,7 @@ Methods:
                         
                         x-Obj-Proto-splitter.js
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
+                        x-g-sortingstrings.js               // .split(), .sort(), .push(), .join()
 
 .pop()
 
@@ -133,15 +134,21 @@ Methods:
                         x-Obj-Proto-splitter.js
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
+                        x-g-sortingstrings.js               // .split(), .sort(), .push(), .join()
                         
 .slice(from, up to & not including)       
 
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
                         
+.sort()
+
+                        x-g-sortingstrings.js               // .split(), .sort(), .push(), .join()
+                        
 .split(delimiter)
 
                         x-Obj-Proto-splitter.js
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
+                        x-g-sortingstrings.js               // .split(), .sort(), .push(), .join()
                         
 .substr(x,y);  up to and not including "y"
 
