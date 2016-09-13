@@ -33,6 +33,7 @@ Call Back Functions:
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push()
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
+                        x-CB-Proto-myReduce.js              // -myReduce-, prototype method, callBack functions
 -----------------
 
 Data Types ---> see comments and definitions in: 
@@ -53,6 +54,7 @@ Functions:
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
+                        x-CB-Proto-myReduce.js              // -myReduce-, prototype method, callBack functions
                         
                         functions-array_methods.js
                         functions-global_objects.js
@@ -107,6 +109,7 @@ Methods:
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
+                        x-CB-Proto-myReduce.js              // -myReduce-, prototype method, callBack functions
 
 .charAt(index)
 
@@ -175,6 +178,7 @@ Prototyping - Object Oriented Programming:
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
                         x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
+                        x-CB-Proto-myReduce.js              // -myReduce-, prototype method, callBack functions
 
 -----------------
 
