@@ -82,6 +82,8 @@ Math.floor() returns the largest integer less than or equal to a given number.
 
                         x-MathFunctions.js
                         
+                        x-g-stringWork.js                   // .slice(), Math.floor()
+                        
 Math.random() returns a random number (based on the system time) between 0 & 1.
 
                         x-Recursion-BRobins.js              // Math.round(), Math.random(), arrays, Recursion 
@@ -139,6 +141,7 @@ Methods:
 .slice(from, up to & not including)       
 
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
+                        x-g-stringWork.js                   // .slice(), Math.floor()
                         
 .sort()
 
