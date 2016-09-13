@@ -32,6 +32,7 @@ Call Back Functions:
 
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push()
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
+                        x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
 -----------------
 
 Data Types ---> see comments and definitions in: 
@@ -51,6 +52,7 @@ Functions:
                         x-Func-jamesBond.js                 //(nested, IIFEs, scope)
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
+                        x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
                         
                         functions-array_methods.js
                         functions-global_objects.js
@@ -104,6 +106,7 @@ Methods:
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
+                        x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
 
 .charAt(index)
 
@@ -171,6 +174,7 @@ Prototyping - Object Oriented Programming:
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
                         x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
                         x-CB-Proto-filter.js                // -filter-, prototype method, callBack functions, .push()
+                        x-CB-Proto-forEach.js               // -forEach-, prototype method, callBack functions
 
 -----------------
 
