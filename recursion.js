@@ -29,6 +29,15 @@ countdown(4);
                                                     (must do this for things to work properly)
 
 /* -----------------------------------------------------
+    When you solve any problem, you ahould think about the following:
+    
+    A. Repeat the problem to yourself and make some notes about it.
+    
+    B. Write a few test cases and the results to enhance your understanding of the problem.
+    
+    c. Construct an approach on how you would solve the problem.
+
+
     When you do recursion there are 3 steps to think about:
     
     Step 1: Figure out the base case.  or when shoud a function stop calling itself.
