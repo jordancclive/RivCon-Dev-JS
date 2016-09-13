@@ -28,6 +28,11 @@ Boolean:
                         x-g-switch_example.js               // && ||, switch, simple array
 -----------------
 
+Call Back Functions:
+
+                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+-----------------
+
 Data Types ---> see comments and definitions in: 
 
                         dataTypes.js
@@ -43,6 +48,8 @@ Default Values: (Setting up)
 Functions:
 
                         x-Func-jamesBond.js                 //(nested, IIFEs, scope)
+                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
+                        
                         functions-array_methods.js
                         functions-global_objects.js
                         functions-number_methods.js
@@ -93,6 +100,7 @@ Methods:
                         x-Recursion-revString.js            // .slice(), .join(), .split(), Recursion
                         recursion.js                        // general description/definition., .pop(), 
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
+                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
 
 .charAt(index)
 
@@ -157,6 +165,7 @@ Prototyping - Object Oriented Programming:
                         classMethods.js
                         
                         x-Arr-Obj-nested-farmExhibit.js     // Nested Arrays & Objects, Prototype method use, push()
+                        x-CB-Proto-map.js                   // -map-, prototype method, callBack functions, .push(), 
 
 -----------------
 
