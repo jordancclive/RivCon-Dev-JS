@@ -1,4 +1,9 @@
 //----------------------------------------------
+// This is our word dictionary ---> using the Markov Chain
+
+let wordDictionary = {};
+
+//----------------------------------------------
 /* 
 Function: parses a multiline string and returns an array of the words in the string, 
 uniformly formatted with no numbers or punctuation.  (PARSE CORPUS)
@@ -51,12 +56,6 @@ function markovChain(inputArr){
 }
 //----------------------------------------------
 
-// This is our word dictionary ---> using the Markov Chain
-
-let wordDictionary = {};
-
-//----------------------------------------------
-
 // call Back functions & overseer function
     
 function overseer(operatorFunc, element, obj, element2, index, actionToDo){
@@ -95,36 +94,52 @@ Function writeLine() that takes a length of words n and returns a line of poetry
 // 1st get a random word in the dictionary, or in the value array.
 
 function  genRandom (feed){ 
-	let num = Math.round(Math.random()*feed)+1;
+	let num = Math.round(Math.random()*feed);
 	return num;
 }
 
 // Get a word :
-// needMore = 'yes' means needs a value array, 'no' means any word will do.
+// needMore = 'true' means needs a value array, 'false' means any word will do.
 
-function genWord(needMore){
-		let startIndex, startWord = '', entriesExist, phraseOut = '';
+function genWord(prevWord, needMore){
+		let startIndex, startWord, entriesExist, temp = '';
+		let gotWord = false;
 		do{
-			startIndex = genRandom(Object.keys(wordDictionary).length);
-			startWord = Object.keys(wordDictionary)[startIndex];
-			entriesExist = wordDictionary[startWord].length;
-			// Does this word need a value array?
-			if (needMore==='no' || entriesExist>0) gotWord = true;
+			if (prevWord === 'firsttimethru'){
+				startIndex = genRandom(Object.keys(wordDictionary).length);
+				startWord = Object.keys(wordDictionary)[startIndex];
+				entriesExist = wordDictionary[startWord].length;
+				// Does this word need a value array?
+				if (!needMore || entriesExist>0) gotWord = true;				
+			}else {
+				if (wordDictionary[prevWord].length ===1) startIndex = 0;
+				else startIndex = genRandom(wordDictionary[prevWord].length);
+				console.log('startIndex',startIndex);
+				startWord = wordDictionary[prevWord][startIndex];
+				console.log('newword: ',startWord);
+				entriesExist = wordDictionary[startWord].length;
+				// Does this word need a value array?
+				if (!needMore || entriesExist>0) gotWord = true;				
+			}
 		}while (!gotWord);
 		
 		// add words to our line:
-		phraseOut += startWord + " ";
+		return startWord;
 }
 
 // Create our poetry.  input = word length
 
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
-	let phraseOut = '';
+	let phraseOut = '', prevWord = 'firsttimethru';
 	for(let i=1; i<=wordCount; i++){
-		if (i===1 && wordCount===1) phraseOut += genWord('no');
-		else if (i<wordCount) phraseOut += genWord('yes');
-		else phraseOut += genWord('no');
+		if (i===1 && wordCount===1){
+			prevWord = genWord(prevWord,false);
+			phraseOut += prevWord + ' ';
+		} else if (i<wordCount){
+			prevWord = genWord(prevWord,true);
+			phraseOut += prevWord + ' ';
+		}else phraseOut += genWord(prevWord, false);
 	}
 	return phraseOut;
 }
@@ -133,19 +148,19 @@ function writeLine(wordCount){
 // parseString examples.
 markovChain(parseString("How Do I love thee? Let me count the ways"));
 markovChain(parseString(" I will fight to follow I will fight for love "));
-markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
+//markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
 markovChain(parseString("The most wasted of all days is one without laughter."));
 markovChain(parseString("Be of love a little more careful than of anything."));
-markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
-markovChain(parseString("To be nobody but yourself in a world which is doing its best, night and day, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting."));
+//markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
+//markovChain(parseString("To be nobody but yourself in a world which is doing its best, night and day, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting."));
 markovChain(parseString("Private property began the instant somebody had a mind of his own."));
-markovChain(parseString("A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long."));
-markovChain(parseString("A man's face is his autobiography. A woman's face is her work of fiction."));
+//markovChain(parseString("A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long."));
+//markovChain(parseString("A man's face is his autobiography. A woman's face is her work of fiction."));
 //----------------------------------------------
 
 // write some poetry:
 
-console.log('result--->',writeLine(1));
+console.log('result--->',writeLine(2));
 
 //----------------------------------------------
 //Tested CallBack Functions:
