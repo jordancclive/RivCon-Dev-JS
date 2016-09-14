@@ -147,6 +147,11 @@ Methods:
 
                         x-g-sortingstrings.js               // .split(), .sort(), .push(), .join()
                         
+.splice()
+
+                        x-g-parser.js		// regex example, .splice()
+                        
+                        
 .split(delimiter)
 
                         x-Obj-Proto-splitter.js
@@ -205,6 +210,7 @@ Recursion:
 regex101.com
 
                         x-g-drakeGenerator.js               // regex example,...
+                        x-g-parser.js		// regex example, .splice()
 
 -----------------
 
