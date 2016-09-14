@@ -77,18 +77,63 @@ function tagElement(element, obj, element2){
 			if(addIt) obj[element2].push(element);
 		}
 }
+//----------------------------------------------
 
+/*
+Function writeLine() that takes a length of words n and returns a line of poetry.
 
+	writeLine() will need a helper function that takes a word 
+	and randomly chooses a word from it's Markov Chain array. 
+	
+	When a word has no entries in it's Markov Chain, 
+	the program should choose a new word and continue the line 
+	until it meets the word count.
 
+	Call writeLine() a certain number of times to create an entire poem.
+*/
 
+// 1st get a random word in the dictionary
+
+function  genRandom (){ 
+	let num = Math.round(Math.random()*Object.keys(wordDictionary).length-1)+1;
+	return num;
+}
+
+// Create our poetry.  input = word length
+
+function writeLine(wordCount){
+	let startIndex = genRandom ();
+	console.log(startIndex);
+}
 
 //----------------------------------------------
 // parseString examples.
 markovChain(parseString("How Do I love thee? Let me count the ways"));
 markovChain(parseString(" I will fight to follow I will fight for love "));
+markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
+markovChain(parseString("The most wasted of all days is one without laughter."));
+markovChain(parseString("Be of love a little more careful than of anything."));
+markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
+markovChain(parseString("To be nobody but yourself in a world which is doing its best, night and day, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting."));
+markovChain(parseString("Private property began the instant somebody had a mind of his own."));
+markovChain(parseString("A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long."));
+markovChain(parseString("A man's face is his autobiography. A woman's face is her work of fiction."));
+//----------------------------------------------
+
+// write some poetry:
+
+writeLine(5);
+
 //----------------------------------------------
 //Tested CallBack Functions:
 
 //tests: overseer & addElement
 //console.log(overseer(addElement, 'vin', wordDictionary));
-console.log(wordDictionary);
+console.log('\n','The number of keys in our Dictionary: ',Object.keys(wordDictionary).length,'\n');
+//console.log('\n',Object.keys(wordDictionary),'\n');
+//console.log(wordDictionary);
+//----------------------------------------------end
+
+
+
+
