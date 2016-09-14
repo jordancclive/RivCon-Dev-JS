@@ -149,7 +149,7 @@ Methods:
                         
 .splice()
 
-                        x-g-parser.js		// regex example, .splice()
+                        x-g-poetryparser.js		// regex example, .splice()
                         
                         
 .split(delimiter)
@@ -210,7 +210,7 @@ Recursion:
 regex101.com
 
                         x-g-drakeGenerator.js               // regex example,...
-                        x-g-parser.js		// regex example, .splice()
+                        x-g-poetryparser.js		// regex example, .splice()
 
 -----------------
 
