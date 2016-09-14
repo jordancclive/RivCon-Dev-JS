@@ -100,16 +100,16 @@ function  genRandom (feed){
 }
 
 // Get a word :
-// firstWord = 'yes' if the first word in a line or 'no' if not 1st word.
 // needMore = 'yes' means needs a value array, 'no' means any word will do.
 
-function genWord(firstWord, needMore){
+function genWord(needMore){
 		let startIndex, startWord = '', entriesExist, phraseOut = '';
 		do{
 			startIndex = genRandom(Object.keys(wordDictionary).length);
 			startWord = Object.keys(wordDictionary)[startIndex];
 			entriesExist = wordDictionary[startWord].length;
-			if (entriesExist>0) gotWord = true;
+			// Does this word need a value array?
+			if (needMore==='no' || entriesExist>0) gotWord = true;
 		}while (!gotWord);
 		
 		// add words to our line:
@@ -119,13 +119,12 @@ function genWord(firstWord, needMore){
 // Create our poetry.  input = word length
 
 function writeLine(wordCount){
-	if (wordCount<1) return 'Enter a wordCount>=1';
+	if (wordCount<1) return 'Enter a word count >= 1';
 	let phraseOut = '';
 	for(let i=1; i<=wordCount; i++){
-		if (i===1 && wordCount===1) phraseOut += genWord('yes', 'no');
-		else if (i===1 && wordCount>1) phraseOut += genWord('yes', 'yes');
-		(i<wordCount) phraseOut += genWord('no','yes');
-		else phraseOut += genWord('no','no');
+		if (i===1 && wordCount===1) phraseOut += genWord('no');
+		else if (i<wordCount) phraseOut += genWord('yes');
+		else phraseOut += genWord('no');
 	}
 	return phraseOut;
 }
@@ -146,7 +145,7 @@ markovChain(parseString("A man's face is his autobiography. A woman's face is he
 
 // write some poetry:
 
-console.log('result--->',writeLine(0));
+console.log('result--->',writeLine(1));
 
 //----------------------------------------------
 //Tested CallBack Functions:
