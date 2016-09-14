@@ -69,7 +69,13 @@ function addElement(element, obj){
 }
 
 function tagElement(element, obj, element2){
-		if (obj[element2]) obj[element2].push(element);
+		let addIt = true;
+		if (obj[element2]) {
+			for(let i=0; i<element2.length; i++){
+				if (obj[element2][i] === element) addIt = false;				
+			}
+			if(addIt) obj[element2].push(element);
+		}
 }
 
 
