@@ -20,3 +20,6 @@ function parseString(inputStr){
 	}
 	return resultStr;
 }
+
+
+// regex example, .splice()
