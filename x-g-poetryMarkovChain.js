@@ -92,18 +92,42 @@ Function writeLine() that takes a length of words n and returns a line of poetry
 	Call writeLine() a certain number of times to create an entire poem.
 */
 
-// 1st get a random word in the dictionary
+// 1st get a random word in the dictionary, or in the value array.
 
-function  genRandom (){ 
-	let num = Math.round(Math.random()*Object.keys(wordDictionary).length-1)+1;
+function  genRandom (feed){ 
+	let num = Math.round(Math.random()*feed)+1;
 	return num;
+}
+
+// Get a word :
+// firstWord = 'yes' if the first word in a line or 'no' if not 1st word.
+// needMore = 'yes' means needs a value array, 'no' means any word will do.
+
+function genWord(firstWord, needMore){
+		let startIndex, startWord = '', entriesExist, phraseOut = '';
+		do{
+			startIndex = genRandom(Object.keys(wordDictionary).length);
+			startWord = Object.keys(wordDictionary)[startIndex];
+			entriesExist = wordDictionary[startWord].length;
+			if (entriesExist>0) gotWord = true;
+		}while (!gotWord);
+		
+		// add words to our line:
+		phraseOut += startWord + " ";
 }
 
 // Create our poetry.  input = word length
 
 function writeLine(wordCount){
-	let startIndex = genRandom ();
-	console.log(startIndex);
+	if (wordCount<1) return 'Enter a wordCount>=1';
+	let phraseOut = '';
+	for(let i=1; i<=wordCount; i++){
+		if (i===1 && wordCount===1) phraseOut += genWord('yes', 'no');
+		else if (i===1 && wordCount>1) phraseOut += genWord('yes', 'yes');
+		(i<wordCount) phraseOut += genWord('no','yes');
+		else phraseOut += genWord('no','no');
+	}
+	return phraseOut;
 }
 
 //----------------------------------------------
@@ -122,7 +146,7 @@ markovChain(parseString("A man's face is his autobiography. A woman's face is he
 
 // write some poetry:
 
-writeLine(5);
+console.log('result--->',writeLine(0));
 
 //----------------------------------------------
 //Tested CallBack Functions:
@@ -131,7 +155,7 @@ writeLine(5);
 //console.log(overseer(addElement, 'vin', wordDictionary));
 console.log('\n','The number of keys in our Dictionary: ',Object.keys(wordDictionary).length,'\n');
 //console.log('\n',Object.keys(wordDictionary),'\n');
-//console.log(wordDictionary);
+console.log(wordDictionary);
 //----------------------------------------------end
 
 
