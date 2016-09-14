@@ -112,14 +112,16 @@ function genWord(prevWord, needMore){
 				// Does this word need a value array?
 				if (!needMore || entriesExist>0) gotWord = true;				
 			}else {
+				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
 				if (wordDictionary[prevWord].length ===1) startIndex = 0;
 				else startIndex = genRandom(wordDictionary[prevWord].length);
-				console.log('startIndex',startIndex);
+				console.log('startIndex: ',startIndex);
 				startWord = wordDictionary[prevWord][startIndex];
-				console.log('newword: ',startWord);
-				entriesExist = wordDictionary[startWord].length;
+				console.log('newword: ',startWord, 'array exist: ', wordDictionary[startWord].length);
+				if (wordDictionary[startWord].length<1 || wordDictionary[startWord].length === undefined) entriesExist = false;
+				else entriesExist = true;
 				// Does this word need a value array?
-				if (!needMore || entriesExist>0) gotWord = true;				
+				if (!needMore || entriesExist) gotWord = true;				
 			}
 		}while (!gotWord);
 		
