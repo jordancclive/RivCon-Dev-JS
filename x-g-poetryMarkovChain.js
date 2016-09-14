@@ -45,7 +45,7 @@ function markovChain(inputArr){
 	for(let i=0; i<inputArr.length; i++){
 		// 1. add the element?
 		overseer(addElement, inputArr[i], wordDictionary);
-		if(i>0) overseer(tagElement, inputArr[i], wordDictionary, inputArr[i-1]);
+		overseer(tagElement, inputArr[i], wordDictionary, inputArr[i-1]);
 	}
 	return;
 }
@@ -69,10 +69,10 @@ function addElement(element, obj){
 }
 
 function tagElement(element, obj, element2){
-		let addIt = true;
 		if (obj[element2]) {
-			for(let i=0; i<element2.length; i++){
-				if (obj[element2][i] === element) addIt = false;				
+			let addIt = true;
+			for(let i=0; i<obj[element2].length; i++){
+				if (obj[element2][i] === element) addIt = false;
 			}
 			if(addIt) obj[element2].push(element);
 		}
@@ -84,7 +84,7 @@ function tagElement(element, obj, element2){
 
 //----------------------------------------------
 // parseString examples.
-//markovChain(parseString("How Do I love thee? Let me count the ways"));
+markovChain(parseString("How Do I love thee? Let me count the ways"));
 markovChain(parseString(" I will fight to follow I will fight for love "));
 //----------------------------------------------
 //Tested CallBack Functions:
