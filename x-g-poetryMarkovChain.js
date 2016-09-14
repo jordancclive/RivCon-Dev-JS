@@ -102,13 +102,18 @@ function  genRandom (feed){
 // needMore = 'true' means needs a value array, 'false' means any word will do.
 
 function genWord(prevWord, needMore){
-		let startIndex, startWord, entriesExist, temp = '';
+		let startIndex, startWord, entriesExist;
 		let gotWord = false;
 		do{
 			if (prevWord === 'firsttimethru'){
+				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
 				startIndex = genRandom(Object.keys(wordDictionary).length);
+				console.log('startIndex: ',startIndex);
 				startWord = Object.keys(wordDictionary)[startIndex];
-				entriesExist = wordDictionary[startWord].length;
+				console.log('newword: ',startWord, '  array exist: ', wordDictionary[startWord].length);
+				console.log('\n');
+				if (wordDictionary[startWord].length<1 || wordDictionary[startWord].length === undefined) entriesExist = false;
+				else entriesExist = true;
 				// Does this word need a value array?
 				if (!needMore || entriesExist>0) gotWord = true;				
 			}else {
@@ -117,7 +122,8 @@ function genWord(prevWord, needMore){
 				else startIndex = genRandom(wordDictionary[prevWord].length);
 				console.log('startIndex: ',startIndex);
 				startWord = wordDictionary[prevWord][startIndex];
-				console.log('newword: ',startWord, 'array exist: ', wordDictionary[startWord].length);
+				console.log('newword: ',startWord, '  array exist: ', wordDictionary[startWord].length);
+				console.log('\n');
 				if (wordDictionary[startWord].length<1 || wordDictionary[startWord].length === undefined) entriesExist = false;
 				else entriesExist = true;
 				// Does this word need a value array?
@@ -134,15 +140,17 @@ function genWord(prevWord, needMore){
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
 	let phraseOut = '', prevWord = 'firsttimethru';
+	console.log('wordCount: ', wordCount);
+	console.log('\n');
 	for(let i=1; i<=wordCount; i++){
 		if (i===1 && wordCount===1){
-			prevWord = genWord(prevWord,false);
+			prevWord = genWord(prevWord, false);
 			phraseOut += prevWord + ' ';
 		} else if (i<wordCount){
-			prevWord = genWord(prevWord,true);
+			prevWord = genWord(prevWord, true);
 			phraseOut += prevWord + ' ';
 		}else {
-			phraseOut += genWord(prevWord, false);
+			prevWord = genWord(prevWord, false);
 			phraseOut += prevWord + ' ';
 		}
 	}
@@ -165,7 +173,7 @@ markovChain(parseString("Private property began the instant somebody had a mind 
 
 // write some poetry:
 
-console.log('result--->',writeLine(2));
+console.log('result--->',writeLine(3));
 
 //----------------------------------------------
 //Tested CallBack Functions:
