@@ -139,7 +139,10 @@ function writeLine(wordCount){
 		} else if (i<wordCount){
 			prevWord = genWord(prevWord,true);
 			phraseOut += prevWord + ' ';
-		}else phraseOut += genWord(prevWord, false);
+		}else {
+			phraseOut += genWord(prevWord, false);
+			phraseOut += prevWord + ' ';
+		}
 	}
 	return phraseOut;
 }
