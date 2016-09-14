@@ -39,3 +39,19 @@ An example:
 //-------------------------------------------
 
 
+// What follows are built-in array methods that expect custom callback function as an argument.
+
+
+.forEach
+
+.filter
+
+.map
+
+.reduce
+
+.sort
+
+//-------------------------------------------
+
+
