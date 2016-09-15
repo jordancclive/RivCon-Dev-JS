@@ -92,65 +92,79 @@ Function writeLine() that takes a length of words n and returns a line of poetry
 */
 
 // 1st get a random word in the dictionary, or in the value array.
+// The result will give a number from 0 to (feed-1)
+// Tested and this works.
 
 function  genRandom (feed){ 
-	let num = Math.round(Math.random()*feed);
+	let num = Math.round(Math.random()*(feed-1));
 	return num;
 }
 
 // Get a word :
 // needMore = 'true' means needs a value array, 'false' means any word will do.
 
-function genWord(prevWord, needMore){
+function genWord(prevWord, needMore, firstTime){
 		let startIndex, startWord, entriesExist;
 		let gotWord = false;
 		do{
-			if (prevWord === 'firsttimethru'){
-				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
+			if (firstTime === true){
 				startIndex = genRandom(Object.keys(wordDictionary).length);
-				console.log('startIndex: ',startIndex);
 				startWord = Object.keys(wordDictionary)[startIndex];
+				console.log('prevWord: ', prevWord, '  needMore: ', needMore, '<---first time thru');
+				console.log('startIndex: ',startIndex);				
 				console.log('newword: ',startWord, '  array exist: ', wordDictionary[startWord].length);
 				console.log('\n');
-				if (wordDictionary[startWord].length<1 || wordDictionary[startWord].length === undefined) entriesExist = false;
-				else entriesExist = true;
-				// Does this word need a value array?
-				if (!needMore || entriesExist>0) gotWord = true;				
-			}else {
-				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
-				if (wordDictionary[prevWord].length ===1) startIndex = 0;
-				else startIndex = genRandom(wordDictionary[prevWord].length);
-				console.log('startIndex: ',startIndex);
-				startWord = wordDictionary[prevWord][startIndex];
-				console.log('newword: ',startWord, '  array exist: ', wordDictionary[startWord].length);
-				console.log('\n');
-				if (wordDictionary[startWord].length<1 || wordDictionary[startWord].length === undefined) entriesExist = false;
+				if (!wordDictionary[startWord] || wordDictionary[startWord].length<1) entriesExist = false;
 				else entriesExist = true;
 				// Does this word need a value array?
 				if (!needMore || entriesExist) gotWord = true;				
+			}else {
+				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
+				// make sure if there is only one next word to get it directly.
+				if (wordDictionary[prevWord].length ===1) startIndex = 0; 
+				else startIndex = genRandom(wordDictionary[prevWord].length);
+				console.log('startIndex: ',startIndex);	
+				if (!wordDictionary[prevWord][startIndex]) 	entriesExist = false;
+				else{
+					//get the next word here
+					startWord = wordDictionary[prevWord][startIndex];
+					console.log('newword: ',startWord);
+					// If needMore = false, then we are ok & done...or else
+					// need to check if new word has entries in it....
+					if (!wordDictionary[startWord] && needMore) entriesExist = false;
+					else {
+						console.log('new word has/needs an array?: ', wordDictionary[startWord].length, needMore);
+						console.log('\n');
+						entriesExist = true;
+						startWord = wordDictionary[prevWord][startIndex];
+					}
+				}	
 			}
+			// Does this word need a value array?
+			if (!needMore || entriesExist) gotWord = true;				
 		}while (!gotWord);
-		
 		// add words to our line:
 		return startWord;
 }
 
 // Create our poetry.  input = word length
+// This works perfectly fine.  Tested...
 
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
-	let phraseOut = '', prevWord = 'firsttimethru';
+	let phraseOut = '', prevWord = '';
 	console.log('wordCount: ', wordCount);
 	console.log('\n');
 	for(let i=1; i<=wordCount; i++){
-		if (i===1 && wordCount===1){
-			prevWord = genWord(prevWord, false);
+		if (i===1){
+			if (wordCount-1) prevWord = genWord(prevWord, true, true);
+			else prevWord = genWord(prevWord, false, true);
 			phraseOut += prevWord + ' ';
 		} else if (i<wordCount){
-			prevWord = genWord(prevWord, true);
+			prevWord = genWord(prevWord, true, false);
 			phraseOut += prevWord + ' ';
 		}else {
-			prevWord = genWord(prevWord, false);
+			prevWord = genWord(prevWord, false, false);
 			phraseOut += prevWord + ' ';
 		}
 	}
@@ -173,7 +187,7 @@ markovChain(parseString("Private property began the instant somebody had a mind 
 
 // write some poetry:
 
-console.log('result--->',writeLine(3));
+console.log('result--->',writeLine(2));
 
 //----------------------------------------------
 //Tested CallBack Functions:
