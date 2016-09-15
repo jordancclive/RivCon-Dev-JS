@@ -163,6 +163,7 @@ function genWord(prevWord, needMore, firstTime){
 				console.log('startIndex: ',startIndex);				
 				console.log('newword: ',startWord, '  array exist: ', wordDictionary[startWord].length);
 				console.log('\n');
+				//testing to make sure entries exist for the next word...
 				if (!wordDictionary[startWord] || wordDictionary[startWord].length<1) entriesExist = false;
 				else entriesExist = true;
 				// Does this word need a value array?
@@ -172,10 +173,8 @@ function genWord(prevWord, needMore, firstTime){
 				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
 				// make sure if there is only one next word to get it directly.
 				if (wordDictionary[prevWord].length ===1){
-				continueProcessing = false;
 				startIndex = 0;
 				console.log('assigned zero to startIndex');
-				console.log('Came to a premature end of this line. -A-');
 				}else startIndex = genRandom(wordDictionary[prevWord].length);
 				console.log('startIndex: ',startIndex);
 				if (startIndex === -1){
@@ -218,12 +217,16 @@ function genWord(prevWord, needMore, firstTime){
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
 	let phraseOut = '', prevWord = '';
+	console.log('----------------------------------------------');
 	console.log('wordCount: ', wordCount);
+	console.log('\n');
+	console.log('----------------------------------------------');
+	console.log('Develop the requested line:');
 	console.log('\n');
 	for(let i=1; i<=wordCount; i++){
 		//----------------------------------------------
-		console.log(continueProcessing);
-		if(!continueProcessing) break;
+		console.log('continue: ',continueProcessing);
+		if(!continueProcessing) phraseOut = phraseOut;
 		//----------------------------------------------
 		else if (i===1){
 			if (wordCount-1) prevWord = genWord(prevWord, true, true);
