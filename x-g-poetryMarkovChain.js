@@ -162,9 +162,21 @@ function genWord(prevWord, needMore, firstTime){
 				limiter-=1;
 				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
 				// make sure if there is only one next word to get it directly.
-				if (wordDictionary[prevWord].length ===1) startIndex = 0; 
-				else startIndex = genRandom(wordDictionary[prevWord].length);
-				console.log('startIndex: ',startIndex);	
+				if (wordDictionary[prevWord].length ===1){
+				continueProcessing = false;
+				startIndex = 0;
+				console.log('assigned zero to startIndex');
+				console.log('Came to a premature end of this line. -A-');
+				}else startIndex = genRandom(wordDictionary[prevWord].length);
+				console.log('startIndex: ',startIndex);
+				if (startIndex === -1){
+						continueProcessing = false;
+						entriesExist = false;
+						gotWord = true;
+						startWord = ' ';
+						console.log('Came to a premature end of this line. -B-');
+						break;
+				}
 				if (!wordDictionary[prevWord][startIndex]) 	entriesExist = false;
 				else{
 					//get the next word here
@@ -172,8 +184,11 @@ function genWord(prevWord, needMore, firstTime){
 					console.log('newword: ',startWord);
 					// If needMore = false, then we are ok & done...or else
 					// need to check if new word has entries in it....
-					if (!wordDictionary[startWord] && needMore) entriesExist = false;
-					else {
+					if (!wordDictionary[startWord] && needMore){
+						entriesExist = true;
+						startWord = " ";
+					console.log('Stopping.  The Linked List ended.');
+					}else {
 						console.log('new word has/needs an array?: ', wordDictionary[startWord].length, needMore);
 						console.log('\n');
 						entriesExist = true;
@@ -194,9 +209,18 @@ function genWord(prevWord, needMore, firstTime){
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
 	let phraseOut = '', prevWord = '';
+	//----------------------------------------------
+	// Need this variable in order to prematurely
+	// stop processing line when the "LINKE LIST"
+	// comes to a premature end. 
+	let continueProcessing = true;
+	//----------------------------------------------
 	console.log('wordCount: ', wordCount);
 	console.log('\n');
 	for(let i=1; i<=wordCount; i++){
+		//----------------------------------------------
+		if(!continueProcessing) break;
+		//----------------------------------------------
 		if (i===1){
 			if (wordCount-1) prevWord = genWord(prevWord, true, true);
 			else prevWord = genWord(prevWord, false, true);
@@ -216,7 +240,7 @@ function writeLine(wordCount){
 // parseString examples.
 markovChain(parseString("How Do I love thee? Let me count the ways"));
 markovChain(parseString(" I will fight to follow I will fight for love "));
-markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
+markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
 markovChain(parseString("The most wasted of all days is one without laughter."));
 markovChain(parseString("Be of love a little more careful than of anything."));
 markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
