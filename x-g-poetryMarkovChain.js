@@ -1,7 +1,46 @@
 //----------------------------------------------
 // This is our word dictionary ---> using the Markov Chain
 
-let wordDictionary = {};
+/* Assumptions: 
+
+ 	- This dictionary is an "OBJECT" with "KEYS".  These "KEYS" are words 
+		that were gleaned from input text.   <----(as Object keys)("KEYS")
+
+	- Each "KEY" word associates with other words and are contained in the object as a
+		"KEY/VALUE" pair.  
+		
+	- The "VALUE" is an "ARRAY" of words that, within the context of regular english sentences, 
+		have followed the "KEY".  So the "VALUE" "ARRAY" has a relationship with the "KEY" word.
+		This relationship is the equivalent of a linked list. "LINKED LIST"
+*/
+
+let wordDictionary = {};		// This is the dictionary of words.
+
+/*	IMPORTANT:
+
+	- The poetry line that this program creates a sentence of words that have a 
+		linked relationship.
+		
+ 	- The first word is picked at random.
+ 	
+	- All subsequent words are picked as a result of the "KEY/VALUE" pair.
+	
+	- Sometimes depending on the line length and the dictionary's physical size 
+		(the total amount of records that exist), the "LINKED LIST" may run its
+		course.  This means that the program cannot make the full line requested
+		by the program user.
+		
+	- As a result, at the time of this release (9/15/2016), the program will 
+		give the user the line that was created even if it is not the requested length.
+		
+	- In the future, this program will "rollback" the result to a new line path in
+		an attempt to create the requested line size.
+*/
+// This array will track the existing line, by word and provide the program the 
+// ability to roll the created line back to a new path in an effort to create 
+// the full requested line.
+
+let rollBack = [];	
 
 //----------------------------------------------
 /* 
@@ -104,10 +143,11 @@ function  genRandom (feed){
 // needMore = 'true' means needs a value array, 'false' means any word will do.
 
 function genWord(prevWord, needMore, firstTime){
-		let startIndex, startWord, entriesExist;
+		let startIndex, startWord, entriesExist, limiter=25;
 		let gotWord = false;
 		do{
 			if (firstTime === true){
+				limiter-=1
 				startIndex = genRandom(Object.keys(wordDictionary).length);
 				startWord = Object.keys(wordDictionary)[startIndex];
 				console.log('prevWord: ', prevWord, '  needMore: ', needMore, '<---first time thru');
@@ -119,6 +159,7 @@ function genWord(prevWord, needMore, firstTime){
 				// Does this word need a value array?
 				if (!needMore || entriesExist) gotWord = true;				
 			}else {
+				limiter-=1;
 				console.log('prevWord: ', prevWord, '  needMore: ', needMore);
 				// make sure if there is only one next word to get it directly.
 				if (wordDictionary[prevWord].length ===1) startIndex = 0; 
@@ -142,7 +183,7 @@ function genWord(prevWord, needMore, firstTime){
 			}
 			// Does this word need a value array?
 			if (!needMore || entriesExist) gotWord = true;				
-		}while (!gotWord);
+		}while (!gotWord && limiter);
 		// add words to our line:
 		return startWord;
 }
@@ -175,19 +216,19 @@ function writeLine(wordCount){
 // parseString examples.
 markovChain(parseString("How Do I love thee? Let me count the ways"));
 markovChain(parseString(" I will fight to follow I will fight for love "));
-//markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
+markovChain(parseString("Take this kiss upon the brow! And, in parting from you now, Thus much let me avow You are not wrong, who deem That my days have been a dream; Yet if hope has flown away In a night, or in a day, In a vision, or in none, Is it therefore the less gone? All that we see or seem Is but a dream within a dream. I stand amid the roar Of a surf-tormented shore, And I hold within my hand Grains of the golden sand-- How few! yet how they creep Through my fingers to the deep, While I weep--while I weep! O God! can I not grasp Them with a tighter clasp? O God! can I not save One from the pitiless wave? Is all that we see or seem But a dream within a dream?"));
 markovChain(parseString("The most wasted of all days is one without laughter."));
 markovChain(parseString("Be of love a little more careful than of anything."));
-//markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
-//markovChain(parseString("To be nobody but yourself in a world which is doing its best, night and day, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting."));
+markovChain(parseString("I thank you God for this most amazing day, for the leaping greenly spirits of trees, and for the blue dream of sky and for everything which is natural, which is infinite, which is yes."));
+markovChain(parseString("To be nobody but yourself in a world which is doing its best, night and day, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting."));
 markovChain(parseString("Private property began the instant somebody had a mind of his own."));
-//markovChain(parseString("A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long."));
-//markovChain(parseString("A man's face is his autobiography. A woman's face is her work of fiction."));
+markovChain(parseString("A wind has blown the rain away and blown the sky away and all the leaves away, and the trees stand. I think, I too, have known autumn too long."));
+markovChain(parseString("A man's face is his autobiography. A woman's face is her work of fiction."));
 //----------------------------------------------
 
 // write some poetry:
 
-console.log('result--->',writeLine(2));
+console.log('result--->',writeLine(4));
 
 //----------------------------------------------
 //Tested CallBack Functions:
@@ -196,7 +237,7 @@ console.log('result--->',writeLine(2));
 //console.log(overseer(addElement, 'vin', wordDictionary));
 console.log('\n','The number of keys in our Dictionary: ',Object.keys(wordDictionary).length,'\n');
 //console.log('\n',Object.keys(wordDictionary),'\n');
-console.log(wordDictionary);
+//console.log(wordDictionary);
 //----------------------------------------------end
 
 
