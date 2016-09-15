@@ -16,6 +16,8 @@
 
 let wordDictionary = {};		// This is the dictionary of words.
 
+//----------------------------------------------
+
 /*	IMPORTANT:
 
 	- The poetry line that this program creates a sentence of words that have a 
@@ -41,6 +43,13 @@ let wordDictionary = {};		// This is the dictionary of words.
 // the full requested line.
 
 let rollBack = [];	
+
+//----------------------------------------------
+
+// Need this variable in order to prematurely stop processing line when 
+// the "LINKED LIST" comes to a premature end. 
+
+let continueProcessing = true;
 
 //----------------------------------------------
 /* 
@@ -209,19 +218,14 @@ function genWord(prevWord, needMore, firstTime){
 function writeLine(wordCount){
 	if (wordCount<1) return 'Enter a word count >= 1';
 	let phraseOut = '', prevWord = '';
-	//----------------------------------------------
-	// Need this variable in order to prematurely
-	// stop processing line when the "LINKE LIST"
-	// comes to a premature end. 
-	let continueProcessing = true;
-	//----------------------------------------------
 	console.log('wordCount: ', wordCount);
 	console.log('\n');
 	for(let i=1; i<=wordCount; i++){
 		//----------------------------------------------
+		console.log(continueProcessing);
 		if(!continueProcessing) break;
 		//----------------------------------------------
-		if (i===1){
+		else if (i===1){
 			if (wordCount-1) prevWord = genWord(prevWord, true, true);
 			else prevWord = genWord(prevWord, false, true);
 			phraseOut += prevWord + ' ';
