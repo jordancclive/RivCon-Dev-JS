@@ -1,5 +1,5 @@
 //----------------------------------------------
-// This is our word dictionary ---> using the Markov Chain
+// This is our word dictionary ---> using the Markov Chain 
 
 /* Assumptions: 
 
