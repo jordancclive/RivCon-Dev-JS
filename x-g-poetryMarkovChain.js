@@ -219,7 +219,6 @@ function writeLine(wordCount){
 	let phraseOut = '', prevWord = '';
 	console.log('----------------------------------------------');
 	console.log('wordCount: ', wordCount);
-	console.log('\n');
 	console.log('----------------------------------------------');
 	console.log('Develop the requested line:');
 	console.log('\n');
@@ -259,14 +258,15 @@ markovChain(parseString("A man's face is his autobiography. A woman's face is he
 
 // write some poetry:
 
-console.log('result--->',writeLine(4));
+console.log('----------------------------------------------','\n','Our resulting prose is--->',writeLine(5));
+console.log('----------------------------------------------');
 
 //----------------------------------------------
 //Tested CallBack Functions:
 
 //tests: overseer & addElement
 //console.log(overseer(addElement, 'vin', wordDictionary));
-console.log('\n','The number of keys in our Dictionary: ',Object.keys(wordDictionary).length,'\n');
+console.log('The number of keys in our Dictionary: ',Object.keys(wordDictionary).length,'\n');
 //console.log('\n',Object.keys(wordDictionary),'\n');
 //console.log(wordDictionary);
 //----------------------------------------------end
