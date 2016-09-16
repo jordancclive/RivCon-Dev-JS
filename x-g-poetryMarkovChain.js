@@ -258,7 +258,7 @@ markovChain(parseString("A man's face is his autobiography. A woman's face is he
 
 // write some poetry:
 
-console.log('----------------------------------------------','\n','Our resulting prose is--->',writeLine(5));
+console.log('----------------------------------------------','\n','Our resulting prose is--->',writeLine(10));
 console.log('----------------------------------------------');
 
 //----------------------------------------------
