@@ -3,6 +3,8 @@ testing new concepts here...
 
 Quick notes: 
 
+Why is JavaScript a high order language?  ...All datatypes can be passed as an input argument and/or output return value. 
+
 put ----> 'use strict';  <---- in your code (at the beginning) and any JavaScript compiler will 
 utilize the ES2015 ES6 compiler when it runs your code.
 
