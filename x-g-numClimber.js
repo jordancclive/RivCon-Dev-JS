@@ -22,10 +22,10 @@ Possible results:
             let resultArray = [];
             for(let i=n; i>0; i--){
             	if(i%2) {
-            		resultArray.unshift(i);
-            		i--;
+	    		resultArray.unshift(i);
+	    		i--;
             	}else resultArray.unshift(i);
-            	i = (i/2)+1;
+            	i = Math.floor(i/2)+1;
             }
           
             return resultArray;
@@ -36,5 +36,17 @@ Possible results:
 //------------------------------------------
 //Other solutions from codewars:
 
-
+	// very cool, but I can't get my head around this one:
+	
+	const climb = (n, acc = []) => n ? climb(~~(n/2), [n].concat(acc)) : acc;
+	climb(13);
+	
+	
+	// another solution that is just over my head:
+	
+	function climb(n){
+	  for (var rs=[];n;n= ~~(n/2)) rs.unshift(n)
+	  return rs;
+	}
+	climb(13);
 
