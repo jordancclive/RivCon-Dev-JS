@@ -21,18 +21,34 @@ A count is displayed beside each bar except where the count is 0
 The number of rolls may vary but there are never more than 100
 */
 
-function histogram(results) {
-	resultStr = '';
-	results.reverse();
-	results.forEach(function(elem, index){
-		resultStr += (6 - index) + '|';
-		for (let i = 0; i< elem; i++){
-			resultStr += '#';
-		}
-		if (elem) resultStr += ' ' + elem + '\n';
-		else resultStr += '\n';
-	});
-  return resultStr;
-}
+// my results:
 
-console.log(histogram([7,3,10,1,0,5]));
+	function histogram(results) {
+		resultStr = '';
+		results.reverse();
+		results.forEach(function(elem, index){
+			resultStr += (6 - index) + '|';
+			for (let i = 0; i< elem; i++){
+				resultStr += '#';
+			}
+			if (elem) resultStr += ' ' + elem + '\n';
+			else resultStr += '\n';
+		});
+	  return resultStr;
+	}
+	
+	console.log(histogram([7,3,10,1,0,5]));
+
+
+// other codewars results:
+
+	// very cool:
+
+	function histogram(results) {
+	  var histogram = '';
+	  
+	  for (var i=5; i>=0; --i)
+	    histogram += (i+1) + '|' + '#'.repeat(results[i]) + (results[i] > 0 ? ' ' + results[i] : '') + "\n";
+	  
+	  return histogram;
+	}
