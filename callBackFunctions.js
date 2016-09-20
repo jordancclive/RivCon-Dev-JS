@@ -133,8 +133,9 @@ An example:
               //put into the new array.
               return arr.filter(function(elem, index){
               		return elem>=21;		//This return refers to the condition at which an element is put into the new array.
-              });
-          }
+              });                     // The condition is run for every element in the array and returns all elements meeting
+          }                           // the condition.
+          
           console.log('canDrink: ', canDrink(ages));
           console.log('original array: : ', ages);
           
@@ -142,6 +143,12 @@ An example:
                     canDrink:  [ 21, 25 ]
                     original array: :  [ 18, 20, 21, 25, 15 ]
           */
+          
+          
+          
+          //short names only function.  create a function where it returns
+          // names of 4 or less.
+          
 
 //-----------------------------------------------
 
