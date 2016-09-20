@@ -42,3 +42,8 @@
     }
     
      lookAndSay('1',5);
+     
+     
+// code wars results:
+
+        
