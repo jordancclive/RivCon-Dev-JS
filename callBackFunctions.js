@@ -54,7 +54,7 @@ An example:
 
 //-------------------------------------------
 
-.forEach(function(value, index));
+.forEach(function(value, index));   ......There is no return value.
 
     A .forEach is a fancy wrapper for a for loop that is dealing with an array. 
     It is a very generalized for loop with no return value.
@@ -116,12 +116,14 @@ An example:
 
 //----------------------------------------------- 
 /*
-.filter
+.filter(function(value, index));   ......There is a return value.  Remember to send the result back with a return.
 
     Imagine .filter looping over an array.  This method also takes a callback function that is fed 2 arguments
     1) the current value (the element) and 2) the index of that value.
     
     This method returns a new array as the return value.
+    
+    ***   In this method you great a condition that if met the record gets put in the new array   ***
           
           examples:
     */
@@ -145,18 +147,57 @@ An example:
           */
           
           
+          // shortNamesOnly
+          //Take an array of objects (elements = people), return the ones whose names are <= 4 in length.
+
+          let people = [
+          	{name: 'doug', age: 25}, {name: 'vin', age: 60}, {name: 'Sandra', age: 40}, {name: 'diana', age: 30}];
+          	
+          function shortNamesOnly(arr){
+          	return arr.filter(function(elem,index){
+          		return elem.name.length<=4;
+          	})
+          	
+          }
           
-          //short names only function.  create a function where it returns
-          // names of 4 or less.
+          console.log(shortNamesOnly(people));
           
 
-//-----------------------------------------------
+//----------------------------------------------- 
+/*
+.map(function(value, index));   ......There is a return value and it is a new array.
+                                      Remember to send the result back with a return.
 
+    Imagine .map looping over an array.  This method also takes a callback function that is fed 2 arguments
+    1) the current value (the element) and 2) the index of that value.
+    
+    This method also returns a new array as the return value.
+    
+        ***   In this method you do stuff to an element and all the records get put in the new array   ***
+          
+          examples:
+    */
+    //-----------------------------------------------
 
+    // Let's do something with .forEach:
+    
+    let arr = [1,2,3,4];
+    let newArr = [];
+    arr.forEach(function(elem,index){
+      newArr.push(elem+1);                  //remember .forEach does not return anything.
+    })                                      //...so you are pushing the values into the newArray.
+    
+    console.log(newArr)   // result:  [2,3,4,5]
+    
+    
+    // let's do the same thing with map:
+    
+    let arr = [1,2,3,4];
+    let newArr = arr.map(function(elem,index){
+      return elem+1;                        // Here .map does have a return value. ...and where you establish
+    })                                      // the element actions.
 
-
-
-
+    console.log(newArr)   // result:  [2,3,4,5]
 
 
 
