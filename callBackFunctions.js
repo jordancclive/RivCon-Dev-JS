@@ -200,5 +200,73 @@ An example:
     console.log(newArr)   // result:  [2,3,4,5]
 
 
+//----------------------------------------------- 
+/*
+.reduce(function(value, index));   
+    
+    The idea of a reduce is to collapse the array down into something else.
+    
+    Takes 2 parameters: 1- a callback, and 2- a starting value which you build on as you loop to each element.
+    
+    The callback is fed 4 arguments:
+          - The previous value (starting value when index = 0)<-----what we are building
+          - The current value (which is arr[index])
+          - The current index
+          - the original array that reduce is being called on.
+          
+    .reduce returns a collapsed array.
+   
+          
+          examples:
+    */
+    //-----------------------------------------------
+
+    let arr = [1,2,3,4];
+
+    function sumArray(arr){
+      return arr.reduce(function(prev, curr){     // This return is returning the callbacks result out of the function.
+        return prev + curr;                       // This return is the callback function returning its result to the function
+      }, 0);		// could have written this line:  })  since 0 is the default value.
+    }
+
+    sumArray(arr);		//returns: 10
+
+    //-----------------------------------------------
+
+    // coreys party re-visited:
+
+    let arr = ['corey', 'mom', 'dad', 'doug', 'doug', 'doug'];
+
+    function countRepeats(arr){
+      return arr.reduce(function(prev, curr){
+        prev[curr] = prev[curr]+1 || 1;
+        return prev;
+      }, {})	// we are starting with an empty object as our starting value. (which is 'prev').
+    }
+
+    countRepeats(arr);		//returns: { corey: 1, mom: 1, dad: 1, doug: 3 }
+
+//----------------------------------------------- 
+/*
+.sort()
+
+    Takes a callback that receives 2 arguments.
+    
+    Sort is looping thru the array.  On each round of the loop, the first callback argument is the index we are at.
+    and the 2nd is the next index.  If the callback returns a postive number, then the elements are flipped (reversed).
+    
+    ***this method changes the original array.***
+*/
+
+    let people = [{name: 'corey', age: 24}, {name: 'mom', age: 70}, {name: 'dad', age: 77}, {name: 'doug', age: 30}];
+
+    people.sort(function(curr, next){
+      return curr.age - next.age;
+    });
+
+    //result:  [ { name: 'corey', age: 24 },{ name: 'doug', age: 30 },{ name: 'mom', age: 70 },{ name: 'dad', age: 77 } ]
+
+
+
 
 
