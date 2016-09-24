@@ -54,3 +54,26 @@ function agesOnly(arr){
 	
 }
 console.log(agesOnly(people));		// result: [ 25, 60, 40, 30 ]
+
+//-------------------------------------------------
+
+// generalizing the function so that it is multi-operational:
+
+
+// agesOnly
+/*
+Take an array of objects (elements = people), return the ones whose names are <= 4 in length.
+*/
+
+let people = [
+	{name: 'doug', age: 25}, {name: 'vin', age: 60}, {name: 'Sandra', age: 40}, {name: 'diana', age: 30}];
+	
+function agesOnly(arr, key){
+	return arr.map(function(elem,index){
+		return elem[key];
+	})
+	
+}
+console.log(agesOnly(people,'age'));		// result: [ 25, 60, 40, 30 ]
+
+		// If you changes the argument to 'name', would get the names instead......
