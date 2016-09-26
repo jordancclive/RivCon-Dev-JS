@@ -21,3 +21,13 @@ describe("Solution", function(){
     Test.assertEquals("actual", "expected", "This is just an example of how you can write your own TDD tests");
   });
 });
+
+
+/*
+    Test Results:
+      Solution
+      Testing for a variety of rows
+    ✘ This is just an example of how you can write your own TDD tests - Expected: 'expected', instead got: 'actual'
+     Completed in 2ms
+     Completed in 6ms
+*/
