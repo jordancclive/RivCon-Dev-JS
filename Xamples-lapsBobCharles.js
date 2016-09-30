@@ -21,6 +21,8 @@ Steps:
 			- if larger, switch and repeat.
 
 */
+
+//------------------------------------my result:
 var nbrOfLaps = function (x, y) {
 	let distanceX=x, distanceY=y, lapX=1, lapY=1, limiter = 25;
 	do{
@@ -35,3 +37,7 @@ var nbrOfLaps = function (x, y) {
 	}while (distanceX !== distanceY);
 	return [lapX, lapY];
 };
+
+//------------------------------------other results:
+
+
