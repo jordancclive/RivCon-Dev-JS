@@ -1,0 +1,90 @@
+let MORSE_CODE = { 
+	'-.-.--': '!',
+	'.-..-.': '"',
+	'...-..-': '$',
+	'.-...': '&',
+	'.----.': '\'',
+	'-.--.': '(',
+	'-.--.-': ')',
+	'.-.-.': '+',
+	'--..--': ',',
+	'-....-': '-',
+	'.-.-.-': '.',
+	'-..-.': '/',
+	'-----': '0',
+	'.----': '1',
+	'..---': '2',
+	'...--': '3',
+	'....-': '4',
+	'.....': '5',
+	'-....': '6',
+	'--...': '7',
+	'---..': '8',
+	'----.': '9',
+	'---...': ':',
+	'-.-.-.': ';',
+	'-...-': '=',
+	'..--..': '?',
+	'.--.-.': '@',
+	'.-': 'A',
+	'-...': 'B',
+	'-.-.': 'C',
+	'-..': 'D',
+	'.': 'E',
+	'..-.': 'F',
+	'--.': 'G',
+	'....': 'H',
+	'..': 'I',
+	'.---': 'J',
+	'-.-': 'K',
+	'.-..': 'L',
+	'--': 'M',
+	'-.': 'N',
+	'---': 'O',
+	'.--.': 'P',
+	'--.-': 'Q',
+	'.-.': 'R',
+	'...': 'S',
+	'-': 'T',
+	'..-': 'U',
+	'...-': 'V',
+	'.--': 'W',
+	'-..-': 'X',
+	'-.--': 'Y',
+	'--..': 'Z',
+	'..--.-': '_',
+	'...---...': 'SOS' };
+  
+  decodeMorse('.... . -.--   .--- ..- -.. .');
+  
+  
+  // my solution:
+  
+          function decodeMorse (morseCode){
+            let lettersArr = morseCode.split(' '), resultWords=[];
+            let startMorse = false, lastIndex = 0;
+            // Look to see if there are blank spaces at the end of the string
+            // Keep track of the last non-blank index.
+            for(let i=lettersArr.length-1; i>=0; i--){
+              if (lettersArr[i]){
+                lastIndex = i;
+                break;
+              }
+            }
+            //Build words & ignore the leading blanks
+            let word = '', oneBlank = false;
+            for(let i=0; i<=lastIndex; i++){
+              if (!!lettersArr[i]) startMorse = true;
+              if (startMorse){
+                startMorse = true;
+                if (lettersArr[i]) word += MORSE_CODE[lettersArr[i]];
+                if (i === lastIndex) resultWords.push(word);
+                if (!lettersArr[i] && !oneBlank){
+                  resultWords.push(word);
+                  word = '';
+                  oneBlank = true;
+                }else oneBlank = false;  			
+              }
+            }
+            return resultWords.join(' ');
+          }
