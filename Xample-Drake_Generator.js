@@ -1,8 +1,20 @@
+/*
+Drake Generator
+		see the Regular Expression:	return text.toLowerCase().replace(/[^a-z\s]/ig, "").split(' ');                 
+		//<----notice.  www.regex101.com for syntax
+		
+		
+
+
+*/
 
 var drakeGenerator = {
 	parseText : function() {
 		var text = this.hotlineBling + this.jumpman + this.startedFromTheBottom;
-		return text.toLowerCase().replace(/[^a-z\s]/ig, "").split(' ');                 //<----notice.  www.regex101.com for syntax
+		
+		//-----------------
+		return text.toLowerCase().replace(/[^a-z\s]/ig, "").split(' ');                 
+		//-----------------
 	},
 	generateMarkov : function() {
 		var wordpairs = {};
