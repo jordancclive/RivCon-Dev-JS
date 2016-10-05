@@ -61,6 +61,19 @@ All the test strings would contain valid Morse code, so you may skip checking fo
 //-------------------------------------------------------
 
 
+// A much cooler solution:
+
+	decodeMorse = function(morseCode){
+	  function decodeMorseLetter(letter) {
+	    return MORSE_CODE[letter];
+	  }
+	  function decodeMorseWord(word) {
+	    return word.split(' ').map(decodeMorseLetter).join('');
+	  }
+	  return morseCode.trim().split('   ').map(decodeMorseWord).join(' ');
+	}
+
+
 
 //  Data file and call to function follows:
 
