@@ -1,5 +1,5 @@
 # JavaScript
-testing new concepts here...
+testing new concepts here...        ...This is a teaching repository for JavaScript. 
 
 Quick notes: 
 
