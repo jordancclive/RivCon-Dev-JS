@@ -12,6 +12,12 @@
             
             PBR vs PBV is not so much a technique, but a principle that explains how JavaScript
             behaves.  Keep in ind, and allow it to help you be more aware & deliberate in your coding.
+            
+            
+            *** NOTE: What JavaScript is really doing is passing by sharing, not passing by reference. ***
+            
+            
+            
 
 
 What gets logged:
@@ -29,7 +35,8 @@ What gets logged:
 
                               When we say newArr = arr the term "newArr" is assigned a pointer to the same value in memory.
                               ....This is known as pass by reference.
-      
+
+//---------------------------------        
 
 What gets logged:
 */
@@ -50,7 +57,7 @@ What gets logged:
       console.log(arr);       // result: [ [ 1, 2, 3, 9 ], 3, 4, 5 ]
                               //This is very interesting.......the element itself is a complex datatype, hence this result.
            
-           
+//---------------------------------           
       
       var arr = [1,2,3);
       var newArr = arr.slice();
@@ -65,7 +72,7 @@ What gets logged:
                                     //Which in this case is not true since you .sliced the original array
                                     //to a new location.
 
-
+//---------------------------------  
 
       var array = [1,2,3];
       function pushFour(arr){
@@ -79,7 +86,7 @@ What gets logged:
                               //The result does not change even though you made the change inside of a function call.
                               // you are passing the reference of the array, not the array itself.
 
-
+//---------------------------------  
 
       var object = {};
       function addKeyVal(obj){
@@ -91,7 +98,7 @@ What gets logged:
       console.log(newObj);    //result: {key: 'val'}
       console.log(object);    //result: {key: 'val'}  ...same concept for this complex datatype.
 
-
+//---------------------------------  
 
       var number = 3;
       function addOne(num){
@@ -103,7 +110,7 @@ What gets logged:
       console.log(newNum);    //result: 4 ...These are primitive datatypes so you are passing the value and
       console.log(number);    //result: 3       not passing a reference pointer.  (you are making a copy every time)
 
-
+//---------------------------------  
 
       var string = 'Hello';
       function addWorld(str){
@@ -115,7 +122,7 @@ What gets logged:
       console.log(newStr);    // result: 'Hello World'
       console.log(string);    //result: 'Hello'            ...again this is a primitive datatype.
 
-
+//---------------------------------  
 
       var arr = [1,2,3];
       function doStuff(arr){
@@ -131,10 +138,43 @@ What gets logged:
       console.log(obj.arr);         //function arr = [4,5,6,7]
       console.log(arr);             //arr = [1,2,3,4] in the outer scope.
 
+//---------------------------------  
 
 
+function changeStuff(a, b, c){
+	a=a*10;
+	b.item= 'changed';
+	c= {item: 'changed'};
+}
 
+var num=10;
+var obj1={item:'unchanged'};
+var obj2={item:'unchanged'};
 
+changeStuff(num, obj1, obj2);
+
+console.log(num);			//result: 10
+console.log(obj1.item);		//result: {item:'changed'}
+console.log(obj2);			//result: {item:'unchanged'}
+
+/*
+What is the expected output?
+					console.log(num);		//result: 10
+					console.log(obj1.item);		//result: {item:'changed'}
+					console.log(obj2);		//result: {item:'unchanged'}
+
+What would we expect if EVERYTHING was passed by value?
+					console.log(num);		//result: 10
+					console.log(obj1.item);		//result: {item:'unchanged'}
+					console.log(obj2);		//result: {item:'unchanged'}
+
+What would we expect if EVERYTHING was passed by reference? 
+(passing by reference really means the variables are the same physical reference to memory)
+
+					console.log(num);		//result: 100
+					console.log(obj1.item);		//result: {item:'changed'}
+					console.log(obj2);		//result: {item:'changed'}
+*/
 
 
 
