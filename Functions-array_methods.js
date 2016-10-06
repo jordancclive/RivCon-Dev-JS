@@ -86,8 +86,37 @@ arr.pop();
               console.log(myArray);     //result: [1,2,3,4,5]
               console.log(num);         //result: 6
 
-              //---------------              
+              //---------------
+              var toDoList = [];
+              
+              function rememberTo(task){
+                toDoList.push(task);
+              }
+              
+              function whatIsNext(){
+                return toDoList.shift();
+              }
 
+              function urgentToRemember (task){
+                toDoList.unshift(task);
+              }
+              
+              
+              rememberTo('haircut');
+              rememberTo('CT taxes');
+              rememberTo('study');
+              console.log(toDoList);                      //result: [ 'haircut', 'CT taxes', 'study' ]
+              
+              var nextToDo = whatIsNext();
+              console.log('Next item to do:',nextToDo);   //result: Next item to do: haircut
+              
+              urgentToRemember('update resume');
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes', 'study' ]
+              
+              console.log(toDoList.pop());                //result: study
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes' ]
+              
+              //---------------
 
 arr.push(value);
 
@@ -104,7 +133,75 @@ arr.push(value);
 
               //---------------
 
+              var toDoList = [];
+              
+              function rememberTo(task){
+                toDoList.push(task);
+              }
+              
+              function whatIsNext(){
+                return toDoList.shift();
+              }
+
+              function urgentToRemember (task){
+                toDoList.unshift(task);
+              }
+              
+              
+              rememberTo('haircut');
+              rememberTo('CT taxes');
+              rememberTo('study');
+              console.log(toDoList);                      //result: [ 'haircut', 'CT taxes', 'study' ]
+              
+              var nextToDo = whatIsNext();
+              console.log('Next item to do:',nextToDo);   //result: Next item to do: haircut
+              
+              urgentToRemember('update resume');
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes', 'study' ]
+              
+              console.log(toDoList.pop());                //result: study
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes' ]
+              
+              //---------------
+
 arr.reverse(from, to);
+
+arr.shift();
+            
+              //---------------
+              // remove things to the start of an array 
+
+              //---------------
+              var toDoList = [];
+              
+              function rememberTo(task){
+                toDoList.push(task);
+              }
+              
+              function whatIsNext(){
+                return toDoList.shift();
+              }
+
+              function urgentToRemember (task){
+                toDoList.unshift(task);
+              }
+              
+              
+              rememberTo('haircut');
+              rememberTo('CT taxes');
+              rememberTo('study');
+              console.log(toDoList);                      //result: [ 'haircut', 'CT taxes', 'study' ]
+              
+              var nextToDo = whatIsNext();
+              console.log('Next item to do:',nextToDo);   //result: Next item to do: haircut
+              
+              urgentToRemember('update resume');
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes', 'study' ]
+              
+              console.log(toDoList.pop());                //result: study
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes' ]
+              
+              //---------------
 
 arr.slice(from, to);
 
@@ -176,4 +273,39 @@ str.substr(start [, length])        (NOT AN ARRAY METHOD.  This is only for stri
 
               //---------------
 
+arr.unshift();
+            
+              //---------------
+              // add things to the start of an array 
 
+              //---------------
+              var toDoList = [];
+              
+              function rememberTo(task){
+                toDoList.push(task);
+              }
+              
+              function whatIsNext(){
+                return toDoList.shift();
+              }
+
+              function urgentToRemember (task){
+                toDoList.unshift(task);
+              }
+              
+              
+              rememberTo('haircut');
+              rememberTo('CT taxes');
+              rememberTo('study');
+              console.log(toDoList);                      //result: [ 'haircut', 'CT taxes', 'study' ]
+              
+              var nextToDo = whatIsNext();
+              console.log('Next item to do:',nextToDo);   //result: Next item to do: haircut
+              
+              urgentToRemember('update resume');
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes', 'study' ]
+              
+              console.log(toDoList.pop());                //result: study
+              console.log(toDoList);                      //result: [ 'update resume', 'CT taxes' ]
+              
+              //---------------
