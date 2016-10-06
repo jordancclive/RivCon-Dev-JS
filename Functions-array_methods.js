@@ -29,6 +29,18 @@ arr.concat(array);
 
               //---------------
 
+              function myRecursiveFlatten(arrIn){
+                let newArr = [];
+                for (let i=0; i<arrIn.length; i++){
+                  if(!Array.isArray(arrIn[i])) newArr.push(arrIn[i]);
+                  else newArr = newArr.concat(myRecursiveFlatten(arrIn[i]));
+                }						                            // remember .concat() doesn't change the original arrays
+                                                        //  You need to assign the result to a new variable.
+                return newArr;
+              }	
+
+              //---------------
+
 arr.indexOf(value);           
 
 arr.join(delimiter);
