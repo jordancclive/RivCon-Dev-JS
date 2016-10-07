@@ -57,10 +57,7 @@ and returns an array of all the students present for class on that weekday   */
     				{"Tuesday" : true},
     				{"Wednesday" : true},
     				{"Thursday" : false},
-    				{"Friday" : false}
-    			]
-    	},
-    ];
+    				{"
     
     
     	var attendance = [];
@@ -84,48 +81,57 @@ and returns an array of all the students present for class on that weekday   */
     classCheck('Monday')
 
 //--------------------------------------------------------------------------
+    
+// This code was done after I left the course.....
+    
+/*
+	ATTENDENCE CHECK
+	
+	Create a function that takes a weekday String as an argument. It then iterates over the classRoom array and returns an array of all the students present for class on that weekday
+*/
+
+function aCheck(str){
+	let namesStudent = [];
+	
+	//get student names 
+	for(let i=0; i<classRoom.length; i++){
+		let obj = classRoom[i];
+		let name = (Object.keys(obj)).join('');
+		let inClassArr = obj[name];
+		
+		//Check students object for a value of true.
+		for(let j=0; j<inClassArr.length; j++){
+			let inClass = inClassArr[j];
+			if(inClass[str] === true) namesStudent.push(name);
+		}
+	}
+	return namesStudent;
+}
+
+aCheck("Friday");
+
+/*
+task:
+
+	str = weekday
+	
+	return	An array of students present for class that weekday. 
+
+Steps:
+
+	get keys from the first object  =  Student names.
+	
+	check to see if the next objects key  (student nm obj) has a value of true.
+	
+	If yes, then push the name into a reuslt array.
+*/ 
+
+//---------------------------------------------------------------------------
+
+//  This code was developed when I started the class.........
+
 // My code is not as elegant, but does the job.
 //  I needed to see what i was doing in more detail than the instructor
-
-
-        var classRoom = [
-        	{
-        		"Marnie" : [
-        				{"Monday" : true},
-        				{"Tuesday" : true},
-        				{"Wednesday" : true},
-        				{"Thursday" : true},
-        				{"Friday" : true}
-        			]
-        	},
-        	{
-        		"Lena" : [
-        				{"Monday" : false},
-        				{"Tuesday" : false},
-        				{"Wednesday" : true},
-        				{"Thursday" : false},
-        				{"Friday" : true}
-        			]
-        	},
-        	{
-        		"Shoshanna" : [
-        				{"Monday" : true},
-        				{"Tuesday" : true},
-        				{"Wednesday" : false},
-        				{"Thursday" : true},
-        				{"Friday" : false}
-        			]
-        	},
-        	{
-        		"Jessa" : [
-        				{"Monday" : false},
-        				{"Tuesday" : false},
-        				{"Wednesday" : false},
-        				{"Thursday" : false},
-        				{"Friday" : true}
-        			]
-        	}
-        ];
         
         //My code:
         
