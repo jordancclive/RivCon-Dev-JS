@@ -16,27 +16,27 @@
                             
                             // sort the arrays.
                             arr1.sort(function(curr, next){
-								return curr - next;
-							});
-							arr2.sort(function(curr, next){
-							 	return curr - next;
-							});
-							
-							//remove duplicates (arr1)
-							let newTempArr= [];
-							for(let i=0; i<arr1.length; i++){
-								if(i === arr1.length-1) newTempArr.push(arr1[i]);
-								else if(arr1[i] !== arr1[i+1]) newTempArr.push(arr1[i]);
-							}
-							arr1=newTempArr;
-							newTempArr = [];
-						
-							//remove duplicates (arr2)
-							for(let i=0; i<arr2.length; i++){
-								if(i === arr2.length-1) newTempArr.push(arr2[i]);
-								else if(arr2[i] !== arr2[i+1]) newTempArr.push(arr2[i]);
-							}
-							arr2=newTempArr;
+					return curr - next;
+			    });
+		  	    arr2.sort(function(curr, next){
+					return curr - next;
+			    });
+
+			    //remove duplicates (arr1)
+			    let newTempArr= [];
+		            for(let i=0; i<arr1.length; i++){
+			    if(i === arr1.length-1) newTempArr.push(arr1[i]);
+			    else if(arr1[i] !== arr1[i+1]) newTempArr.push(arr1[i]);
+			    }
+			    arr1=newTempArr;
+			    newTempArr = [];
+
+			    //remove duplicates (arr2)
+		            for(let i=0; i<arr2.length; i++){
+			    if(i === arr2.length-1) newTempArr.push(arr2[i]);
+			    else if(arr2[i] !== arr2[i+1]) newTempArr.push(arr2[i]);
+			    }
+			    arr2=newTempArr;
 							 
                             console.log('arr1', arr1);
                             console.log('arr2', arr2);
