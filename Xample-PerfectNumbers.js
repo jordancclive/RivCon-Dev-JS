@@ -26,6 +26,8 @@
     	findPerfect(16) --> "Deficient"
 */
 
+// my solution:
+
 function findPerfect(n) {
 	let limit = (n/2)+1, resultValue = '';
 	let divisors = [1];
@@ -94,3 +96,26 @@ function PrimeValues(value) {
 findPerfect(6);		// --> "Perfect"
 findPerfect(20);	// --> "Abundant"
 findPerfect(16);	// --> "Deficient"
+
+
+// Instructors solution:
+
+// I did not want to do it this way.
+
+function findPerfect(n) {
+	var sumOfDivisors = 0;
+	
+	for (var i = 1; i < n; i++) {
+		if (n % i === 0) {
+			sumOfDivisors += i;
+		}
+	}
+	
+	if (sumOfDivisors === n) {
+		return "Perfect"
+	} else if (sumOfDivisors < n) {
+		return "Deficient"
+	} else {
+		return "Abundant"
+	}
+}
