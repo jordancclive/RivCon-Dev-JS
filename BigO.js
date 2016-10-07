@@ -11,9 +11,9 @@
                   forEach, map, reduce, filter, indexOf()
                   searching algorithms.
                   
-     O(N squared) = execution time will grow quadratically relative to the size of the input.
+     O(N^2) = (N squared) execution time will grow quadratically relative to the size of the input.
     
-                  nested loops are an example of this.
+                  nested loops are an example of this. sorting algorithms.
     
 
 
