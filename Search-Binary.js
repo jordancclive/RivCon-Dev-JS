@@ -20,8 +20,7 @@ function binarySearch(sortedArr, elem){
 			}
 			console.log('lowIndex:', lowIndex, 'midIndex', midIndex,'highIndex:',highIndex);
 			if (lowIndex===highIndex)keepGoing=false;
-			limiter-=1;
-		}while (keepGoing && limiter);
+			}while (keepGoing);
 		return false;
 }
 binarySearch(sortedArr, 0)
