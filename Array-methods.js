@@ -43,8 +43,7 @@ arr.concat(array);
 
 arr.indexOf(value);           
 
-arr.join(delimiter);
-arr.split(delimiter);
+arr.join(delimiter);    arr.split(delimiter);
 
               //---------------
               
@@ -188,7 +187,16 @@ arr.push(value);
               
               //---------------
 
-arr.reverse(from, to);
+arr.reverse();
+
+              //---------------
+              // Inverts the order of an array
+
+              var resultRange = [5,4,3];
+              resultRange.reverse();        //result: [3,4,5]
+              
+
+              //---------------
 
 arr.shift();
             
