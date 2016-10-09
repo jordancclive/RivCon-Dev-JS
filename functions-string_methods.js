@@ -2,7 +2,8 @@
 
     str.concat(str);
     
-    str.charAt(num)
+    str.charAt(num);
+                        "stringvariable".charAt(2) // result: 'r'
     
     str.indexOf(value);
     
