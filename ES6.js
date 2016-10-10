@@ -115,10 +115,35 @@ New String Methods:
 
         //---------
 
+/*------------------------------
 
+New Number Methods:
+*/
+        Number.isInteger(n);    //This is a class (static) method.
 
+                                // If you wanted to write this function yourself:
+                                function isInt(n){
+                                  //first make sure the argument is a Number
+                                  if (typeof n !== 'number'){
+                                    console.log('Enter a number');
+                                    return false;
+                                  }
+                                  // the calculation
+                                  //let temp = Math.floor(n);
+                                  //return (n === temp) ? true : false;
+                                  
+                                  // You could have also done this:
+                                  return (n % 1) ? false : true;
+                                  
+                                }
+                                isInt(25);		// returns: true
+                                isInt(25.5);		// returns: false
 
+                                //---------
 
+/*------------------------------
+
+Arrow Functions:
 
 
 
