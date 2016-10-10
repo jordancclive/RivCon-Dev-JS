@@ -267,6 +267,8 @@ An example:
     //result:  [ { name: 'corey', age: 24 },{ name: 'doug', age: 30 },{ name: 'mom', age: 70 },{ name: 'dad', age: 77 } ]
 
 
+//---------------------------------
 
+// ES6 updates:
 
 
