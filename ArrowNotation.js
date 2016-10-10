@@ -1,3 +1,4 @@
+/*
 Arrow Functions:
 
       We can replace anonymous functions with an arrow symbol (AKA: arrow function).  '=>'
