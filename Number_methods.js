@@ -7,3 +7,6 @@
         
         num.toFixed(num);
 
+
+
+   Number.isInteger(n);    //This is a class (static) method.
