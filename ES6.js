@@ -145,7 +145,22 @@ New Number Methods:
 
 Arrow Functions:
 
-
+      We can replace anonymous functions with an arrow symbol (AKA: arrow function).  '=>'
+        
+        - Parameters go on the left of the arrow.
+        - The workings of the function go on the right of the arrow.
+        
+        - If the workings stay on one line then no return is needed.
+        - If you use brackets, then you must use a return.
+        
+        //---------
+        
+        // example:
+        
+        
+        
+        
+      
 
 
 
