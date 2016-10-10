@@ -7,6 +7,7 @@
         
         num.toFixed(num);
 
-
-
-   Number.isInteger(n);    //This is a class (static) method.
+//------------------------------
+// ES6 new number methods:
+            
+                Number.isInteger(n);    //This is a class (static) method.
