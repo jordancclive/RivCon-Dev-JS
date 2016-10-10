@@ -155,11 +155,34 @@ Arrow Functions:
         
         //---------
         
-        // example:
+/*-------------------------------
+
+example:
+*/
+        let arr = [1,2,3,4];
         
+            //This is the usual way to do a .map call back:
+            let mappedArr = arr.map(function(elem){
+            return elem+1;
+            });
+            console.log(mappedArr);		//result: [ 2, 3, 4, 5 ]
+	
+            //This is the arrow function way:
+            let mappedArr = arr.map(elem => elem+1);
+            console.log(mappedArr);		//result: [ 2, 3, 4, 5 ]
+            
+            //reduce:
+            let reduceArr = arr.reduce((prev,next)=>prev+next);
+            console.log(reduceArr);   //result: 10
+
+            //If you have to go more than one line:
+            reduceArr = arr.reduce((prev,next) => {
+                  return prev+next});
+            console.log(reduceArr);   //result: 10
         
+            //---------
         
-        
+//------------------------------------
       
 
 
