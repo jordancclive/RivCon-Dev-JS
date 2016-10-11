@@ -57,7 +57,10 @@ and returns an array of all the students present for class on that weekday   */
     				{"Tuesday" : true},
     				{"Wednesday" : true},
     				{"Thursday" : false},
-    				{"
+    				{"Friday" : true}
+			]
+	}
+	];
     
     
     	var attendance = [];
