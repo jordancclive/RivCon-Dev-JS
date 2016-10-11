@@ -186,5 +186,5 @@ Steps:
         console.log("The student's here on " + day + " are as follows:");
         console.log(attendence(classRoom, day));
         console.log('\n');
-        ""
 
+//--------------------------------------------
