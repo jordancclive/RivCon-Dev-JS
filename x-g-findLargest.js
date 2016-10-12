@@ -43,8 +43,3 @@ function largestSum(arr){
 	return result;
 }
 largestSum(arr);
-
-
-//The instructor did this becasue he wanted to illustrate nested callbacks:
-
-
