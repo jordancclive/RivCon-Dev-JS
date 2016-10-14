@@ -27,3 +27,14 @@ var frequencyAnalysis = function(str) {
 }
 let testStr = 'abca';
 frequencyAnalysis(testStr);
+
+//-----------------------------------
+
+// ALTERNATIVE SOLUTION 
+var frequencyAnalysis = function(str) {
+	let frequency = {};
+	for(let i=0; i<str.length; i++) {
+		frequency[str[i]] = frequency[str[i]]+1/str.length || 1/str.length; 
+	}
+	return frequency; 
+}
