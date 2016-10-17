@@ -70,3 +70,52 @@ Let's do it:
                                                 get __proto__: function __proto__()
                                                 set __proto        __: function __proto__()
 //-------------------------------------------------------------------------------
+
+
+/*
+1. What does `this` refer to in the Polygon constructor function? e.g. this.name
+			Answer:	refers to the empty object.
+2. For each of the created shapes, what does `this` refer to?
+			Answer	refers to the specific instance of the object. 
+			
+			Things to remember about `this` and constructor functions:
+			
+				- The `this` keyword in an object constructor does not have a value. 
+				  It is only a substitute for the new object.
+				  
+				- The value of `this` will become the new object when 
+				  the constructor is used to create an object.
+				  
+				- Remember: `this` is not a variable. It is a keyword. 
+				  You cannot change the value of this. The value of `this` changes 
+				  depending on how functions are invoked (global vs. function context)
+3. What does the `new` keyword do?
+			The 'new'keyword does 4 things:
+			1. It invokes the constructor function.
+			2. creates an empty object.
+			3. sets 'this' to the new empty object.
+			4. returns the new object: creating an object and assigning to it the name you gave it.
+			
+4. Why do you use the `new` keyword with constructor functions?
+			'new' invokes the constructor function.
+	
+			Objects created with `new` and constructor functions inherit the constructor function's prototype 
+			(the properties in the constructor function and any properties/methods defined on the 
+			constructor's prototype, like the following).                                                                    
+*/			
+			
+            function Polygon(sides, color, name) {
+                        this.sides = sides;
+                        this.color = color;
+                        this.name = name;
+            }
+            Polygon.prototype.getInfo = function() {
+		return "I am a " + this.color + " " + this.name + " with " + this.sides + " sides."
+            }
+            
+            var triangle = new Polygon(3, "red", "triangle");
+            var rectangle = new Polygon(4, "blue", "rectangle");
+            var hexagon = new Polygon(6, "green", "hexagon");
+
+            console.log(triangle.getInfo()); //I am a red triangle with 3 sides.
+//----------------------------------
