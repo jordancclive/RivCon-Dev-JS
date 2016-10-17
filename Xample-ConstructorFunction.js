@@ -15,9 +15,14 @@ Questions to think about/answer:
 3. What does the `new` keyword do?
 
 			The 'new'keyword does 4 things:
-			1. 
+			1. It invokes the constructor function.
+			2. creates an empty object.
+			3. sets 'this' to the empty object.
+			4. returns the new object: creating an object and assigning to it the name you gave it.
 
 4. Why do you use the `new` keyword with constructor functions?
+
+			'new' invokes the constructor function.
 
 */
 
