@@ -1,3 +1,4 @@
+/*
 Constructor Function:
             
                         When used with the "new" keyword, constructor functions create objects.
