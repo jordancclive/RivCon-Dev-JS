@@ -33,6 +33,34 @@
         	return result;
         }
 
+	// alternative solution to pop:
+
+ 	function pop(arr) {
+        	result = arr[arr.length-1];
+        	arr.length --;
+        	console.log('array result: ', arr);
+        	return result;
+	}
+
+	// another alternative
+
+			function pop(arr) {
+			let result = arr.splice(arr.length-1,1);
+			console.log('array result: ', arr);
+			return result;
+			}
+
+			// testing results:
+			var arr = [8,2,3,4];
+			console.log('passing the following: ', arr);
+			console.log('pop function result:', pop([8,2,3,4]));
+
+			/*passing the following:  [ 8, 2, 3, 4 ]
+			array result:  [ 8, 2, 3 ]	
+			pop function result: [ 4 ]
+			*/
+
+
         // testing results:
         var arr = [1,2,3,4];
         console.log('passing the following: ', arr);
