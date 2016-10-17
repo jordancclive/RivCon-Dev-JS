@@ -25,6 +25,7 @@
  			The elements are swapped depending on asc or desc.
  */
 
+// my results:
 
 function bubble(arr, ascDesc){
 	let temp = 0;
@@ -57,3 +58,83 @@ console.log(bubble([2,1,0,5], 'DESC')); 		//==> [5,2,1,0]
 console.log(bubble([2,1,0,5], 'ASC')); 			//==> [0,1,2,5]
 console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'ASC'));
 console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'DESC'));
+
+
+//-------------------------------------------------------
+
+// instructor results: (instructor created a function call to avoid repeating code...
+
+/*
+	BUBBLE SORT
+	
+	The Bubblesort Algorithm is one of many algorithms used to sort a list of similar items (e.g. all numbers or all letters) into either ascending order or descending order. Given a list (e.g.):
+
+	[1,2,3,4,5,6,7,8,9]
+	To sort this list in ascending order using Bubblesort, you first have to compare the first two terms of the list. If the first term is larger than the second term, you perform a swap. The list then becomes:
+	
+	[9,7,5,3,1,2,4,6,8] // The "9" and "7" have been swapped because 9 is larger than 7 and thus 9 should be after 7
+	
+	You then proceed by comparing the 2nd and 3rd terms, performing a swap when necessary, and then the 3rd and 4th term, then the 4th and 5th term, etc. etc. When you reach the end of the list, it is said that you have completed 1 complete pass.
+	
+	Create your own version of the Bubblesort algorithm that takes 2 inputs: an array of unsorted integers and a string "ASC" or "DESC". For "ASC", sort the array in ascending order, and descending order for DESC
+	
+	ex) 
+		bubble([2,1,0,5], 'DESC') ==> [5,2,1,0]
+		bubble([2,1,0,5], 'ASC') ==> [0,1,2,5]
+
+*/
+
+function bubble(list, order) {
+	
+	var i;
+	var current, next;
+	var wasASwap = true;
+	
+	//---------------
+	var shouldSwap;			//This is a variable that will become a function
+	
+	//The following if statement creates the proper function for that run of bubble....
+	
+	if (order === 'ASC') {			//if ASC, then create variable with this function
+		shouldSwap = function (a, b) {
+			return a > b;		//returning a boolean value telling you whether to swap or not.
+		};
+	} else if (order === 'DESC') {		//if DESC, then create variable with this function
+		shouldSwap = function (a, b) {
+			return a < b;		//returning a boolean value telling you whether to swap or not.
+		};
+	}
+	//---------------
+	
+	while (wasASwap === true) {
+		
+		wasASwap = false;
+		
+		for (i = 0; i < list.length - 1; i++) {
+ 		
+	 		current = list[i];
+	 		next = list[i + 1];
+	 		
+	 		if (shouldSwap(current, next)) {
+	 			list[i] = next;
+	 			list[i + 1] = current;
+	 			wasASwap = true;
+	 		}
+	 		
+ 		}
+		
+	}
+	
+	return list;
+	
+}
+
+console.log(bubble([2,1,0,5], 'DESC'));
+console.log(bubble([2,1,0,5], 'ASC'));
+console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'ASC'));
+console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'DESC'));
+
+
+
+
+
