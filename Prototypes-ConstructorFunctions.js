@@ -6,7 +6,7 @@ Let's do it:
 */
             function Person (name, age){                    //<---- The caps let's people know it is a constructor function
                         this.name = name;
-                        this.age = age;                     //<--- you do ot have to use "return"
+                        this.age = age;                     //<--- you do not have to use "return"
             }
             
             let person1 = new Person('doug', 30);
