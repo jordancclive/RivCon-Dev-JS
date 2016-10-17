@@ -10,21 +10,42 @@ Questions to think about/answer:
 
 2. For each of the created shapes, what does `this` refer to?
 
-			Answer	refors to the specific instance of the object. 
+			Answer	refers to the specific instance of the object. 
+			
+			Things to remember about `this` and constructor functions:
+			
+				- The `this` keyword in an object constructor does not have a value. 
+				  It is only a substitute for the new object.
+				  
+				- The value of `this` will become the new object when 
+				  the constructor is used to create an object.
+				  
+				- Remember: `this` is not a variable. It is a keyword. 
+				  You cannot change the value of this. The value of `this` changes 
+				  depending on how functions are invoked (global vs. function context)
+
 
 3. What does the `new` keyword do?
 
 			The 'new'keyword does 4 things:
 			1. It invokes the constructor function.
 			2. creates an empty object.
-			3. sets 'this' to the empty object.
+			3. sets 'this' to the new empty object.
 			4. returns the new object: creating an object and assigning to it the name you gave it.
+			
 
 4. Why do you use the `new` keyword with constructor functions?
 
 			'new' invokes the constructor function.
-
-*/
+	
+			Objects created with `new` and constructor functions inherit the constructor function's prototype 
+			(the properties in the constructor function and any properties/methods defined on the 
+			constructor's prototype, like the following).
+*/			
+			Polygon.prototype.getInfo = function() {
+				return "I am a " + this.color + " " + this.name + " with " + this.sides + " sides."
+			}
+//----------------------------------
 
 //create the constructor:
 function Polygon(name, sides, color ){
