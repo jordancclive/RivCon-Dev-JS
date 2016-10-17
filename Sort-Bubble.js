@@ -29,25 +29,31 @@
 function bubble(arr, ascDesc){
 	let temp = 0;
 	for(let i=0; i<arr.length-1; i++){
+		let swapped = false;
 		for(let j=0; j<arr.length-1; j++){
 			if (ascDesc === 'ASC'){
 				if (arr[j]> arr[j+1]) {
 					temp = arr[j];
 					arr[j] = arr[j+1];
 					arr[j+1]=temp;
+					swapped = true;
 				}
 			}else{
 				if (arr[j]< arr[j+1]) {
 					temp = arr[j];
 					arr[j] = arr[j+1];
-					arr[j+1]=temp;	
+					arr[j+1]=temp;
+					swapped = true;
 				}
 			}
 		}
+		if (!swapped) return arr; 
 	}
 	return arr;
 }
 
 //tests:
-console.log(bubble([2,1,0,5], 'DESC')); 			//==> [5,2,1,0]
+console.log(bubble([2,1,0,5], 'DESC')); 		//==> [5,2,1,0]
 console.log(bubble([2,1,0,5], 'ASC')); 			//==> [0,1,2,5]
+console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'ASC'));
+console.log(bubble([5, 6, 1, 2, 3, 5, 2, 3], 'DESC'));
