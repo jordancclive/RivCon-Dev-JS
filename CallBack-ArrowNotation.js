@@ -14,7 +14,7 @@ Arrow Functions:
 /*-------------------------------
 
 example:
-*/
+
           .forEach()
           
           let arr = [1,2,3,4];
@@ -24,7 +24,7 @@ example:
           	return sum;
           }
           console.log(sumArray(arr));          
-
+*/
           //------------
 
           .filter()
@@ -55,12 +55,12 @@ example:
 
           .reduce()
 
-          let reduceArr = arr.reduce((prev,next)=>prev+next);
+          let reduceArr = arr.reduce((prev,curr) => prev+curr);		//prev start out at zero
           console.log(reduceArr);   //result: 10
 
           //If you have to go more than one line:
-          reduceArr = arr.reduce((prev,next) => {
-                return prev+next});
+          reduceArr = arr.reduce((prev,curr) => {
+                return prev+curr});
           console.log(reduceArr);   //result: 10
         
           //------------           
