@@ -1,5 +1,14 @@
-# JavaScript
-testing new concepts here...        ...This is a teaching repository for JavaScript. 
+# JavaScript        
+
+...This is a teaching repository for JavaScript. 
+           
+Some Conventions (file names):
+
+            CodeWars prefix:        Associates with using codewars.com
+            InterviewPrep prefix:   Interviewing techniques
+            Project prefix:         Projects done
+            (topicName) prefix:     Describes included content  
+            Xamples prefix:         Problems done that illustrate certain techniques.
 
 Quick notes: 
 
@@ -11,10 +20,4 @@ utilize the ES2015 ES6 compiler when it runs your code.
 
 Deep inspection of something:   console.dir(x)  
             ---> x = an object like an array you declared in your code.  see:  prototypes-OOP.js  around line 100+.
-            
-Some Conventions (file names):
-
-            CodeWars prefix:        Associates with using codewars.com
-            InterviewPrep prefix:   Interviewing techniques
-            Project prefix:         Projects done
-            Xamples prefix:         Problems done that illustrate certain techniques.
+ 
