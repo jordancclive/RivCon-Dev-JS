@@ -1,7 +1,8 @@
 /*
 	PERFECT NUMBERS
 	
-	A 'Perfect' number is a number whose sum of their divisors equals exactly that number. The divisors do not include the number itself
+	A 'Perfect' number is a number whose sum of their divisors equals exactly that number. 
+	The divisors do not include the number itself
 	
     ex) 
     	6 is perfect because 1 + 2 + 3 === 6
@@ -18,7 +19,8 @@
     	16 is deficiant because 1 + 2 + 4 + 8 === 15 and 15 < 16
     	
     	
-    Create a function findPerfect() that takes a number as input and returns "Perfect" if the number is perfect, "Abundance" if it is abundant and "Deficient" if it is deficient
+    Create a function findPerfect() that takes a number as input and returns 
+    "Perfect" if the number is perfect, "Abundance" if it is abundant and "Deficient" if it is deficient
     
     ex)
     	findPerfect(6) --> "Perfect"
