@@ -1,9 +1,10 @@
-unction likes(names) {
+function likes(names) {
   // TODO
   if (!names.length) return 'no one likes this';
   let resultStr = '', counter=0;
   
-  /* Process:
+  /*
+  Process:
       When the the first person (index 0) is read:
          - add the name.                          (I)(Done)
          - if the only person, add ' likes this' after name.   (A)(Done)
