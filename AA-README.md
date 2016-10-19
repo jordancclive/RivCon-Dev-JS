@@ -18,6 +18,4 @@ Why is JavaScript a high order language?
 put ----> 'use strict';  <---- in your code (at the beginning) and any JavaScript compiler will 
 utilize the ES2015 ES6 compiler when it runs your code.
 
-Deep inspection of something:   console.dir(x)  
-            ---> x = an object like an array you declared in your code.  see:  prototypes-OOP.js  around line 100+.
- 
+Deep inspection of something:   console.dir(x) 
