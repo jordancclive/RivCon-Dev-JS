@@ -66,7 +66,6 @@ function sortObjData(criteria1, criteria1Order, criteria2, criteria2Order){
 			sortVal1.push(recordObj[criteria1]);
 		}
 	}
-	
 	// sort the sortVal1 array
 	bubble(sortVal1,criteria1Order);
 	
@@ -157,3 +156,9 @@ reportData('Gender', 'ASC', 'LastName', 'ASC');
 reportData('DateOfBirth', 'ASC', 'LastName', 'ASC');
 reportData('LastName', 'DESC','NONE' , 'NONE');
 '';
+
+
+//-----------------------------------------------------------
+//Still need to standardize dates in yr/mo/day format
+//yr=4 digits; mo & day = 2 digits.
+//sort as a string.
