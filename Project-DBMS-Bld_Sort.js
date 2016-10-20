@@ -1,3 +1,4 @@
+
 /*
 Develop a dataset and report data from the DBMS.
 */
@@ -36,6 +37,10 @@ function inputData(str, format, delim){
 			if (arrStr[indexInput]==='M') person[format[indexFormat]]= 'Male';
 			else if(arrStr[indexInput]==='F') person[format[indexFormat]]= 'Female';
 			else person[format[indexFormat]]= arrStr[indexInput];
+		}else if(format[indexFormat]==='DateOfBirth'){
+			//1st need to split this field into parts....
+			
+			
 		}else person[format[indexFormat]]= arrStr[indexInput];
 		
 		//increment indexes and loop.
