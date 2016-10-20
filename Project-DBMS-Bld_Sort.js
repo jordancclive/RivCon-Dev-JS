@@ -50,10 +50,10 @@ function inputData(str, format, delim){
 }
 
 //-------------------------------------------------------
-function sortObjData(criteria1, criteria1Order, criteria12, criteria12Order){
+function sortObjData(criteria1, criteria1Order, criteria2, criteria2Order){
 	// Use criteria1 to create (n) array lists (containing indexes)
 	// within a sortCriteria1 array
-	let sortVal1=[], tempArr=[], resultArr=[];
+	let sortVal1=[], resultArr=[];
 	
 	// create the entries
 	let recordObj = {};
@@ -68,18 +68,36 @@ function sortObjData(criteria1, criteria1Order, criteria12, criteria12Order){
 	}
 	
 	// sort the sortVal1 array
-	bubble(sortVal1,'ASC')
+	bubble(sortVal1,criteria1Order);
 	
-	
-	
-	//...................work to do here
-	console.log('sortVal1',sortVal1);
+	// outer loop is criteria1/sorted
+	//inner loop gets the criteria2 data so we can sort it within the loop
+	//Also in this inner loop we need to create resultArr 
+	let tempArr=[], tempObj=[], indexCounter=0, resultIndex, firstPass = true;
 	for(let i=0; i<sortVal1.length; i++){
 		
+		for(let j=0; j<people.length; j++){
+			// identify criteria 1 data, then capture in tempArr criteria2 data.
+			recordObj = people[j];
+			if (recordObj[criteria1] === sortVal1[i]){
+				tempArr.push(recordObj[criteria2]);
+				tempObj.push(recordObj);
+			}
+			//sort criteria2 data
+			bubble(tempArr,criteria2Order);
+		}
+		//using tempArr, get the sorted objects into resultArr
+		for(let ii=0; ii<tempObj.length; ii++){
+			if (firstPass) indexCounter=ii;
+			resultIndex = tempArr.indexOf(tempObj[ii][criteria2]);
+			(firstPass) ? resultArr[resultIndex]= tempObj[ii] : resultArr[resultIndex+indexCounter]= tempObj[ii];
+		}
+		//empty temp-variables to run thru next criteria
+		indexCounter++;
+		firstPass=false;
+		tempArr=[];
+		tempObj=[];
 	}
-	
-	
-	
 	//-------------------------------------------------------
 	//...Done...return sorted array:
 	return resultArr;
@@ -88,8 +106,8 @@ function sortObjData(criteria1, criteria1Order, criteria12, criteria12Order){
 
 //-----------------------------------------------------------
 function reportData(criteria1, criteria1Order, criteria12, criteria12Order){
-	sortObjData(criteria1, criteria1Order, criteria12, criteria12Order);
-	
+	let resultArr = sortObjData(criteria1, criteria1Order, criteria12, criteria12Order);
+	console.log('resultArr',resultArr,'\n','\n');
 	//output standard report once the information is sorted
 	
 	
@@ -135,10 +153,7 @@ inputData(str3, spaceFormat,'space');
 //tested....works great  people (array) contains objects
 //						 person = object describing a person.
 //-----------------------------------------------------------
-//look at the people object and see what we see................delete this when done
-console.log('1 record from people:', '\n',people[0], '\n');
-//-----------------------------------------------------------
-
 reportData('Gender', 'ASC', 'LastName', 'ASC');
-
+reportData('DateOfBirth', 'ASC', 'LastName', 'ASC');
+reportData('LastName', 'DESC','NONE' , 'NONE');
 '';
