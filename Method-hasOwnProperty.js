@@ -34,7 +34,7 @@
 
 		console.log('someThing' in obj)  		// returns true
 		console.log(obj.hasOwnProperty('someThing'))	// returns false
-	
+/*	
 	name
 	age				//This result was using .hasOwnProperty
 					so you are seeing only properties on the immediate object   (***A***)
