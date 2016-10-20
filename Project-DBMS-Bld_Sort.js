@@ -41,6 +41,9 @@ function inputData(str, format, delim){
 			//1st need to split this field into parts....
 			
 			
+			//Will be standardizing this field's data next.
+			
+			
 		}else person[format[indexFormat]]= arrStr[indexInput];
 		
 		//increment indexes and loop.
