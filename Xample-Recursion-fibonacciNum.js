@@ -10,6 +10,24 @@
 		
 */
 
+//my result:
+
+var fib = function(n) {
+	return (n<2) ? n : fib(n-1)+fib(n-2);
+}
+
+console.log(fib(0));	//returns:	0
+console.log(fib(1));	//returns:	1
+console.log(fib(2));	//returns:	1 
+console.log(fib(3));	//returns:	3
+console.log(fib(6));	//returns:	8 
+console.log(fib(9));	//returns:	34
+console.log(fib(10));	//returns:	55
+
+
+
+//---------------------------------
+
 //cumbersonme result.......
 
 arr = [1,1]
