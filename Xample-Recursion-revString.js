@@ -32,7 +32,7 @@ function revStr1 (str){
 		return tempVar;
 	}
 } 
-console.log(revStr1('Vincent Rios'));
+console.log(revStr('ReverseTheString'));
 
 //--------------------------------------------
 
@@ -44,4 +44,17 @@ function revStr (str){
 		return str[str.length-1] + revStr (str.slice(0,str.length-1));
 	}
 } 
-console.log(revStr('Vincent Rios'));
+console.log(revStr('ReverseTheString'));
+
+
+
+// my answer after some time in the future:
+
+function revStr(str, len){
+		len = (!len) ? str.length : len-1; 
+		return (len === 1) ?  str[0] : str[len-1] + revStr(str,len);
+}
+
+revStr('ReverseTheString')
+
+
