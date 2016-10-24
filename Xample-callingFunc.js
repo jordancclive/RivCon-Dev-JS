@@ -77,29 +77,6 @@
 	console.log('Input: [1,2,3]','addTwoToo: ', myMap([1,2,3], addTwoToo));
 	console.log('myFlatten: ' , myFlatten(myArr));
 
-/*
-			
-		These can both be done iteratively (using a loop). But, what if our input had many nested elements?? 
-		
-		ex 	myMap([1,2,3,[4,5,[6]]], addTwo) ===> ???
-		
-		Our iterative functions can't do this!! But we can do it using recursion!
-			
-		myRecursiveMap([1,2,3,[4,5,[6]]], addTwo) ===> [3, 4, 5,[6,7,[8]]]
-		
-		Similarly, myFlatten can only take a single dimensional array. If we want to also flatten out the nested elements, we will need to use recursion.
-		
-		ex var myArr = [[1,2,['z',['8']]],['a','b','c',['hello']], [{name : 'Sally Bowls'}, {name : 'Alex Hamilton'}]]
-		myFlatten(myArr)  ==> [1,2,'z','8',a','b','c','hello',{name : 'Sally Bowls'}, {name : 'Alex Hamilton'}]
-*/
-
-	function myRecursiveMap() {
-		
-	};
-	
-	function myRecursiveFlatten() {
-		
-	};
 
 
 	
