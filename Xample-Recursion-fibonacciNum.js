@@ -9,6 +9,9 @@
 		1, 1, 2, 3, 5, 8, 13, 21, 34, 55....
 		
 */
+
+//cumbersonme result.......
+
 arr = [1,1]
 var fib = function(n) {
 	debugger;
@@ -45,9 +48,14 @@ var fib = function(n) { //5
 	// if(n===1) return 1;
 	// if(n===0) return 0;
 	if(n <= 1) return n;
-	return fib(n-1) + fib(n-2);    //wow, I would have never thought of this one!!
+	return fib(n-1) + fib(n-2);    //simple solution
 	
 }
 
-console.log(fib(5));
-console.log(fib(9));
+fib(1); // 1
+fib(0); // 0
+console.log(fib(4));	//result:	3
+console.log(fib(5));	//result:	5
+console.log(fib(7));	//result:	13	
+console.log(fib(9));	//result:	34
+console.log(fib(11));	//result:	89
