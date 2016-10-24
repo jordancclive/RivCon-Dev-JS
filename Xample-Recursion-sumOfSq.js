@@ -11,3 +11,5 @@ function SumSquares(l){
     }
     return resultSumSq;
 }
+
+SumSquares([4,[2,3]])		//result:  (4*4)+(2*2)+(3*3)= 16+4+9= 29
