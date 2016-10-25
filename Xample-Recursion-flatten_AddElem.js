@@ -14,6 +14,12 @@ function flatten(arr){
     return resultArr;
 }
 
+function sumArray(arr){
+      return arr.reduce(function(prev, curr){     // This return is returning the callbacks result out of the function.
+        return prev + curr;                       // This return is the callback function returning its result to the function
+      }, 0);	
+}
+
 
 
 function multi_array_sum(arr) {
