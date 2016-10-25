@@ -23,17 +23,13 @@
 // CODE HERE
 
 	function whoLikes(people, food){
-		let resultArr = []
+		let resultArr = [];
 		
 		//go thru the array of people
 		for(let i=0; i<people.length; i++){
-			
-			//go through objects (key= person's name)
-			for(let k in people[i]){
-				
+				let person = people[i];
 				//if food value is true push into result array
-				if (people[i][k][food]) resultArr.push(people[i].name);
-			}
+				if (person.foodEnjoyed[food]) resultArr.push(people[i].name);
 		}
 		return resultArr;
 	}
