@@ -25,6 +25,8 @@ Possible results:
 	    		resultArray.unshift(i);
 	    		i--;
             	}else resultArray.unshift(i);
+		    
+		//do this for all iterations
             	i = Math.floor(i/2)+1;
             }
           
