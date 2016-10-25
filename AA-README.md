@@ -1,6 +1,6 @@
 # JavaScript        
 
-...This is a teaching repository for JavaScript. 
+...This is a teaching/reference repository for JavaScript. 
            
 Some Conventions (file names):
 
