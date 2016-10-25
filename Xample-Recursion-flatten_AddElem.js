@@ -15,21 +15,14 @@ function flatten(arr){
 }
 
 function sumArray(arr){
-      return arr.reduce(function(prev, curr){     // This return is returning the callbacks result out of the function.
-        return prev + curr;                       // This return is the callback function returning its result to the function
+      return arr.reduce(function(prev, curr){     
+        return prev + curr;                       
       }, 0);	
 }
 
-
-
 function multi_array_sum(arr) {
 	let resultArr = flatten(arr);
-    let sumIt=0;
-    for(let i=0;i<resultArr.length; i++){
-    	sumIt+=resultArr[i];
-    }
-
-	return sumIt;
+	return sumArray(resultArr);
 }
 
-multi_array_sum([1,[2,[3,4]],[5,6]]);
+multi_array_sum([1,[2,[3,4]],[5,6],[7,8,[3,4,5,[7]]]]);
