@@ -29,19 +29,13 @@ function timeBetween(str1, str2){
 	let arr1 = str1.split(':');
 	let arr2 = str2.split(':');
 	
-	//convert to a number
-	for(let i=0; i<arr1.length; i++){
-		arr1[i] = Number(arr1[i]);
-		arr2[i] = Number(arr2[i]);
-	}
-	
 	//convert to minutes
 	let min1 = 0, min2 = 0, diffTemp=0;
 	for(let i=0; i<arr1.length; i++){
-		min1 += (i===0) ? arr1[i]*60 : arr1[i];
-		min2 += (i===0) ? arr2[i]*60 : arr2[i];		
+		min1 += (i===0) ? Number(arr1[i])*60 : Number(arr1[i]);
+		min2 += (i===0) ? Number(arr2[i])*60 : Number(arr2[i]);	
 	}
-		
+
 	//get the difference	
 	diffTemp = (min2>min1) ? min2 - min1 : min1 - min2;
 	
