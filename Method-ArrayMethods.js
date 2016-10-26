@@ -274,14 +274,19 @@ array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
 
               //---------------
               /*
+              
               start
               Index at which to start changing the array (with origin 0). 
+              
               If greater than the length of the array, actual starting index 
               will be set to the length of the array. 
+              
               If negative, will begin that many elements from the end of the array.
+              
               
               deleteCount
               An integer indicating the number of old array elements to remove. 
+              
               If deleteCount is 0, no elements are removed. In this case, 
               you should specify at least one new element. 
               If deleteCount is greater than the number of elements left in the array starting at start, 
@@ -289,9 +294,12 @@ array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
               
               If deleteCount is omitted, deleteCount will be equal to (arr.length - start).
               
+              
               item1, item2, ...
               The elements to add to the array, beginning at the start index. 
               If you don't specify any elements, splice() will only remove elements from the array.
+              
+              
               Return value
 
               An array containing the deleted elements. 
