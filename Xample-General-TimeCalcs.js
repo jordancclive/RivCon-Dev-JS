@@ -41,3 +41,38 @@ console.log(humanReadable(5));				//result:	'00:00:05'
 console.log(humanReadable(60));				//result: 	'00:01:00'
 console.log(humanReadable(86399));			//result: 	'23:59:59'
 console.log(humanReadable(359999));			//result: 	'99:59:59'
+
+
+//==========================================
+
+//solutions that I would not have thought of:
+
+function humanReadable(seconds) {
+  var pad = function(x) { return (x < 10) ? "0"+x : x; }
+  return pad(parseInt(seconds / (60*60))) + ":" +
+         pad(parseInt(seconds / 60 % 60)) + ":" +
+         pad(seconds % 60)
+}
+
+//==========================================
+
+function humanReadable(seconds) {
+var hours = parseInt( seconds / 3600 ) ;
+var minutes = parseInt( seconds / 60 ) % 60;
+var seconds = seconds % 60;
+
+var pad = function(val){
+  return val < 10 ?"0"+val:val;
+}
+
+return pad(hours) + ":" +pad(minutes) + ":" + pad(seconds);
+}
+
+//==============================================
+
+function humanReadable(seconds) {
+  return [seconds / 3600, seconds % 3600 / 60, seconds % 60].map(function(v) {
+    v = Math.floor(v).toString();
+    return v.length == 1 ? '0' + v : v;
+  }).join(':');
+}
