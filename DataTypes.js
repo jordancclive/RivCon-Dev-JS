@@ -16,6 +16,8 @@ String:
 Numbers:
 
   Are numbers with all the same characteristics of numbers in the real world.  (You can perform operations on them).
+  
+  64 bits, 1 bit is +/-, a few store the decimal point.  Fractional digital numbers are approximate.
 
 Boolean:
 
@@ -36,8 +38,21 @@ Symbol:  New Data Type
 
   It is a primitive Data type.
 
+=================================
 
+Special Values:
 
+        Infinity, -Infinity
+        
+        NaN
+        
+=================================
+
+Precedence:
+
+        1. *, /, %(mod)
+        
+        2. +, -
 
 =================================
 
