@@ -27,6 +27,10 @@ cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, mil
 // must return 0
 cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
 
+//======================================
+
+// My solution:
+
 function cakes(recipe, ingredients){
 	let amount = Infinity, tempAmt=0;
 	
@@ -42,3 +46,20 @@ function cakes(recipe, ingredients){
 	}
 	return amount;
 }
+
+//=======================================
+
+// Other Cool solutions:
+
+//=======================================
+
+// a bit over my head:
+
+function cakes(recipe, available) {
+  return Object.keys(recipe).reduce(function(val, ingredient) {
+    return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)
+  }, Infinity)  
+}
+
+//=======================================
+
