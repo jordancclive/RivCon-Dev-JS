@@ -48,4 +48,4 @@ function compose(s1, s2){
 	return resultArr.join('\n');
 }
 
-compose(s1, s2);
+compose(s1, s2);	//result:	'a3456\nefyz1\nijkuv\nmnopq'
