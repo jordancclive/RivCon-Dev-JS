@@ -3,10 +3,16 @@
     str.concat(str);
     
     str.charAt(num);
-                        "stringvariable".charAt(2) // result: 'r'
+                        
+                                "stringvariable".charAt(2) // result: 'r'
     
     str.indexOf(value);
+
+    str.length  ...a property, does not have to be invoked with '()'
     
+                                let str = "MyNameIsAVeryLongString";
+                                str.length //result: 23
+                 
     str.split(delimiter);
     
     str.toLowerCase();
