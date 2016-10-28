@@ -197,8 +197,13 @@ An example:
       return elem+1;                        // Here .map does have a return value. ...and where you establish
     })                                      // the element actions.
 
-    console.log(newArr)   // result:  [2,3,4,5]
-
+    console.log('newArr: ',newArr);
+    console.log('arr: ',arr);
+    /*
+    result:
+	newArr:  [ 2, 3, 4, 5 ]		The return value within .map passes a new array result.
+	arr:  [ 1, 2, 3, 4 ]		The original array is not changed.
+    */
 
 //----------------------------------------------- 
 /*
