@@ -1,5 +1,5 @@
 /*
 
-Please look at Project-ComposingSqStr.js for Call Back ... map ... example.
+Please look at Project-SqStrCompose.js for Call Back ... map ... example.
 
 */
