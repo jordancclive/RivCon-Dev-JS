@@ -49,3 +49,15 @@ function compose(s1, s2){
 }
 
 compose(s1, s2);	//result:	'a3456\nefyz1\nijkuv\nmnopq'
+
+
+//other solutions, from others that I didn't think of:
+
+// with a call back function (map)   (very cool)
+
+function compose(s1, s2) {
+  let s2a = s2.split('\n');
+  return s1.split('\n').map((line, i) => 
+    line.slice(0, i + 1) + s2a[s2a.length - i - 1].slice(0, line.length - i)
+  ).join('\n');
+}
