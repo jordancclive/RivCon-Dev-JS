@@ -102,3 +102,29 @@ function horMirror(str) {
 function oper(fct, s) {
     return fct(s)
 }
+
+// more:
+
+const vertMirror = str => 
+{
+  return str.split('\n').map(v => [...v].reverse().join('')).join('\n');
+};
+
+const horMirror = strng => strng.split('\n').reverse().join('\n');
+
+const oper = (fct, s) => fct(s);
+
+
+//more:
+
+//written as 1 line (same as above)
+
+function vertMirror(str){
+  return str.split('\n').map( x => x.split('').reverse().join('') ).join('\n')
+}
+function horMirror(str){
+  return str.split('\n').reverse().join('\n')
+}
+function oper(fn,str){
+  return fn(str)
+}
