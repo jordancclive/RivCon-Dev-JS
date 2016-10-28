@@ -51,8 +51,8 @@ console.log(revStr('ReverseTheString'));
 // my answer after some time in the future:
 
 function revStr(str, len){
-		len = (!len) ? str.length : len-1; 
-		return (len === 1) ?  str[0] : str[len-1] + revStr(str,len);
+		len = (!len) ? str.length : len-1; 				//creating a default value.
+		return (len === 1) ?  str[0] : str[len-1] + revStr(str,len);	//recursion: base case : recursive case.
 }
 
 revStr('ReverseTheString')
