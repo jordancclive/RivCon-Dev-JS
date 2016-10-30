@@ -90,3 +90,67 @@ console.log(oper(rot90Clock, s)); 		//result => "miea\nnjfb\nokgc\nplhd"
 console.log('\n');
 console.log(oper(selfieAndDiag1, s));	//result => "abcd|aeim\nefgh|bfjn\nijkl|cgko\nmnop|dhlp"
 
+
+//--------------------------------------------
+// other solutions that I did not think of:
+
+function diag1Sym(str) {
+  let arr = str.split('\n');
+  let s = [], t;
+  for(let i = 0; i < arr.length; i += 1) {
+    s.push(arr.map(a=>a[i]).join(''));			//interesting!  ...I could not figure out how to 
+  }							// eliminate the for-in loop.  ...here it is!
+  return s.join('\n');
+}
+
+
+//This is an odd one:
+
+function transform(str, callback) {
+  var  arr = str.split(/\n/).map(line => line.split(''))
+  ,   line = ''
+  , length = arr.length
+  , result = [];
+
+  for (var i = 0; i < length; i++) {
+    line = '';
+
+    for (var j = 0; j < length; j++)
+      line = callback(line, arr, i, j, length - 1);
+
+    result.push(line);
+  }  
+
+  return result.join("\n");      
+}
+
+const oper = (fct, s) => transform(s, fct);
+const diag1Sym = (line, arr, i, j) => line + arr[j][i];
+const rot90Clock = (line, arr, i, j, end) => line + arr[end - j][i];
+const selfieAndDiag1 = (line, arr, i, j, end) => arr[i][end - j] + (j ? line : '|') + arr[j][i];
+
+
+// This is another one that I have to figure out.....
+
+function diag1Sym(strng) {
+    let arr = strng.split("\n"),
+        l = arr.length;
+    return Array.from({length: l}, (_, k1) => Array.from({length: l}, (_, k2) => arr[k2][k1]).join("")).join("\n");
+}
+
+function rot90Clock(strng) {
+    let arr = strng.split("\n"),
+        l = arr.length;
+    return Array.from({length: l}, (_, k1) => Array.from({length: l}, (_, k2) => arr[l - k2 - 1][k1]).join("")).join("\n");
+}
+
+function selfieAndDiag1(strng) {
+    let arr = strng.split("\n"),
+        sym = diag1Sym(strng).split("\n");
+
+    return arr.map((v, k) => `${v}|${sym[k]}`).join("\n");    
+}
+
+function oper(fct, s) {
+    return fct(s);
+}
