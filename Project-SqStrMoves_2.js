@@ -58,6 +58,12 @@ Examples:
 
 */
 
+
+
+//I am finally getting CallBacks and arrow notation in my head.....
+
+
+
 //This is the caller - high-order function.
 function oper(fct, s){
 	return fct(s);
@@ -86,3 +92,47 @@ console.log(oper(rot, s));
 console.log('\n');
 console.log(oper(selfieAndRot, s));
 '';
+
+
+
+
+//-----------------------------------
+
+// Other solutions that I did not think of:
+
+// The person who did this next result posted the rot function with an error.
+// Although their selfie function was interesting.....
+// It used a regular expression
+
+function selfie(s) {
+  return (s = s.replace(/.+/g, t => t + t.replace(/./g, ".")));
+}
+
+function oper(fn, s) {
+  return fn(s);
+}
+
+
+//test cases:
+s = "abcd\nefgh\nijkl\nmnop";
+console.log(oper(selfie, s));
+'';
+
+
+//------------------------------------
+
+//Note:  The .map in the rot & selfieAndRot function.
+
+function rot(string) {
+    return string.split('\n').reverse().map(e=> [...e].reverse().join('')).join('\n')
+}
+function selfieAndRot(string) {
+    let arr = string.split('\n');
+    let str = arr.map(e=> e+'.'.repeat(arr[0].length)).join('\n')
+    return str+'\n'+ rot(str)
+}
+function oper(fct, s) {
+    return fct(s)
+}
+
+//--------------------------------------
