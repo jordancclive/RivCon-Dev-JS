@@ -90,5 +90,3 @@ console.log(oper(selfieDiag2Counterclock, s));
 
 
 
-
-
