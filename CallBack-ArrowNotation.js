@@ -12,9 +12,10 @@ Arrow Functions:
         //---------
         
 /*-------------------------------
+// ES6 new updates:
 
 example:
-
+*/
           .forEach()
           
           let arr = [1,2,3,4];
@@ -23,8 +24,8 @@ example:
           	arr.forEach((elem) => sum +=elem);
           	return sum;
           }
-          console.log(sumArray(arr));          
-*/
+          console.log(sumArray(arr));	                      
+	  
           //------------
 
           .filter()
@@ -77,3 +78,6 @@ example:
           //---------
         
 //------------------------------------
+
+
+
