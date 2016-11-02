@@ -17,5 +17,5 @@ email.replace(/e/g, 'zz');	//result:	=> 'anEmailOfSomzzonzz@gmail.com'
 							//This replaced the all 'e's with 'zz', globally (do it for all the 'e's)	
 							
 
-// go to regez101.com for help doing this regular expression concept.
+// go to www.regex101.com for help doing this regular expression concept.
 	
