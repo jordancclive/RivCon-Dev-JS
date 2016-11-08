@@ -24,6 +24,18 @@ describe("Solution", function(){
 
 //-------------------------------------------
 
+describe("snail", _ => {
+  it("should work for basic test cases", _ => {
+    Test.assertEquals(snail([[1,2], [4,3]]), [1,2,3,4]);
+  });
+  it("should work for my custom test cases as well", _ => {
+    // Feel free to add your own tests here :)
+  });
+});
+
+
+
+//-------------------------------------------
 
 describe("binarySwap", _ => {
   it("should work for basic test cases", _ => {
