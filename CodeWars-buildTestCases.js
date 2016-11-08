@@ -22,12 +22,35 @@ describe("Solution", function(){
   });
 });
 
+//-------------------------------------------
 
-/*
-    Test Results:
-      Solution
-      Testing for a variety of rows
-    ✘ This is just an example of how you can write your own TDD tests - Expected: 'expected', instead got: 'actual'
-     Completed in 2ms
-     Completed in 6ms
-*/
+
+describe("binarySwap", _ => {
+  it("should work for basic test cases", _ => {
+    Test.assertEquals(binarySwap(0), 1);
+    Test.assertEquals(binarySwap(1), 0);
+    Test.assertEquals(binarySwap('0'), 1);
+    Test.assertEquals(binarySwap('1'), 0);
+  });
+  it("should work for my custom test cases as well", _ => {
+    // Feel free to add your own tests here :)
+  });
+});
+
+//-------------------------------------------
+
+/var a = { b: [42, { x: 9 }] };
+Object.deepFreeze(a);
+
+a.b = 42;
+Test.assertSimilar(a.b, [42, { x: 9 }]);
+
+a.b[1] = 42;
+Test.assertSimilar(a.b[1], { x: 9 });
+
+
+// Create your own tests here. These are some of the methods available:
+//  Test.expect(boolean, [optional] message) 
+//  Test.assertEquals(actual, expected, [optional] message)
+//  Test.assertSimilar(actual, expected, [optional] message)
+//  Test.assertNotEquals(actual, expected, [optional] message) 
