@@ -1,6 +1,7 @@
 /*
 Check if Array is Sorted
-Complete the function isSorted, which takes an array as inputed and outputs a boolean indicating if the array's contents are in ascending order.
+Complete the function isSorted, which takes an array as inputed and outputs a boolean 
+indicating if the array's contents are in ascending order.
 
     isSorted([8,2,3,4])
     // -> false
@@ -20,3 +21,6 @@ Complete the function isSorted, which takes an array as inputed and outputs a bo
         // tests follow:
         console.log(isSorted([8,2,3,4]));  
         console.log(isSorted([2,3,4,8])); 
+
+
+
