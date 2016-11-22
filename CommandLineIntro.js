@@ -29,21 +29,43 @@ What is a Command Line Interface (CLI)?
         
         
 Note:  We will be discussing using the command lne within a UNIX O/S environment.
+
+
+
+===============================================================      
+                 Anatomy of the Command line
+===============================================================   
+
+         rivermans-MacBook-Pro $ rm -f foundations.txt
+        |-----------------------|
         
+        |-->    This is the Prompt.  ...which is supplied by the command line.
+                Gives you information about your working directory or git branch that you are working on.
+                It always ends with a '$'.
+        ===============================================================   
+
+         rivermans-MacBook-Pro $ rm -f foundations.txt
+                                |--|
+         
+         Next is the Command.  <---|    
+         A Command is an instruction that the user supplies that performs an action on the upcoming argument.
+         In this case, 'rm' stands for remove.
+          ===============================================================   
+
+         rivermans-MacBook-Pro $ rm -f foundations.txt
+                                   |--|           
+
+         Next is the Option / Flag.<--| 
+         Options are optional.  An Option always starts with a dash and is usually a single character.
+            ===============================================================   
+
+         rivermans-MacBook-Pro $ rm -f foundations.txt
+                                      |---------------|  
+                                      
+         Next is the Argument.                     <--| 
+
+        A Command is always followed by an argument.
         
-        
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 */
