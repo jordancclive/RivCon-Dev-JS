@@ -125,9 +125,10 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 ls : List command (lists all the files & the directories from the current directory)
                 
                                                    Root 
-                                                 Directory
+                                                 Directory       <-- on this particular machine.
                                                |-----------|
                         rivermans-MacBook-Pro:~ designadmin$ ls
+                        
                         Adobe				Dropbox				TC_Near_Uninstall.command
                         Applications			Library				derby.log
                         Calibre Library			Movies				isus
@@ -138,21 +139,26 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                         design-admins-Mac-Pro-370:~ designadmin$
                 
                 ==========================================================================  
-                ls + directory : Lists the directories from the argument
+                ls + directory : Lists the directories from the argument passed to the ls command.
                 
+                rivermans-MacBook-Pro:~ designadmin$ ls Music
+                
+                Audio Music Apps	GarageBand		Logic			iTunes
+                                             
                 ==========================================================================  
                 pwd : print working directory
                 
                         rivermans-MacBook-Pro:~ designadmin$ pwd
+                        
                         /Users/designadmin                                <--- again the rood directory is the active directory.
                                                                                This is the actual path of the root.
                 
                 ==========================================================================  
                 File Path : A files location in the Filesystem
                 
-                        The File Path:  The path points to the file system location by following the directory tree
-                                separated by a delimiting character ('/').  Picture a path like a set of instructions
-                                describing how to navigate through the directory tree to access a file.
+                        This path points to the file system location by following the directory tree
+                        separated by a delimiting character ('/').  Picture a path like a set of instructions
+                        describing how to navigate through the directory tree to access a file.
                 
                 ==========================================================================  
                 Directory : A "folder"
@@ -162,9 +168,64 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 
                 =========================================================================                
                 man + command : Manual, displays the manual for the current command
+                
+                        This gives you the user manual for a command.  
+                        
+                        As an example:  man pwd:   *** (This is the beginning of what we get) ***
+                        
+                        PWD(1)                    BSD General Commands Manual                   PWD(1)
+
+                        NAME
+                             pwd -- return working directory name
+
+                        SYNOPSIS
+                             pwd [-L | -P]
+
+                        DESCRIPTION
+                             The pwd utility writes the absolute pathname of the current working directory to the
+                             standard output.
+
+                             Some shells may provide a builtin pwd command which is similar or identical to this util-
+                             ity.  Consult the builtin(1) manual page.
+
+                             The options are as follows:
+
+                             -L      Display the logical current working directory.
+
+                             -P      Display the physical current working directory (all symbolic links resolved).
+
+                             If no options are specified, the -L option is assumed.
+                          
+                          :     <---   means there is much more to be displayed    
+                          
+                          ***   You can hit the down arrow key or the enter key to scroll a line at a time.
+                          
+                          ***   If you hit the space bar, you will scroll a page at a time.
+                          
+                          ***   To get out of this user manual mode, hit the 'q' key.  or cntrl C.
+                                Note:  Cntrl C did not work, and I had to use 'q' in this case.
     
                 =========================================================================
-                ls -a : Displays all of the "hidden" files in a directory
+                ls -a : Displays all of the "hidden" files in a directory (files that start with a period)
+                        This is an example of an "option".
+                
+                        rivermans-MacBook-Pro:~ designadmin$ ls -a
+                        
+                        .				.fontconfig			Library
+                        ..				.fonts				Movies
+                        .CFUserTextEncoding		.gitconfig			Music
+                        .DS_Store			.oracle_jre_usage		Pictures
+                        .DownloadManager		.ssh				Public
+                        .Trash				Adobe				Sites
+                        .adobe				Applications			TC_Near_Uninstall.command
+                        .bash_history			Calibre Library			derby.log
+                        .bash_sessions			Creative Cloud Files		isus
+                        .config				Desktop				nreal
+                        .cups				Documents			temp_dvd
+                        .dropbox			Downloads
+                        .dvdcss				Dropbox
+                        
+                        ***   A hidden file or folder starts with a period followed by the name of the file.   ***
 
                 =========================================================================
                 q : Another "get out of trouble" command (try q when CTRL + C doesn't work
