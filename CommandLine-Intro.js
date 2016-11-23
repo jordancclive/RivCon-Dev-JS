@@ -32,8 +32,11 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
 
 
 ===============================================================      
-                 Anatomy of the Command line
+
+                Anatomy of the Command line
+
 ===============================================================   
+
 
          rivermans-MacBook-Pro $ rm -f foundations.txt
         |-----------------------|
@@ -67,19 +70,22 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
         
 
 
-==========================================================================
-        command spacebar = brings up spotlight
-
-        In spotlight type iterm.....  will get the iterm command line interface.  
-        ....the black screen is called a "shell'
-==========================================================================
-
-        A Shell is a program that interprets commands and acts as an intermediary 
-        between the user and the inner workings of the operating system (O/S).
+        ==========================================================================
         
-==========================================================================
+                command spacebar = brings up spotlight
 
-  The echo command prints its argument to the screen.
+                In spotlight type iterm.....  will get the iterm command line interface.  
+                ....the black screen is called a "shell'
+                
+        ==========================================================================
+
+                A Shell is a program that interprets commands and acts as an intermediary 
+                between the user and the inner workings of the operating system (O/S).
+
+        ==========================================================================
+
+
+        The echo command prints its argument to the screen.
   
               rivermans-MacBook-Pro$ echo foundations
               foundations                                             <---It displays the argument
@@ -115,7 +121,8 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 
                 CTRL + u : Clears current line
                 CTRL + l : Clears the terminal window (does not clear history)
-                
+   
+   
   ==========================================================================
 
                 Commands
@@ -127,6 +134,7 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                                                    Root 
                                                  Directory       <-- on this particular machine.
                                                |-----------|
+                        
                         rivermans-MacBook-Pro:~ designadmin$ ls
                         
                         Adobe				Dropbox				TC_Near_Uninstall.command
@@ -136,7 +144,8 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                         Desktop				Pictures			temp_dvd
                         Documents			Public
                         Downloads			Sites
-                        design-admins-Mac-Pro-370:~ designadmin$
+                        
+                        rivermans-MacBook-Pro:~ designadmin$
                 
                 ==========================================================================  
                 ls + directory : Lists the directories from the argument passed to the ls command.
@@ -233,6 +242,8 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 =========================================================================
 
 
+
+=========================================================================
 
 
 
