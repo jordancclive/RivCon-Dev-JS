@@ -1,4 +1,4 @@
-/*Prompts & Commands
+/* Directories & the Directory Tree
 
 ==========================================================================
 
