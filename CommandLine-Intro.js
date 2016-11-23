@@ -81,24 +81,24 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
 
   The echo command prints its argument to the screen.
   
-              design-admins-Mac-Pro$ echo foundations
+              rivermans-MacBook-Pro$ echo foundations
               foundations                                             <---It displays the argument
               
-              design-admins-Mac$ echo 'Grace Hopper'                  <---It displays the argument
+              rivermans-MacBook-Pro$ echo 'Grace Hopper'              <---It displays the argument
               Grace Hopper
               
-              design-admins-Mac$ echo "Vin                            <---if you do not close the quotes
+              rivermans-MacBook-Pro$ echo "Vin                        <---if you do not close the quotes
               >                                                           the system gets stuck
                                                                            use ctrl c to stop the 
                                                                            execution the current cmd
                                                                            or process.
-              design-admins-Mac$                                      <---which will bring you back to here.
+              rivermans-MacBook-Pro$                                  <---which will bring you back to here.
               
               
               NOTE: You could have put in the ending quote on that line with a carrot and the
                     terminal would have finished the command from the previous line as follows:
                     
-              design-admins-Mac$ echo "vin
+              rivermans-MacBook-Pro$ echo "vin
               > "
               vin
               
@@ -122,25 +122,54 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 
  ==========================================================================                    
 
-                ls : List command (lists the directories in from the current directory)
+                ls : List command (lists all the files & the directories from the current directory)
                 
+                                                   Root 
+                                                 Directory
+                                               |-----------|
+                        rivermans-MacBook-Pro:~ designadmin$ ls
+                        Adobe				Dropbox				TC_Near_Uninstall.command
+                        Applications			Library				derby.log
+                        Calibre Library			Movies				isus
+                        Creative Cloud Files		Music				nreal
+                        Desktop				Pictures			temp_dvd
+                        Documents			Public
+                        Downloads			Sites
+                        design-admins-Mac-Pro-370:~ designadmin$
+                
+                ==========================================================================  
                 ls + directory : Lists the directories from the argument
                 
+                ==========================================================================  
                 pwd : print working directory
                 
+                        rivermans-MacBook-Pro:~ designadmin$ pwd
+                        /Users/designadmin                                <--- again the rood directory is the active directory.
+                                                                               This is the actual path of the root.
+                
+                ==========================================================================  
                 File Path : A files location in the Filesystem
                 
+                        The File Path:  The path points to the file system location by following the directory tree
+                                separated by a delimiting character ('/').  Picture a path like a set of instructions
+                                describing how to navigate through the directory tree to access a file.
+                
+                ==========================================================================  
                 Directory : A "folder"
                 
+                ==========================================================================  
                 Standard Output : The output in the Command Line after a command
                 
+                =========================================================================                
                 man + command : Manual, displays the manual for the current command
-                
+    
+                =========================================================================
                 ls -a : Displays all of the "hidden" files in a directory
-                
+
+                =========================================================================
                 q : Another "get out of trouble" command (try q when CTRL + C doesn't work
 
-
+                =========================================================================
 
 
 
