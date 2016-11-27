@@ -104,9 +104,19 @@
                 like: ---->  echo, pwd and the ls (list) commands.  They are all located in the bin directory.
                 
                 
+        *       The /usr - unix system resources directory is one of the largest directories in the filesystem.
+                It includes folders that look similar to folders in the root directory such as /usr/bin and /usr/local/bin.
+                
+                The /usr folder is used to store all non-essential programs.  ex: documentation, libraries & other data 
+                that is not required for the most minimal usage on the O/S.
+                
+                The user/local/bin directory is the recommended library to install Node.js when using the general installer.
 
 
-
+        ==========================================================================    
+        
+        
+        
 
 
 
