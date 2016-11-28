@@ -131,10 +131,10 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
 
                 ls : List command (lists all the files & the directories from the current directory)
                 
-                                                   Root 
-                                                 Directory       <-- on this particular machine.
-                                               |-----------|
-                        
+                                                   Home 
+                              bash prompt_____   Directory       <-- on this particular machine.
+                                              ||-----------|
+                                              |                  <-- The tilde tells you that you are on the Home Directory
                         rivermans-MacBook-Pro:~ designadmin$ ls
                         
                         Adobe				Dropbox				TC_Near_Uninstall.command
