@@ -74,12 +74,12 @@
               -------------------------------------------------------------------------
                  |                     |                     |                      |
                 bin                   etc                   usr                   Users    <---1st Level Directories
-                 |                                           |                      |
-          ---------------------             The unix system  |         --------------------------
-          |       |        |                   resources                   |        |         |
-          ls     echo     pwd                 dir is here                 Vin     Scott     Karen
-                                                                           |
-     (This is the binaries directory)                                 -----------
+                 |                                           ^                      |
+          ---------------------                              |         --------------------------
+          |       |        |                                 |             |        |         |
+          ls     echo     pwd                       The unix system       Vin     Scott     Karen
+                                                       resources           |
+     (This is the binaries directory)                 dir is here      -----------
                                                                           home
                                                                            |
                                                   ------------------------------------------------------
