@@ -36,8 +36,8 @@ Initialize git inside the project directory:
         
         Check it out:  ls -a
         
-                .			    main.css      vinDoc.pdf
-                ..			  game.js			
+                .			main.css      vinDoc.pdf
+                ..			game.js			
                 .git			index.html
                 
 ---------------------------------------------------------------------
@@ -134,6 +134,59 @@ Staging Area .....we need to now add the files to the staging area.
                         nothing to commit, working tree clean
                 
 ---------------------------------------------------------------------
+
+If you want to see our previous commits use-->		git log
+
+	commit 26a9362745b9b221ae7d99286cc4160b60925cf7
+	Author: rivermanvr <vrgit@consulting.com>
+	Date:   Thu Dec 1 14:12:58 2016 -0500
+
+	    our intial commit
+	
+---------------------------------------------------------------------
+
+Let's add another file to this project directory
+
+	Type:  mv ../2501_JuiceDrop.jpg ./		
+					  -->	command:	mv = move
+						Argument:	from directory/file name
+						Argument:	to directory
+
+	Let's list the files in the directory:  ls
+	
+		2501_JuiceDrop.jpg	index.html		vinDoc.pdf
+		game.js			main.css
+	
+              ---------------------------------------------------	
+	
+	Let's add the new file into the staging area-->		git add 2501_JuiceDrop.jpg
+	
+	...and look at our status-->				git status
+	
+		On branch master
+		Untracked files:
+  		  (use "git reset HEAD <file>..." to unstage)
+
+			new file:	2501_JuiceDrop.jpg
+
+		nothing added to commit but untracked files present (use "git add" to track)			
+	
+              ---------------------------------------------------	
+	
+	..lets commit the file-->				git commit -m ".jpg addition"
+	
+	result:
+	
+		[master a861535] .jpg addition
+ 		1 file changed, 0 insertions(+), 0 deletions(-)
+ 		create mode 100644 2501_JuiceDrop.jpg
+
+---------------------------------------------------------------------
+
+Deleting a file form our project directory:
+
+	
+
 
 
 
