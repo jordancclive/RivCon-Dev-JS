@@ -77,7 +77,7 @@ Staging Area .....we need to now add the files to the staging area.
                 Changes to be committed:
                   (use "git rm --cached <file>..." to unstage)
 
-	                      new file:   main.css
+	                new file:   main.css
  
                  Untracked files:                                      
                   (use "git add <file>..." to include in what will be committed)
@@ -99,12 +99,12 @@ Staging Area .....we need to now add the files to the staging area.
                 Changes to be committed:
                   (use "git rm --cached <file>..." to unstage)
 
-	                      new file:   main.css
+	                new file:   main.css
                         new file:   vinDoc.pdf                  
                         new file:   game.js			         
                         new file:   index.html        
  
-          All of our files are in the staging area.
+          ***All of our files are in the staging area.
  
  
 ---------------------------------------------------------------------
@@ -117,7 +117,7 @@ Staging Area .....we need to now add the files to the staging area.
         
         Result:
         
-                [master a861535] our initial commit
+                [master (root-commit) a861535] our initial commit
                 4 files changed, 0 insertions(+), 0 deletions(-)
                 create mode 100644 main.css
                 create mode 100644 vinDoc.pdf
