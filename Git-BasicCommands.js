@@ -185,17 +185,59 @@ Let's add another file to this project directory
 
 Deleting a file form our project directory:
 
+	git rm <filename>	--->	git rm vinDoc.pdf	
+
+	Look at the status:
 	
+		git status
+		On branch master
+		Changes to be committed:
+		  (use "git reset HEAD <file>..." to unstage)
 
+			deleted:    vinDoc.pdf				<-- 	The file is removed, and
+										added to the staging area.										    
+	     ---------------------------------------------------		
+	     									You can see the deletion in the          
+		2501_JuiceDrop.jpg	index.html			<-- 	following "ls" command result.
+		game.js			main.css
+							
+              ---------------------------------------------------	
 
+	The next step is to commit the removal.		-->	git commit -m "removing the .pdf"	
+	
+	The result:
+	
+		[master f22ec4b] removing the .pdf
+		 1 file changed, 0 insertions(+), 0 deletions(-)
+		 delete mode 100644 vinDoc.pdf
 
+---------------------------------------------------------------------
 
+Let's look at the log at this point:				-->	git log
 
+		commit f22ec4b32da3e9e9a5579840d925d930fa85e3d0
+		Author: rivermanvr <vrgithub@riversconsulting.com>
+		Date:   Thu Dec 1 21:44:53 2016 -0500
 
+		    removing the .pdf
 
+		commit a8615357484bcf752700c0f99375fb9a46fc0061
+		Author: rivermanvr <vrgithub@riversconsulting.com>	<--	This is the history of what we have done so far.
+		Date:   Thu Dec 1 16:57:12 2016 -0500
 
+		    adding a document
 
+		commit ff34c753f21a02477d409ad9e6613ed0e0550aec
+		Author: rivermanvr <vrgithub@riversconsulting.com>
+		Date:   Thu Dec 1 14:28:53 2016 -0500
 
+		    .jpg addition
+
+		commit 26a9362745b9b221ae7d99286cc4160b60925cf7
+		Author: rivermanvr <vrgithub@riversconsulting.com>
+		Date:   Thu Dec 1 14:12:58 2016 -0500
+
+		    our intial commit
 
 
 
