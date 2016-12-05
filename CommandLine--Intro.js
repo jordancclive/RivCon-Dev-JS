@@ -3,7 +3,8 @@
 
 What is a Graphical User Interface (GUI)?
 
-        Utilizes graphics (like icons) to interact with the O/S and perform tasks.  ...like opening & closing programs.
+        Utilizes graphics (like icons) to interact with the O/S and perform tasks.  
+        ...like opening & closing programs or movig files into folders.
         
         Certain tasks in a GUI are cumbersome....so you might use a CLI instead...
 
@@ -74,7 +75,10 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
         
                 command spacebar = brings up spotlight
 
-                In spotlight type iterm.....  will get the iterm command line interface.  
+                In spotlight type iterm which is a terminal...  
+                
+                ....will get the iterm command line interface.  
+                
                 ....the black screen is called a "shell'
                 
         ==========================================================================
@@ -159,8 +163,8 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
                 
                         rivermans-MacBook-Pro:~ designadmin$ pwd
                         
-                        /Users/designadmin                                <--- again the rood directory is the active directory.
-                                                                               This is the actual path of the root.
+                        /Users/designadmin                                <--- again the home directory is the active directory.
+                                                                               This is the actual path of the home directory.
                 
                 ==========================================================================  
                 File Path : A files location in the Filesystem
