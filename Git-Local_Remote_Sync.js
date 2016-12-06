@@ -78,6 +78,42 @@ Your local and remote repository have been created now you need to connect them 
             -------------------------------------
             
             Now you can run the second command:             git push -u origin master
+            
+            ******IMPORTANT******
+            
+            I have 2 step verification on my github site.  
+            As a result, the simple userID and Password will not work.
+            
+            ----> You must create a "Personal Access Token" and use that as the password.
+            
+            I also did not want to have to enter a userID & Password every single time I 
+            did a "handshake" between the Remote/Local site.
+            
+            I entered the command:  git config --global credential.helper osxkeychain
+            
+            so that the console will access the local machines keychain.
+            If you then type:       git config --list
+            result is:
+            
+                        core.trustctime=false
+                        credential.helper=osxkeychain
+                        filter.lfs.clean=git-lfs clean %f
+                        filter.lfs.smudge=git-lfs smudge %f
+                        filter.lfs.required=true
+                        user.name=rivermanvr
+                        user.email=vrgithub@riversconsulting.com
+                        core.editor=sublime
+                        credential.helper=osxkeychain
+                        core.repositoryformatversion=0
+                        core.filemode=true
+                        core.bare=false
+                        core.logallrefupdates=true
+                        core.ignorecase=true
+                        core.precomposeunicode=true
+                        remote.origin.url=https://github.com/rivermanvr/VinTestRepo.git
+                        remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*            
+
+            -------------------------------------
 
 
 
