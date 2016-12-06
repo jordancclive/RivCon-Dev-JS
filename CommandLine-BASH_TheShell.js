@@ -8,7 +8,7 @@
       I am using iterm2 to type/submit commands and receive feedback from the O/S.
 
       The Shell is the program that processes (interprets) each command 
-      in a language that the O/S understands and returns the output for iterm to display.
+      in a language that the O/S (Kernal) understands and returns the output for iterm to display.
 
       ...A Shell is a Command Line Interpreter and iTerm is a Command Line Interface.
     
