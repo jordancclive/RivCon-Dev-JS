@@ -19,7 +19,28 @@ On the Terminal/Console:
         
         Create a general container folder ---> "Foundations" to designate Fullstack repositories.
 
-        Now clone the "fork" by typing the following command:  git clone <HTTPS link>
+        Now clone within this Directory the "fork" by typing the following command:  git clone <HTTPS link>
+        This does a couple of things:
+        
+                - First:    It creates a folder containing that project.
+                
+                - Second:   Within this folder, it has a git reposotory initiated.  (git init) & (.git directory) done.
+                
+                - Third:    It sets the (git remote) called (origin) to point to your remote fork on github.com
+                
+                            If you do a (git remote -v)
+                            result:  https links pointing to your fork.
+
+At this point you can make some changes to the repository using the text editor "sublime" as an example.
+
+        Type the command:     subl .
+                
+                
+                
+                
+                
+                
+                
 
         
 
