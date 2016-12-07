@@ -98,6 +98,19 @@ Vince
 
 -----------------------------------------------------------------------------------
 
+Hey Vince!
+
+I would try the same command, but use `sudo` before the command. This will allow you to run the command as an administrator.  You will be prompted for your computer password.
+
+Additionally, if that doesn't work I would recommend pasting `alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" into your bash profile (`~/.bash_profile` or `~/.bashrc`). Then if you restart your terminal, you should be able to use the 'subl' command.
+
+Here is a post on Discuss that goes into a bit more detail. 
+
+In the future, questions like this are better asked on Discuss, so that the cohort doesn't get a surplus of emails. Discuss allows everyone to see all the questions and reply to threads more easily.
+
+Hope that helps!
+
+Karen
 
 
 
