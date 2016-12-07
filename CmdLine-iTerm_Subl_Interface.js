@@ -112,8 +112,43 @@ Hope that helps!
 
 Karen
 
+-----------------------------------------------------------------------------------
 
+A few people have asked how to use the subl command in the mac terminal. Unfortunately, just installing Sublime Text won't make this command available, but fortunately it's easy to implement!
 
+From the command line, copy and paste this command:
+For Sublime Text 3:
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+For Sublime Text 2:
+ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+If this doesn't work, let me know! I'm assuming that a) You are using a Mac b) You installed Sublime in your Applications folder and c) you have ~/bin directory in your path, which is usually default!
+
+Here is a link14 that goes more into the details of using Sublime from the command line.
+
+-----------------------------------------------------------------------------------
+
+Hey Karen!
+
+I've tried the command you posted and I keep getting and Operation not permitted error message, even if I use sudo. I don't think I have ~/bin directory in my path (it was /bin), but when I changed that, I still get an error message.
+
+Any advice?
+
+Dani
+
+-------------
+
+Hey Danielle,
+
+Try pasting this line:
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+into your bash profile. Your bash profile is usually a hidden file in your ~/ directory and will have a name like .bashrc. You'll need to restart your terminal for changes to take effect.
+
+Can you post a screenshot of your 'Operation not permitted' error?
+
+-----------------------------------------------------------------------------------
 
 
 */
