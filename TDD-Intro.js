@@ -57,6 +57,21 @@ The Basics:
                           return "Welcome to Foundations!";
                       }
 
+---------------------------------------------------------------------
+
+The beforeEach global function:
+
+        This is a function that runs vefore every unit test.
+
+---------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 */
