@@ -56,7 +56,7 @@ Functions are objects too.  Let's take a look:
                     length: 0                                 //<----This prop/value is separate for the body of the function
                     name: "vince"
 
-                    prototype: Object
+                    prototype: Object                         //<----Just a note that only functions have a prototype property.
                     __proto__: ()
                     [[FunctionLocation]]: VM325:1
                     [[Scopes]]: Scopes[1]
