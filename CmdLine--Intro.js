@@ -249,9 +249,13 @@ Note:  We will be discussing using the command lne within a UNIX O/S environment
 
 =========================================================================
 
+The sudo command......
 
-
-
+        If you preface a command with sudo:     sudi <and then out the command>
+        The console will run this command as the operator.
+        You will need the system password in oe=rder to complete this command entry.
+        
+=========================================================================        
 
 
 
