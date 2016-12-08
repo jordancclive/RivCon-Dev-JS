@@ -58,11 +58,97 @@ The typeof command:
                 //this is a bug in the original version....
 
 --------------------------------------------------------------------------
+        
+                Primitive                               Complex (aka: composite datatypes)
+                
+                string                                  objects
+                number                            
+                boolean                                       arrays
+                null                                          functions
+                undefined                                     dates
+                symbol                                        errors
+                                                              etc...
+                
+                passed by value                         passed by reference
+                
+               known as the                         These are data structures that
+               basic building blocks                can be constructed from other primitive       
+               of the language.                     and complex datatypes.
 
+               hold a single value.                 A structure that abstracts away the complexity inside of it.
+                                                    Useful as containers or compaertments of related material.
 
+                immutable                               mutable
+                Once defined you cannot                 Able to be mutated and changed
+                change their value without              without needing to reassign the variable.
+                re-assignment.
+--------------------------------------------------------------------------
 
+An example of mutable and immutable:
 
+                  var str = "hello"
 
+                  str[3]
+                  "l"
+                  
+                  str[3] = 'e'
+                  "e"
+                  
+                  str
+                  "hello"                   <---The string did not change after truying to change a letter.
+                                            // Strings are immutable
+                  
+                  var arr = ['h','e','l','l','o']
+
+                  arr[3]
+                  "l"
+                  
+                  arr[3]='a'
+                  "a"
+                  
+                  arr
+                  ["h", "e", "l", "a", "o"]   <---Arrays are mutable, they can change the third index.
+
+--------------------------------------------------------------------------
+
+The difference between "by reference" and " by value"
+
+        -----------------------
+        
+        var num = 5;
+        var num1 = num;
+
+        num
+        5
+        num1
+        5
+        
+        num +=5
+        10
+        
+        num1        <---this is an example of passing by value.  Num & Num1 aren't bound to each other.
+        5               You are assiging to num1 the value in num which is 5 and they are independent of 
+                        one another.
+                        
+        -----------------------
+        
+        var obj = {num:5}
+        var obj2 = obj
+
+        obj2
+        Object {num: 5}
+        
+        obj2.num +=5
+        10
+        
+        obj2
+        Object {num: 10}          As you can see, if you assign "obj" to "obj2", and you additionally
+                                  change "obj2" (see line above).  ...then you will also change
+        obj                       "obj".
+        Object {num: 10}          "Obj2" is not a copy of "obj".  It is in fact the same thing as "obj"
+        
+        The variables "obj" & "obj2" hold a reference to the same space in memory that contains the physical object data.
+        This means thatthe information was passed by reference.
 
 --------------------------------------------------------------------------
 
