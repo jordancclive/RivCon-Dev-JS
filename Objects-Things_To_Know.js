@@ -57,9 +57,29 @@ Functions are objects too.  Let's take a look:
                     name: "vince"
 
                     prototype: Object                         //<----Just a note that only functions have a prototype property.
-                    __proto__: ()
-                    [[FunctionLocation]]: VM325:1
+                    __proto__: function()                     //     As an FYI, this prototype property is an object and we 
+                    [[FunctionLocation]]: VM325:1             //     can set properties here too.
                     [[Scopes]]: Scopes[1]
+
+
+        //  Taking a closer look at the protoype object:
+
+                                  dir(vince);
+                                      function vince()
+
+                                          arguments: null
+                                          caller: null
+                                          fullstack: "fullstack"
+                                          length: 0
+                                          name: "vince"
+
+                                          prototype: Object                 //<----only functions have this one.
+                                            constructor: vince()
+                                            __proto__: Object
+                                          
+                                          __proto__: function()             //<----All objects have this one.
+                                          [[FunctionLocation]]: VM325:1
+                                          [[Scopes]]: Scopes[1]
 
 ------------------------------------------------------------------------------
 
