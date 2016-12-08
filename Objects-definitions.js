@@ -1,4 +1,10 @@
-/* Objects-Definitions
+/*
+
+-------------------------------------------------------------------------------
+
+			Objects-Definitions
+
+-------------------------------------------------------------------------------
 
 Look at objects as a bag of keys ("strings") and when you pull out a key (or know a particular key)(use a key), you can access 
 that key's values. So we have a bunch of doors and these keys open the door to the values inside.  Unless we have that key, we
@@ -84,7 +90,79 @@ Definitions:
 									  //value is a function named sayHello)
 									  //This value is a method.
 
+/*
+-------------------------------------------------------------------------------
+
+				Objects & Properties
+				
+				Core Introduction
+
+-------------------------------------------------------------------------------
+
+Understanding Objects is the key to becoming an expert JavaScript programmer. 
+Objects are an unordered collection of properties. 
+Each property consisting of a key and associated value pair.
+
+Functions and Arrays (as well as Errors, Dates, etc) are special types of objects 
+that are created using functions that are built into the JavaScript environment. 
+Like normal objects, they are also able to hold any number of arbitrary properties.
+
+There are two ways of accessing property values in JavaScript: 
+
+		1.	dot notation and bracket notation. 
+			Dot notation requires that you know the exact key name of the property you are trying to access. 
+			For example:
+*/
+					var myObj = {name: 'Karen'};
+					console.log(myObj.name); 	//this will print 'Karen'
+
+					var key = "name";
+					console.log(myObj.key) 		//this will be undefined
+/*		
+		2.	The second way is bracket notation. 
+			Bracket notation allows you to evaluate the expression inside the brackets to a string, 
+			and use that as your property key. 
+			This allows you to 
+				
+				a) use variables names to access properties and 
+				b) access properties whose key includes white space, special characters, or begins with a number.
+*/
+					var myObj = {name: 'Karen'};
+					var key = "name";
+					console.log(myObj[key]) 	//now we can get the value 'Karen'
+/*
+-------------------------------------------------------------------------------
+
+Object structure:
+				Object literal
+				     ^^
+				var myObj = {
+						name:	"Karen M",				<---Property
+						age:	26,
+						pets:	[{name:	"Fira",	  species: "snake"},	<---Property
+							 {name:	"Phoebe", species: "dog"}],	<---Property
+						"likes-tea": true				<---Property
+						 ^^
+						Keys
+				   (always a string)
+			   
+	Keys:  Do not have to be in quotes unless:  has spaces, special characters, starts with a number.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
