@@ -141,16 +141,43 @@ Object structure:
 						age:	26,
 						pets:	[{name:	"Fira",	  species: "snake"},	<---Property
 							 {name:	"Phoebe", species: "dog"}],	<---Property
-						"likes-tea": true				<---Property
-						 ^^
-						Keys
-				   (always a string)
+						"likes-tea": true	^^			<---Property
+						 ^^			^^
+						Keys		      Values
+				   (always a string)		Values can be any type of variable
 			   
 	Keys:  Do not have to be in quotes unless:  has spaces, special characters, starts with a number.
+		They have the same requirement as variable names:
+		
 
+				Variable Names catch and hold values.
+				The name must:
+					- start with a character.
+					- can contain numbers in the name.
+					- can only have the following special characters: '$' or '_'. 
 
+******	IMPORTANT  ******
 
+	If you want to see if Karen likes tea and type:
 
+			myObj.likes-tea		<---The system thinks you want to subtract the 
+							variable "tea" from "myObj.likes"
+			
+	You will get an error because everything after the dot must conform to the variable designation
+	In this case, you must use braket notation as follows:
+	
+			myObj.['likes-tea']  ---> will get:  true
+			
+-------------------------------------------------------------------------------
+
+******	Notation  ******
+
+	If I want to access the pet species, then I need to chain the .dot and braket notation as follows:
+	
+			myObj.pets[1].species	---> result:	"dog"
+			
+			
+	
 
 
 
