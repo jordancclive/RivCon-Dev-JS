@@ -1,4 +1,70 @@
 /*
+--------------------------------------------------------------------------
+
+                              Datatypes
+
+--------------------------------------------------------------------------
+
+There are seven datatypes:
+
+                Number
+                String
+                Boolean
+                Symbol (ES6 only)
+                Null                <----Purposeful placeholder that represents a lack of a value.
+                Undefined           <----There is no value.  Something does not exist or has not yet been defined.
+                Object              <----includes dates, functions & Arrays.  ...and errors.
+                
+                Object are wrappers for many different kinds of functionality in JS.
+
+--------------------------------------------------------------------------
+
+The typeof command:
+
+                typeof 5
+                "number"
+                
+                typeof "hello"    
+                "string"
+                
+                typeof true
+                "boolean"
+                
+                typeof undefined
+                "undefined"
+                
+                var num;
+                
+                typeof num
+                "undefined"
+                
+                var obj = {};
+
+                typeof obj
+                "object"
+                
+                typeof [1,2,3]
+                "object"
+                
+                function fn(){}
+
+                typeof fn
+                "function"
+                // functions are objects too.
+                // functions are invokable, so they get their own output from typeof.
+
+                typeof null
+                "object"
+                //this is a bug in the original version....
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+--------------------------------------------------------------------------
 
 Null:
 
