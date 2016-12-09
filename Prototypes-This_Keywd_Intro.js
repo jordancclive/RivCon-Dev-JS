@@ -166,15 +166,30 @@ Rule #3:  Explicit Binding Rule
 
 Rule #4:  "new" Binding Rule 
 
+           with Constructor Functions:
+            
+                  When used with the "new" keyword, constructor functions create objects.
+                  Let's do it:
+*/
+                      function Person (name, age){                    //<---- The caps let's people know it is a constructor function
+                                  this.name = name;
+                                  this.age = age;                     //<--- you do not have to use "return"
+                      }
+
+                      let person1 = new Person('doug', 30);
+                      console.log(person1);                           // result: { name: 'doug', age: 30 } ...you did it.
 
 
 
+            // The "new" keyword:  var instance = new ConstructorFunc();
+            // In other words:  Declare an instance and set it equal to "new" and invoke the constructor function.
 
------------------------------------------------------------------------------
-
------------------------------------------------------------------------------
-
------------------------------------------------------------------------------
+            /* When you use the "new" keyword it does 4 things:
+                        1. it invokes the constructor function.
+                        2. creates an empty object.
+                        3. assigns the empty object to the "this" keyword.
+                        4. implicitly (absolutely and without qualification) returns the new object
+                           thereby creating an object & assigning it to the name that you gave it.
    
 -----------------------------------------------------------------------------  
 
