@@ -30,6 +30,9 @@ Example:
 
 -----------------------------------------------------------------------------
 ***Important rule:  If you want to figure out the "this" keyword, always check where the call site is.......
+
+                    It is important to realize that "this" refers to the EXECUTION CONTEXT, 
+                    or how a function is called.  
 -----------------------------------------------------------------------------
 
 Example:
@@ -81,6 +84,19 @@ Example:
                 This call method (used directly on the function object) 
                 assigned the argument we passed to it to the "this" keyword.
                 
------------------------------------------------------------------------------                
+-----------------------------------------------------------------------------   
+-----------------------------------------------------------------------------  
+
+*** Misconceptions of "this"  ***
+
+        "this" does not refer to itself
+        
+        "this" is not a function's scope.
+
+
+
+
+
+
                 
 */
