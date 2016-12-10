@@ -93,6 +93,55 @@ Illustration......
 
 ----------------------------------------------------------------------------------------
 
+                            __proto__ vs prototype
 
+----------------------------------------------------------------------------------------
+
+What we have been discussing above is the internal prototype object.  
+
+There is also a unique object that all functions have:  the prototype property/object.
+
+            ----------------------------------
+            
+As we have already discussed, This internal link that is the "internal prototype object:
+
+            // let's make an ice cream sundae
+            var toppings = ['cherry', 'chocolate-chip', 'peanuts'];
+            // I have a peanut array and want to track that....
+            var allergy = toppings.slice(-1);
+            dir(allergy);   //let's inspect the allergy variable.
+
+            Array[1]                
+            0: "peanuts"
+            length: 1
+            __proto__: Array[0]     <---This is the next link in the prototype chain and
+                                        what is called the "internal prototype object".
+
+                                        .....double underscore, then proto, then double underscore
+
+            ----------------------------------
+            
+As mentioned, all functions also have:  the prototype property 
+(which is not the same as the __proto__  "internal prototype object". 
+
+
+
+var fnc = function(){};
+
+dir(fnc);
+
+function fnc()
+  arguments: null
+  caller: null
+  length: 0
+  name: "fnc"
+  
+  prototype: Object               <---This is a functions additional property called the prototype property.
+      constructor: function ()        It is used with constructor functions.
+      __proto__: Object
+   
+  __proto__: function ()
+      [[FunctionLocation]]: VM393:1
+      [[Scopes]]: Scopes[1]          
 
 */
