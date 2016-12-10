@@ -1,9 +1,14 @@
 /*
-Constructor Function:
+-------------------------------------------------------------------------------
+
+				Constructor Functions
+
+-------------------------------------------------------------------------------
             
-                        When used with the "new" keyword, constructor functions create objects.
+When used with the "new" keyword, constructor functions create objects.
 Let's do it:
 */
+
             function Person (name, age){                    //<---- The caps let's people know it is a constructor function
                         this.name = name;
                         this.age = age;                     //<--- you do not have to use "return"
@@ -118,4 +123,9 @@ Let's do it:
             var hexagon = new Polygon(6, "green", "hexagon");
 
             console.log(triangle.getInfo()); //I am a red triangle with 3 sides.
-//----------------------------------
+/*
+-------------------------------------------------------------------------------
+
+ANother Example:
+
+
