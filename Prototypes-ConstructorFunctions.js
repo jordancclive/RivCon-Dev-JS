@@ -210,13 +210,15 @@ The prototype property comes into play with constructor functions.  ...as follow
 				name: "David"
 				__proto__: Object
 					constructor: function CreateTwitterUser(name)
-					sendTweet: function (tweet)			
+					sendTweet: function (tweet)			//<--- looks what is here.		
 					__proto__: Object
 
+						/*	***** Since the CreateTwitterUser connstructor function
+	*** Important ***  --->			created this object, the __proto__ (internal prototype object) is
+						linked to the prototype object of the constructor function. *****
 
 
 
 
-/*
 */
 			
