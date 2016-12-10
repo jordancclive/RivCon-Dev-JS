@@ -197,10 +197,19 @@ The prototype property comes into play with constructor functions.  ...as follow
 		  this.handle= "@" + this.name;
 		  this.followers = [];
 		}
+
 		CreateTwitterUser.prototype.sendTweet = function(tweet){
 		    return tweet;
 		};
+
+		CreateTwitterUser.prototype.getUserHandle = function(){
+		    return this.handle;
+		};
+
+		var scott = new CreateTwitterUser("Scott");
 		var david = new CreateTwitterUser("David");
+
+		scott instanceof CreateTwitterUser;	//<---	returns true.
 
 		dir(david);
 		
@@ -210,7 +219,8 @@ The prototype property comes into play with constructor functions.  ...as follow
 				name: "David"
 				__proto__: Object
 					constructor: function CreateTwitterUser(name)
-					sendTweet: function (tweet)			//<--- looks what is here.		
+					sendTweet: function (tweet)			//<--- looks what is here.
+					getTwitterUser: function ()
 					__proto__: Object
 
 						/*	***** Since the CreateTwitterUser connstructor function
@@ -219,7 +229,23 @@ The prototype property comes into play with constructor functions.  ...as follow
 
 						What I mean is that when you look at the __proto__ property within 
 						the instance, you are actually looking at the prototpye property within the 
-						constructor function.  they are the same.
+						constructor function.  they are the same.	*/
+						
+						
+						
+		scott instanceof CreateTwitterUser;
+		//returns: true
+
+		Object.getPrototypeOf(scott);		
+		//returns:
+		Object
+			constructor: CreateTwitterUser(name)
+			getUserHandle: function ()
+			sendTweet: function (tweet)
+			__proto__: Object
+			
+		Object.getPrototypeOf(scott) === CreateTwitterUser.prototype		//<---they are the same thing.
+		//returns: true
 						
 -------------------------------------------------------------------------------
 
