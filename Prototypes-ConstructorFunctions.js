@@ -173,3 +173,50 @@ Another Example:
 			insertKey: function()				//<---our prototype methods are here
 			startEngine: function()
 			__proto__: Object
+			
+/*
+-------------------------------------------------------------------------------
+
+				The prototype property
+
+-------------------------------------------------------------------------------
+
+The prototype property comes into play with constructor functions.  ...as follows:
+*/
+		// An intro to Constructor functions:
+
+		function CreateTwitterUser(name){
+		  /*Constructor functions do the following:
+			1. creates an empty object -->{}
+			2. assigns the empty obj to the keyword "this"
+			3. runs the code body within the function
+			4. returns the new object & and assigns it the new name you gave it.
+		  */
+
+		  this.name = name;
+		  this.handle= "@" + this.name;
+		  this.followers = [];
+		}
+		CreateTwitterUser.prototype.sendTweet = function(tweet){
+		    return tweet;
+		};
+		var david = new CreateTwitterUser("David");
+
+		dir(david);
+		
+			CreateTwitterUser
+				followers: Array[0]
+				handle: "@David"
+				name: "David"
+				__proto__: Object
+					constructor: function CreateTwitterUser(name)
+					sendTweet: function (tweet)			
+					__proto__: Object
+
+
+
+
+
+/*
+*/
+			
