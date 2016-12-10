@@ -217,6 +217,11 @@ The prototype property comes into play with constructor functions.  ...as follow
 	*** Important ***  --->			created this object, the __proto__ (internal prototype object) is
 						linked to the prototype object of the constructor function. *****
 
+						What I mean is that when you look at the __proto__ property within 
+						the instance, you are actually looking at the prototpye property within the 
+						constructor function.  they are the same.
+						
+-------------------------------------------------------------------------------
 
 
 
