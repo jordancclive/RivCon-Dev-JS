@@ -84,7 +84,7 @@ The typeof command:
                 re-assignment.
 --------------------------------------------------------------------------
 
-An example of mutable and immutable:
+An example of mutable (changeable) and immutable (not-changeable):
 
                   var str = "hello"
 
