@@ -82,7 +82,21 @@ In addition to being able to add properties, function objects come with a few pr
 /*
 -------------------------------------------------------------------------
 
+*/
+                  function hello(str){
+                        return str;
+                  }
+                  hello.myProperty = 10;
 
+                  typeof hello                           //<---- function  (because this object is callable
+                                                         //      it is designated as a "function" (a type of Object)
+                  Object.getOwnPropertyNames(hello);     //<----The properties that exist for a function returns in an array.
+
+                  //result:   
+                  //["length", "name", "arguments", "caller", "prototype", "myProperty"]
+                                                                                ^
+                  //  (see above for the definitions of these properties)    Here is also the property that we created (above)
+/*
 
 
 
