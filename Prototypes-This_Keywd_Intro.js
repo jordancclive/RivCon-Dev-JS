@@ -199,5 +199,16 @@ Rule #4:  "new" Binding Rule
         
         "this" is not a function's scope.
 
------------------------------------------------------------------------------                  
+-----------------------------------------------------------------------------  
+
+                              A word about Scope
+                                
+-----------------------------------------------------------------------------  
+
+There seems ot be 2 kinds of scope:
+
+        - Global Scope:  can be accessed from anywhere.
+        
+        - Local Scope: scope that exists within a function.
+
 */
