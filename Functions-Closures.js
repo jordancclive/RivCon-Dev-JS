@@ -1,4 +1,11 @@
-/* Functions.
+/* 
+-----------------------------------------------------------------------------------
+
+				Functions - Closures
+
+-----------------------------------------------------------------------------------
+
+Functions.
 
 Functions that return other functions are called "closures".  
 What "closure" is about is ---->  keeping variables in "active" memory.
@@ -35,7 +42,7 @@ Some examples:
                 function childFunction(){
                   console.log("Today it is " + weather);
                 }
-                return childFunction;                         //now you are not returning the function
+                return childFunction;                         //now you are not invoking the function
               }                                               
               let hold = parentFunction('sunny');
               let hold2 = parentFunction('rainy');  
