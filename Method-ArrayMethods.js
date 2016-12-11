@@ -1,4 +1,15 @@
-// functions-array_methods.js
+/* 
+--------------------------------------------------------------------------------
+
+                          Array_Methods
+
+--------------------------------------------------------------------------------
+
+If you use:   Object.getOwnPropertyNames()   <----In the parenthesis put "Array.prototype"
+
+You will get all of the built in Properties for arrays.
+
+--------------------------------------------------------------------------------
 
               /*---------------
                 Arrays are a list of values ( a DATASET) between square brakets with elements separated by commas.
