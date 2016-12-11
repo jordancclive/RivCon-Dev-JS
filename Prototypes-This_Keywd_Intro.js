@@ -10,7 +10,7 @@ rather, it's defined within the scope of a function.
 
 this can refer to:
 
-            - The Global Object
+            - The Global Object  (This is the first scope or the Window Object)
             - An instance of a Constructor Function
             - An object a method is attached to
             - A specific Object (you can instruct this to be the exact object you want it to be)
