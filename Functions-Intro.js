@@ -60,24 +60,27 @@ In addition to being able to add properties, function objects come with a few pr
         The prototype property is used to specify what properties and methods objects 
         should be inherited by an object created by a constructor function. 
         For more information, please reference the Prototype section of Advanced JavaScript.
-
+*/
                   var myFunction = function(arg) {
                     console.log(myFunction.caller)
                     return arg;
                   }
 
                   console.log(myFunction.length)            //1
-                  console.log(myFunction.name) //myFunction
+                  console.log(myFunction.name)              //myFunction
 
                   var callMyFunction = function hello() {
-                    myFunction('hello');
+                        myFunction('hello');
                   }
 
-                  console.log(callMyFunction.length) //0
-                  console.log(myFunction.name) //hello
+                  console.log(callMyFunction.length)        //0
+                  console.log(myFunction.name)              //hello
 
-                  callMyFunction(); //hello
+                  callMyFunction();                         //hello
+
                   //remember, hello is the function that called myFunction
+/*
+-------------------------------------------------------------------------
 
 
 
