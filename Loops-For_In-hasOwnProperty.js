@@ -1,5 +1,14 @@
-//for/in loop:
+/*
+------------------------------------------------------------------
 
+			For-In Loops
+			
+		      hasOwnProperty()
+
+------------------------------------------------------------------
+
+For_In loops:
+*/
               var myObj = {};
               myObj = {names: "Vin", gender: "male", graduate: true};
               for (var k in myObj){
@@ -49,5 +58,20 @@
 
               console.log(checkValue(obj, 5));                //<----true
               console.log(checkValue(obj, 'dog'));            //<----false
-              
-              
+/*              
+------------------------------------------------------------------
+		
+		hasOwnProperty & For_In	Loops
+	
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
