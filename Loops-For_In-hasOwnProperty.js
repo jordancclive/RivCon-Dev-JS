@@ -130,7 +130,7 @@ startEngine (){					<---	The for_In Loop looked at the methods that are on the
 	if(this.keyInserted === false){			internal prototype in addition to the objects keys.
 	   throw "Please insert a key";			
 	}						For_In access EVERY PROPERTY even in the prototype chain
-	return "Engine Started";			that is innumerable (aka: can be counted, countable). 
+	return "Engine Started";			that is innumerable (aka: can be not-changeable). 
 }							
 							Innumerability is a characteristic of a property itself.
 insertKey (){						In other words, you can set Innumerability to true or false.
