@@ -174,13 +174,84 @@ An example:
 /*
 ----------------------------------------------------------------------------------------
 
-			.map(function(value, index)); 
+			.map(function(element, index)); 
 
 ----------------------------------------------------------------------------------------
 
 .map(function(value, index));   ......There is a return value and it is a new array.
                                       Remember to send the result back with a return.
+				      
+	map is a function on the Array.prototype that takes a callback as its argument. 
+	map will create a new array by transforming each element in the array it was called upon. 
+	
+	This transformation is determined by the callback that is passed into map. 
+	A more concise definition of map would be a pairing of elements from one set to another. 
+	The concept of mapping is integral to programming in a functional style.
 
+			[2,3,4] => [4,6,8]
+
+	Take a look at the two arrays above. 
+	
+	The relationship between these two collections is clear. 
+	Each element in the new array is multiplied by two. 
+	Let's code this relationship out using Array#map.
+    
+	Example:	*/	 
+			var doubled = [2,3,4].map(function(elem) {
+			  	return elem*2;
+			 });
+			
+			console.log(doubled) 	//<--- [4,6,8]   
+			
+//----------------------->	Using Arrays:
+
+//	Example:	
+		var pets = [
+			{name: 'Lola', age:3, species: 'dog'},
+			{name: 'Max', age:13, species: 'dog'},			
+			{name: 'Willow', age:6, species: 'cat'},
+			{name: 'Lance', age:8, species: 'Turtle'}];
+		
+		pets.map(function(elem){
+		  return elem.name;
+		})
+		
+		//returns:  [ 'Lola', 'Max', 'Willow', 'Lance' ]	
+
+		pets.map(function(pet){
+			pet.age = pet.age*12
+		  	return pet;		//<---returning a new array with the age in months.
+		}).map(function(pet){		//<---chaining another .map to convert the new array to string elements.
+			return pet.name + ' is ' + pet.age + ' months old.';
+		}).forEach(function(petStmt){
+			console.log(petStmt);
+		});
+
+		/*returns:
+		Lola is 36 months old.
+		Max is 156 months old.
+		Willow is 72 months old.
+		Lance is 96 months old.
+    
+----------------------->	Using Objects:    
+*/
+		var pets = {
+			Lola: {age:3, species: 'dog'},
+			Max:  {age:13, species: 'dog'},			
+			Willow: {age:6, species: 'cat'},
+			Lance: {age:8, species: 'Turtle'}
+			};
+			
+		var str = Object.keys(pets).map(function(pet){		//<---got the keys in an array.
+		  return pet + ' is a ' + pets[pet].species;		//----needed to use the object to get to the 	
+		}).sort().join(', ');					//----first key and ultimately to the nested 
+									//----objects key.
+		console.log(str);
+		
+		/*returns:  Lance is a Turtle, Lola is a dog, Max is a dog, Willow is a cat
+
+----------------------------------------------------------------------------------------
+   
     Imagine .map looping over an array.  This method also takes a callback function that is fed 2 arguments
     1) the current value (the element) and 2) the index of that value.
     
