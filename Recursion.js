@@ -1,6 +1,74 @@
-/* Recursion
+/* 
+------------------------------------------------------------------------------
 
-A function that calls itself
+				Recursion
+
+------------------------------------------------------------------------------
+
+Recursion can often seem complex and confusing, but the concept is simple. 
+Recursion is when a function calls itself continuously...until it doesn't.
+
+
+		The key is 'until it doesn't'. 
+
+
+How does a function know when to stop recursing and return a value? 
+Recursion is formed from two parts: 
+
+	-	the base case and recursive case. 
+		The base case defines the condition when the function should no longer call itself. 
+		
+	-	The recursive case calls the function recursively, 
+		altering the arguments so that you get closer to the base case.
+
+If there is no base case, the function will never terminate, and a 'stack overflow' error will be thrown. 
+To determine the base case, you must examine the purpose of the function. 
+
+Often, the base case will represent the simplest or most basic call of the function--
+when no recursion is needed and the return value is known immediately.
+
+Study the function below. 
+
+Repeat is a function that takes a string, str, and a number, num, and returns a string that is str repeated num times.
+*/
+		function repeat(str, num) {
+		  if(!num) {
+		    return "";
+		  }
+		  else {
+		    return str + repeat(str, num-1)
+		  }
+		}
+		repeat('hello', 3) 	/*=> 'hellohellohello'
+
+The base case is when num === 0. This is for two reasons. 
+
+	First, this function is meant to recursively mimic a loop. Each recursive call acts as one 'loop'. 
+	When starting the next loop, in the recursive case, num is decreased. 
+	When num is 0, we know we've reached the end of our looping. 
+	
+	Second, when num is 0, we already know that our repeat function should return an empty string, "". 
+	This condition represents the simplest possible call of repeat, 
+	and will be the base upon which we build our return value.
+
+
+Here is a representation of the call stack when repeat('hello', 3) is called.
+
+		repeat('hello', 3)
+		      => 'hello + repeat('hello', 2)
+			       => 'hello' + repeat('hello', 1)
+					    => 'hello' + repeat('hello', 0)
+							 => ''
+					    => 'hello' + ''
+			       => 'hello' + 'hello'
+		      => 'hello' + 'hellohello'
+		=> 'hellohellohello'
+
+------------------------------------------------------------------------------
+
+
+
+....A function that calls itself
 
 A simple example:
 */
