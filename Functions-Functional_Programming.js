@@ -18,7 +18,7 @@ Some other programming paradigms that you've encountered include imperative prog
                   for (var i=0; i< numberArray.length; i++) {     //    immediately performing the commands.  
                       sum += numberArray[i];
                   }
-                  console.log("sum is , sum);                     
+                  console.log("sum is , sum");             
 /*                                                                  <---side effect.  something happens out the
                                                                         environment outside the program.
             
