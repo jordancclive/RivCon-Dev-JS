@@ -358,18 +358,24 @@ Example - 2 Dimentional array (a different method to solve it):
 			/*1st reduce returns: [ 1, 2, 3, 4, 5, 6, 7 ]
 
 
+Example - Using .reduce to make a filter:
+*/
+			  function myFilter(arr,filterFunc){
+			    return arr.reduce(function(filtered, element){
 
+			      if(filterFunc(element)){
+				filtered.push(element);
+			      }
+			      return filtered;
+			    }, [])  //<---starting with an empty array
+			  }
 
+			  var filteredArray = myFilter([1,2,3,4,5], function(elem){
+			    return elem%2===0;  //<--- truthy expression. true->return that element
+			  })
 
-
-
-
-
-
-
-
-
-
+			  console.log(filteredArray)  //[2,4]
+/*
 
 
 .reduce(function(value, index));   
