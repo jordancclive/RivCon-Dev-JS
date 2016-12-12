@@ -1,58 +1,65 @@
-// Call Back Functions - take in functions as a parameter.
-
 /*
+----------------------------------------------------------------------------------------
+
+		Call Back Functions - take in functions as a parameter.
+
+----------------------------------------------------------------------------------------
+
   A high order language is one where all datatypes including functions has the ability 
   to be passed as inputs and outputs.
   
   We will be talking about 5 array methods that take in functions as arguments....
   
+----------------------------------------------------------------------------------------
+
+				Overseer Function
   
+----------------------------------------------------------------------------------------
+
 An example:
 */
 
-// This is an overseer function.  it takes in a variable and a function as inputs.
-// It then returns the function invoked with the variable as its input.
+		// This is an overseer function.  it takes in a variable and a function as inputs.
+		// It then returns the function invoked with the variable as its input.
 
-    function overseer(num, operatorFunc){
-        return operatorFunc(num);
-    }
+		    function overseer(num, operatorFunc){
+			return operatorFunc(num);
+		    }
 
-//-------------------------------------------
+		//-------------------------------------------
 
-// here are 2 plain functions doing simple tasks:
+		// here are 2 plain functions doing simple tasks:
 
-    function addTwo(num){
-      return num+2;
-    }
-    
-    function multiplyByTwo(num){
-      return 2*num;
-    }
+		    function addTwo(num){
+		      return num+2;
+		    }
 
-//-------------------------------------------
+		    function multiplyByTwo(num){
+		      return 2*num;
+		    }
 
-// notice we are not invoking the 2 functions sent as arguments, just the name of the function.
+		//-------------------------------------------
 
-    console.log(overseer(10,addTwo));           //returns: 12
-    console.log(overseer(10, multiplyByTwo));   //returns 20
+		// notice we are not invoking the 2 functions sent as arguments, just the name of the function.
 
-//-------------------------------------------
+		    console.log(overseer(10,addTwo));           //returns: 12
+		    console.log(overseer(10, multiplyByTwo));   //returns 20
 
-
-// What follows are 5 built-in array methods that expect custom callback function as an argument.
+		//-------------------------------------------
 /*
+----------------------------------------------------------------------------------------
 
-.forEach
+	5 built-in array methods that expect custom callback function as an argument.
 
-.filter
+			.forEach	.filter		.sort
 
-.map
+			.map		.reduce			
 
-.reduce
+----------------------------------------------------------------------------------------
 
-.sort
+				.forEach(function(value, index))
 
-//-------------------------------------------
+----------------------------------------------------------------------------------------
 
 .forEach(function(value, index));   ......There is no return value.
 
@@ -112,10 +119,13 @@ An example:
               2
               3
               4
-          */
 
-//----------------------------------------------- 
-/*
+----------------------------------------------------------------------------------------
+
+			.filter(function(value, index));
+
+----------------------------------------------------------------------------------------
+
 .filter(function(value, index));   ......There is a return value.  Remember to send the result back with a return.
 
     Imagine .filter looping over an array.  This method also takes a callback function that is fed 2 arguments
@@ -160,11 +170,14 @@ An example:
           	
           }
           
-          console.log(shortNamesOnly(people));
-          
-
-//----------------------------------------------- 
+          console.log(shortNamesOnly(people));         
 /*
+----------------------------------------------------------------------------------------
+
+			.map(function(value, index)); 
+
+----------------------------------------------------------------------------------------
+
 .map(function(value, index));   ......There is a return value and it is a new array.
                                       Remember to send the result back with a return.
 
@@ -203,10 +216,13 @@ An example:
     result:
 	newArr:  [ 2, 3, 4, 5 ]		The return value within .map passes a new array result.
 	arr:  [ 1, 2, 3, 4 ]		The original array is not changed.
-    */
 
-//----------------------------------------------- 
-/*
+----------------------------------------------------------------------------------------
+
+			.reduce(function(value, index)); 
+
+----------------------------------------------------------------------------------------
+
 .reduce(function(value, index));   
     
     The idea of a reduce is to collapse the array down into something else.
@@ -251,8 +267,13 @@ An example:
 
     countRepeats(arr);		//returns: { corey: 1, mom: 1, dad: 1, doug: 3 }
 
-//----------------------------------------------- 
-/*
+/* 
+----------------------------------------------------------------------------------------
+
+				.sort()
+
+----------------------------------------------------------------------------------------
+
 .sort()
 
     Takes a callback that receives 2 arguments.
