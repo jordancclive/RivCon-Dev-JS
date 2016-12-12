@@ -294,6 +294,84 @@ An example:
 
 ----------------------------------------------------------------------------------------
 
+Reduce is another computer science term you may not have heard before. 
+Or maybe you heard of it under one of its disguises as fold, accumulate, or aggregate. 
+We are taking a complex structure or collection, and making it into something new 
+by combining the pieces of the collection. 
+
+In computer science, we call this ‘reducing a collection'.
+
+You ‘reduce’ collections such as arrays, all the time. 
+Let’s reduce this array right here by finding the sum.
+*/
+			var sum = 0, arr = [1,2,3];
+			for(var i = 0; i < arr.length; i++){
+			   sum += arr[i]
+			}
+/*
+I reduced this numbers array into the sum variable. I had a sum variable that was initialized as 0. 
+Then I added each element of the array to sum.
+
+JavaScript has a function reduce on the Array.prototype that we can use to reduce a collection 
+with less code than writing a for loop! Let’s take at how it works.
+
+Reduce is a higher order function, since it takes a function, or callback, as an argument. 
+reduce loops over the array, and runs this function for each element in the array. 
+That function itself has two arguments. 
+
+	The first is the accumulated value. In this example, it will hold our sum. 
+	The second argument represents the current element.
+
+Instead of adding directly to our sum, 
+reduce expects us to return the value that sum will be in the next loop/traversal. 
+In this way, we accumulate or build up a value in our sum value. 
+Once we’ve looped through all of the elements in the array, the sum variable is returned.
+*/
+			var sum = [1,2,3].reduce(function(sum, elem) {
+			  return sum + elem;
+			}
+
+
+//Example - 2 Dimentional array:
+
+			var twoDimArr = [[1,2], [3,4], [5,6,7]];
+
+			var flatten = twoDimArr.reduce(func,0);
+
+			function func(sum,elem){
+			  return sum + elem.reduce(function(sum,elem){
+			    return sum+elem; 
+			  })
+			}
+			/*returns: 28
+
+Example - 2 Dimentional array (a different method to solve it):
+*/
+			var twoDimArr = [[1,2], [3,4], [5,6,7]];
+
+			var flattenedArr = twoDimArr.reduce(function(flattened,arr){	
+			  return flattened.concat(arr);
+			  });
+			
+      			console.log(flattenedArr);
+			
+			/*1st reduce returns: [ 1, 2, 3, 4, 5, 6, 7 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .reduce(function(value, index));   
     
     The idea of a reduce is to collapse the array down into something else.
