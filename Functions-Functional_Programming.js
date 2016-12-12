@@ -18,8 +18,9 @@ Some other programming paradigms that you've encountered include imperative prog
                   for (var i=0; i< numberArray.length; i++) {     //    immediately performing the commands.  
                       sum += numberArray[i];
                   }
-                  console.log("sum is , sum);                     //<---side effect.  something happens out the
-/*                                                                    environment outside the program.
+                  console.log("sum is , sum);                     
+/*                                                                  <---side effect.  something happens out the
+                                                                        environment outside the program.
             
             Note: C is an example of a program that primarily uses an imperative programming style.      
             
@@ -27,7 +28,7 @@ Some other programming paradigms that you've encountered include imperative prog
             Object Oriented Programming (Java primarily takes advantage of this style)
             
             Objects are used to descibe "Objects" in real life. The object holds the state of, as an example, a person.
-            
+*/            
                   function Student(name){
                       this.name=name;
                       this.grades = [];
@@ -46,29 +47,25 @@ Some other programming paradigms that you've encountered include imperative prog
                   student.addGrade(76);
                   student.addGrade(90);
                   student.getGradeAverage();  //returns:  82
+/*
 
+        Functional programming is characterized by pure, higher-order functions and immutable data. 
 
+        When using functional programming, programs are designed using functions as the primary building blocks 
+        instead of using objects to hold state. Functional programming also emphasizes modularity.
 
+        For example, you could write a function that loops over an array and prints out each element. 
+        Then you write another function that loops over an array and adds the elements to some variable. 
+        There is now repetition in your code. Both functions loop over an array and perform some action.
 
+        We can separate these two purposes into separate functions--
 
+                    - a looping function that takes some function as an argument, 
 
+                    - and a function that can be passed into the looping function. 
 
-Functional programming is characterized by pure, higher-order functions and immutable data. 
-When using functional programming, programs are designed using functions as the primary building blocks 
-instead of using objects to hold state. Functional programming also emphasizes modularity.
-
-For example, you could write a function that loops over an array and prints out each element. 
-Then you write another function that loops over an array and adds the elements to some variable. 
-There is now repetition in your code. Both functions loop over an array and perform some action.
-
-We can separate these two purposes into separate functions--
-
-            - a looping function that takes some function as an argument, 
-            
-            - and a function that can be passed into the looping function. 
-            
-     We'll call our looping function forEach, and the function we pass in is called a callback.
-*/
+             We'll call our looping function forEach, and the function we pass in is called a callback.
+        */
 
                     function forEach(arr, callback) {
                        for(var i = 0; i < arr.length; i++) {
