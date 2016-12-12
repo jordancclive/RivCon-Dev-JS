@@ -19,15 +19,42 @@ Definition:
 
         Let's define a function that creates and returns a second function.
 */
-                    function createsAFunc() {
-                       return function() {
-                                  console.log('new function ran!')
-                              }
+                    function createsFunc() {
+                       var newFunc = function() {
+                             console.log('new function ran!')
+                       }
+                       return newFunc;                    //<-- function is not being invoked.
                     }
 
-                    var newFunc = createsAFunc();
-                    newFunc()
-                    //new function ran!
+                    var newFunc = createsFunc();          //The function is sitting here, but hasn't run yet
+                    newFunc();                            //new function ran!
+
+        //can also write it this way:
+
+                    var createsAFunc = function() {
+                           return function() {
+                               console.log('2nd new function ran!')
+                           }
+                    }
+
+                    var gotAFunc = createsAFunc();        //The function is sitting here, but hasn't run yet
+                    gotAFunc();                           //new function ran!
+
+        //****Important:
+        
+                    createsAFunc()()                      //The second parenthesis is invoking the returned function.
+                                                          // so we get the responde:  "new function ran!"
+
+        //We can also do this:
+
+                    var createsAFunc = function() {
+                           return function(message) {
+                               console.log('Message: ', message);
+                           }
+                    }
+        
+                    createsAFunc()('Hi Everyone!');        //The second parenthesis is invoking the returned function.
+                                                          // so we get the responde:  "Message:  Hi Everyone!"
 
 /*      ----------------------------------
 
@@ -78,12 +105,23 @@ Definition:
 
 -----------------------------------------------------------------------------
 
+Decorator Function:
+*/
+                    var decorator = function(func){
+                      return function(){
+                        console.log('I decorated the function!');
+                        func()
+                      }                   
+                    }
+                    
+                    var decorated = decorator(function(){console.log('Hello World!')});
+                    decorated();
+/*
+                    result:   I decorated the function!
+                              Hello World!
 
-
-
-
-
-
-
+        We got a function as an argument and added something to it. Then we gave the changed new function back.
+        
+-----------------------------------------------------------------------------      
 
 */
