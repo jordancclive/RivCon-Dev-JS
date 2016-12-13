@@ -209,14 +209,38 @@ The Execution phase  (What happens)
 
 Function Execution Context:
 
-                          
+                         As with the Global Execution Context, there are 2 phases:
+                         
+                                   creation & execution phases.
+                                   
+                         
+        Creation Phase:
+        
+                    The system assigns a value to the "this" keyword.  
+                              ...The value depends on how the function was called. (see: Prototypes-This_Keywd_Intro.js)
+                              
+                     Next all functions and local variables & arguments are created & put into memory.
+                     
+                     The Scope chain is created.
+                     
+                     
+         Execution Phase: All code is run.
+         
+         
+---------------------------------------------------------------------------------------
+
+Call Stack Basics:  The stack works from the botton up, the bottom is the Global Execution Context.
 
 
+                        -------------------------------------------------------------------------------------------------
+                        nested function is called...repeat....
+          -------------------------------------------------------------------------------------------------
+          If a function exists & is called, it has a context - creation phase happens, gets a scope, 'this' 
+-------------------------------------------------------------------------------------------------
+Global Execution Context  - 'this", and the Global Object
 
 
-
-
-
+-------------------------------------------------------------------------------------------------
 
 
 
