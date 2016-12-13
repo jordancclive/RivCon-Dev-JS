@@ -1,6 +1,7 @@
 /*
 -----------------------------------------------------------------------------  
-                              A word about Scope
+                             
+			     A word about Scope
                                 
 -----------------------------------------------------------------------------  
 
@@ -38,36 +39,20 @@ Block scope {between the brackets} is scope only between two brackets.
 		local to that function. namely: where the variable assignment is made.  
 		If the variable also exists globally, the global value is, in essence, a different variable.
 
-*/
 
 
 //======================
 // Hoisting:  JavaScript does a couple of passes on the code before executing it.
 
-// Before code:
 
-              someStuff();
-              var x = 5;
-              function someStuff(){
-                console.log(x);
-              }
-              
-// After JS passes over code (2 times):
+				-------------------------------------------  
+					
+					      refer to:
 
-              function someStuff(){           //<---- functions are hoisted up to the top. (1st pass)...it also sets the arguemnts
-                console.log(x);               //      in this pass.
-              }
-              var x;                          //<---- The variable definitions are hoisted 2nd (not the assignments - see below)
-              someStuff();                    //      (pass #2)        
-              x = 5;                          //<---- The variable assignments stay where they are.
-              
-              //The result is that when the function executes, the variable is "undefined" (an error does not occur, because
-              //the function definition happened, but the variable wasn't assigned the number yet.)
-              
-              // Because of hoisting, variables declared anywhere in a function are available everywhere in that function.
-              // ****   Again remember that variable assignments/initialization are different than the declaration. **** 
+				     Prototypes-Execution_Context.js 
 
-
+				-------------------------------------------   
+*/
 //======================
 // Back to Scope:
 
