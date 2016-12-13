@@ -197,17 +197,19 @@ This happens in two phases:   1.  The creation phase.
                                 
                                2. The execution phase.  ---> now the code starts to run.
                                
-                                  
-                                        
-                                        
-                                        
-
-
-
-
-
+                                 
 ---------------------------------------------------------------------------------------
 
+The Execution phase  (What happens)
+
+                          Everything in our code begins to actually run.
+                          
+                          
+---------------------------------------------------------------------------------------
+
+Function Execution Context:
+
+                          
 
 
 
