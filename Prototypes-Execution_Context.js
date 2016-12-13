@@ -115,6 +115,49 @@ Global Execution Context
         
         ..............Refer to the "What is this" section for more information about the this keyword.
 
+---------------------------------------------------------------------------------------
+
+                                   Execution Context
+                                   
+                                   The Creation Phase
+                                   
+                                          &
+                                          
+                                   The Execution Phase
+
+---------------------------------------------------------------------------------------
+
+The creation phase sets up:
+
+          sets up memory space for variables and funcions
+
+          creates the scope chain
+
+          creates the global object with a global execution context
+
+          determines and assigns the value of "this"
+
+
+The execution phase
+
+          assigns values.
+          
+          references the funtions and executes the code in your program
+
+---------------------------------------------------------------------------------------
+
+Hoisting:
+
+
+
+
+
+
+
+
+
+
+
 
 
 
