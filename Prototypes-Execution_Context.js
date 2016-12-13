@@ -146,7 +146,67 @@ The execution phase
 
 ---------------------------------------------------------------------------------------
 
-Hoisting:
+Hoisting:   JavaScript does a couple of passes on the code before executing it.
+
+            **** It does not move code around ****
+
+Before code:
+
+              someStuff();
+              var x = 5;
+              function someStuff(){
+                console.log(x);
+              }
+              
+After JS passes over code in the compile & creation phase while it is creating an execution context.
+
+              function someStuff(){           //<---- functions & variable declarations are hoisted into memory. 
+                console.log(x);               //      during compile phase & creation phase when creating execution context.
+              }
+              var x;                         
+              someStuff();                      
+              x = 5;                         
+              
+              //The result is that when the function executes, the variable is "undefined" (an error does not occur, because
+              //the function definition happened, but the variable wasn't assigned the number yet.)
+              
+              // Because of hoisting, variables declared anywhere in a function are available everywhere in that function.
+              // ****   Again remember that variable assignments/initialization are different than the declaration. **** 
+
+  
+******* Important ******
+
+So waht is really happening is that when you run your program (when it starts) ---> the system immediately creates 
+an execution context.
+
+This execution context holds:   all the values available to your program.
+                                and it creates an environment for them to run in.
+
+This happens in two phases:   1.  The creation phase.
+
+                                  In this creation phase when we are talking about the global execution context.
+                                
+                                        1st the global object is created & the "this" keyword is assigned a value.
+         
+                                        2nd the system looks at every line of code created (top to bottom).
+                                          When it finds functions/variables that it can store, it puts them into memory.
+                                          Remember, JS is not executing code yet, just looking for these variables & function
+                                          declarations.
+                                        
+                               once the system finishes looking at every line of code, the execution phase begins.....
+                                
+                               2. The execution phase.  ---> now the code starts to run.
+                               
+                                  
+                                        
+                                        
+                                        
+
+
+
+
+
+---------------------------------------------------------------------------------------
 
 
 
