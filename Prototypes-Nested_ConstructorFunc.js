@@ -78,12 +78,78 @@ object be attached to this user.  We must do that or non of
 the methods associated with a regular user will be 
 associated to the admin's user record.
 
-....so there is one more step wwe have to take....
+....so there is one more step we have to take....
+
+-------------------------------------------------------------------------------------
+
+Note:  Conceptually we have this:
+
+
+--------------------------                  ----------------------------------
+  An Admin Instance has:                      CreateAdminUser.prototype has:
+  
+    .name                                         .constructor
+    .handle
+    .followers                                                          We want to
+    .admin                                                              break this chain
+                                                                              \/
+                  ------------------------->                        ------------------------->
+     __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
+                  ------------------------->                        ------------------------->
+--------------------------                  ----------------------------------        ||
+                                                                                      ||
+                                                                                      ||
+--------------------------                  ----------------------------------        ||
+  A User Instance has:                      CreateTwitterUser.prototype has:          ||
+                                                                                      ||  We really want the 
+    .name                                         .constructor                <------- |  chain to go here.
+    .handle                                       .sendTweet method           <--------|       
+    .followers                                    .getHandle method                   
+                                                                              
+                  ------------------------->                        ------------------------->
+     __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
+                  ------------------------->                        ------------------------->
+--------------------------                  ----------------------------------
+
+-------------------------------------------------------------------------------------
+
 */
 
+//Take a look at the following first:
+
+CreateAdminUser.prototype = new CreateTwitterUser();
+      
+var karen = new CreateAdminUser('karen');
 
 
+dir(karen);
 
+// CreateAdminUser
+//     admin: true
+//     followers: Array[0]
+//     handle: "@karen"
+//     name: "karen"
+//     __proto__: CreateTwitterUser           //The problem is we have extra properties in the 
+//         followers: Array[0]                // __proto__ object that really should only be in the instance.
+//         handle: "@undefined"                          
+//         name: undefined
+//         __proto__: Object
+//             constructor: function CreateTwitterUser(name)
+//             getHandle: ()                                     //<---now there is access to
+//             sendTweet: (tweet)                                //    a std user's methods 
+//             __proto__: Object
+
+            
+
+var obj = Object.create({name:'Vin'});
+dir(obj);
+
+// Object
+//   __proto__: Object
+//       name: "Vin"
+//       __proto__: Object
+      
+         
 
 
 
