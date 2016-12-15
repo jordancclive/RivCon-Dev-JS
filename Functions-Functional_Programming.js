@@ -67,6 +67,12 @@ Some other programming paradigms that you've encountered include imperative prog
              We'll call our looping function forEach, and the function we pass in is called a callback.
         */
 
+//------------------------------------------IMPORTANT-------------------------------------------------------------
+
+//This is  not the Array method .forEach.  This is a self created method that is equivalent to the forEach method.
+
+//----------------------------------------------------------------------------------------------------------------
+
                     function forEach(arr, callback) {
                        for(var i = 0; i < arr.length; i++) {
                          callback(arr[i]);
