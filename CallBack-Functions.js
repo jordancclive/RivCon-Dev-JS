@@ -294,14 +294,13 @@ An example:
 
 ----------------------------------------------------------------------------------------
 
-Reduce is another computer science term you may not have heard before. 
-Or maybe you heard of it under one of its disguises as fold, accumulate, or aggregate. 
-We are taking a complex structure or collection, and making it into something new 
-by combining the pieces of the collection. 
+Reduce: to fold, accumulate, or aggregate. 
+
+		We are taking a complex structure or collection, and making it into something new 
+		by combining the pieces of the collection. 
 
 In computer science, we call this ‘reducing a collection'.
 
-You ‘reduce’ collections such as arrays, all the time. 
 Let’s reduce this array right here by finding the sum.
 */
 			var sum = 0, arr = [1,2,3];
@@ -309,8 +308,7 @@ Let’s reduce this array right here by finding the sum.
 			   sum += arr[i]
 			}
 /*
-I reduced this numbers array into the sum variable. I had a sum variable that was initialized as 0. 
-Then I added each element of the array to sum.
+I reduced this numbers array into the sum variable.
 
 JavaScript has a function reduce on the Array.prototype that we can use to reduce a collection 
 with less code than writing a for loop! Let’s take at how it works.
@@ -329,7 +327,7 @@ Once we’ve looped through all of the elements in the array, the sum variable i
 */
 			var sum = [1,2,3].reduce(function(sum, elem) {
 			  return sum + elem;
-			}
+			})
 
 
 //Example - 2 Dimentional array:
