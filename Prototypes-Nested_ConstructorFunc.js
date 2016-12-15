@@ -13,8 +13,10 @@ function CreateTwitterUser(name){
     this.name = name;
     this.handle = '@' + this.name;
     this.followers = [];
-}
-
+  
+    CreateAdminUser.prototype.users.push(this);             //<----we are adding the new user to the users array 
+}                                                           //     on the CreateAdminUser.prototype record. 
+                                                            //     (see the bottom of this document)   
 //always put methods outside of the Constructor Function
 
 CreateTwitterUser.prototype.sendTweet = function(tweet){
@@ -227,9 +229,18 @@ CreateAdminUser
 Now we have access to methods on both the constructors:  CreateAdminUser & CreateTwitterUser.
 
 -------------------------------------------------------------------------------------
-          
 
+Let's now ad methods to the CreateAdminUser.prototype object.
+*/
+CreateAdminUser.prototype.users = [];
+CreateAdminUser.prototype.getUserInfo = function(name){
+    return this.users.find(function(name){
+      return user.name ===name;
+    });
+}
+/*
 
+admin users will be able to use the admin methods:    "adminUser".getUserInfo('scott');
 
 
 
