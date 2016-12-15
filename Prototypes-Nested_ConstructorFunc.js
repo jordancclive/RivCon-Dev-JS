@@ -85,35 +85,36 @@ associated to the admin's user record.
 Note:  Conceptually we have this:
 
 
---------------------------                  ----------------------------------
-  An Admin Instance has:                      CreateAdminUser.prototype has:
-  
-    .name                                         .constructor
-    .handle
-    .followers                                                          We want to
-    .admin                                                              break this chain
-                                                                              \/
-                  ------------------------->                        ------------------------->
-     __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
-                  ------------------------->                        ------------------------->
---------------------------                  ----------------------------------        ||
+|-------------------------|                  |----------------------------------|
+| An Admin Instance has:  |                  | CreateAdminUser.prototype has:   |
+|                         |                  |                                  |
+|   .name                 |                  |    .constructor                  |
+|   .handle               |                  |                                  |
+|   .followers            |                  |                                  |   We want to
+|   .admin                |                  |                                  |   break this chain
+|                         |                  |                                  |     \/
+|                 --------|----------------->|                      ------------|-------------->
+|    __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
+|                 --------|----------------->|                      ------------|-------------->
+|-------------------------|                  |----------------------------------|     ||
                                                                                       ||
-                                                                                      ||
---------------------------                  ----------------------------------        ||
-  A User Instance has:                      CreateTwitterUser.prototype has:          ||
-                                                                                      ||  We really want the 
-    .name                                         .constructor                <------- |  chain to go here.
-    .handle                                       .sendTweet method           <--------|       
-    .followers                                    .getHandle method                   
-                                                                              
-                  ------------------------->                        ------------------------->
-     __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
-                  ------------------------->                        ------------------------->
---------------------------                  ----------------------------------
+                                                                                      || We really want the 
+|------------------------|                  |-----------------------------------|     || chain to go here.
+|  A User Instance has:  |                  | CreateTwitterUser.prototype has:  |     ||
+|                        |                  |                                   |     ||  
+|    .name               |                  |      .constructor                 |<---- |  
+|   .handle              |                  |     .sendTweet method             |<-----|       
+|    .followers          |                  |      .getHandle method            |       
+|                        |                  |                                   |
+|                  ------|----------------->|                        -----------|------------->
+|     __proto__    up the prototype chain is       __proto__         up the prototype chain is       Object.prototype
+|                  ------|----------------->|                        -----------|------------->
+|------------------------|                  |-----------------------------------|
+
 
 -------------------------------------------------------------------------------------
 
-*/
+\*
 
 //Take a look at the following first:
 
