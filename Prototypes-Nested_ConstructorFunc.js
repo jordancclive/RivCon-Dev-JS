@@ -114,14 +114,13 @@ Note:  Conceptually we have this:
 
 -------------------------------------------------------------------------------------
 
-\*
 
-//Take a look at the following first:
+Take a look at the following first:
+*/
 
 CreateAdminUser.prototype = new CreateTwitterUser();
       
 var karen = new CreateAdminUser('karen');
-
 
 dir(karen);
 
@@ -140,18 +139,95 @@ dir(karen);
 //             sendTweet: (tweet)                                //    a std user's methods 
 //             __proto__: Object
 
-            
+//and now take a look at this:            
 
 var obj = Object.create({name:'Vin'});
 dir(obj);
 
-// Object
-//   __proto__: Object
-//       name: "Vin"
+// Object                   <---Object.create,  creates a brand new empty object
+//   __proto__: Object      <--                 It also creates a __proto__ (internal prototype) link for this new object
+//       name: "Vin"        <---                that is linked to the object passed as an argument.
 //       __proto__: Object
-      
+/*      
          
+-------------------------------------------------------------------------------------
 
+Ok, now: ....so here is the one more step we have to take....
+
+instead of doing this (from above):
+*/
+CreateAdminUser.prototype = new CreateTwitterUser();
+
+//Let's do this:
+
+CreateAdminUser.prototype = Object.create(CreateTwitterUser.prototype);
+
+
+-------------------------------------------------------------------------------------
+*/  
+//So now, if we do this:
+CreateAdminUser.prototype = Object.create(CreateTwitterUser.prototype);
+var david = new CreateAdminUser('david');
+
+//Let's look at the admin user David's prototype chain:
+/*
+dir(david)
+
+CreateAdminUser
+    admin: true
+    followers: Array[0]
+    handle: "@david"
+    name: "david"
+
+    __proto__: CreateTwitterUser
+        __proto__: Object
+            constructor: function CreateTwitterUser(name)
+            getHandle: function ()                          //<---Now david has access to the TwitterUser methods....
+            sendTweet: function (tweet)
+            __proto__: Object
+
+-------------------------------------------------------------------------------------
+
+Ok, The one thing that is missing is the original constructor property 
+pointing the david instance back to its original constructor function.
+
+Let's put that back:
+*/
+
+CreateAdminUser.prototype.constructor = CreateAdminUser;
+
+//-------------------------------------------------------------------------------------
+
+//We are now done.....so let's look at how the code looks for all of this:
+
+
+CreateAdminUser.prototype = Object.create(CreateTwitterUser.prototype);
+CreateAdminUser.prototype.constructor = CreateAdminUser;
+var david = new CreateAdminUser('david');
+
+/*
+
+dir(david);
+
+CreateAdminUser
+    admin: true
+    followers: Array[0]
+    handle: "@david"
+    name: "david"
+    
+    __proto__: CreateTwitterUser
+        constructor: function CreateAdminUser(name)
+        
+        __proto__: Object
+            constructor: function CreateTwitterUser(name)
+            getHandle: function ()
+            sendTweet: function (tweet)
+            __proto__
+            
+Now we have access to methods on both the constructors:  CreateAdminUser & CreateTwitterUser.
+
+-------------------------------------------------------------------------------------
+          
 
 
 
