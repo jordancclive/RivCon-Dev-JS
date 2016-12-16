@@ -310,11 +310,11 @@ Let’s reduce this array right here by finding the sum.
 /*
 I reduced this numbers array into the sum variable.
 
-JavaScript has a function reduce on the Array.prototype that we can use to reduce a collection 
-with less code than writing a for loop! Let’s take at how it works.
+.reduce is on the Array.prototype:
 
 Reduce is a higher order function, since it takes a function, or callback, as an argument. 
 reduce loops over the array, and runs this function for each element in the array. 
+
 That function itself has two arguments. 
 
 	The first is the accumulated value. In this example, it will hold our sum. 
@@ -322,9 +322,11 @@ That function itself has two arguments.
 
 Instead of adding directly to our sum, 
 reduce expects us to return the value that sum will be in the next loop/traversal. 
+
 In this way, we accumulate or build up a value in our sum value. 
 Once we’ve looped through all of the elements in the array, the sum variable is returned.
 */
+
 			var sum = [1,2,3].reduce(function(sum, elem) {
 			  return sum + elem;
 			})
