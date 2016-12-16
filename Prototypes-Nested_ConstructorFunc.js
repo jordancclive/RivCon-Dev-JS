@@ -243,5 +243,22 @@ CreateAdminUser.prototype.getUserInfo = function(name){
 admin users will be able to use the admin methods:    "adminUser".getUserInfo('scott');
 
 
+-------------------------------------------------------------------------------------
+
+                                  More on:
+                                Object.create()
+
+-------------------------------------------------------------------------------------
 
 */
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+
+
+
+
+
+
+
+
+
