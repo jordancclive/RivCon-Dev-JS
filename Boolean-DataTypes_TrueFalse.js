@@ -16,3 +16,18 @@ var truthCheck = function() {
 }
 
 console.log(truthCheck() === true);
+
+//-----------------
+
+//The following function does the same thing
+
+function type(inputVar){
+  return Object.prototype.toString.call(inputVar).slice(8, -1);
+}
+
+
+
+function type(inputVar){
+  return Object.prototype.toString.call(inputVar);		//without the slice:  [object Number]
+}								//The slice gets all the erroneous info out 
+								//and gives you the datatype as a return value.
