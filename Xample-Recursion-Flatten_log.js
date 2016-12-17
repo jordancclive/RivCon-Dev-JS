@@ -9,3 +9,14 @@ function deepForEach(arr, processFunc){
   }
 }
 deepForEach([1,2,[3,4],[5,6,[7]]], console.log);
+
+
+/*returns:
+1
+2
+3
+4
+5
+6
+7
+*/
