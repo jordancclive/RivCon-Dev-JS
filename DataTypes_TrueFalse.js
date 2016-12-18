@@ -22,7 +22,7 @@ console.log(truthCheck() === true);
 //The following function does the same thing
 
 function type(inputVar){
-  return Object.prototype.toString.call(inputVar).slice(8, -1);
+  return Object.prototype.toString.call(inputVar).slice(8, -1);  		//<----This function is like typeof ...
 }
 
 
