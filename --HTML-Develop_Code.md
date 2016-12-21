@@ -165,7 +165,7 @@ Building Structure
                 |     |                          |     |   |     <aside>      |
                 |     |         <article>        |     |   |                  |
                 |     |                          |     |   |                  |                                
-                      ----------------------------     |   |                  |
+                |     ----------------------------     |   |                  |
                 |                                      |   |                  |    
                 ----------------------------------------   --------------------   
                 --------------------------------------------------------------- 
@@ -174,12 +174,76 @@ Building Structure
                 |                                                             |  
                 ---------------------------------------------------------------   
   
-  
-  
+Header
+
+    The <header> element, like it sounds, is used to identify the top of a page, article, section, 
+    or other segment of a page. In general, the <header> element may include a heading, 
+    introductory text, and even navigation.
+
+            <header>...</header>
+
+    The <header> element is a structural element that outlines the heading of a segment of a page.
+
+    Heading elements, <h1> through <h6>, are used to designate multiple levels of text headings throughout a page.  
     
+Navigation
+
+    The <nav> element identifies a section of major navigational links on a page. 
     
+    The <nav> element should be reserved for primary navigation sections only, such as 
+    global navigation, a table of contents, previous/next links, or other noteworthy groups of navigational links.
+
+    Most commonly, links included within the <nav> element will link to other pages within the same website or 
+    to parts of the same web page. Miscellaneous one-off links should not be wrapped within the <nav> element; 
+    they should use the anchor element, <a>, and the anchor element alone.
+
+            <nav>...</nav>
+
+Article
+
+    The <article> element is used to identify a section of independent, self-contained content 
+    that may be independently distributed or reused. We’ll often use the <article> element to 
+    mark up blog posts, newspaper articles, user-submitted content, and the like.
+
+    When deciding whether to use the <article> element, we must determine if the content within the element 
+    could be replicated elsewhere without any confusion. If the content within the <article> element 
+    were removed from the context of the page and placed, for example, within an email or printed work, 
+    that content should still make sense.
+
+            <article>...</article>
     
-    
+Section
+
+    The <section> element is used to identify a thematic grouping of content, which generally, but not always, 
+    includes a heading. The grouping of content within the <section> element may be generic in nature, 
+    but it’s useful to identify all of the content as related.
+
+    The <section> element is commonly used to break up and provide hierarchy to a page.
+
+            <section>...</section>
+
+Deciding Between <article>, <section>, or <div> Elements:
+
+    At times it becomes fairly difficult to decide which element—<article>, <section>, or <div>
+    is the best element for the job based on its semantic meaning. The trick here, as with every semantic decision, is to look at the content.
+
+    Both the <article> and <section> elements contribute to a document’s structure and help to outline a document. If the content is being grouped solely for styling purposes and doesn’t provide value to the outline of a document, use the <div> element.
+
+    If the content adds to the document outline and it can be independently redistributed or syndicated, use the <article> element.
+
+    If the content adds to the document outline and represents a thematic group of content, use the <section> element.
+
+Aside
+
+The <aside> element holds content, such as sidebars, inserts, or brief explanations, that is tangentially related to the content surrounding it. When used within an <article> element, for example, the <aside> element may identify content related to the author of the article.
+
+We may instinctively think of an <aside> element as an element that appears off to the left or right side of a page. We have to remember, though, that all of the structural elements, including the <aside> element, are block-level elements and as such will appear on a new line, occupying the full available width of the page or of the element they are nested within, also known as their parent element.
+
+1
+2
+<aside>...</aside>
+
+                                
     
 
     
