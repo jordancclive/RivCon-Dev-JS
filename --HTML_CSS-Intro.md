@@ -163,7 +163,68 @@ CSS Terms:
                   color: orange;
                   font-size: 16px;
                 }
-                      
+     
+        Type Selectors
+
+            Type selectors target elements by their element type. 
+            
+            For example, should we wish to target all division elements, <div>, we would use a type selector of div. 
+
+                CSS
+                    div { ... }
+
+                HTML
+                    <div>...</div>          
+                    <div>...</div>
+
+
+        Class Selectors
+
+            Class selectors allow us to select an element based on the element’s class attribute value. 
+            Class selectors are a little more specific than type selectors, 
+            as they select a particular group of elements rather than all elements of one type.
+
+            Class selectors allow us to apply the same styles to different elements
+            at once by using the same class attribute value across multiple elements.
+
+            Within CSS, classes are denoted by a leading period, ., followed by the class attribute value. 
+            
+            Here the class selector will select any element containing the class attribute value of awesome, 
+            including both division and paragraph elements.
+
+                CSS
+                    .awesome { ... }
+
+
+                HTML
+                    <div class="awesome">...</div>
+                    <p class="awesome">...</p>
+
+
+        ID Selectors
+
+            ID selectors are even more precise than class selectors, 
+            as they target only one unique element at a time. 
+            
+            Just as class selectors use an element’s class attribute value as the selector, 
+            ID selectors use an element’s id attribute value as a selector.
+
+            Regardless of which type of element they appear on, 
+            id attribute values can only be used once per page. 
+            If used they should be reserved for significant elements.
+
+            Within CSS, ID selectors are denoted by a leading hash sign, #, 
+            followed by the id attribute value. 
+            
+            Here the ID selector will only select the element containing the id attribute value of shayhowe.
+
+            CSS
+                #shayhowe { ... }
+
+
+            HTML
+                <div id="shayhowe">...</div>
+ 
 -----------------------------------------------------------------------
 
 
