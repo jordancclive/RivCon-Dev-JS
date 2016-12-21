@@ -11,8 +11,6 @@ Definition:
 
     CSS, or Cascading Style Sheets, is a presentation language created to style the appearance of content—using, 
     for example, fonts or colors.
-    
-    ex:  <a>
 
 -----------------------------------------------------------------------
 
@@ -28,6 +26,8 @@ HTML terms:
 
         Elements are identified by the use of less-than and greater-than angle brackets, 
         < >, surrounding the element name.
+        
+            ex:  <a>
         
     Tags
 
@@ -46,7 +46,7 @@ HTML terms:
         An anchor link, for example, will have an opening tag of <a> and a closing tag of </a>. 
         What falls between these two tags will be the content of the anchor link.
 
-        So, anchor tags will look a bit like this:  <a>...</a>
+            So, anchor tags will look a bit like this:  <a>...</a>
 
     Attributes
 
@@ -67,7 +67,36 @@ HTML terms:
         
             <a href="http://shayhowe.com/">Shay Howe</a>
             
+-----------------------------------------------------------------------
+
+HTML Document Structure:
+
+    All HTML documents have a required structure that includes the following declaration and elements: 
+    <!DOCTYPE html>, <html>, <head>, and <body>.
+    
+        <!DOCTYPE html>                       //Which version of HTML is being used.  This shows the current version.
+        
+        <html lang="en">
+          <head>                              //identifies the top of the document
+            <meta charset="utf-8">            //you put metadata here
+            <title>Hello World</title>        //shows on the title bar.
+                                              //you would also put links to external files here
+                                              //if you had local css styles, they would be here.
+          </head> 
+          
+          <body>                              //all visible content goes between the body tags;
+            <h1>Hello World</h1>
+            <p>This is a web page.</p>
+          </body>
+        </html>
 
 
+Self-Closing Elements
 
+    In the previous example, the <meta> element had only one tag and didn’t include a closing tag. 
+    
+    Some elements simply receive their content or behavior from attributes within a single tag. 
+    Other common selfclosing elements include
+
+        <br> <embed> <hr> <img> <input> <link> <meta> <param> <source> <wbr>
 
