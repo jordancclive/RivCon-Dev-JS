@@ -222,6 +222,7 @@ Section
 
             <section>...</section>
 
+
 Deciding Between <article>, <section>, or <div> Elements:
 
     At times it becomes fairly difficult to decide which element—> <article>, <section>, or <div>
@@ -258,7 +259,112 @@ Footer
     should be relative information and should not diverge from the document or section it is included within.
 
             <footer>...</footer>
+            
+Creating Hyperlinks
 
+    Along with text, one of the core components of the Internet is the hyperlink, 
+    which provides the ability to link from one web page or resource to another. 
+    
+    Hyperlinks are established using the anchor, <a>, inline-level element. 
+    In order to create a link from one page (or resource) to another, the href attribute, 
+    known as a hyperlink reference, is required. The href attribute value identifies the destination of the link.
+
+    For example, clicking the text “Shay,” which is wrapped inside the anchor element 
+    with the href attribute value of http://shayhowe.com, will take users to a website.
+
+            <a href="http://shayhowe.com">Shay</a>
+
+Wrapping Block-Level Elements with Anchors
+
+    By nature the anchor element, <a>, is an inline element, and, according to web standards, 
+    inline-level elements may not wrap block-level elements. 
+    
+    With the introduction of HTML5, however, anchor elements specifically have permission 
+    to wrap either block-, inline-, or any other level elements. This is a break from the standard convention, 
+    but it’s permissible in order to enable entire blocks of content on a page to become links.
+
+Relative & Absolute Paths
+
+    The two most common types of links are links to other pages of the same website and links to other websites. 
+    These links are identified by their href attribute values, also known as their paths.
+
+    Links pointing to other pages of the same website will have a relative path, 
+    which does not include the domain (.com, .org, .edu, etc.) in the href attribute value. 
+
+    Should the page being linked to reside within a different directory, or folder, 
+    the href attribute value needs to reflect this as well. Say the about.html page resides 
+    within the pages directory; the relative path would then be pages/about.html.
+
+    Linking to other websites outside of the current one requires an absolute path, 
+    where the href attribute value must include the full domain. 
+    A link to Google would need the href attribute value of http://google.com, 
+    starting with http and including the domain, .com in this case.
+
+    Here clicking on the text “About” will open the about.html page inside our browser. 
+    Clicking the text “Google,” on the other hand, will open http://google.com/ within our browser.
+
+            <!-- Relative Path -->
+            <a href="about.html">About</a>
+
+            <!-- Absolute Path -->
+            <a href="http://www.google.com/">Google</a>
+
+Linking to an Email Address
+
+    To create an email link, the href attribute value needs to start with mailto: 
+    followed by the email address to which the email should be sent. 
+    
+    To create an email link to shay@awesome.com, for example, the href attribute value would be mailto:shay@awesome.com.
+
+    
+    Additionally, subject, body text, and other information for the email may be populated. 
+    
+    To add a subject line, we’ll include the subject= parameter after the email address. 
+    The first parameter following the email address must begin with a question mark, ?, 
+    to bind it to the hyperlink path. Multiple words within a subject line require 
+    that spaces be encoded using %20.
+
+    Adding body text works in the same way as adding the subject, this time using the body= parameter 
+    in the href attribute value. Because we are binding one parameter to another we need to use the ampersand, &, 
+    to separate the two. As with the subject, spaces must be encoded using %20, and line breaks must be encoded using %0A.
+
+    Altogether, a link to shay@awesome.com with the subject of “Reaching Out” and body text of “How are you” 
+    would require an href attribute value of 
+    
+            mailto:shay@awesome.com?subject=Reaching%20Out&body=How%20are%20you.
+
+    Here’s the full breakdown:
+
+            <a href="mailto:shay@awesome.com?subject=Reaching%20Out&body=How%20are%20you">Email Me</a>
+
+Opening Links in a New Window
+
+    To trigger the action of opening a link in a new window, use the target attribute with a value of _blank. 
+    The target attribute determines exactly where the link will be displayed, and the _blank value specifies a new window.
+
+    To open http://shayhowe.com/ in a new window, the code would look like this:
+
+            <a href="http://shayhowe.com/" target="_blank">Shay Howe</a>
+
+              
+Linking to Parts of the Same Page
+
+    We can create an on-page link by first setting an id attribute on the element we wish to link to, 
+    then using the value of that id attribute within an anchor element’s href attribute.
+
+    Using the “Back to top” link as an example, we can place an id attribute value of top on the <body> element. 
+    Now we can create an anchor element with an href attribute value of #top, pound sign and all, 
+    to link to the beginning of the <body> element.
+
+    Our code for this same-page link would look like the following:
+
+            <body id="top">
+              ...
+              <a href="#top">Back to top</a>
+              ...
+            </body>
+
+                                          
 ------------------------------------------------------------------------------
 
 
