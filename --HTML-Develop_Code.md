@@ -224,26 +224,51 @@ Section
 
 Deciding Between <article>, <section>, or <div> Elements:
 
-    At times it becomes fairly difficult to decide which element—<article>, <section>, or <div>
-    is the best element for the job based on its semantic meaning. The trick here, as with every semantic decision, is to look at the content.
+    At times it becomes fairly difficult to decide which element—> <article>, <section>, or <div>
+    is the best element for the job based on its semantic meaning. 
+    The trick here, as with every semantic decision, is to look at the content.
 
-    Both the <article> and <section> elements contribute to a document’s structure and help to outline a document. If the content is being grouped solely for styling purposes and doesn’t provide value to the outline of a document, use the <div> element.
+    Both the <article> and <section> elements contribute to a document’s structure and help to outline a document. 
+    If the content is being grouped solely for styling purposes and doesn’t provide value to the outline of a document, 
+    use the <div> element.
 
-    If the content adds to the document outline and it can be independently redistributed or syndicated, use the <article> element.
+    If the content adds to the document outline and it can be independently redistributed or syndicated, 
+    use the <article> element.
 
-    If the content adds to the document outline and represents a thematic group of content, use the <section> element.
+    If the content adds to the document outline and represents a thematic group of content, 
+    use the <section> element.
 
 Aside
 
-The <aside> element holds content, such as sidebars, inserts, or brief explanations, that is tangentially related to the content surrounding it. When used within an <article> element, for example, the <aside> element may identify content related to the author of the article.
+    The <aside> element holds content, such as sidebars, inserts, or brief explanations, that is tangentially related 
+    to the content surrounding it. When used within an <article> element, for example, the <aside> element 
+    may identify content related to the author of the article.
 
-We may instinctively think of an <aside> element as an element that appears off to the left or right side of a page. We have to remember, though, that all of the structural elements, including the <aside> element, are block-level elements and as such will appear on a new line, occupying the full available width of the page or of the element they are nested within, also known as their parent element.
+    We may instinctively think of an <aside> element as an element that appears off to the left or right side of a page. 
+    We have to remember, though, that all of the structural elements, including the <aside> element, are block-level elements 
+    and as such will appear on a new line, occupying the full available width of the page or of the element 
+    they are nested within, also known as their parent element.
 
-1
-2
-<aside>...</aside>
+            <aside>...</aside>
 
-                                
+Footer
+
+    The <footer> element identifies the closing or end of a page, article, section, or other segment of a page. 
+    Generally the <footer> element is found at the bottom of its parent. Content within the <footer> element 
+    should be relative information and should not diverge from the document or section it is included within.
+
+            <footer>...</footer>
+
+------------------------------------------------------------------------------
+
+
+
     
 
-    
+
+
+
+
+
+
+
