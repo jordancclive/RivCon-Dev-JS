@@ -73,7 +73,7 @@ Comments within HTML & CSS
             HTML comments start with <!-- and end with -->. 
             
             CSS comments start with /* and end with */.
-    
+/*    
 Headings
 
     Headings are block-level elements, and they come in six different rankings, <h1> through <h6>. 
