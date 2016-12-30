@@ -40,6 +40,15 @@ Block vs. Inline Elements
     Inline-level elements may be nested inside one another; however, 
     they cannot wrap block-level elements. We’ll usually see inline-level 
     elements with smaller pieces of content, such as a few words.
+    
+    
+    Block elements always start on a new line, and will take up the maximum width available. 
+    h1-h6, div, p, and ul are examples of block elements. 
+    
+    Inline elements instead occur in-line with the rest of the elements or text. T
+    his means that they only take up as much width as necessary, and can be on the same line. 
+    Examples of inline elements include span, a, and em.
+    
 
 ------------------------------------------------------------------------------
 
