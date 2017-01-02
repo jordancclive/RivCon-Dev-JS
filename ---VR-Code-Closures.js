@@ -1,3 +1,24 @@
+/*
+-----------------------------------------------------------------------------
+
+		A closure example.   ....passing functions		
+
+-----------------------------------------------------------------------------
+*/
+// function sometimes(funcInput){
+//     return funcInput; 
+// }
+
+function sometimes(funcInput){
+    let count = 0;
+    return function (a,b){
+        count++;
+        if (count > 3 && !(count%2)) return 'I do not know!';
+        else return funcInput.apply(undefined, [a,b]); 
+    }
+}
+
+//-----------------------------------------------------------------------------
 /*  Secret Guest List Functions
         guestListFns arguments/return value:
             guestListArr = original guest List
