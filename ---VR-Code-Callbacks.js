@@ -78,3 +78,38 @@ function symmetricDiff(arr1, arr2){
 
 */
 
+/*
+-----------------------------------------------------------------
+
+            Call Backs:   .forEach
+
+-----------------------------------------------------------------
+*/
+
+function filter(arr, func){
+	var finalArr = [];
+
+	arr.forEach(function(index){
+		if(func(index)){
+			finalArr.push(index);
+		}
+	});
+
+	return finalArr;
+}
+
+/*
+---------------------------------------more:
+*/
+
+function search(func){
+	var bool = false;
+	this.forEach(function(val){
+		if(func(val)){
+			bool = true;
+		} else if(Array.isArray(val) && !bool){			
+			bool = search.call(val,func);			
+		}
+	});
+	return bool;	
+}
