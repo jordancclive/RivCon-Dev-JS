@@ -1,6 +1,25 @@
 /*
 -----------------------------------------------------------------------------
 
+	Passed an object to an array
+	returned a function that:
+	
+		adds key value pairs to that object;
+		changes passed values;
+		or returns values;
+
+-----------------------------------------------------------------------------
+*/
+
+function accessor (obj){
+    return function(key, value){
+        if (value) obj[key] = value; 
+        return obj[key];}
+}
+
+/*
+-----------------------------------------------------------------------------
+
                 Recursion with flattening 
                 a multi-dimensional array
 
@@ -36,83 +55,7 @@ function flatten(arr){
     }
     return resultArr;
 }
-/*
------------------------------------------------------------------------------
 
-		Using filter to find the differences
-		between 2 arrays
-		
-		then:
-		tying it together with finding
-		the Symmetric Difference between the arrays.
-		
-
------------------------------------------------------------------------------
-*/
-// iterative version
-// function difference(arr1, arr2){
-//     let resultArr = [];
-//     if (arr1.length === 0) return [];
-//     for (let i=0;i<arr1.length; i++){
-//         if(arr2.indexOf(arr1[i]) <0) resultArr.push(arr1[i]);
-//     }
-//     return resultArr;
-// }
-
-// using filter
-function difference(arr1, arr2){
-    if (arr1.length === 0){
-        return [];
-    } 
-    return arr1.filter(function(elem){
-        if(arr2.indexOf(elem)<0)return elem;
-    });
-}
-
-function symmetricDiff(arr1, arr2){
-    if (arr1.length === 0){
-        return [];
-    } 
-    let resultArr=[];
-    return difference(arr1, arr2).concat(difference(arr2, arr1));
-}
-/*
------------------------------------------------------------------------------
-
-		A closure example.   ....passing functions		
-
------------------------------------------------------------------------------
-*/
-// function sometimes(funcInput){
-//     return funcInput; 
-// }
-
-function sometimes(funcInput){
-    let count = 0;
-    return function (a,b){
-        count++;
-        if (count > 3 && !(count%2)) return 'I do not know!';
-        else return funcInput.apply(undefined, [a,b]); 
-    }
-}
-/*
------------------------------------------------------------------------------
-
-	Passed an object to an array
-	returned a function that:
-	
-		adds key value pairs to that object;
-		changes passed values;
-		or returns values;
-
------------------------------------------------------------------------------
-*/
-
-function accessor (obj){
-    return function(key, value){
-        if (value) obj[key] = value; 
-        return obj[key];}
-}
 /*
 -----------------------------------------------------------------------------
 
