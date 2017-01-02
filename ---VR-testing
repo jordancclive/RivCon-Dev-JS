@@ -1,0 +1,12 @@
+//-------------00-------------------------------------------
+
+function vowelsCount(str){
+    let vowels = 'aeiouAEIOU';
+    if (str.length ===0) return 0;
+    let strArr = str.split('');
+    return strArr.reduce(function(sum, elem){
+        return (vowels.indexOf(elem)>=0) ?  sum+1 : sum;
+    },0);
+}
+
+//----------------------------------------------------------
