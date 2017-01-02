@@ -4,6 +4,27 @@
 		A closure example.   ....passing functions		
 
 -----------------------------------------------------------------------------
+
+		Closure with a bit of split, splice and join
+
+-----------------------------------------------------------------------------
+*/
+function rotater(str){
+    let reversal = false;
+    return function(num){
+        if (num === str.length){
+            reversal = !reversal;
+            return str;
+        }
+        if (reversal){
+            return str.split('').splice(str.length - num).join('') + str.split('').splice(0, str.length - num).join(''); 
+        }else{
+            return str.split('').splice(num).join('') + str.split('').splice(0,num).join('');            
+        }
+    };
+}
+
+-------------------------------
 */
 // function sometimes(funcInput){
 //     return funcInput; 
