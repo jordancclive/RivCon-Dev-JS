@@ -1,50 +1,38 @@
-function factorialIterative(num){
-    // equals n * (n-1) * (n-2) ... * 1;
-    let resultNum = num;
-    for(let i=num-1; i>1; i--){
-        resultNum *= i;
-    }
-    return resultNum;
-}
+//Constructor function for Mammal:
 
-function factorial(num){
-    //base case
-    if (!num) return 1;
-    //recursive case
-    return num * factorial(num-1);
+function Mammal(name){
+    this.name=name;
+    this.offspring=[];
 }
+//---------------------------
+//Methods for Mammal follows:
 
-function fib(n){
-    //base case
-    if (n<2) return 1;
-    //recursive case
-    return fib(n-1) + fib(n-2);
+Mammal.prototype.sayHello = function (){
+   return "My name is " + this.name + "!";
 }
-
-function type(inputVar){
-  return Object.prototype.toString.call(inputVar).slice(8, -1);
+Mammal.prototype.haveBaby = function (){
+    let child = new Mammal();
+    child.name = 'Baby ' + this.name;
+    this.offspring.push(child);
+    return child;
 }
+//---------------------------
+//now about cats:
 
-function stringify(valToString){
-  console.log('original value: ',valToString);
-    if (type(valToString)==='String'){  
-        return '"' + valToString + '"';    
-    }
-    let result = [];
-    if(type(valToString) === 'Array') {
-        result = valToString.map(function(elem){
-            return stringify(elem);
-        });   
-        return '[' + result.join(',') + ']';
-    }
-    if(type(valToString) === 'Object') {
-        Object.keys(valToString).forEach(function(key){
-          let keyValue = stringify(valToString[key]);
-          result.push('"' + key + '": ' + keyValue);
-        });   
-        return '{' + result.join(',') + '}';
-    }
-        //because of type coersion, converts valToString to a string.
-        return valToString + "";  
+//The constructor function
+function Cat(name, color){
+    Mammal.call(this, name);
+    this.color = color;
+}
+//---------------------------
+//Link cats to Mammals:
+Cat.prototype = Object.create(Mammal.prototype);
+Cat.prototype.constructor = Cat;
+//---------------------------
+//Link Cat methods:
+Cat.prototype.haveBaby = function (color){
+    let child = new Cat('Baby ' + this.name, color);
+    this.offspring.push(child);
+    return child;
 }
 
