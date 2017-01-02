@@ -158,5 +158,58 @@ function translate (str){
     return str;
 }
 /*
+-----------------------------------------------------------------------------
 
+                Recursion assorted examples:
+
+-----------------------------------------------------------------------------
+*/
+function recSmallestInt(arr){
+    //base case: 2 element array
+    //return the smallest number
+    if (arr.length === 2){
+        return (arr[0]<arr[1]) ? arr[0] : arr[1];
+    }
+    //recursive case: arr>2:
+    let smallest = recSmallestInt(arr.slice(1));
+    return (arr[0]<smallest) ? arr[0] : smallest;
+}
+
+/*
+Great job.
+
+Actually, your base case could be even simpler: 
+if the array is 1 element long, return that element. 
+Try to keep the base case as simple as possible and do all computation in the recursive call.
+
+-----------------------------
+*/
+
+//Recursive solution:
+function runNumTimesRec(funcToRun, repeatNum){
+    if (repeatNum>0){
+        return funcToRun() + runNumTimes(funcToRun,repeatNum-1);
+    }
+}
+
+//Iterative solution:
+function runNumTimes(funcToRun, repeatNum){
+    let result = '';
+    for (let i=0; i<repeatNum; i++){
+        result += funcToRun();
+    }
+    return result;
+}
+
+/*
+Great job!
+Fascinating that you used a recursive approach, I never considered doing it that way. 
+The official solution uses a loop, just make sure you know how to solve this iteratively.
+Note: functions that don't return anything return 'undefined' so there's no need to explicitly return that (or an empty string). 
+Flip your logic around and your code looks cleaner:
+function runNumTimes(funcToRun, repeatNum){
+    if(repeatNum > 0) {
+    	return funcToRun() + runNumTimes(funcToRun,repeatNum-1);
+    } 
+}
 */
