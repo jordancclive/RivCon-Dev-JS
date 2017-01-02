@@ -14,16 +14,30 @@ function callAll(obj, arrOfFunc){
 /*
 -----------------------------------------------------------------
 
+            Call Backs:   .reduce
+
+-----------------------------------------------------------------
+*/
 function reject(inputArr, funcCall){
     return inputArr.reduce(function(filtArr, elem){
-        if (!funcCall(elem)){filtArr.push(elem);}
+        if (!funcCall(elem)){
+               filtArr.push(elem);
+        }
         return filtArr;
-    },[]);
-    
+    },[]);   
 }
 
+//--------------------------
+
+var callReduceOnThisArray = [1,2,3,4,5];
+
+var sum = callReduceOnThisArray.reduce(function(total,elem){
+      return total + elem;
+    },100);
+
 /*
-Nice work using reduce. This is actually a perfect use case for .filter
-For readability, always use braces {} after if statments
+-----------------------------------------------------------------
+
+
 */
-*/
+
