@@ -12,11 +12,11 @@
 		function lookAtArguments(){
 			//'arguments' are the items passed to this function.
 			//This is what the arguments key word is storing:
-			console.log(arguments);							//result:	{ '0': 5, '1': 10, '2': 15, '3': 20, '4': 50 }
+			console.log(arguments);				//result:	{ '0': 5, '1': 10, '2': 15, '3': 20, '4': 50 }
 			
 			//If you use call, here is how you can get the aguments into an array:
 			let arr = [].slice.call(arguments);
-			console.log(arr);								//result:	[ 5, 10, 15, 20, 50 ]
+			console.log(arr);				//result:	[ 5, 10, 15, 20, 50 ]
 			
 			return arr.reduce((prev,curr) => prev+curr);	//result: 100
 		}
