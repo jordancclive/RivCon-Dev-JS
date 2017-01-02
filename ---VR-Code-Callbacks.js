@@ -35,6 +35,24 @@ var sum = callReduceOnThisArray.reduce(function(total,elem){
       return total + elem;
     },100);
 
+//---------------------------
+
+function search(func) {
+	return this.reduce(function(prev, cur) {
+			debugger;
+
+		if(func(cur)) {
+			return true;
+		} else if(Array.isArray(cur)) {
+
+			if(!prev) {
+				return search.call(cur, func);
+			}
+		} 
+		return prev;
+	}, false);
+// }
+
 /*
 -----------------------------------------------------------------------------
 
