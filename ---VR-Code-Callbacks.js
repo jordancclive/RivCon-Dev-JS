@@ -36,8 +36,45 @@ var sum = callReduceOnThisArray.reduce(function(total,elem){
     },100);
 
 /*
------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
+		Using filter to find the differences
+		between 2 arrays
+		
+		then:
+		tying it together with finding
+		the Symmetric Difference between the arrays.
+		
+
+-----------------------------------------------------------------------------
+*/
+// iterative version
+// function difference(arr1, arr2){
+//     let resultArr = [];
+//     if (arr1.length === 0) return [];
+//     for (let i=0;i<arr1.length; i++){
+//         if(arr2.indexOf(arr1[i]) <0) resultArr.push(arr1[i]);
+//     }
+//     return resultArr;
+// }
+
+// using filter
+function difference(arr1, arr2){
+    if (arr1.length === 0){
+        return [];
+    } 
+    return arr1.filter(function(elem){
+        if(arr2.indexOf(elem)<0)return elem;
+    });
+}
+
+function symmetricDiff(arr1, arr2){
+    if (arr1.length === 0){
+        return [];
+    } 
+    let resultArr=[];
+    return difference(arr1, arr2).concat(difference(arr2, arr1));
+}
 
 */
 
