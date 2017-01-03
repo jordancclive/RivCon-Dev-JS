@@ -116,7 +116,7 @@ function extendWithNewKeyword(){
     arguments[0].prototype = new arguments[1]();
 }
 
-//-------------06----2.00 points----------------------------
+//-------------06----8.00 points----------------------------
 
 function interleave(){
     /*
