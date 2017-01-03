@@ -50,11 +50,31 @@ function twice(funcInput){
 
 //-------------03-------------------------------------------
 
+function createFunctions(num){
+    let resultArr = [];
+    for (let i=0; i<num; i++){
+        resultArr.push(function(){
+            return i;
+        });
+    }
+    return resultArr;
+}
 
+function closureIssue(counter){
+    return counter;
+}
 
+//-------------04-------------------------------------------
 
+function keyAdder(){
+    let obj = this;
+    let keys = Object.keys(this);
+    return keys.reduce(function(sum, elem){
+      return (typeof obj[elem] === 'number') ? sum + obj[elem] : sum;
+    },0);
+}
 
-
+//-------------05-------------------------------------------
 
 
 
