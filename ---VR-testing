@@ -20,7 +20,6 @@ function reduceRight(arr, startPt, funcInput){
 }
 
 function reduceRightRecursive(arr, startPt, funcInput){
-  
     let workArr = arr.slice(0);
     //base case:
     if (workArr.length-1===0) return funcInput(startPt,workArr[0]);
@@ -96,7 +95,7 @@ function extendWithNewKeyword(){
     arguments[0].prototype = new arguments[1]();
 }
 
-//-------------08----2.00 points----------------------------
+//-------------06----2.00 points----------------------------
 
 function interleave(){
     /*
