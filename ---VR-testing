@@ -9,4 +9,59 @@ function vowelsCount(str){
     },0);
 }
 
-//----------------------------------------------------------
+//-------------01-------------------------------------------
+
+function reduceRight(arr, startPt, funcInput){
+  let workArr = arr.slice(0);
+  for(let i=workArr.length-1; i>=0; i--){
+    startPt = funcInput(startPt,workArr[i]);
+  }
+  return startPt;
+}
+
+function reduceRightRecursive(arr, startPt, funcInput){
+  
+    let workArr = arr.slice(0);
+    //base case:
+    if (workArr.length-1===0) return funcInput(startPt,workArr[0]);
+    //recursive case:
+    else return funcInput(reduceRightRecursive(workArr.slice(1), startPt, funcInput), workArr[0]);
+}
+
+//-------------02-------------------------------------------
+
+function alternate(funcInput){
+    let count = 0;
+    return function(){
+        count++;
+        if (count === 1) funcInput();
+        if (count === 2) count = 0;
+    };
+}
+
+function twice(funcInput){
+    let count = 0;
+    return function(){
+        count++;
+        if (count<3) return funcInput();
+        else return 0;        
+    };
+}
+
+//-------------03-------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
