@@ -76,6 +76,35 @@ function keyAdder(){
 
 //-------------05-------------------------------------------
 
+function Laptop(year, hd){
+    this.year = year;
+    this.hd = hd;
+}
+Laptop.prototype.checkSpecs = function(){
+    return 'Year: ' + this.year + ', HD: ' + this.hd;
+};
+
+function Macbook(year, hd, color){
+    Laptop.apply(this, arguments);
+    this.color = color;
+}
+
+function extendWithObjectCreate(construc1, construc2){
+    construc1.prototype = Object.create(construc2.prototype);
+}
+
+function extendWithNewKeyword(){
+    arguments[0].prototype = new arguments[1]();
+}
+
+//-------------06-------------------------------------------
+
+
+
+
+
+
+
 
 
 
