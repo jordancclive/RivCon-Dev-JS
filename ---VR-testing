@@ -90,7 +90,7 @@ function keyAdder(){
     },0);
 }
 
-//-------------05----6.00 points----------------------------
+//-------------05----6.00 points-(extra credit 2 pts)-------
 
 function Laptop(year, hd){
     this.year = year;
