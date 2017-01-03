@@ -9,6 +9,16 @@ function vowelsCount(str){
     },0);
 }
 
+function vowelsCount(str){
+    let vowels = 'aeiouAEIOU';
+    let count=0;
+    if (str.length===0) return 0;
+    for(let i=0; i<str.length; i++){
+        if (vowels.indexOf(str[i])>=0) count++;  
+    }
+    return count;
+}
+
 //-------------01----6.00 points-(recursion is 4.00)--------
 
 function reduceRight(arr, startPt, funcInput){
