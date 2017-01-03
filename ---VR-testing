@@ -120,7 +120,7 @@ function interleave(){
     }  
     //args is now a usable array.
     
-    let strToMix = args.length;     //shows how many args exist.
+    let strToMix = args.length;     //shows how many args-strings exist.
     let index = 0;                  //largest index for all args
     let workingStr = '';
     
