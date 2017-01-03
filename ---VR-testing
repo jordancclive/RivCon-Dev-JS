@@ -48,6 +48,17 @@ function alternate(funcInput){
     };
 }
 
+function alternate (funcInput){
+    let count = 0;
+    return function(){
+        count++;
+        (count===1) ? funcInput() : count =0;
+    }
+}
+
+
+//-------------------------
+
 function twice(funcInput){
     let count = 0;
     return function(){
