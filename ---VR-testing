@@ -87,6 +87,9 @@ function Macbook(year, hd, color){
 
 function extendWithObjectCreate(construc1, construc2){
     construc1.prototype = Object.create(construc2.prototype);
+    //This wasn't asked for, but I thought it "right"
+    //to put it in anyway.
+    construc1.prototype.constructor = construc1;
 }
 
 function extendWithNewKeyword(){
