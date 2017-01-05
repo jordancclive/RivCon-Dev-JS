@@ -1,11 +1,13 @@
 /*
 -------------------------------------------------------------------------------
 
-				                    Throwing Errors
+				Throwing Errors
 
 -------------------------------------------------------------------------------
 
 Syntax:		throw expression; 
+
+	see:	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
 
 	The throw statement throws a user-defined exception. 
 	Execution of the current function will stop (the statements after throw won't be executed), 
@@ -17,8 +19,67 @@ Stmt examples:
 	throw 42;       // generates an exception with the value 42
 	throw true;     // generates an exception with the value true
 	
+	You can use throw to rethrow an exception after you catch it. 
+	The following example catches an exception with a numeric value and 
+	rethrows it if the value is over 50. T
+	
+	he rethrown exception propagates up to the enclosing function 
+	or to the top level so that the user sees it.
+*/
+	try {
+	   throw n; 	// throws an exception with a numeric value
+	} catch (e) {
+	   if (e <= 50) {
+	      		// statements to handle exceptions 1-50
+	   } else {
+	      		// cannot handle this exception, so rethrow
+	      throw e;
+	   }
+	}
+/*
+
+Try/Catch Statements:	
+
+	see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+
+	The try...catch statement marks a block of statements to try, 
+	and specifies a response, should an exception be thrown.
+*/	
+	try {
+	   try_statements
+	}
+	[catch (exception_var_1 if condition_1) { // non-standard
+	   catch_statements_1
+	}]
+	...
+	[catch (exception_var_2) {
+	   catch_statements_2
+	}]
+	[finally {
+	   finally_statements
+	}]
+/*
+	try_statements
+		The statements to be executed.
+		
+	catch_statements_1, catch_statements_2
+		Statements that are executed if an exception is thrown in the try block.
+		
+	exception_var_1, exception_var_2
+		An identifier to hold an exception object for the associated catch clause.
+		
+	condition_1
+		A conditional expression.
+	
+	finally_statements
+		Statements that are executed after the try statement completes. 
+		These statements execute regardless of whether or not an exception was thrown or caught.
+
+-------------------------------------------------------------------------------
 Throwing Objects:
 
+		Simple Example:
+*/
 		function UserException(message) {
 		   this.message = message;
 		   this.name = "UserException";
@@ -34,17 +95,20 @@ Throwing Objects:
 		   }
 		}
 
-		try {
-		   // statements to try
-		   var myMonth = 15; // 15 is out of bound to raise the exception
+		try {								//<---Try/Catch (see below)
+		   					// statements to try
+		   var myMonth = 15; 			// 15 is out of bound to raise the exception
 		   var monthName = getMonthName(myMonth);
 		} catch (e) {
 		   monthName = "unknown";
-		   console.log(e.message, e.name); // pass exception object to err handler
+		   console.log(e.message, e.name); 	// pass exception object to err handler
 		}
+
+
+/*
 -------------------------------------------------------------------------------
 
-Example:
+Simple Example:
 */
 	function Car(name, type, year){				//<----This is our constructor function
 		this.name=name;
