@@ -1,23 +1,3 @@
-//-------------00----2.00 points----------------------------
-
-function vowelsCount(str){
-    let vowels = 'aeiouAEIOU';
-    if (str.length ===0) return 0;
-    let strArr = str.split('');
-    return strArr.reduce(function(sum, elem){
-        return (vowels.indexOf(elem)>=0) ?  sum+1 : sum;
-    },0);
-}
-
-function vowelsCount(str){
-    let vowels = 'aeiouAEIOU';
-    let count=0;
-    if (str.length===0) return 0;
-    for(let i=0; i<str.length; i++){
-        if (vowels.indexOf(str[i])>=0) count++;  
-    }
-    return count;
-}
 
 //-------------01----6.00 points-(recursion is 4.00)--------
 
