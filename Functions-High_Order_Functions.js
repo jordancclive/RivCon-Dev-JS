@@ -124,4 +124,37 @@ Decorator Function:
         
 -----------------------------------------------------------------------------      
 
+//Wrapper function:
+
+function createFunctionsForLoop(num){
+    let resultArr = [];
+    for(let i=0; i<num; i++){
+        resultArr.push(function(){
+            return i;
+        })
+    }
+    return resultArr;      //an array of functions, <--length of = num.
+}
+
+/*  Good. Not sure why this wasn't made clear to you, 
+    but we ideally wanted to see wrapper functions 
+    instead of let.
+*/
+
+//I think he means this:
+
+function createFunctions(num){
+    let resultArr = [];
+    for(let i=0; i<num; i++){
+        resultArr.push(wrapper(i));
+    }
+    return resultArr;
+}
+
+function wrapper(num) {
+    return function(){
+            return num;
+        };
+};
+
 */
