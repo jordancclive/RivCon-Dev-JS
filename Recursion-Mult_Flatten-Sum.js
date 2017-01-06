@@ -1,5 +1,5 @@
 /*
-Take a multi-dimensional array and flaaten it....then sum the elements.
+Take a multi-dimensional array and flatten it....then sum the elements.
 */
 
 // screwed this up on a test......first attempt afterwards:
