@@ -542,6 +542,34 @@ function search(func) {
 	}, false);
  }
 
+//-------------------
+
+function vowelsCount(str){
+    let vowels = 'aeiouAEIOU';
+    //if (str.length ===0) return 0;  ...removed per mentor (below)
+    let strArr = str.split('');
+    return strArr.reduce(function(sum, elem){
+        return (vowels.indexOf(elem)>=0) ?  sum+1 : sum;
+    },0);
+}
+
+//iterative version:
+function vowelsCountIter(str){
+    let vowels = 'aeiouAEIOU';
+    let count=0;
+    for(let i=0; i<str.length; i++){
+        if (vowels.indexOf(str[i])>=0) count++;  
+    }
+    return count;
+}
+
+
+/*  Excellent use of reduce. 
+    There's no need to check str isn't empty, 
+    if it is reduce will just return the start val of 0 anyway
+*/
+
+
 /* 
 ----------------------------------------------------------------------------------------
 
