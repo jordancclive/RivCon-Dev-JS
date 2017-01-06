@@ -212,3 +212,19 @@ There seems ot be 2 kinds of scope:
         - Local Scope: scope that exists within a function.
 
 */
+
+//---------------------------------------------------------------------------
+
+//simple example of using this:
+
+function keyAdder(){
+    let obj = this;
+    let keys = Object.keys(obj);
+    return keys.reduce(function(sum, elem){
+      return (typeof obj[elem] === 'number') ? sum + obj[elem] : sum;
+    },0);
+}
+
+var total = keyAdder.call({a1:4, a2:22, a3:[1,2,3], a4:"Fullstack", a5:10});
+
+//Excellent again
