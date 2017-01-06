@@ -194,12 +194,16 @@ function factorial(num){
     return num * factorial(num-1);
 }
 
+//-------------------------------------------------------------
+
 function fib(n){
     //base case
     if (n<2) return 1;
     //recursive case
     return fib(n-1) + fib(n-2);
 }
+
+//-------------------------------------------------------------
 
 function type(inputVar){
   return Object.prototype.toString.call(inputVar).slice(8, -1);
@@ -227,5 +231,29 @@ function stringify(valToString){
         //because of type coersion, converts valToString to a string.
         return valToString + "";  
 }
+
+
+//--------------------------------------------------------
+
+//Done iteratively:
+function reduceRight(arr, startPt, funcInput){
+    let workArr = arr.slice(0);
+    let resultStr = '';
+    for(let i=workArr.length-1; i>=0; i--){
+        startPt = funcInput(startPt, workArr[i]); 
+    }
+    return startPt;
+}
+
+//Done Recursively:
+function reduceRightRecursive(arr, startPt, funcInput){
+    let workArr = arr.slice(0);
+    //base case:
+    if (workArr.length===1) return funcInput(startPt,workArr[0]);
+    //recursive case:
+    else return funcInput(reduceRightRecursive(workArr.slice(1), startPt, funcInput), workArr[0]);
+}
+
+//Great work on both
 
 
