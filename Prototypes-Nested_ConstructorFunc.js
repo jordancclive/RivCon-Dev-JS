@@ -241,6 +241,39 @@ CreateAdminUser.prototype.getUserInfo = function(name){
 /*
 
 admin users will be able to use the admin methods:    "adminUser".getUserInfo('scott');
+*/
+//----------------------------------------------------------------------------------
+
+function Laptop(year, hd){
+    this.year = year;
+    this.hd = hd;
+}
+Laptop.prototype.checkSpecs = function(){
+    return 'Year: ' + this.year + ', HD: ' + this.hd;
+};
+
+function Macbook(year, hd, color){
+    Laptop.apply(this, arguments);
+    this.color = color;
+}
+
+function extendWithObjectCreate(construc1, construc2){
+    construc1.prototype = Object.create(construc2.prototype);
+    //added this....
+    construc1.prototype.constructor = construc1;
+}
+
+function extendWithNewKeyword(){
+    arguments[0].prototype = new arguments[1]();
+}
+
+/*
+Really good work!
+
+Not sure why you didn't pass in params 
+to extendWithNewKeyword, 
+but the code is correct
+
 
 
 -------------------------------------------------------------------------------------
@@ -251,7 +284,7 @@ admin users will be able to use the admin methods:    "adminUser".getUserInfo('s
 -------------------------------------------------------------------------------------
 
 */
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+//    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 
 
 
