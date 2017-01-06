@@ -31,10 +31,10 @@ example HTML:
 example CSS
 
     h1 {
-        
+        font-size: 3em;
     }
     p {
-    
+        color: blue;
     }
     
 --------------------------------------------------------------------------------
@@ -57,13 +57,16 @@ The Document Object Model (DOM)
                                        
     How do we find things using the DOM?
     
-    web server   web browser
-    -----------------------------------------
-    HTML
+        web server                                                            web browser
+    -------------------                                      --------------------------------------------
     
+          HTML         <--- User requests a web page    <-------    The user enters a web address.        
     
-    JavaScript
-    
+                       Server sends the HTML & other
+       JavaScript      files needed to load that page --->    The web Browser loads the HTML into 
+                       including JS.                          the DOM.  Once loaded we can execute the 
+                                                              JS that was sent to interact with the DOM.
+    -------------------                                      --------------------------------------------
     
 --------------------------------------------------------------------------------
                                 
