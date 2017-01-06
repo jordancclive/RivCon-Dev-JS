@@ -18,4 +18,25 @@ The Ternary Operator:
 
               //-----------------------------
 
-/*------------------------------
+//------------------------------
+
+function alternate (funcInput){
+    let count = 0;
+    return function(){
+        count++;
+        (count===1) ? funcInput() : count = 0;
+    }
+}
+
+function twice(funcInput){
+    let count = 0;
+    return function(){
+        count++;
+        return (count<3) ? funcInput() : 0;
+    }
+}
+
+/*  More good work. 
+    Interesting treatment of count in alternate, 
+    using a boolean would be simpler than an integer.
+*/
