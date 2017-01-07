@@ -15,27 +15,18 @@ What is jQuery used for:
 
 --------------------------------------------------------------------------------
 
-example HTML:
+example HTML:                                       example CSS
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>jQuery Adventures</title>
-    </head>
-    <body>
-        <h1>Where do you want to go?</h1>
+    <!DOCTYPE html>                                     h1 {
+    <html>                                                  font-size: 3em;
+    <head>                                              }
+        <title>jQuery Adventures</title>                p {
+    </head>                                                 color: blue;
+    <body>                                              }
+        <h1>Where do you want to go?</h1>         
         <p>Plan your next adventure.</p>
     </body>
     </html>
-    
-example CSS
-
-    h1 {
-        font-size: 3em;
-    }
-    p {
-        color: blue;
-    }
     
 --------------------------------------------------------------------------------
 
@@ -115,32 +106,53 @@ start using it: create and application.js file and link that file for the HTML d
                 --->    <script src="application.js"></script>
 
 
+              .......I do not know if I did this correctly........
 
-
-
-
-
-
-
-
-
-
-
-
+ex:
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Home</title>
+          </head>
+          <body>
+            <div class="homepage-wrapper">
+              <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+              <p>Fly to New York today for as little as <span>$299.99</span></p>
+            </div>
+            <script src="jquery.min.js"></script>
+            <script src="application.js"></script>
+          </body>
+        </html>
 
 --------------------------------------------------------------------------------
 
-                              Traversing
+Changing multiple elements at once:
+
+example HTML:                                       example CSS
+
+    <!DOCTYPE html>                                     h1 {
+    <html>                                                  font-size: 3em;
+    <head>                                              }
+        <title>jQuery Adventures</title>                p {
+    </head>                                                 color: blue;
+    <body>                                              }
+        <h1>Where do you want to go?</h1>         
+        <p>Plan your next adventure.</p>
+    <ul id="destinations">
+        <li>Rome</li>
+        <li>Paris</li>
+        <li class='promo'>Rio</li>        
+    </body>
+    </html>
+    
+    Let's change all the <li> elements: --->  $("li").text("Orlando"); 
+    
+    Note: change all the elements with:       <p>       $("p");
+                        ...id elements:     #cont       $("#cont"); 
+                     ...class elements:     .articles   $(".articles");
+    
+    Let's change the one with a id:  --->   $("#destinations");
+                          ...class:         $(".promo");
 
 --------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
 */
