@@ -98,7 +98,10 @@ So you need to do this:
 
 --------------------------------------------------------------------------------
 
-Go to www.jQuery.com and download it.
+Go to www.jQuery.com and download it.  ---> go to download page; 
+                                            RClick: download linked file as...
+                                            download both the compressed & uncompressed versions 
+                                            in the directory of your choice. 
 
 load it into your HTML: <script src="jquery.min.js"></script>
 
