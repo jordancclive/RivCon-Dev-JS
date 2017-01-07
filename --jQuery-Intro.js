@@ -107,7 +107,12 @@ So you need to do this:
 
 --------------------------------------------------------------------------------
 
-Go to www.jQuery.com
+Go to www.jQuery.com and download it.
+
+load it into your HTML: <script src="jquery.min.js"></script>
+
+start using it: create and application.js file and link that file for the HTML docuument.
+                --->    <script src="application.js"></script>
 
 
 
