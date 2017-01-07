@@ -45,7 +45,42 @@ use the pseudo selector.
                       $("#destinations li:odd");      <---every other one. (remember the index starts at 0)
                       $("#destinations li:even");
                       
-                      
+--------------------------------------------------------------------------------                      
+
+                              Filter by
+                              Traversing
+                               follows
+
+--------------------------------------------------------------------------------
+
+Example:    finding all of the <li> elements:   $("#destinations").find("li");  <=== traversing
+                                                __________________ __________
+                                                        ^|            |^
+Traversing has 2 parts:        The  selection-----------^|  and the   |^-----traversal
+This is faster than 
+searching CSS selectors
+
+How about the first <li> on the list, then:       --->       $("li").first();
+                            other examples:       --->       $("li").last();
+
+--------------------------------------------------------------------------------                      
+
+                            Walking the DOM
+
+--------------------------------------------------------------------------------
+
+To get the second <li>:                   --->      $("li").first().next();
+To get the first by chaining methods:     --->      $("li").first().next().prev();
+To get the parent of a list item:         --->      $("li").first().parent();       <--- traversing up the DOM
+To get the child of an element:           --->      $("#destinations").children("li");     <--- traversing down the DOM
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
