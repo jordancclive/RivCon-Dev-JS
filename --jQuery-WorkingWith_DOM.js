@@ -353,4 +353,105 @@ Listening for an event on the button:
                   });                                                 price node.  .closest() will find 0 or 1 node
               });                                                     when searching for ancesters with the proper class.
                                                                       .parents() will find all ancesters with the proper class.
+                                                                      
+--------------------------------------------------------------------------------
+
+                        Acting on an Interaction
+                        
+             Note:  Now we will be working with many buttons
+                    and different prices for each button.
+                              
+--------------------------------------------------------------------------------   
+
+example HTML:                                       
+
+        <li class='vacation onsale' data-price='399.99'>      <---data-price is an HTML 5 attribute
+            <h3>Hawaiian Vacatiob</h3>
+            <button>Get Price</button>
+            <ul class='comments'>
+                <li>Amazing deal!'</li>
+                <li>Want to go!</li>
+            </ul>
+        </li>
+
+-----------------------------------------        
+
+Note:
+
+    To access data:       .data(<name>)
+    
+    To give it a value:   .data(<name>, <value>)
+    
+example:
+
+    $('.vacation').first().data('price);     <---returns:  $399.99   
+    
+-----------------------------------------   
+
+To make this work in our example:
+
+    Let's get the price from the HTML:
+    
+        var amount = $(this).closest('.vacation').data('price');
+        var price = $('<p>From $' + amount + '</p>');
+
+    Now the code looks like the following:
+    
+               $(document).ready(function(){
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                      var amount = $(this).closest('.vacation').data('price');
+                      var price = $('<p>From $' + amount + '</p>');
+                      $(this).closest('.vacation').append(price);  
+                      $(this).remove();                               
+                  });                                            
+              });         
+
+    Now let's remove the duplication:
+    
+               $(document).ready(function(){
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                      var vacation = $(this).closest('.vacation');
+                      var amount = vacation.data('price');
+                      var price = $('<p>From $' + amount + '</p>');
+                      vacation.append(price);  
+                      $(this).remove();                               
+                  });                                            
+              });       
+
+--------------------------------------------------------------------------------
+
+                        Acting on an Interaction
+                        
+             Note:  Now we will be working with many buttons
+                    and different prices for each button.
+                    
+                    We need to make the event handler more specific.
+                              
+--------------------------------------------------------------------------------   
+
+               $(document).ready(function(){
+                  $('.vacation').on('click', 'button', function(){    <---Notice
+                      //runs when any button is clicked.
+                      var vacation = $(this).closest('.vacation');
+                      var amount = vacation.data('price');
+                      var price = $('<p>From $' + amount + '</p>');
+                      vacation.append(price);  
+                      $(this).remove();                               
+                  });                                            
+              });     
+
+
+                  $('.vacation').on('click', 'button', function(){ 
+                  
+                  This means that you are only targeting buttons in the vacation class.
+                  
+                  This is called:  "Event Delegation"
+                  
+-------------------------------------------------------------------------------- 
+
+
+
+
 */
