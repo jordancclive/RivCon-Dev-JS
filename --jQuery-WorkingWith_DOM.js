@@ -34,7 +34,7 @@ Making a button work:
 
 Appending something to the DOM:     (step #1)
 
-                $(document).ready(funciton(){
+                $(document).ready(function(){
                     //create a <p> node with the price
                     var price = $('<p>From $399.00</p>');     <--- creates the node but it doesn't add it to the DOM
                 });
@@ -45,7 +45,7 @@ Appending something to the DOM:     (step #1)
 
                     .append(<element>)
 
-                            $(document).ready(funciton(){
+                            $(document).ready(function(){
                                 //create a <p> node with the price
                                 var price = $('<p>From $399.00</p>');
                                 $('.vacation').append(price);
@@ -65,7 +65,7 @@ Appending something to the DOM:     (step #1)
 
                     .prepend(<element>)
 
-                            $(document).ready(funciton(){
+                            $(document).ready(function(){
                                 //create a <p> node with the price
                                 var price = $('<p>From $399.00</p>');
                                 $('.vacation').prepend(price);
@@ -85,7 +85,7 @@ Appending something to the DOM:     (step #1)
 
                     .after(<element>)
 
-                            $(document).ready(funciton(){
+                            $(document).ready(function(){
                                 //create a <p> node with the price
                                 var price = $('<p>From $399.00</p>');
                                 $('.vacation').after(price);
@@ -105,7 +105,7 @@ Appending something to the DOM:     (step #1)
 
                     .before(<element>)
 
-                            $(document).ready(funciton(){
+                            $(document).ready(function(){
                                 //create a <p> node with the price
                                 var price = $('<p>From $399.00</p>');
                                 $('.vacation').before(price);
@@ -137,7 +137,7 @@ Final expression:
               
               ***  We will soon see how to have this execute after hitting the button. ***
 
-      $(document).ready(funciton(){
+      $(document).ready(function(){
           //create a <p> node with the price
           var price = $('<p>From $399.00</p>');
           $('.vacation').append(price);
@@ -148,33 +148,91 @@ Final expression:
  
  Other methods to know:
  
-  
+        .appendTo(<element>);
+        .prependTo(<element>);
+        .insertAfter(<element>);
+        .insertBefore(<element>);
+
+The syntax is a bit different as follows:
+
+        This:                 $('.vacation').append(price);
+        Would be written:     price.appendTo('.vacation');
+        
+--------------------------------------------------------------------------------
+
+                        Acting on an Interaction
+                              
+--------------------------------------------------------------------------------  
+
+The ready method:   (we have been using it)
+
+                $(document).ready(function(){
+                    <code>
+                });
+
+we are going to build an event handler expression:
+
+                $(document).ready(event handler function(){
+                    <code>
+                });
+
+-------------------------------------------------------------------------------- 
+
+The DOM:
+
+    document
+        l1 class='vacation'                           
+            h2
+                Hawaiian Vacation
+            button                <---here is the button          
+                Get Price  
+            p                         
+                $399.99                   
+
+    -------------------------
+
+Listening for an event on the button:
+
+    1. we have to reference the button.
+    2. we need to build an event handler for the button.
+    
+    
+    Step 1:   $('button');  <---references the button
+    
+    Step 2:
+    
+              We are going to use the on.click() method.  --->  on.click(<event>, <event handler>);
+              
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                  });
+              
+              We are going to put it inside our .ready(); method:
+              
+                  $(document).ready(function(){
+                      $('button').on('click', function(){
+                          //runs when any button is clicked.
+                      });
+                  });
+                  
+              We now have to put our code from the last section into the event handler expression:
+              (This code runs when the button is pushed.)
+               
+                  $(document).ready(function(){
+                      $('button').on('click', function(){
+                          //runs when any button is clicked.
+                          var price = $('<p>From $399.00</p>');
+                          $('.vacation').append(price);
+                          $('button').remove();
+                      });
+                  });             
+
+    -------------------------
+    
+    
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8/
+*/
