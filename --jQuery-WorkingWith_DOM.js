@@ -237,10 +237,120 @@ Listening for an event on the button:
                               
 --------------------------------------------------------------------------------  
     
-    
+ DOM:
+  document
+      div id='vacations'
+          ul        
+              l1 class='vacation'
+                  button            
+                      Get Price 
+              l1 class='vacation'                    
+                  button                
+                      Get Price 
+              l1 class='vacation'                    
+                  button               
+                      Get Price   
 
+  The code we used in the last section (now below) will change all the buttons if any button is clicked.
+  We need to correct this code.
+  
+              $(document).ready(function(){
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                      var price = $('<p>From $399.00</p>');
+                      $('.vacation').append(price);         <--- the class name is now associated with all the <li>s.
+                      $('button').remove();                 <--- all the buttons will be removed.
+                  });
+              });   
 
-
-
-
+  -----------------------------------------   
+  
+  The 'this' keyword.  If you use 'this', the object that this refers to will
+  be the button where the event occurred.
+  
+              $(this).remove();  <--- only removes the button that called the event handler.
+              
+  We also need to have the price be associated with the 'this' element:
+  
+              $(this).append(price);
+              
+  So now the code should look as follows:
+  
+               $(document).ready(function(){
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                      var price = $('<p>From $399.00</p>');
+                      $(this).append(price);
+                      $(this).remove();
+                  });
+              });   
+              
+              
+  
+  -----------------------------------------     
+  
+  What if the DOM looked like this:
+  
+      DOM:
+      document
+          div id='vacations'
+              ul        
+                  l1 class='vacation'
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price 
+                  l1 class='vacation'                    
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price e 
+                  l1 class='vacation'                    
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price  
+  
+  
+  ....and you want the DOM to look like this:
+  
+      DOM:
+      document
+          div id='vacations'
+              ul        
+                  l1 class='vacation'
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price 
+                      p                 <---you want to insert the element here
+                          $399.99         
+                  l1 class='vacation'                    
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price e 
+                  l1 class='vacation'                    
+                      h2
+                          Hawiian Vacation
+                      div
+                          button            
+                              Get Price  
+  
+   So now the code should look as follows:
+  
+               $(document).ready(function(){
+                  $('button').on('click', function(){
+                      //runs when any button is clicked.
+                      var price = $('<p>From $399.00</p>');
+                      $(this).closest('.vacation').append(price);  <---This will walk up the DOM to look for the ancester
+                      $(this).remove();                               with the class of vacation and append onto that the 
+                  });                                                 price node.  .closest() will find 0 or 1 node
+              });                                                     when searching for ancesters with the proper class.
+                                                                      .parents() will find all ancesters with the proper class.
 */
