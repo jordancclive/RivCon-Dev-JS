@@ -449,7 +449,77 @@ To make this work in our example:
                   
                   This is called:  "Event Delegation"
                   
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
+
+                              Working with 
+                                the DOM
+                                
+                               Filtering
+                              
+--------------------------------------------------------------------------------
+
+
+
+                              adding/removing
+                                classes
+                                
+  Use these classes:
+
+            .addClass(<class>);
+
+            .removeClass(<class>);
+      
+
+--------------------------------------------------------------------------------
+
+There are also filter buttons on the site as follows:
+
+        <div id='filters'>
+        ...
+            <button class='onsale-filter'>On Sale Now</button>
+            <button class='expiring-filter'>Expiring</button>    
+        ...
+        </div>
+        
+        DOM
+          document
+            ...
+            ul
+                li class='vacation onsale'
+                    ul class='comments'
+                        li
+                        li
+                li class='vacation'
+                li class='vacation'
+            ...     
+            div id=filters
+                button class = onsale-filter
+                    text
+                button class = expiring-filter
+                    text 
+                    
+        
+We are going to write 2 separate event handlers for these buttons:
+
+        Step 1: find all vacations that are on sale.
+        Step 2: add a class to them so they are high;ighted.
+
+        $(#filters).on('click', '.onsale-filter', function(){
+            $('.highlighted').removeClass('highlighted');                 <--- removes highlightedforst.
+            $('.vacation').filter('.onsale').addClass('highlighted');     <--- adding a new class to onsale items. 
+                                                                               CSS handles the highlighting of that class.
+        });
+
+        $(#filters).on('click', '.expiring-filter', function(){
+            $('.highlighted').removeClass('highlighted'); 
+            $('.vacation').filter('.expiring').addClass('highlighted');                                                                 
+        });
+
+
+
+
+
+
 
 
 
