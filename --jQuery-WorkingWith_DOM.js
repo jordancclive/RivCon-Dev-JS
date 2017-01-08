@@ -384,7 +384,7 @@ Note:
     
 example:
 
-    $('.vacation').first().data('price);     <---returns:  $399.99   
+    $('.vacation').first().data('price');     <---returns:  $399.99   
     
 -----------------------------------------   
 
