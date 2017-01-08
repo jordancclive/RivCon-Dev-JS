@@ -161,6 +161,8 @@ The syntax is a bit different as follows:
 --------------------------------------------------------------------------------
 
                         Acting on an Interaction
+                        
+                 Note:  We will be working with one button
                               
 --------------------------------------------------------------------------------  
 
@@ -227,7 +229,13 @@ Listening for an event on the button:
                       });
                   });             
 
-    -------------------------
+--------------------------------------------------------------------------------
+
+                        Acting on an Interaction
+                        
+             Note:  Now we will be working with many buttons
+                              
+--------------------------------------------------------------------------------  
     
     
 
