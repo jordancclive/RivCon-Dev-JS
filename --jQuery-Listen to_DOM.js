@@ -193,6 +193,109 @@ The resulting code:
         });
 
 --------------------------------------------------------------------------------
+                              Listening to
+                               DOM events
+                               
+                              Click event
+                              
+--------------------------------------------------------------------------------
+
+Some methods to know:
+
+            .fadeIn();    .fadeOut();   .fadeToggle();
+
+
+--------------------------------------------------------------------------------
+DOM for this example:
+
+    document                                          CSS for this example:
+        ul                                            (in application.css)
+            li    .vacation                         
+                a   .expand
+                    Show Comments text                .comments {
+                ul    .comments                           display: one;
+                    li                                }
+                    li
+
+                If you cick the link (above) show comments
+                ...will show the appropriate comments.
+                
+--------------------------------------------------------------------------------
+
+Code:
+
+        $(document).ready(function(){
+            $('.vacation').on('click', '.expand', function(event){      <---  Notice
+                  //find the comments ul.
+                  //show this comments ul.
+            });
+        });  
+        
+        Will be inserting:
+        
+        $(this).closest('.vacation').find('.comments').fadeToggle();
+
+-----------------------------------
+
+We came into this example by someone clicking a link within the browswer.
+
+      <a href='#' class='expand'>Show Comments</a>                  <---  When you click an event at the bottom
+                                                                          of the page, in this case the browswer 
+                                                                          pops up to the top of the page
+                                                                          ...need to address this.
+                                                                          
+      Note well:  When an event occurs the browser traverses up the tree 
+                  to let each parent know that a click event occurred.
+                  
+                  Eventually this traversing gets to the top and because we have an href
+                  link with a hash ('#'), the browswer is going to follow that link and the 
+                  default behavior is to go to the top of the page.
+                  
+-----------------------------------
+
+      One possible solution:
+      
+      - add the event paramenter inside the event handler function call. (step 1)
+      
+                                                                  
+        $(document).ready(function(){                                  
+            $('.vacation').on('click', '.expand', function(event){  <--- (step 1)
+                    event.stopPropagation();                        <---  Will still handle the click event
+            });                                                           but will prevent bubble up the parent
+        });                                                               nodes (ancestors).         
+                                                                          
+                                                                          Although this will not stop the browser
+                                                                          default behavior for the above link, so 
+                                                                          you will satill pop up to the top of the page.
+
+-----------------------------------
+
+      What we can do is:
+      
+              $(document).ready(function(){                                  
+            $('.vacation').on('click', '.expand', function(event){  <--- (step 1)
+                    event.preventDefault();                         <---  Will stop the browser default behavior
+            });                                                           from happening.
+        });                                                               *** This will work ***
+
+-----------------------------------
+
+      The resulting code:
+      
+              $(document).ready(function(){                                  
+            $('.vacation').on('click', '.expand', function(event){ 
+                    event.preventDefault();  
+                    $(this).closest('.vacation').find('.comments').fadeToggle();
+            });                                                           
+        });                        
+       
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
 */
 
 
