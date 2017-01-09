@@ -110,7 +110,7 @@ Can we move everything to the stylesheet?  .....yes!
 The CSS:
 
             .highlighted {
-                   'background-color': '#252b30',       
+                   'background-color': '#252b30';       
                    'border-color': '1px solid #967';
             }
             .highlighted .price {
@@ -126,10 +126,95 @@ The Adjusted Code:
      });
 
 --------------------------------------------------------------------------------
+ 
+                              Animations
+                              
+--------------------------------------------------------------------------------
 
+Some methods we should know:
 
+          .animate(<object>);   <--- if you tell it to move from pt 1 to pt 2, it will do it gradually.
+          
+                   .animate({'top': '-10px'});          <---default
+                   .animate({'top': '-10px'}, 400);     <---milli-seconds       
+          
+                   .animate({'top': '-10px'}, 'fast');          
+                   .animate({'top': '-10px'}, 200);          
+          
+                   .animate({'top': '-10px'}, 'slow');          
+                   .animate({'top': '-10px'}, 600);
+                   
+                   Note:  can also use the spped parameter with:
+                          slideToggle()       fadeToggle()    
+                   
+          
+          .hasClass();   <--- You can check if a node has a specific class.
 
+--------------------------------------------------------------------------------
 
+Let's make the vacation boxes jump up a little bit, when we click them.
+
+The Adjusted Code from the previous section:   
+
+     $(document).ready(function(){
+            $('#vacations').on('click', '.vacation', function(){
+                   $(this).toggleClass('highlighted');
+            });
+     });
+
+   --->  $(this).css({'top': '-10px'});  <---This would just make it jump 10px
+   
+   --->  Let's do this:  $(this).animate({'top': '-10px'});  <---This would just make it move up the 10px
+   
+   Now let's take into consideration moving down too:
+   
+        if(<vacation class is highlighted>){   <---pseudo code.../...real code:---> $(this).hasClass('highlighted');
+            //animate up
+            $(this).animate({'top': '-10px'});
+        }else{
+            //animate down
+            $(this).animate({'top': '0px'});
+        }
+   
+-----------------------------------   
+
+The adjusted code:
+
+     $(document).ready(function() {
+            $('#vacations').on('click', '.vacation', function() {
+                   $(this).toggleClass('highlighted');
+                   if($(this).hasClass('highlighted') {
+                        //animate up
+                        $(this).animate({'top': '-10px'}, 'fast');
+                   }else {
+                        //animate down
+                        $(this).animate({'top': '0px'}, 'fast');                   
+                   }
+            });
+     });
+
+----------------------------------- 
+
+Can we move everything to the stylesheet?  .....yes! 
+
+The CSS:
+
+            .vacation {
+                   transition: top 0.2s;     <---in seconds   *** be careful ***
+            }                                                 not all browswers may support this. 
+            .highlighted {
+                   top: -10px;
+            }
+            
+The Adjusted Code:   
+
+     $(document).ready(function() {
+            $('#vacations').on('click', '.vacation', function() {
+                   $(this).toggleClass('highlighted');
+            });
+     });
+
+--------------------------------------------------------------------------------
 
 
 
