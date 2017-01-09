@@ -176,7 +176,7 @@ Code:
         
                 var price = +$(this).closest('.vacation').data('price');   <--- gets the price. returns a string
                                                                                 the plus turns it into a number.
-                var quantity = +$(this).value();      <--- returns The value inputed from the keyboard.  Which
+                var quantity = +$(this).val();      <--- returns The value inputed from the keyboard.  Which
                                                           is the thing that fired the event handler, hence "this".
                 $('#total').text(price*quantity);     <---Puts the value on the screen.
 
@@ -187,7 +187,7 @@ The resulting code:
         $(document).ready(function(){
             $('.vacation').on('keyup', '.quantity', function(){
                 var price = +$(this).closest('.vacation').data('price');  
-                var quantity = +$(this).value();    
+                var quantity = +$(this).val();    
                 $('#total').text(price*quantity);   
             });
         });
