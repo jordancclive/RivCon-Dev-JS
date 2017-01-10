@@ -117,8 +117,42 @@ add                                 11       56
                                
 ----------------------------------------------------------------------------------  
 
+Hash tables are used when you need speedy insertion, deletion and look up of elements is priority.
 
+    A hash table is an array combined with a function (called a hash function).
+    
+         key |
+             |
+      -----------------------       
+          Hash function
+      -----------------------  
+                  |
+                  |Hash Value (an integer that maps to a particualr index in the array)
+                  
+        
+        You use this function to determine where you will store something and retrieve something from the array.
+        
+  Hash function:
+ 
+              //hash on first letter of string  A ---> index 0
+                                                B            1
+                                                
+              A problem is if you have 2 elements starting with A.  It is called a 'collision'.
+              
+Handling collisions:
 
+        - Linear probing - if a collision occurs, the new element is assigned to the 
+                           next available free index on the table.
+                           
+                           Once a collision occurs, you have a high probability of many 
+                           collisions happening.  ....called 'clustering'.
+                           
+        - separate chaining - In this case the array contains pointers to linked-lists.
+                              results in an O of N/k  n = elements in the table, j is the size of the hash table.
+        
+        
+        
 
+        
 
 */
