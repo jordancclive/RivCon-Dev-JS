@@ -151,8 +151,12 @@ Handling collisions:
                               results in an O of N/k  n = elements in the table, j is the size of the hash table.
         
         
-        
+Properties of a good hash function:
 
+    - makes use of all info provided by the given key to maximize the possible hash values
+    - hash values should be spread evenly throughout the table.
+    - The function maps similar keys to very different hash values.
+    - goal is speedy insertion, deletion and lookup, employ simple quick operations in the function.
         
 
 */
