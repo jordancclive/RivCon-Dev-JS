@@ -202,7 +202,7 @@ Now we are ready for Webpack
                               
                               If you look at bundle.js  , you will see a bunch of stuff,
                               but at the bottom you will see our console.log statement:
-                              
+*/                              
                                         /******/ ([
                                         /* 0 */
                                         /***/ function(module, exports) {
@@ -212,10 +212,40 @@ Now we are ready for Webpack
                                         /***/ }
                                         /******/ ]);                             
                               
+/*                              
+        --------------------------------------------------
+          
+In summary:    
+            - we created a directory
+            - initialized git
+            - initialized npm
+            - used npm to install webpack
+            - created a config.js file for webpack
+            - gave the config an entry point and an output file & location.
+            - created the entry file: index.js
+            - put a console.log stmt in the entry file
+            - ran webpack
+            - webpack created the output directory and file.
+            - we looked and saw that the console.log was in theat output file.
+            
+  
+                                                                 youtube timecode: 6:55 / 37.45  
+----------------------------------------------------------------------------------
+
+                                 What does Webpack
+                               do & how does it bring 
+                              in other files to do stuff
                               
-                        
-                        
-                        
+----------------------------------------------------------------------------------            
+          
+    Webpack is going to take our files and it going to pack them for us.
+    
+    It is going to make our life easier because some of the things we can do in node
+    we can't do when writing code for the browser.
+    
+----------------------------------------------------------------------------------  
+
+
                         
                                       
               
