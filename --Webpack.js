@@ -245,15 +245,201 @@ In summary:
     
 ----------------------------------------------------------------------------------  
 
-
+              Discussion:
+                        Let's go back to the index where we have only a console.log('hello');
                         
-                                      
+                        Let's replace that with:  var Foo = require('./Foo');  <---This is ES5
+                        
+                                                //const Foo = require('./Foo');  <---This is ES6 (will do this later)
+                        
+                        ...There are 2 ways to bring files in.  (require is not ES6)
+                        ...import is the ES6 way
+                        
+                        Now let's run webpack again with a watch flag: ./node_modules/webpack/bin/webpack.js -w
+                        
+                            -w watches my files  also:  --watch
+                            
+                            -h you can see all the things that you can do with webpack
+                            
+              result:                        
+
+                    Mac-Pro-370:WebpackDir designadmin$ ./node_modules/webpack/bin/webpack.js -h    
+                    
+                    got:
+                              webpack 1.14.0
+                              Usage: https://webpack.github.io/docs/cli.html
+
+                              Options:
+            ----->              --help, -h, -?
+                                --config
+                                --context
+                                --entry
+                                --module-bind
+                                --module-bind-post
+                                --module-bind-pre
+                                --output-path
+                                --output-file
+                                --output-chunk-file
+                                --output-named-chunk-file
+                                --output-source-map-file
+                                --output-public-path
+                                --output-jsonp-function
+                                --output-pathinfo
+                                --output-library
+                                --output-library-target
+                                --records-input-path
+                                --records-output-path
+                                --records-path
+                                --define
+                                --target
+                                --cache                                [default: true]
+            ----->              --watch, -w
+                                --watch which closes when stdin ends
+                                --watch-aggregate-timeout
+                                --watch-poll
+                                --hot
+                                --debug
+                                --devtool
+                                --progress
+                                --resolve-alias
+                                --resolve-loader-alias
+                                --optimize-max-chunks
+                                --optimize-min-chunk-size
+                                --optimize-minimize
+                                --optimize-occurence-order
+                                --optimize-dedupe
+                                --prefetch
+                                --provide
+                                --labeled-modules
+                                --plugin
+                                --bail
+                                --profile
+                                -d                                    shortcut for --debug --devtool sourcemap --output-pathinfo
+                                -p                                    shortcut for --optimize-minimize
+                                --json, -j
+                                --colors, -c
+                                --sort-modules-by
+                                --sort-chunks-by
+                                --sort-assets-by
+                                --hide-modules
+                                --display-exclude
+                                --display-modules
+                                --display-chunks
+                                --display-error-details
+                                --display-origins
+                                --display-cached
+                                --display-cached-assets
+                                --display-reasons, --verbose, -v                    
+
+        --------------------------------------------------
+        
+              result:                        
+
+                    Mac-Pro-370:WebpackDir designadmin$ ./node_modules/webpack/bin/webpack.js -w    
+                    
+                    got: 
+                              Hash: dd1eb2d2593d3f2b02cb
+                              Version: webpack 1.14.0
+                              Time: 92ms
+                                  Asset     Size  Chunks             Chunk Names
+                              bundle.js  1.57 kB       0  [emitted]  main
+                                 [0] ./src/index.js 29 bytes {0} [built] [1 error]
+
+                              ERROR in ./src/index.js
+                              Module not found: Error: Cannot resolve 'file' or 'directory' 
+                              ./Foo in /Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/src
+                               @ ./src/index.js 1:12-28
+                        
+              Discussion:
               
-                                      
-                                   
-                                      
-                                      
-                                      
+                        As a reminder:
+                                Let's go back to the index where we have only a console.log('hello');
+                                Let's replace that with:  const Foo = require('./Foo');              
+                        
+                        We got an error message because we haven't created the Foo file yet.  Let's do that:
+                        
+                        Things to remember:
+                        
+                                - Our config file has an input of index which is run in the src directory
+                                
+                                - index is going to run the require statement and since we said we wanted the system
+                                  to expect that file in the current directory ---> const Foo = require('./Foo'); 
+                                  The system will look for Foo in the 'src' directory.
+                                  ...and the system is looking for a file called:  Foo.js
+                                  
+                                - We need to put Foo in the src directory.  
+                                
+                                - Notice when you look at the console that after you build an empty Foo
+                                  you immediately got a result that the build happened succesfully.  That is
+                                  because you ran with the -w (watch) command, so that last command is still running and active.
+
+                got: 
+                          Hash: 77626611e9e480654221
+                          Version: webpack 1.14.0
+                          Time: 14ms
+                              Asset    Size  Chunks             Chunk Names
+                          bundle.js  1.5 kB       0  [emitted]  main
+                             [1] ./src/Foo.js 0 bytes {0} [built]
+                              + 1 hidden module                                
+
+         --------------------------------------------------
+         
+              Discussion:
+              
+                        Let's put something in Foo:
+                        
+                        First let's create a constructor for Foo:
+                        
+                                  function Foo(name) {
+                                      this.name = name;
+                                  }
+                        
+                        then:   module.exports = Foo;      <----also not ES6
+                        
+                        ...and this runs:
+
+                got: 
+                          Hash: 2d26613bf3deca4b04af
+                          Version: webpack 1.14.0
+                          Time: 9ms
+                              Asset    Size  Chunks             Chunk Names
+                          bundle.js  1.7 kB       0  [emitted]  main
+                             [0] ./src/index.js 155 bytes {0} [built]
+                              + 1 hidden modules                             
+         
+              Discussion:
+              
+                        Let's look at the bundle file now:
+                        
+                        You see that webpack is bundling it all up into 
+                        one .js file called bundlw.js in the 'dist' directory as we configured. 
+                        
+                              ....excerpt from bundle.js:
+*/                              
+                              /************************************************************************/
+                              /******/ ([
+                              /* 0 */
+                              /***/ function(module, exports, __webpack_require__) {
+
+                                var Foo = __webpack_require__(1);         //<---This is ES5
+
+                                //const Foo = require('./Foo');       //<---This is ES6 (will do this later)
+
+                              /***/ },
+                              /* 1 */
+                              /***/ function(module, exports) {
+
+                                function Foo(name) {
+                                    this.name = name;
+                                }
+
+                                module.exports = Foo; 
+
+                              /***/ }
+                              /******/ ]);                        
+/*                                      
+         --------------------------------------------------
+           
                                       
                                       
                                       
