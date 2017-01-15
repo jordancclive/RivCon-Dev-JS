@@ -440,13 +440,52 @@ In summary:
 /*                                      
          --------------------------------------------------
            
+              Discussion:
+              
+                        Let's put something more in index:
+                        
+                              var foo = new Foo('bar');
+                              console.log(foo);
+                              
+                        Note:  There is no easy way to see this working.
+                               So let's also create a web page to show things working.
+                               
+                               step 1: create an index.html file in the project's root directory
+                                       and put the following inside:
+                                       
+                                       <html>
+                                           <head>
+                                              <script src = '/dist/bundle.js'></script>
+                                           </head>
+                                           <body>
+                                           </body>
+                                       </html>
+                                       
+                                step 2: goto terminal type:
+                                
+                                        open . (will open finder)
+                                        right click 'open with'
+                                        pick chrome
+                                        
+                        
+                got:      ***(in the terminal)***
+    
+                          Hash: c0ba90f6594a5072abf3
+                          Version: webpack 1.14.0
+                          Time: 77ms
+                              Asset     Size  Chunks             Chunk Names
+                          bundle.js  1.74 kB       0  [emitted]  main
+                             [0] ./src/index.js 197 bytes {0} [built]
+                             [1] ./src/Foo.js 68 bytes {0} [built]                                      
                                       
+                          ***(The web page is blank)***
+                          
+                          ***(in the JS console witin chrome)***
+                          
+                          Foo {name: "bar"}
+                          Navigated to file:///Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/index.html                                      
                                       
-                                      
-                                      
-                                      
-                                      
-                                      
+         --------------------------------------------------                                      
                                       
                                       
 
