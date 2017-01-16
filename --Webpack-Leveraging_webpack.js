@@ -204,66 +204,83 @@ Let's put this in Foo (from the webpack.js write-up).
 /*
 	-	The Foo.js file now looks like this:
 */	
-		//ES6:
-		class Foo{
-		    constructor({name}){
-			this.name = name;
-		    }
-		    sayHi(){
-			console.log(this.getMessage());    
-		    }
-		    getMessage(){
-			return `Hello.  My name is ${this.name} !!!!`;       
-		    }
-		}
+				//ES6:
+				class Foo{
+				    constructor({name}){
+					this.name = name;
+				    }
+				    sayHi(){
+					console.log(this.getMessage());    
+				    }
+				    getMessage(){
+					return `Hello.  My name is ${this.name} !!!!`;       
+				    }
+				}
 
-		export default Foo;
+				export default Foo;
 
-		/*  Notes:
-		    Creating a class called 'Foo'.
-		    -   Inside the class we can have a constructor that we name constructor
-		    -   That we can pass something into:  
-				    instead of putting the object whose name is config,
-				    we can say we want to pull out of this object the key--> name.
-				    We will put this within the brackets to specify this is an object key.
-		    -   Now we do not have to deal with prototypes, we put the methods in the class.
-		    -   The return string now has the tilde surrounding it and we don't need the '+'.
-				    We can also use the -->  ${ }  <-- to designate a variable is coming.
-		    -   The cmd:    module.exports = Foo;  means you can only export 1 thing.
-				    Remember this refers to the --> require <-- cmd that is 
-				    within the index.js file.
-		    -   We are going to changed this  module  cmd to:
-				    export default Foo;
-		    -   Using export allows you to change the -->   require<-- cmd to:
+				/*  Notes:
+				    Creating a class called 'Foo'.
+				    -   Inside the class we can have a constructor that we name constructor
+				    -   That we can pass something into:  
+						    instead of putting the object whose name is config,
+						    we can say we want to pull out of this object the key--> name.
+						    We will put this within the brackets to specify this is an object key.
+				    -   Now we do not have to deal with prototypes, we put the methods in the class.
+				    -   The return string now has the tilde surrounding it and we don't need the '+'.
+						    We can also use the -->  ${ }  <-- to designate a variable is coming.
+				    -   The cmd:    module.exports = Foo;  means you can only export 1 thing.
+						    Remember this refers to the --> require <-- cmd that is 
+						    within the index.js file.
+				    -   We are going to changed this  module  cmd to:
+						    export default Foo;
+						    which means we are exporting this class (Foo) from Foo.js
+				    -   Using export allows you to change the -->   require<-- cmd to:
+						    --> import Foo from './Foo';    <--
+						    Note: you can change the name (Foo) if you wanted to here.
+				*/
 
-		*/
+				/*ES5:
+				function Foo(config) {
+				    this.name = config.name;
+				}
 
-		/*ES5:
-		function Foo(config) {
-		    this.name = config.name;
-		}
+				Foo.prototype.sayHi = function() {
+				    console.log(this.getMessage());
+				};
+				Foo.prototype.getMessage = function () {
+				    return 'Hello.  My name is ' + this.name + '!';
+				};
 
-		Foo.prototype.sayHi = function() {
-		    console.log(this.getMessage());
-		};
-		Foo.prototype.getMessage = function () {
-		    return 'Hello.  My name is ' + this.name + '!';
-		};
-
-		module.exports = Foo; 
+				module.exports = Foo; 
             
         --------------------------------------------------                          
                 
+Step 2:		Change the index.js file
 
+	    -   As mentioned, Using export (in Foo.js) allows you to change the -->   require<-- cmd to:
+			    --> import Foo from './Foo';    <--
+			    Note: you can change the name (Foo) if you wanted to here.
+*/
+				//var Foo = require('./Foo');         //<---This is ES5                      
+				//const Foo = require('./Foo');       //<---This is ES6 (will do this later)
 
+				import Foo from './Foo';              //<--This is the best version of ES6
 
+				var foo = new Foo({ name: 'bar'});
+				console.log(foo);
+				foo.sayHi();
+/*
+        --------------------------------------------------   
 
+The result:	(Still works)
 
+		Foo {name: "bar"}
+		bundle.js:90 Hello.  My name is bar !!!!
+		Navigated to file:///Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/index.html
 
-
-
-
-
+        --------------------------------------------------   
+	
 
 
 
