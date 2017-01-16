@@ -487,6 +487,93 @@ In summary:
                                       
          --------------------------------------------------                                      
                                       
-                                      
+              Discussion:
+              
+                        Let's now change the index to the following:
+                        
+                                  var Foo = require('./Foo');         //<---This is ES5                      
+                                  //const Foo = require('./Foo');       //<---This is ES6 (will do this later)
+
+                                  var foo = new Foo({ name: 'bar'});
+                                  console.log(foo);  
+                                  
+                        We are passing in an object to an instance of Foo.
+                        
+                        As a result we need to change Foo.js as follows:
+                        
+                                  function Foo(config) {
+                                      this.name = config.name;
+                                  }
+                                  Foo.prototype.sayHi = function() {
+                                      console.log('Hello.  My name is ' + this.name);
+                                  }
+
+                                  module.exports = Foo;  
+                                  
+                        The teacher called this a configuration object for some reason.
+                        
+                        Note:  It runs as the terminal console indicates since webpack is still watching:
+                        
+                                  Hash: 97bd552cfa27c0751569
+                                  Version: webpack 1.14.0
+                                  Time: 15ms
+                                      Asset     Size  Chunks             Chunk Names
+                                  bundle.js  1.85 kB       0  [emitted]  main
+                                     [0] ./src/index.js 206 bytes {0} [built]
+                                     [1] ./src/Foo.js 166 bytes {0} [built]                        
+                        
+                        Let's look at chrome and index.html's JS console:
+                        
+                got:  (got what we had before)
+                
+                          Foo {name: "bar"}
+                          Navigated to file:///Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/index.html                      
+                        
+              Discussion:
+                        Let's use the method in the JS console and add it to index.html:
+                        
+                                  var Foo = require('./Foo');         //<---This is ES5                      
+                                  //const Foo = require('./Foo');       //<---This is ES6 (will do this later)
+
+                                  var foo = new Foo({ name: 'bar'});
+                                  console.log(foo);
+                                  foo.sayHi();                        
+                        
+                got:  
+                            Foo {name: "bar"}
+                            bundle.js:62 Hello.  My name is bar
+                            Navigated to file:///Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/index.html                   
+                        
+              Discussion:
+                        Let's break the method into 2 steps:
+                        
+                                  function Foo(config) {
+                                      this.name = config.name;
+                                  }
+                                  Foo.prototype.sayHi = function() {
+                                      console.log(this.getMessage());
+                                  };
+                                  Foo.prototype.getMessage = function () {
+                                      return 'Hello.  My name is ' + this.name + '!';
+                                  };
+
+                                  module.exports = Foo;      
+     
+                got:  (it works)
+                                   
+                          bundle.js:51 Foo {name: "bar"}
+                          bundle.js:62 Hello.  My name is bar!
+                          Navigated to file:///Users/designadmin/Documents/gitRepositories/FlexClass/WebpackDir/index.html                   
+                   
+         --------------------------------------------------                             
+                        
+ The value of webpack:
+ 
+          - brings in other files.  ...as many as you want.
+          - webpack is going to pack them up for us.
+          
+                        
+                        
+                        
 
 */
