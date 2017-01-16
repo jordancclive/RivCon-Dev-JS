@@ -5,7 +5,26 @@
 
 ------------------------------
 
-The Ternary Operator:  (not ES6 specific)
+The Ternary Operator:  
+
+	ES6 Specific:  (functions expressions)
+*/	
+		const capitalize = ( input )=> input.toUpperCase();
+/*						 ^
+		Will automatically return -------|	
+		
+		However, on multiple lines you need the return:
+*/		
+				/*This declares the function
+				   ||	  ||
+				   \/	  \/		*/
+		const capitalize = ( input )=> {
+			input = input + '!!!';
+			return input.toUpperCase();
+		}
+/*	
+
+	(not ES6 specific)
 */
               var someVariable = [condition] ? [if true] : [if false]
               
