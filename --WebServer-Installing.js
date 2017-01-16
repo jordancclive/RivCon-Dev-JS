@@ -59,7 +59,11 @@ I will still get the hello and I will get Hi vin in the web console.
 
       ------------------------------------------- 
       
+The server caches.
 
+If you run the comd as follows, it will not cache:    http-server -c-1
+
+      ------------------------------------------- 
 
 
 
