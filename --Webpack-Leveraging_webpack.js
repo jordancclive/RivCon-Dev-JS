@@ -253,7 +253,36 @@ Let's put this in Foo (from the webpack.js write-up).
 				};
 
 				module.exports = Foo; 
-            
+				
+------------------------------------------------------------------------------------   
+
+A note about export:		(remember that -->	module	<-- can only export 1 thing)
+				
+			    -   The cmd:    module.exports = Foo;  means you can only export 1 thing.  <----
+					    Remember this refers to the --> require <-- cmd that is 
+					    within the index.js file.
+			    -   We are going to changed this  module  cmd to:
+					    export default Foo;
+					    which means we are exporting this class (Foo) from Foo.js
+			    -   Using export allows you to change the -->   require<-- cmd to:
+					    --> import Foo from './Foo';    <--
+					    Note: you can change the name (Foo) if you wanted to here.	
+					    
+		We can also do names exports:
+*/		
+		export default Foo;				//<--what we had before
+
+		export const myName = 'Vince';			//<--This is a named export
+
+		
+		//Then in index.js wwe need to add an import cmd for that named export.
+		//The variable needs to be in brackets.
+		
+		import Foo from './Foo';
+
+		import { myName } from './Foo';
+			
+/*            
         --------------------------------------------------                          
                 
 Step 2:		Change the index.js file
