@@ -18,9 +18,6 @@ Need to look at these:
   
         - git branch
         - git checkout
-        - git 
-        - git 
-        - git
 
 ---------------------------------------------------------------------------------
 
