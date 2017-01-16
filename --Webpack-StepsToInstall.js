@@ -38,7 +38,7 @@
          "scripts": {
             "test": "echo \"Error: no test specified\" && exit 1",
 			      "webpack":  "./node_modules/webpack/bin/webpack.js -w",
-			      "serve:dev":  "npm run webpack & http-server -c-1"	
+			      "start:dev":  "npm run webpack & http-server -c-1"	
           },
           
           Note: now you can use npm run webpack in the terminal console.
