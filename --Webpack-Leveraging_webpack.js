@@ -154,7 +154,8 @@ Let's put this in Foo (from the webpack.js write-up).
 			  "main": "index.js",
 			  "scripts": {
 			    "test": "echo \"Error: no test specified\" && exit 1",
-			    "webpack":  "./node_modules/webpack/bin/webpack.js -w"
+			  "webpack":  "./node_modules/webpack/bin/webpack.js -w",
+			  "serve:dev":  "npm run webpack & http-server -c-1"	
 			  },
 			  "keywords": [],
 			  "author": "",
@@ -174,7 +175,7 @@ Let's put this in Foo (from the webpack.js write-up).
 	
 				*** everythng will now run as before ***
 				
-------------------------------------------------------------------------------------				
+------------------------------------------------------------------------------------							
 
 Note:
 
@@ -183,18 +184,32 @@ Note:
 		if you want their built in script:	npm test
 		
 		if you want your own script:		npm run <script name>
-				
-                
-------------------------------------------------------------------------------------			
-
-Note:
-
-		If you say:	npm run		It will show you all the available scripts
 		
-		if you want their built in script:	npm test
+also:
+
+		we created a script as follows:		"webpack":  "./node_modules/webpack/bin/webpack.js -w"
+		which is setup to watch so I can do this:	npm run webpack
+		and it will watch for changes.
 		
-		if you want your own script:		npm run <script name>
-				
+		
+		If I set it up like this:		"webpack":  "./node_modules/webpack/bin/webpack.js"
+		I would have to do this for it to watch:	npm run webpack -- -w
+		
+		The -- means to send the -w to the executed command inside the script.
+		
+		If I set up a server too. see doc:	--WebServer-Installing.js
+		
+		and I wanted to set up a script to run them both, I would do this:
+		
+		"webpack":  "./node_modules/webpack/bin/webpack.js",
+		"serve:dev":  "npm run webpack -- -w & http-server -c-1"
+						     ^__one & means run the two things simultaneously
+						     	Two & means have the subsequent scripts wait 
+							for the previous one to finish
+		---or we can do:---
+		
+		"webpack":  "./node_modules/webpack/bin/webpack.js -w",
+		"serve:dev":  "npm run webpack & http-server -c-1"				
                 
 ------------------------------------------------------------------------------------
 
