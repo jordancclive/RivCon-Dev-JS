@@ -174,6 +174,15 @@ Let's put this in Foo (from the webpack.js write-up).
 	
 				*** everythng will now run as before ***
 				
+------------------------------------------------------------------------------------				
+
+Note:
+
+		If you say:	npm run		It will show you all the available scripts
+		
+		if you want their built in script:	npm test
+		
+		if you want your own script:		npm run <script name>
 				
                 
 ------------------------------------------------------------------------------------
