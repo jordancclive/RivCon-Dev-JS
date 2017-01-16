@@ -281,6 +281,10 @@ A note about export:		(remember that -->	module	<-- can only export 1 thing)
 		import Foo from './Foo';
 
 		import { myName } from './Foo';
+
+		// or you can do them together:
+
+		import Foo, { myName } from './Foo';
 			
 /*            
         --------------------------------------------------                          
