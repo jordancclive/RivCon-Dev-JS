@@ -139,15 +139,120 @@ Let's put this in Foo (from the webpack.js write-up).
                         /***/ }
                         /******/ ]);            
 /*
-        --------------------------------------------------                
+        --------------------------------------------------  
+	
+	Note:  If I did not want to keep typing into the terminal console the following command:
+	
+			--->	./node_modules/webpack/bin/webpack.js -w	<---
+			
+	I can go into the package.json file and change it as follows:
+	
+			{
+			  "name": "WebpackDir",
+			  "version": "1.0.0",
+			  "description": "",
+			  "main": "index.js",
+			  "scripts": {
+			    "test": "echo \"Error: no test specified\" && exit 1",
+			    "webpack":  "./node_modules/webpack/bin/webpack.js -w"
+			  },
+			  "keywords": [],
+			  "author": "",
+			  "license": "ISC",
+			  "dependencies": {
+			    "babel-core": "^6.21.0",
+			    "babel-loader": "^6.2.10",
+			    "babel-preset-es2015": "^6.18.0",
+			    "webpack": "^1.14.0"
+			  }
+			}	
+			
+	added a comma after the 'test' line 
+	added the webpack alias on the next line.
+	
+	Now that I have done that, I can run the following in the terminal console:	npm run webpack
+	
+				*** everythng will now run as before ***
+				
+				
                 
-------------------------------------------------------------------------------------                
+------------------------------------------------------------------------------------
+
+			In the next step, we will convert the code to ES6.
+
+------------------------------------------------------------------------------------              
                 
-                
-                
-                
-                
-                        
+ Step 1:		The Foo.js file
+ 
+ 	-	We had the somethingSilly method, but we are going to take it out.
+		I am going to reference it here since I have both the ES5 & ES6 version of it:
+*/
+				//ES5:
+				function somethingSilly() {
+				    console.log('hello');
+				}
+				
+				//ES6:
+				const somethingSilly = ()=> console.log('HELLO!');
+
+					    /*    - creating a variable as a constant.
+						- The () means we are creating a function.
+						- What is after the => is 
+						    what we are going to do in the function
+						    you can use arguments in this code.     */
+				somethingSilly();   
+/*
+	-	The Foo.js file now looks like this:
+*/	
+		//ES6:
+		class Foo{
+		    constructor({name}){
+			this.name = name;
+		    }
+		    sayHi(){
+			console.log(this.getMessage());    
+		    }
+		    getMessage(){
+			return `Hello.  My name is ${this.name} !!!!`;       
+		    }
+		}
+
+		export default Foo;
+
+		/*  Notes:
+		    Creating a class called 'Foo'.
+		    -   Inside the class we can have a constructor that we name constructor
+		    -   That we can pass something into:  
+				    instead of putting the object whose name is config,
+				    we can say we want to pull out of this object the key--> name.
+				    We will put this within the brackets to specify this is an object key.
+		    -   Now we do not have to deal with prototypes, we put the methods in the class.
+		    -   The return string now has the tilde surrounding it and we don't need the '+'.
+				    We can also use the -->  ${ }  <-- to designate a variable is coming.
+		    -   The cmd:    module.exports = Foo;  means you can only export 1 thing.
+				    Remember this refers to the --> require <-- cmd that is 
+				    within the index.js file.
+		    -   We are going to changed this  module  cmd to:
+				    export default Foo;
+		    -   Using export allows you to change the -->   require<-- cmd to:
+
+		*/
+
+		/*ES5:
+		function Foo(config) {
+		    this.name = config.name;
+		}
+
+		Foo.prototype.sayHi = function() {
+		    console.log(this.getMessage());
+		};
+		Foo.prototype.getMessage = function () {
+		    return 'Hello.  My name is ' + this.name + '!';
+		};
+
+		module.exports = Foo; 
+            
+        --------------------------------------------------                          
                 
 
 
