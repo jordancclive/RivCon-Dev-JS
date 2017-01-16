@@ -10,7 +10,6 @@
 02-  type: npm init -y              <--setting up a default environment
                                        creates a new 'package.jspn' file
 03-  git init                       <--setup git for this project
-                                      Note: ***** still need to figure out how git will exclude node_modules *****
 04-  npm install webpack --save
 05-  touch webpack.config.js        <--create config.js file for webpack in primary project dir
 06-  config contents:
@@ -48,10 +47,7 @@
           Note: other .js files will be identified here with an import cmd
                      ex: import Foo from './Foo';
                 These other files will have a corresponding export
-                     ex: export default Foo;
-                     
-          Note: ***** in Foo.js, is the export refering to the class or the filename?*****
-                      ....I am assuming the class.
+                     ex: export default Foo;  <--exporting the class Foo
                       
 09. npm install babel-loader --save
 10. npm install babel-core --save
