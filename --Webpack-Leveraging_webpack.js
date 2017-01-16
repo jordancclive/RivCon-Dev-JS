@@ -185,6 +185,17 @@ Note:
 		if you want your own script:		npm run <script name>
 				
                 
+------------------------------------------------------------------------------------			
+
+Note:
+
+		If you say:	npm run		It will show you all the available scripts
+		
+		if you want their built in script:	npm test
+		
+		if you want your own script:		npm run <script name>
+				
+                
 ------------------------------------------------------------------------------------
 
 			In the next step, we will convert the code to ES6.
