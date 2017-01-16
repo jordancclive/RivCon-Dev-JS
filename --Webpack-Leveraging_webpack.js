@@ -155,7 +155,7 @@ Let's put this in Foo (from the webpack.js write-up).
 			  "scripts": {
 			    "test": "echo \"Error: no test specified\" && exit 1",
 			  "webpack":  "./node_modules/webpack/bin/webpack.js -w",
-			  "serve:dev":  "npm run webpack & http-server -c-1"	
+			  "start:dev":  "npm run webpack & http-server -c-1"	
 			  },
 			  "keywords": [],
 			  "author": "",
