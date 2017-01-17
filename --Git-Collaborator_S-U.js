@@ -9,7 +9,11 @@
 
 steps:
 
+goto settings
+
 go to collaberators
+
+need to put in your password before you can do anything.
 
 get user name
 
