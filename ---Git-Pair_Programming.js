@@ -9,6 +9,10 @@ Assumption:
 
       - Vin & Bill are going to pair program
       
+      - If they both fork a repo from Fullstack, we all are already collaberators on it.
+        
+        If They create a repo, then they have to designate the other as a collaberator.
+      
       - both have forked a repository from Fullstack on some topic.  
         ... so they both have their own copy of the repository.
         
