@@ -27,6 +27,157 @@ Note: Strings will not let you do the following:
           myArray[0] = 50;
           console.log(myArray[0]);    //result: 50
 
+
+--------------------------------------------------------------------------------------------------
+
+
+                                      CallBacks
+
+
+--------------------------------------------------------------------------------------------------
+
+                                        Filter
+
+--------------------------------------------------------------------------------------------------
+
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+        without filter                                          with filter
+*/
+        var arr = [                                             var arr = [
+            {"name":"apple", "count": 2},                           {"name":"apple", "count": 2},
+            {"name":"orange", "count": 5},                          {"name":"orange", "count": 5},
+            {"name":"pear", "count": 3},                            {"name":"pear", "count": 3},
+            {"name":"orange", "count": 16},                         {"name":"orange", "count": 16},
+        ];                                                      ];
+                                                                
+        var newArr = [];                                        var newArr = arr.filter(function(item){
+                                                                    return item.name === "orange";
+        for(var i= 0, l = arr.length; i< l; i++){               });
+            if(arr[i].name === "orange" ){                      
+            newArr.push(arr[i]);                                console.log("Filter results:",newArr);
+          }                                                     
+        }                                                       //result:
+                                                                //  Filter results: [{ "name": "orange", "count": 5 },
+        console.log("Filter results:",newArr);                  //                  { "name": "orange", "count": 16 }]
+
+/*--------------------------------------------------------------------------------------------------
+
+                                        ForEach
+
+--------------------------------------------------------------------------------------------------
+
+The forEach() method executes a provided function once per array element.
+
+        without forEach                                          with forEach
+*/
+        var arr = [1,2,3,4,5,6,7,8];                             var arr = [1,2,3,4,5,6,7,8];
+                                                                 
+        /* Uses the usual "for" loop to iterate*/                arr.forEach(function(item,index){
+        for(var i= 0, l = arr.length; i< l; i++){                console.log(item);
+          console.log(arr[i]);                                   
+        }                                                        
+        //result:    1    2    3    4   5   6   7   8  (on individual lines)
+
+/*--------------------------------------------------------------------------------------------------
+
+                                        map
+
+--------------------------------------------------------------------------------------------------
+
+The map() method creates a new array by calling a provided function on every element in this array.
+
+  without map                                                      with map
+*/
+  var oldArr = [{first_name:"Colin",last_name:"Toh"},              var oldArr = [{first_name:"Colin",last_name:"Toh"},
+          {first_name:"Addy",last_name:"Osmani"},                          {first_name:"Addy",last_name:"Osmani"},
+          {first_name:"Yehuda",last_name:"Katz"}];                         {first_name:"Yehuda",last_name:"Katz"}];
+                                                                   
+  function getNewArr(){                                            function getNewArr(){
+      var newArr = [];                                                 return oldArr.map(function(item,index){
+                                                                           item.full_name = [item.first_name,item.last_name].join(" ");
+      for(var i= 0, l = oldArr.length; i< l; i++){                         return item
+          var item = oldArr[i];                                        });
+          item.full_name =                                         }
+              [item.first_name,item.last_name].join(" ");
+          newArr[i] = item;                                        console.log(getNewArr());
+      }
+
+      return newArr;
+  }
+
+  /* result:
+              [{ "first_name": "Colin", "last_name": "Toh", "full_name": "Colin Toh" },
+               { "first_name": "Addy", "last_name": "Osmani", "full_name": "Addy Osmani" },
+               { "first_name": "Yehuda", "last_name": "Katz", "full_name": "Yehuda Katz" }]
+
+/*--------------------------------------------------------------------------------------------------
+
+                                        reduce
+
+--------------------------------------------------------------------------------------------------
+
+The reduce() method applies a function against an accumulator and 
+each value of the array (from left-to-right) has to reduce it to a single value.
+
+          without reduce                                           with reduce
+*/
+          var arr = ["apple","orange","apple","orange","pear","orange"];
+
+          function getWordCnt(){                                   function getWordCnt(){
+              var obj = {};                                            return arr.reduce(function(prev,next){
+                                                                           prev[next] = (prev[next] + 1) || 1;
+              for(var i= 0, l = arr.length; i< l; i++){                    return prev;
+                  var item = arr[i];                                   },{});
+                  obj[item] = (obj[item] +1 ) || 1;                }
+                          }                                        
+              return obj;                                          console.log(getWordCnt()); 
+          }
+          console.log(getWordCnt());                     //result: { "apple": 2, "orange": 3, "pear": 1 }
+
+/*--------------------------------------------------------------------------------------------------
+
+
+                                        De method izing
+
+                                         Demethodizing
+
+--------------------------------------------------------------------------------------------------
+
+These aforementioned methods are only available to Array but they do come in handy for 
+Nodelist, jQuery Objects and even String.
+*/
+      <p>“ Java is to JavaScript what Car is to Carpet. ” - Chris Heilmann</p>
+
+      <p>“ If debugging is the process of removing software bugs,
+        then programming must be the process of putting them in. ” - Edsger Dijkstra</p> 
+
+      // Demethodizing the Array method, forEach(),  into a generic "each"
+                                
+      var each = Function.prototype.call.bind([].forEach);    //<-- binding 'this' to the [].forEach
+                                                              //  now 'each' = the forEach function
+                                                              //  which means you can use it on other 'objects'
+      var nodeList = document.querySelectorAll("p");
+
+      each(nodeList,bold);
+
+      function bold(node){
+         node.style.fontWeight ="bold";
+      }                          
+  
+      /*result:  (This will be bold)
+      
+            “ Java is to JavaScript what Car is to Carpet. ” - Chris Heilmann
+
+            “ If debugging is the process of removing software bugs, 
+              then programming must be the process of putting them in. ” - Edsger Dijkstra
+                                
+--------------------------------------------------------------------------------------------------
+
+
+                                     Other Methods
+
+
 --------------------------------------------------------------------------------------------------*/
 
 Array.isArray(array);         // this is a static method.
@@ -79,12 +230,17 @@ arr.entries()
             [ 4, 6 ]
             */
 
+//--------------------------------------------------------------------------------------------------
 
-arr.indexOf(value);           
+arr.indexOf(value);  
+
+            var arr = ['apple','orange','pear'];
+
+            console.log("found:", arr.indexOf("orange") != -1);
+
+//--------------------------------------------------------------------------------------------------
 
 arr.join(delimiter);    arr.split(delimiter);
-
-              //---------------
               
               let word = 'DOG';
               let arr = word.split('');   // result: [ 'D', 'O', 'G' ]
@@ -133,7 +289,7 @@ arr.join(delimiter);    arr.split(delimiter);
               
               console.log(resultArr);   // returns: [ '2016', '10', '05', '224733' ]
 
-              //---------------
+//--------------------------------------------------------------------------------------------------
               
 arr.pop();
 
