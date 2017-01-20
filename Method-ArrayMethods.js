@@ -1,12 +1,11 @@
 /* 
 --------------------------------------------------------------------------------------------------
 
-
                                     Array_Methods
                                     
 --------------------------------------------------------------------------------------------------
 
-Refer to MDN documentation:
+Refer to MDN documentation:   (Many more methods are here)  ...including more callbacks
                           
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
 
@@ -57,6 +56,27 @@ arr.concat(array);
               }	
 
               //---------------
+
+arr.entries()
+
+            let arr = [1,2,3,[4,5],6];
+
+            let vin = arr.entries();
+
+            console.log(vin.next().value);
+            console.log(vin.next().value);
+            console.log(vin.next().value);
+            console.log(vin.next().value);
+            console.log(vin.next().value);
+
+            /*result:
+            [ 0, 1 ]
+            [ 1, 2 ]
+            [ 2, 3 ]
+            [ 3, [ 4, 5 ] ]
+            [ 4, 6 ]
+            */
+
 
 arr.indexOf(value);           
 
