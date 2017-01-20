@@ -1,28 +1,34 @@
 /* 
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
-                          Array_Methods
 
---------------------------------------------------------------------------------
+                                    Array_Methods
+                                    
+--------------------------------------------------------------------------------------------------
+
+Refer to MDN documentation:
+                          
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
+
+--------------------------------------------------------------------------------------------------
 
 If you use:   Object.getOwnPropertyNames()   <----In the parenthesis put "Array.prototype"
 
 You will get all of the built in Properties for arrays.
 
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
-              /*---------------
-                Arrays are a list of values ( a DATASET) between square brakets with elements separated by commas.
-                
-                          var arrayName = [];  defines an array.
-                          
-                Note: Strings will not let you do the following:
-                
-                          var myArray = [];
-                          myArray[0] = 50;
-                          console.log(myArray[0]);    //result: 50
+Arrays are a list of values ( a DATASET) between square brakets with elements separated by commas.
 
-              */---------------
+          var arrayName = [];  defines an array.
+
+Note: Strings will not let you do the following:
+
+          var myArray = [];
+          myArray[0] = 50;
+          console.log(myArray[0]);    //result: 50
+
+/* --------------------------------------------------------------------------------------------------*/
 
 Array.isArray(array);         // this is a static method.
 
