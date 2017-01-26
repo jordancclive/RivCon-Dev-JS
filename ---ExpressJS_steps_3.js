@@ -12,4 +12,7 @@ A utilities library: Lodash. Lodash provides a long list of useful JavaScript fu
 */
 
         // in the tweetBank.js module install lodash
-        npm install lodash --save
+        npm install lodash --save           //<--in terminal
+        const _ = require( 'lodash' );      //<--in tweetBank
+
+
