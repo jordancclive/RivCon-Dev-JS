@@ -391,9 +391,216 @@ The layout.html file looks like regular html.  (with scripts and Bootstrap)
 
         </html>
 
+                                                         
+
+                                                         
+                                                         
+                                                         
+                                                         
+/*
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+                everything below is without sockets 
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+-------------app.js without sockets:
+*/
+const express = require ( 'express' );
+const chalk = require ( 'chalk' );          //<--terminal string styling
+const nunjucks = require ( 'nunjucks' );    //<--templating language
+const routes = require('./routes');         //<-- routing file
+const app = express();
+
+app.set('view engine', 'html'); // have res.render work with html files
+app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
+nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
+
+app.use(function (req, res, next) {
+    console.log('method: ', req.method, ' url: ', req.url);
+    res.on('finish', function(){
+        console.log('finish response code: ', res.statusCode);
+    })
+    next();
+})
+
+app.use('/', routes);   //register it as middleware for all routes beginning with /
+
+app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));                                                                                                           
+                                                         
+/*
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+-------------index.js without sockets:
+*/
+const express = require ( 'express' );
+const router = express.Router(); 
+const path = require( 'path' );
+const bodyParser = require( 'body-parser' );
+const tweetBank = require('../tweetBank');
+
+router.use('/images', express.static(path.join(__dirname, '../assets/img/')));
+router.use('/stylesheets', express.static(path.join(__dirname, '../public/stylesheets/')));
+router.use(bodyParser.urlencoded( { extended: false } ));
+
+router.get('/users/:name', function(req, res, next) {
+  var list = oneName(req.params.name);
+  res.render( 'index', { showUser: true, showForm: false, tweets: list } );
+});
+
+router.get('/tweets/:id', function(req, res, next) {
+  var id = req.params.id;
+  var list = tweetBank.find( {id: id*1} );
+  res.render( 'index', { showUser: true, showForm: false, tweets: list } );
+});
+
+router.get('/newTweet', function(req, res, next) {
+  res.render( 'index', { showForm: true, showMsg: false } );
+});
+
+router.post('/tweets', function(req, res, next) {
+  tweetBank.add(req.body.name, req.body.text);
+  var list = oneName(req.body.name);
+  console.log(list);
+  res.render( 'index', { showUser: true, showForm: true, tweets: list } );
+});
+
+router.get('/', function (req, res, next) {
+  let tweets = tweetBank.list();
+  res.render( 'index', { showUser: true, showForm: false, tweets: tweets } );
+});
+
+function oneName (name){
+  console.log('name: ', name);
+  return tweetBank.find( {name: name} );
+};
+
+
+module.exports = router;
+
+
+// Things to consider:
+
+//-------------------------------- 
+//example of 2 parameters:
+// router.get( '/store/:product/reviews/:id', function (req, res, next) {
+//     console.log(req.params.product);
+//     console.log(req.params.id);
+//     next();
+// });
+//-------------------------------- 
+//different example of 2 parameters:
+// router.get( '/store/:product/:id', function (req, res, next) {
+//     console.log('product: ', req.params.product);
+//     console.log('id: ', req.params.id);
+//     next();
+// });
+//--------------------------------
+// could use one line instead: const router = require('express').Router();
+
+/*
+In the future: consider separate index pages 
+for each of the relevant URL levels 
+(e.g., one for the aggregate view, one for a user, 
+one for a specific tweet) and then have each 
+of those indexes extend the same layout.html
 
 
 
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+-------------layout.html without sockets:
+*/
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Twitter.js</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li id-"home"><a href="/">Home</a></li>
+              <li id="newTweet"><a href="/newTweet">New Tweet</a></li>              
+              <li><a href="#about">@ Connect</a></li>
+              <li><a href="#contact"># Discover</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action that I am not using</a></li>
+                  <li><a href="#">Another action, not using this either</a></li>
+                  <li><a href="#">Nothing here!</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container">
+        {% block content %}Welcome to Twitter.js{% endblock %}
+      </div> <!-- end container -->
+      
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Twitter.js, Fullstack Academy</p>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  </body>
+</html>
+                                                         
+                                                         
+                                                         
                                                          
                                                          
                                                          
