@@ -76,6 +76,7 @@ Our package.json file from my twitter.js project:
         npm install express --save
         npm install chalk --save        //enahncing colors in console logs
         npm install nunjucks --save     //templating engine
+        npm install path --save         //path type joins
         npm install lodash --save       //utilities library
         npm install body-parser --save  //url-encoding processor library
         npm install socketio --save     //using sockets for real-time connections
