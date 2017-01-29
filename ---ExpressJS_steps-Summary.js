@@ -76,38 +76,17 @@ Our package.json file from my twitter.js project:
         npm install express --save
         npm install chalk --save        //enahncing colors in console logs
         npm install nunjucks --save     //templating engine
+        npm install lodash --save       //utilities library
+        npm install body-parser --save  //url-encoding processor library
+        npm install socketio --save     //using sockets for real-time connections
         
 /*--------------------------------------------
+
         Note: volleyball & morgan are git repos to use in app.use stmts for logging all requests.
             morgan is built by the express team.  You will need to install them:  ...see docs:
             https://github.com/glebec/volleyball
             https://github.com/expressjs/morgan
---------------------------------------------
-*/
-        
-        
 
-        utlity functions via the Lodash library
-        modular program design: storing our data in a module with getters & setters
-        the basics of HTTP requests: URI (path) and VERB (method)
-        Express routing definitions like app.get and app.post
-        Modular routing using express.Router()
-        static routing from a file folder using express.static
-        dynamic routing using route parameters (req.params)
-        HTML form requests (POST) that are url-encoded
-        parsing HTTP request bodies with body-parsing middleware (req.body)
-        Reading query strings (req.query)
-        Bonus: incorporating socket.io into an Express app with modular routing
-
-
-
-
-
-
-
-
-
-/*
 ---------------------------------------------------------------------------------------
 
 The apps.js file looks like this.
@@ -137,6 +116,148 @@ The apps.js file looks like this.
             console.log('user disconnected');
           });
         });
+/*
+---------------------------------------------------------------------------------------
+
+The index.js file (The routing file) looks like this.
+*/
+        module.exports = function (io){
+          const express = require ( 'express' );
+          const router = express.Router(); 
+          const path = require( 'path' );
+          const bodyParser = require( 'body-parser' );
+          const tweetBank = require('../tweetBank');
+
+          router.use('/images', express.static(path.join(__dirname, '../assets/img/')));
+          router.use('/stylesheets', express.static(path.join(__dirname, '../public/stylesheets/')));
+          router.use(bodyParser.urlencoded( { extended: false } ));
+          router.use(bodyParser.json( { extended: false } ));
+          router.use(function (req, res, next) {
+              console.log('method: ', req.method, ' url: ', req.url);
+              res.on('finish', function(){
+                  console.log('finish response code: ', res.statusCode);
+              })
+              next();
+          })
+
+          router.get('/users/:name', function(req, res, next) {
+            var list = oneName(req.params.name);
+            res.render( 'index', { showUser: true, showForm: false, tweets: list } );
+          });
+
+          router.get('/tweets/:id', function(req, res, next) {
+            var id = req.params.id;
+            var list = tweetBank.find( {id: id*1} );
+            res.render( 'index', { showUser: true, showForm: false, tweets: list } );
+          });
+
+          router.get('/newTweet', function(req, res, next) {
+            res.render( 'index', { showForm: true, showMsg: false } );
+          });
+
+          router.post('/tweets', function(req, res, next) {
+            tweetBank.add(req.body.name, req.body.text);
+            var list = oneName(req.body.name);
+            // Could have done:  res.redirect('/');
+            // I like the following better:
+            res.render( 'index', { showUser: true, showForm: true, tweets: list } );
+          });
+
+          router.get('/', function (req, res, next) {
+            let tweets = tweetBank.list();
+            res.render( 'index', { showUser: true, showForm: false, tweets: tweets } );
+          });
+
+          function oneName (name){
+            return tweetBank.find( {name: name} );
+          };
+          return router;
+        };
+
+
+        // Things to consider:
+
+        //-------------------------------- 
+        //example of 2 parameters:
+        // router.get( '/store/:product/reviews/:id', function (req, res, next) {
+        //     console.log(req.params.product);
+        //     console.log(req.params.id);
+        //     next();
+        // });
+        //-------------------------------- 
+        //different example of 2 parameters:
+        // router.get( '/store/:product/:id', function (req, res, next) {
+        //     console.log('product: ', req.params.product);
+        //     console.log('id: ', req.params.id);
+        //     next();
+        // });
+        //--------------------------------
+        // could use one line instead: const router = require('express').Router();
+
+        /*
+        In the future: consider separate index pages 
+        for each of the relevant URL levels 
+        (e.g., one for the aggregate view, one for a user, 
+        one for a specific tweet) and then have each 
+        of those indexes extend the same layout.html
+
+---------------------------------------------------------------------------------------
+
+The database file (called: tweetBank.js) looks like this.  This is where we used lodash
+*/
+        const _ = require( 'lodash' );
+
+        var data = [];
+
+        function add (name, content) {
+
+          data.push({ name: name, content: content, id: counter() });
+        }
+
+        function list () {
+          return _.cloneDeep(data);
+        }
+
+        function find (properties) {
+          return _.cloneDeep(_.filter(data, properties));
+        }
+
+        // function counter returns an increasing number that keeps its 'state' 
+        function createID (funcInput){
+            let count = 0;
+            return function (){return ++count;}
+        }
+
+        let counter = createID();  //counter returns an increasing id counter
+
+        module.exports = { add: add, list: list, find: find };
+
+        //-----  setup the database with a few records:  -----
+
+        const randArrayEl = function(arr) {
+          return arr[Math.floor(Math.random() * arr.length)];
+        };
+
+        const getFakeName = function() {
+          const fakeFirsts = ['Nimit', 'David', 'Shanna', 'Emily', 'Scott', 'Karen', 'Ben', 'Dan', 'Ashi', 'Kate', 'Omri', 'Gabriel', 'Joe', 'Geoff'];
+          const fakeLasts = ['Hashington', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
+          return randArrayEl(fakeFirsts) + " " + randArrayEl(fakeLasts);
+        };
+
+        const getFakeTweet = function() {
+          const awesome_adj = ['awesome', 'breathtaking', 'amazing', 'funny', 'sweet', 'cool', 'wonderful', 'mindblowing', 'impressive'];
+          return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
+        };
+
+        for (let i = 0; i < 10; i++) {
+          var name = getFakeName();
+          var numTweets = randArrayEl([1,2,3]);
+          for(let j=0; j<numTweets; j++){
+            var tweet = getFakeTweet();
+            add( name, tweet );
+          }
+        }
+
 /*
 ---------------------------------------------------------------------------------------
 
@@ -272,3 +393,6 @@ The layout.html file looks like regular html.  (with scripts and Bootstrap)
 
 
 
+                                                         
+                                                         
+                                                         
