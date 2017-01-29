@@ -48,15 +48,15 @@ Our package.json file from my twitter.js project:
       "author": "Vincent Rios",
       "license": "ISC",
       "dependencies": {
-        "body-parser": "^1.16.0",       //<--These dependencies tell you what to install
+        "body-parser": "^1.16.0",
         "chalk": "^1.1.3",
         "express": "^4.14.0",
         "lodash": "^4.17.4",
         "nunjucks": "^3.0.0",
+        "path": "^0.12.7",
         "socketio": "^1.0.0"
       }
     }
-
 /*
 ---------------------------------------------------------------------------------------
 
