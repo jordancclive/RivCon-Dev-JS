@@ -95,7 +95,7 @@ The apps.js file looks like this.
         const chalk = require ( 'chalk' );          //<--terminal string styling
         const nunjucks = require ( 'nunjucks' );    //<--templating language
         const routes = require( './routes' );       //<--routing file
-        const app = express();
+        const app = express();                      //<-- instance of express
         const socketio = require( 'socket.io' );    //<--using sockets 
 
         app.set('view engine', 'html'); // have res.render work with html files
