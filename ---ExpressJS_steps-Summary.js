@@ -39,7 +39,7 @@ Our package.json file from my twitter.js project:
       "description": "Bldg a simple Twitter clone to learn express.js",
       "main": "./routes/index.js",
       "scripts": {
-        "start": "nodemon app.js"
+        "start": "nodemon app.js"         //<-- could do:     "start": "PORT=3000 nodemon app.js"
       },
       "repository": {
         "type": "git",
@@ -108,6 +108,9 @@ The apps.js file looks like this.
         app.use('/', routes(io));   //register it as middleware for all routes beginning with /
         /*  Could have been done:   var router = routes(io);    app.use( '/', router );
             Routing is now married to socket.io  */
+
+        // could use this and assign the port in package.json file
+        //var server = app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
 
         var server = app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));
         var io = socketio.listen(server);
@@ -427,7 +430,10 @@ app.use(function (req, res, next) {
     })
     next();
 })
-
+   
+// could use this and assign the port in package.json file
+//app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
+                                                         
 app.use('/', routes);   //register it as middleware for all routes beginning with /
 
 app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));                                                                                                           
