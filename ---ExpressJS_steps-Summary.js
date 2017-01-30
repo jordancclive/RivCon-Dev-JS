@@ -49,12 +49,13 @@ Our package.json file from my twitter.js project:
       "license": "ISC",
       "dependencies": {
         "body-parser": "^1.16.0",
+        "bootstrap": "^3.3.7",
         "chalk": "^1.1.3",
-        "express": "^4.14.0",
+        "express": "^4.14.1",
         "lodash": "^4.17.4",
         "nunjucks": "^3.0.0",
         "path": "^0.12.7",
-        "socketio": "^1.0.0"
+        "socketio": "^1.0.0
       }
     }
 /*
@@ -80,6 +81,7 @@ Our package.json file from my twitter.js project:
         npm install lodash --save       //utilities library
         npm install body-parser --save  //url-encoding processor library
         npm install socketio --save     //using sockets for real-time connections
+        npm install bootdstrap --save
         
 /*--------------------------------------------
 
