@@ -55,7 +55,7 @@ Our package.json file from my twitter.js project:
       "lodash": "^4.17.4",
       "method-override": "^2.3.7",
       "path": "^0.12.7",
-      "socketio": "^1.0.0",
+      "socketio": "^1.0.0",             //we haven't really learned this one yet.
       "swig": "^1.4.2"                  //could have used nunjucks instead
       }
     }
@@ -76,13 +76,14 @@ Our package.json file from my twitter.js project:
         git init          // to get our git repository...do one for got.com too
         
         npm install express --save
-        npm install chalk --save        //enahncing colors in console logs
-        npm install nunjucks --save     //templating engine
-        npm install path --save         //path type joins
-        npm install lodash --save       //utilities library
-        npm install body-parser --save  //url-encoding processor library
-        npm install socketio --save     //using sockets for real-time connections
-        npm install bootdstrap --save
+        npm install chalk --save              //enahncing colors in console logs
+        npm install swig --save               //templating engine                   or nunjucks --save 
+        npm install path --save               //path type joins
+        npm install lodash --save             //utilities library
+        npm install body-parser --save        //url-encoding processor library
+        npm install socketio --save           //using sockets for real-time connections
+        npm install bootstrap --save
+        npm install method-override --save    //so you can delete records
         
 /*--------------------------------------------
 
@@ -91,20 +92,35 @@ Our package.json file from my twitter.js project:
             https://github.com/glebec/volleyball
             https://github.com/expressjs/morgan
 
----------------------------------------------------------------------------------------
+----------------------------------------------
 
-The apps.js file looks like this.
+
+-----------------------------------------The apps.js file looks like this (using socketio).
 */
-        const express = require ( 'express' );
-        const chalk = require ( 'chalk' );          //<--terminal string styling
-        const nunjucks = require ( 'nunjucks' );    //<--templating language
-        const routes = require( './routes' );       //<--routing file
-        const app = express();                      //<-- instance of express
-        const socketio = require( 'socket.io' );    //<--using sockets 
+        //if I were using nunjucks:
+                    const express = require ( 'express' );
+                    const routes = require( './routes' );       //<--routing file
+                    const chalk = require ( 'chalk' );          //<--terminal string styling
+                    const nunjucks = require ( 'nunjucks' );    //<--templating language
+                    const app = express();                      //<-- instance of express
+                    const socketio = require( 'socket.io' );    //<--using sockets 
 
-        app.set('view engine', 'html'); // have res.render work with html files
-        app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
-        nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
+                    app.set('view engine', 'html'); // have res.render work with html files
+                    app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
+                    nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
+
+        //if I were using swig:
+                    const express = require( 'express' );
+                    const routes = require( './routes' );
+                    const chalk = require( 'chalk' );
+                    const swig = require( 'swig' );
+                    const app = express();
+                    const socketio = require( 'socket.io' );    //<--using sockets 
+
+                    swig.setDefaults( { cache: false } );
+                    app.set('view engine', 'html');
+                    app.engine('html', swig.renderFile);
+
 
         app.use('/', routes(io));   //register it as middleware for all routes beginning with /
         /*  Could have been done:   var router = routes(io);    app.use( '/', router );
@@ -123,10 +139,47 @@ The apps.js file looks like this.
             console.log('user disconnected');
           });
         });
+        
+
+//---------------------------------------app.js without sockets:
+
+
+        //if I were using nunjucks:
+                    const express = require ( 'express' );
+                    const routes = require( './routes' );       //<--routing file
+                    const chalk = require ( 'chalk' );          //<--terminal string styling
+                    const nunjucks = require ( 'nunjucks' );    //<--templating language
+                    const app = express();                      //<-- instance of express
+
+                    app.set('view engine', 'html'); // have res.render work with html files
+                    app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
+                    nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
+
+        //if I were using swig:
+                    const express = require( 'express' );
+                    const routes = require( './routes' );
+                    const chalk = require( 'chalk' );
+                    const swig = require( 'swig' );
+                    const app = express();
+
+                    swig.setDefaults( { cache: false } );
+                    app.set('view engine', 'html');
+                    app.engine('html', swig.renderFile);
+
+        app.use('/', routes);   //register it as middleware for all routes beginning with /
+
+        // could use this and assign the port in package.json file
+                app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
+        // ...or set the port here:
+                app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));                                                                                                           
+                                                         
 /*
 ---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
 
 The index.js file (The routing file) looks like this.
+
 */
         module.exports = function (io){
           const express = require ( 'express' );
@@ -409,37 +462,6 @@ The layout.html file looks like regular html.  (with scripts and Bootstrap)
 
                 everything below is without sockets 
 
----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------
-
--------------app.js without sockets:
-*/
-const express = require ( 'express' );
-const chalk = require ( 'chalk' );          //<--terminal string styling
-const nunjucks = require ( 'nunjucks' );    //<--templating language
-const routes = require('./routes');         //<-- routing file
-const app = express();
-
-app.set('view engine', 'html'); // have res.render work with html files
-app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
-nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
-
-app.use(function (req, res, next) {
-    console.log('method: ', req.method, ' url: ', req.url);
-    res.on('finish', function(){
-        console.log('finish response code: ', res.statusCode);
-    })
-    next();
-})
-   
-// could use this and assign the port in package.json file
-//app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
-                                                         
-app.use('/', routes);   //register it as middleware for all routes beginning with /
-
-app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));                                                                                                           
-                                                         
-/*
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
 
