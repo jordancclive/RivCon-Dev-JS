@@ -48,14 +48,15 @@ Our package.json file from my twitter.js project:
       "author": "Vincent Rios",
       "license": "ISC",
       "dependencies": {
-        "body-parser": "^1.16.0",
-        "bootstrap": "^3.3.7",
-        "chalk": "^1.1.3",
-        "express": "^4.14.1",
-        "lodash": "^4.17.4",
-        "nunjucks": "^3.0.0",
-        "path": "^0.12.7",
-        "socketio": "^1.0.0
+      "body-parser": "^1.16.0",
+      "bootstrap": "^3.3.7",
+      "chalk": "^1.1.3",
+      "express": "^4.14.1",
+      "lodash": "^4.17.4",
+      "method-override": "^2.3.7",
+      "path": "^0.12.7",
+      "socketio": "^1.0.0",
+      "swig": "^1.4.2"                  //could have used nunjucks instead
       }
     }
 /*
