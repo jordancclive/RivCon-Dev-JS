@@ -33,32 +33,34 @@ Let's start with our core directory structure:  (create this)
 
 Our package.json file from my twitter.js project:
 */
-    {
-      "name": "twitter-js",
-      "version": "1.0.0",
-      "description": "Bldg a simple Twitter clone to learn express.js",
-      "main": "./routes/index.js",
-      "scripts": {
-        "start": "nodemon app.js"         //<-- could do:     "start": "PORT=3000 nodemon app.js"
-      },
-      "repository": {
-        "type": "git",
-        "url": "twitter-js"
-      },
-      "author": "Vincent Rios",
-      "license": "ISC",
-      "dependencies": {
-      "body-parser": "^1.16.0",
-      "bootstrap": "^3.3.7",
-      "chalk": "^1.1.3",
-      "express": "^4.14.1",
-      "lodash": "^4.17.4",
-      "method-override": "^2.3.7",
-      "path": "^0.12.7",
-      "socketio": "^1.0.0",             //we haven't really learned this one yet.
-      "swig": "^1.4.2"                  //could have used nunjucks instead
-      }
-    }
+{
+  "name": "acme-products",
+  "version": "1.0.0",
+  "description": "Creating ACME product crud routine",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"         //<-- could do:     "start": "PORT=3000 nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "acme-products"
+  },
+  "author": "Vincent Rios",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
+    "chalk": "^1.1.3",
+    "express": "^4.14.1",
+    "lodash": "^4.17.4",
+    "method-override": "^2.3.7",
+    "path": "^0.12.7",
+    "socketio": "^1.0.0",             //we haven't really learned this one yet.
+    "swig": "^1.4.2"                  //could have used nunjucks instead
+  },
+  "devDependencies": {},
+  "keywords": []
+}
 /*
 ---------------------------------------------------------------------------------------
 
@@ -129,7 +131,9 @@ Our package.json file from my twitter.js project:
         // could use this and assign the port in package.json file
         //var server = app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
 
-        var server = app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));
+        var portSetting = process.env.PORT || 3000
+        var server = app.listen(portSetting, ()=> console.log(chalk.yellow('Listening on ' + portSetting)));   
+
         var io = socketio.listen(server);
 
         //Can see that other users are interfacing with this connection (just testing this)
@@ -168,10 +172,8 @@ Our package.json file from my twitter.js project:
 
         app.use('/', routes);   //register it as middleware for all routes beginning with /
 
-        // could use this and assign the port in package.json file
-                app.listen(process.env.PORT, ()=> console.log(chalk.yellow('Listening on ' + process.env.PORT)));
-        // ...or set the port here:
-                app.listen(3000, ()=> console.log(chalk.yellow('listening to port 3000')));                                                                                                           
+        var portSetting = process.env.PORT || 3000
+        app.listen(portSetting, ()=> console.log(chalk.yellow('Listening on ' + portSetting)));                                                                                                        
                                                          
 /*
 ---------------------------------------------------------------------------------------
@@ -260,8 +262,79 @@ The index.js file (The routing file) looks like this.
         (e.g., one for the aggregate view, one for a user, 
         one for a specific tweet) and then have each 
         of those indexes extend the same layout.html
-
+        
 ---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+-------------index.js without sockets:
+*/
+
+ const express = require( 'express' );
+const router = express.Router();
+const path = require( 'path' );
+const methodOverride = require( 'method-override' );
+const bodyParser = require( 'body-parser' );
+const products = require ( '../dev/assets/js/productDB' );
+
+router.use(methodOverride('_method'));
+
+// directory access
+router.use('/assets', (express.static(path.join(__dirname, '../dev/assets'))));
+router.use(express.static(path.join(__dirname, '../node_modules')));
+router.use(bodyParser.urlencoded( { extended: false } ));
+router.use(bodyParser.json( { extended: false } ));
+
+//log a few things to the console
+router.use(function (req, res, next) {
+    console.log('method: ', req.method, ' url: ', req.url);
+    next();
+});
+
+router.get('/', function (req, res, next) {
+    res.render( 'index', {title: 'Home'} );
+});
+
+router.get('/products', function (req, res, next) {
+    let productData = products.list();
+    res.render( 'products', { title: 'Products', productData: productData } );
+});
+
+router.get('/addForm/', function (req, res, next) {
+    res.render( 'productsAE', { title: 'Add', addForm: true, editForm: false} );
+});
+
+router.post('/addRecord/', function (req, res, next) {
+    products.add(req.body.name);
+    res.redirect( '/products' );
+});
+
+router.get('/editForm/:id', function (req, res, next) {
+    var id = req.params.id;
+    var product = products.find( {id: id*1} );
+    res.render( 'productsAE', { title: 'Edit', addForm: false, editForm: true, productData: product} );
+});
+
+router.patch('/editRecord/:id', function (req, res, next) {
+    products.change(req.body.name, req.params.id)
+    res.redirect( '/products' );
+});
+
+router.get('/delForm/:id', function (req, res, next) {
+    console.log('clicked delete a product button  id: ', req.params.id);
+    var id = req.params.id;
+    var product = products.find( {id: id*1} );
+    res.render( 'productsDel', { title: 'ACME - Products', productData: product } );
+});
+
+router.delete('/delRecord/:id', function (req, res, next) {
+    products.del(req.params.id);
+    res.redirect( '/products' );
+});
+
+module.exports = router; 
+
+
+/*---------------------------------------------------------------------------------------
 
 The database file (called: tweetBank.js) looks like this.  This is where we used lodash
 */
@@ -317,6 +390,46 @@ The database file (called: tweetBank.js) looks like this.  This is where we used
             add( name, tweet );
           }
         }
+
+/*
+---------------------------------------------------------------------------------------
+*/
+const _ = require( 'lodash' );
+
+var productData = [];
+
+function add (name, id) {
+  var newID = (id) ? id*1 : counter();
+  productData.push({ name: name, id: newID });
+}
+function list () {
+  return _.cloneDeep(productData);
+}
+function find (properties) {
+  return _.cloneDeep(_.filter(productData, properties));
+}
+function del(removeID){
+  productData = productData.filter((product) => product.id !== removeID*1);
+}
+function change (name, id){
+  del(id);
+  add(name, id);
+}
+
+// function counter returns an increasing number that keeps its 'state' 
+function createID (funcInput){
+    let count = 0;
+    return function (){return ++count;}
+}
+let counter = createID();  //counter returns an increasing id counter
+
+//-----  setup the database with a few records:  -----
+const name = ['Pen_Red', 'Pen_Blue', 'Pen_Black', 'Pen_Fountain'];
+for (let i = 0; i < name.length; i++) {
+    add( name[i] );
+}
+
+module.exports = { add: add, list: list, find: find, change: change, del: del };
 
 /*
 ---------------------------------------------------------------------------------------
@@ -461,85 +574,6 @@ The layout.html file looks like regular html.  (with scripts and Bootstrap)
 ---------------------------------------------------------------------------------------
 
                 everything below is without sockets 
-
----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------
-
--------------index.js without sockets:
-*/
-const express = require ( 'express' );
-const router = express.Router(); 
-const path = require( 'path' );
-const bodyParser = require( 'body-parser' );
-const tweetBank = require('../tweetBank');
-
-router.use('/images', express.static(path.join(__dirname, '../assets/img/')));
-router.use('/stylesheets', express.static(path.join(__dirname, '../public/stylesheets/')));
-router.use(bodyParser.urlencoded( { extended: false } ));
-
-router.get('/users/:name', function(req, res, next) {
-  var list = oneName(req.params.name);
-  res.render( 'index', { showUser: true, showForm: false, tweets: list } );
-});
-
-router.get('/tweets/:id', function(req, res, next) {
-  var id = req.params.id;
-  var list = tweetBank.find( {id: id*1} );
-  res.render( 'index', { showUser: true, showForm: false, tweets: list } );
-});
-
-router.get('/newTweet', function(req, res, next) {
-  res.render( 'index', { showForm: true, showMsg: false } );
-});
-
-router.post('/tweets', function(req, res, next) {
-  tweetBank.add(req.body.name, req.body.text);
-  var list = oneName(req.body.name);
-  console.log(list);
-  res.render( 'index', { showUser: true, showForm: true, tweets: list } );
-});
-
-router.get('/', function (req, res, next) {
-  let tweets = tweetBank.list();
-  res.render( 'index', { showUser: true, showForm: false, tweets: tweets } );
-});
-
-function oneName (name){
-  console.log('name: ', name);
-  return tweetBank.find( {name: name} );
-};
-
-
-module.exports = router;
-
-
-// Things to consider:
-
-//-------------------------------- 
-//example of 2 parameters:
-// router.get( '/store/:product/reviews/:id', function (req, res, next) {
-//     console.log(req.params.product);
-//     console.log(req.params.id);
-//     next();
-// });
-//-------------------------------- 
-//different example of 2 parameters:
-// router.get( '/store/:product/:id', function (req, res, next) {
-//     console.log('product: ', req.params.product);
-//     console.log('id: ', req.params.id);
-//     next();
-// });
-//--------------------------------
-// could use one line instead: const router = require('express').Router();
-
-/*
-In the future: consider separate index pages 
-for each of the relevant URL levels 
-(e.g., one for the aggregate view, one for a user, 
-one for a specific tweet) and then have each 
-of those indexes extend the same layout.html
-
-
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
