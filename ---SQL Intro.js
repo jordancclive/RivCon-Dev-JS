@@ -122,10 +122,6 @@ FROM movies;                        ==>     max          min
                                             1500         750
 --------------------------------------                                           
       
------------------------------------------------------------------------------------
-
---------------------------------------     
-      
 GROUP BY clause:
  
 SELECT   ---column---, sum(cost)
@@ -151,7 +147,53 @@ WHERE column_name operator value (optional)
 GROUP BY   ---column_name---;
 HAVING  aggregate_function(column_name) operator value;
 
---------------------------------------  
+SELECT country, SUM(salary)
+FROM Actors
+WHERE role= 'supporting'
+GROUP BY country
+HAVING COUNT(*) > 1;    <-- the count goes by the group by
+
+--------------------------------------
+
+-----------------------------------------------------------------------------------
+
+                        Constraints
+
+-----------------------------------------------------------------------------------
+
+-------------------------------------- 
+
+Not letting something be entered that is null:
+
+CREATE TABLE Promotions
+(
+id         int,
+name       varchar(50) NOT NULL UNIQUE,  <--will get an error if the value being entered is null
+category   varchar(15)                      Unique means only one of this value per table can be entered in this column
+);
+
+can also be done:
+
+CREATE TABLE Promotions
+(
+id         int, PRIMARY KEY   <--not null and unique
+name       varchar(50) NOT NULL, 
+category   varchar(15),   
+CONSTRAINT unique_name UNIQUE (name)
+);
+
+-------------------------------------- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
