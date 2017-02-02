@@ -157,5 +157,66 @@ ORDER BY r.id;
 All reviews are listed and Peter Pan is there 3 times
 
 
+---------------------------------------------------------------------------   
+
+                            Sub-queries
+
+---------------------------------------------------------------------------
+
+Movies:     id      title             duration      sales
+              1       Don Juan          110         45000
+              2       Peter Pan         120         30000
+              3       The Lost World    105         30000
+              2       Robin Hood        143         50000
+
+Promotions    id        name        category        movie_id
+               1        half off    discount        1
+               2        rewards     cash back       1
+               3        matinee     non-cash        1
+               4        giveaways   merchandise     3
+               5        free pass   non-cash        4
+               
+sum of all sales for movies showing as a non-cash promotion
+
+SELECT SUM(sales)
+FROM Movies
+WHERE id IN               <=  can also do queries with NOT IN
+  (SELECT movie_id        <= subquery
+  FROM Promotions
+  WHERE category = 'non-cash');
+  
+or
+
+SELECT SUM(m.sales)
+FROM Movies m
+INNER JOIN Promotions p
+ON m.id = p.movie_id
+WHERE p.category = "non-cash";
+
+---------------------------------------
+---------------------------------------
+
+Want to find films that have a duration greater than the avg duration of all films
+
+Can do aggregate functions in WHERE clause so you cannot do a join as follows:
+            SELECT * FROM Movies WHERE duration > AVG(duration);               <= CANNOT DO THIS
+
+CAN DO THIS:
+
+
+
+SELECT m.films, m.duration      <= Correlated Subqueries
+FROM MOVIES                         Both queries rely on each other's values to return a correct result.
+WHERE duration >
+  (SELECT AVG(duration)
+  FROM Movies);
+
+---------------------------------------
+---------------------------------------
+
+
+
+
+
 
 */
