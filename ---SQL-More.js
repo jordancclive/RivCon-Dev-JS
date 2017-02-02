@@ -3,7 +3,7 @@
 ---------------------------------------------------------------------------
 
                 Normalization, Relationships
-                
+                Joins
                 
                      
 ---------------------------------------------------------------------------
@@ -47,9 +47,15 @@ many to many
 
 
 ---------------------------------------------------------------------------   
-
-                              Inner Joins
-
+ Movies
+|------------|
+|            |
+|        |---|--------|                          
+|        |xxx|        |
+|        |xxx|        |         Inner Joins
+|------------|        |
+         |------------|
+               Reviews
 ---------------------------------------------------------------------------  
 
 Movies:     id      title             duration
@@ -110,16 +116,45 @@ WHERE m.title = 'Peter Pan';
 
 
 ---------------------------------------------------------------------------   
-
-                              Outer Joins
-
+ Movies
+|------------|
+| xxxxxxxxxxx|
+| xxxxxxxxxxx|--------|                          
+| xxxxxxx|xxx|        |
+| xxxxxxx|xxx|        |         Left Outer Joins
+|------------|        |
+         |------------|
+               Reviews
 ---------------------------------------------------------------------------  
 
+SELECT m.title, r.review
+FROM Movies m
+LEFT OUTER JOIN Reviews r
+ON m.id=r.movie.id
+ORDER BY r.id;
+
+All movies are listed and Peter Pan is there 3 times
 
 
+---------------------------------------------------------------------------   
+ Movies
+|------------|
+|            |
+|        |---|--------|                          
+|        |xxx|xxxxxxxx|
+|        |xxx|xxxxxxxx|         Right Outer Joins
+|--------|xxxxxxxxxxxx|
+         |------------|
+               Reviews
+---------------------------------------------------------------------------  
 
+SELECT m.title, r.review
+FROM Movies m
+RIGHT OUTER JOIN Reviews r
+ON m.id=r.movie.id
+ORDER BY r.id;
 
-
+All reviews are listed and Peter Pan is there 3 times
 
 
 
