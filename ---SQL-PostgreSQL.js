@@ -7,6 +7,10 @@
 
 PostgreSQL is a general-purpose object-relational database management system.
 
+Installing PostgreSQL:
+
+        Follow the steps:  http://postgresapp.com/
+
 Creating a DBMS:
 
         Launch: psql on the command line.
