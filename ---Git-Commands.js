@@ -13,13 +13,22 @@ Commands you should already be familiar with:
         - git push
         - git pull
         - git status
-  
-Need to look at these:  
-  
+ 
         - git branch
         - git checkout
 
 ---------------------------------------------------------------------------------
+
+git branch:
+
+
+
+
+
+git checkout:
+
+
+
 
 git stash:
 
