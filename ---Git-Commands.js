@@ -21,14 +21,21 @@ Commands you should already be familiar with:
 
 git branch:
 
-
+        shows you how many branches that you have and the one that you are on.
 
 
 
 git checkout:
 
-
-
+        git checkout -b vince-add-modules-seed
+                      ^     ^
+                      |     |
+                      |     This is what the branch will be called
+       checking out a branch
+ 
+ 
+       git push --set-upstream origin vince-add-modules-seed
+       
 
 git stash:
 
