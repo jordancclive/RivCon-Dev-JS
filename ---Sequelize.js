@@ -27,6 +27,33 @@ on-delete cascade:
             sequelize.sync({force:true}).success(function () {
 /*
 
+---------------------------------------------------------------------------
+
+updating the user:
+
+            Project.find({ where: { title: 'aProject' } })
+              .on('success', function (project) {
+                // Check if record exists in db
+                if (project) {
+                  project.updateAttributes({
+                    title: 'a very different title now'
+                  })
+                  .success(function () {})
+                }
+              })
+              
+              or
+              
+               Project.update(
+                { title: 'a very different title now' },
+                { where: { _id: 1 } }
+              )
+                .success(result =>
+                  ...
+                )
+                .error(err =>
+                  ...
+                )             
 
 
 
