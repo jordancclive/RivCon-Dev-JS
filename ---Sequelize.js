@@ -53,8 +53,32 @@ updating the user:
                 )
                 .error(err =>
                   ...
-                )             
+                )   
+                
+                
+             This is what we want:
+             */
+                    var Foo = db.define('foo', {
+                      bar: Sequelize.STRING
+                    });
 
+                    app.put('/foos/:id', function(req, res, next){
+                      console.log(req.body);
+                      Foo.findById(req.params.id)
+                        .then(function(foo){
+                          if(!foo){
+                            return res.sendStatus(404);
+                          }
+                          foo.bar = req.body.bar;
+                          return foo.save();
+                        })
+                        .then(function(foo){
+                          if(foo){
+                            res.send(foo);
+                          }
+                        });
+                    });
+/*
 
 
 
