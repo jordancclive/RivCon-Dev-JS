@@ -92,3 +92,23 @@ My response to this discussion:
             What you `res.send` from Express becomes `res.body` in Supertest.
             
             What you send from supertest comes in as req.body.elementId
+                        
+-----------------------------------------------------------------------------------
+
+error status & codes:
+
+            router.post('/:name/tasks', (req, res, next) => { 
+                let name = req.params.name;
+                console.log(req.body)
+                let _task = data.add(name, { content: 'a new task for sarah', complete: true});
+                res.status(201);
+                res.send(_task);
+            });
+            
+            
+            .catch( (err) => {
+                 res.status(400)
+                 next(err)
+               })
+            
+ -----------------------------------------------------------------------------------           
