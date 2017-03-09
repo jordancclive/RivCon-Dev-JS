@@ -60,3 +60,26 @@
           // if (req.query) { // do something }
 
           // req.query value is always true, because even when there's no given query, it has empty object value, which has truthy value
+          
+          
+          updated code:
+ 
+ 
+                router.get('/users/:userName/tasks', function(req, res, next) {
+                if (!req.query.status) {
+                  // do something not using query
+                } else {
+                  // do something with query
+                }
+                });
+
+                //or
+
+                router.get('/users/:userName/tasks', function(req, res, next) {
+                  Task.findAll({
+                    where: req.query
+                  })
+                  .then(foundTask => {
+                    // do something
+                  })
+                });
