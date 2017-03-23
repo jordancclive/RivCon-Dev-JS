@@ -4,7 +4,7 @@
       Quick example of a config file that webpack is using to build a project
 
 -------------------------------------------------------------------------------------------
-
+*/
 'use strict';
 
 // Firstly, we require webpack of course! Webpack typically runs and builds our 
@@ -55,17 +55,3 @@ module.exports = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
