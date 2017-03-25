@@ -39,6 +39,69 @@ An example of manipulating the DOM:
         const containerId = '#studentList';
         StudentList({ containerId, students, onSelectStudent });
 
+/*
+--------------------------------------------------------------------------------
+
+another example:
+*/
+
+//    HTML:
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width">
+          <title>JS Bin</title>
+        </head>
+        <body>
+
+          <div class='container'>
+            <div class='well'>
+              <ul>
+                <li>Use as selector</li>
+                <li>Wire up events</li>
+                <li>context of this callbacks</li>
+                <li>wire up events not in the dom.</li>
+              </ul>
+            </div>
+            <button class='btn btn-primary' id='clickMe'>Click Me</button>
+            <ul id='myList'></ul>
+          </div>
+        </body>
+        </html>
+
+// JavaScript:
+
+        console.clear();
+        $('#clickMe').on('click', function(){
+          if($(this).html() === 'Click Me'){
+            $(this).html('1')
+          }
+          else {
+            $(this).html($(this).html()*1 + 1);
+          }
+          generateList($(this).html()*1);
+        }); 
+
+        $('#myList').on('click', 'li', function(){
+          var siblingCount = $(this).siblings().length;
+          $(this).remove();
+          $('#clickMe').html(siblingCount);
+        });
+
+        function generateList(count){
+          $('#myList').empty();
+          for(var i = 0; i < count; i++){
+            var li = $(`<li>${i + 1}</li>`);
+            $('#myList').append(li);
+          }
+        }
+
 
 /*
 --------------------------------------------------------------------------------
