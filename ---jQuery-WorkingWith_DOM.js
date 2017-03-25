@@ -7,6 +7,43 @@
                               
 --------------------------------------------------------------------------------
 
+An example of manipulating the DOM:
+*/
+        console.clear();
+
+        const onSelectStudent = (student)=> {
+          alert(student.name);
+        }
+
+        const students = [
+          { id: 1, name: 'Alex'},
+          { id: 2, name: 'Danny'},
+          { id: 3, name: 'Mitch'}
+        ];
+
+        const Student = ({student, onSelectStudent})=> {
+          const li = $(`<li>${student.name}</li>`);
+          li.on('click', ()=> onSelectStudent(student));
+          return li;
+        };
+
+
+
+        const StudentList =({ containerId, students, onSelectStudent})=> {
+          const container = $(containerId);
+            var ul = $(`<ul></ul>`);
+            students.forEach( student => ul.append(Student({student, onSelectStudent})));
+          container.append(ul);
+        }
+
+        const containerId = '#studentList';
+        StudentList({ containerId, students, onSelectStudent });
+
+
+/*
+--------------------------------------------------------------------------------
+
+
 DOM:
 
 document
