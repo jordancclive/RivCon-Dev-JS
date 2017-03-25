@@ -1,6 +1,8 @@
 # JavaScript        
 
-...This is a teaching/reference repository for JavaScript. 
+...This is a reference repository (class/research notes)
+
+Gabrail debugging GitHubGist:  https://gist.github.com/glebec/8a0d06e54a4b3f95a33392f948e97b6a
            
 Some Conventions (file names):
 
