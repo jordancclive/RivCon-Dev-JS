@@ -12,6 +12,8 @@
     <your credentials>
     heroku create
     heroku push
+    
+    heroku addons:create heroku-postgresql:hobby-dev
 
 
 
