@@ -64,7 +64,9 @@ updating the user:
 
                     app.put('/foos/:id', function(req, res, next){
                       console.log(req.body);
+                      
                       Foo.findById(req.params.id)
+                      
                         .then(function(foo){
                           if(!foo){
                             return res.sendStatus(404);
