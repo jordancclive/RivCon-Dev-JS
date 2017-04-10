@@ -3,11 +3,56 @@
 
                         Sequelize notes
 
----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
-on-delete cascade:
+Relationships:    many employees to 1 manager
 
+can setManager for an employee
+
+can addEmployee to a manager
 */
+//---------------------------------------------------------------------------
+
+// general sequelizestuff:
+
+            const User = sequelize.define('user', {
+                  username: Sequelize.STRING,
+                  birthday: Sequelize.DATE,
+                  article: Sequelize.INTEGER,
+                  summary: {
+                      type: Sequelize.STRING,
+                      allowNull: false
+                      validate: { notEmpty: true }
+                      }
+               },{
+                  getterMethods: {
+                      snippet: function() {
+                          return `${this.summary.slice(0,23)}...`
+                      }
+                  },
+                  hooks: {
+                      beforeUpdate: function() {
+                          article++
+                      }
+                  }
+               }
+            )
+
+//---------------------------------------------------------------------------
+
+// deleting a record:
+
+    book.destroy({ where: id: req })
+
+    //or
+
+    book.findById()  //you will put a where inside the ()
+      .then(book => book.destroy())
+
+//---------------------------------------------------------------------------
+
+//on-delete cascade:
+
             var Sequelize = require('sequelize')
                 , sequelize = new Sequelize('advo_test', 'advo', 'preveza', {dialect: 'postgres'});
 
