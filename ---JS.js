@@ -113,3 +113,20 @@ console.log(applyMeInReverse(1, 2, function (a, b) {
 }));
 </script>
 
+
+//----------------------------------------------------------------
+
+function vinTest(input) {
+            if (typeof input === 'number'){
+                        console.log(input);
+            } else {
+              console.log(input());     
+            }
+}
+
+vinTest(5);
+vinTest(() => {
+  return 3+7
+})
+
+
